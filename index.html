@@ -366,6 +366,89 @@
     border-radius: 5px; /* Optional: Soft edges for icons */
   }
   
+  .about-section {
+    font-family: 'Poppins', Arial, sans-serif;
+    padding: 20px 0;
+    background-color: #F6F6F6;
+}
+
+.about-container {
+    display: flex;
+    align-items: stretch; /* Changed from center to stretch for equal height */
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Left Column Styling */
+.about-left {
+    flex: 1;
+    background: white;
+    padding: 40px; /* Reduced from 100px */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-left h1 {
+    color: #000000;
+    font-size: 24pt;
+    margin-bottom: 10px;
+}
+
+.about-left p {
+    color: #828283;
+    font-size: 14pt;
+}
+
+/* Right Column Styling */
+.about-right {
+    flex: 1;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures the image stays within bounds */
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.about-right img {
+    width: 150%;
+    height: 150%;
+    object-fit: cover; /* Ensures the image covers the area without distorting */
+    display: block;
+}
+
+/* Overlay Text on Image */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 100%;
+    z-index: 2;
+}
+
+.overlay-text h1 {
+    font-size: 30pt;
+    margin: 0;
+}
+
+.overlay-text h2 {
+    color: rgb(71, 71, 71);
+    font-size: 14pt; /* Increased from 07pt */
+    margin: 5px 0 0 0;
+}
 
     </style> 
 
@@ -475,7 +558,7 @@
     <div class="help-container">
         <!-- Left Column: Full Image -->
         <div class="help-left">
-            <img src="./assets/img/ologun.png" alt="Full Image" style="width: 80%; height: 90%">
+            <img src="./assets/img/ologun.png" alt="Full Image" style="width: 100%; height:auto">
         </div>
 
         <!-- Right Column: Content -->
@@ -577,6 +660,29 @@
             </div>
         </div>
 
+    </div>
+</section>
+
+
+<!-- We deliver Section -->
+<section class="about-section">
+    <div class="about-container">
+        <!-- Left Column -->
+        <div class="about-left">
+            <h1>We deliver a promise of "Customers First" by building a culture of "Employees First".</h1>
+            <p>We believe in "Happy employees equal happy customers".</p>
+        </div>
+
+        <!-- Right Column -->
+        <div class="about-right">
+            <div class="overlay-text">
+                <h1 style="color: #f0f0f0;">Meet the people who made it happen</h1>
+                <h2>Developers</h2>
+            </div>
+            <div class="image-container">
+                <img src="./assets/img/team/bgr.jpg" alt="Background Image">
+            </div>
+        </div>
     </div>
 </section>
 
