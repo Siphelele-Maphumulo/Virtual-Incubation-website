@@ -85,13 +85,13 @@
             justify-content: space-between; /* Push logo left & links right */
             align-items: center;
             padding: 05px 10px;
-            background-color: #00102E;
+            background-color: #00102E;  
             font-family: 'Poppins', sans-serif; /* Modern, professional font */
           }
           
           .navbar-brand img {
-            height: 60px; /* Slightly larger logo */
-            width: 250px;
+            height: 80px; /* Slightly larger logo */
+            width: 300px;
           }
           
           .nav-links {
@@ -146,16 +146,7 @@
            margin: auto; /* Centers it */
         }
         
-        .contact-section {
-            color: snow;
-            padding-bottom: 3rem !important;
-            display: flex;
-            flex-direction: column; /* Stack content vertically */
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center content horizontally */
-            text-align: center; /* Ensures text is centered */
-            width: 100%; /* Ensures it spans the full width */
-          }
+
 
           .digital-section {
             background-color: rgba(105, 105, 105, 0.171);
@@ -185,55 +176,10 @@
             justify-content: center; /* Centers content vertically */
             align-items: center; /* Centers content horizontally */
             text-align: center; /* Ensures text is centered */
-            padding: 50px 0;
+            padding: 40px 0;
             padding-top: 0;
-        
-        }
 
-        .footer {
-            background-color: #00102E; /* Dark blue background */
-            color: white; /* White text */
-            padding: 50px 0;
-            width: 100vw; /* Ensure full viewport width */
-            margin: 0; /* Remove any margins */
-            left: 0;
-            right: 0;
-        }
         
-        .footer .container {
-            max-width: 90%; /* Make the container take full width */
-            padding-left: 0;
-            padding-right: 0;
-        }
-        
-        .footer a {
-            color: white; /* Ensure links are white */
-            text-decoration: none;
-        }
-        
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Social Icons Styling */
-        .social-icons {
-            display: flex;
-            justify-content: flex-end; /* Align to the far right */
-            gap: 15px;
-        }
-        
-        .social-icons a {
-            color: white;
-            font-size: 24px;
-            transition: color 0.3s ease-in-out;
-        }
-        
-        .social-icons a:hover {
-            color: #5755B1;
-            border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
-            padding: 5px;
         }
         
         /* General Styling for About Section */
@@ -423,159 +369,155 @@
             object-fit: cover;
             border: 3px solid #ddd;
         }
-
+           
+        .help-container {
+            display: flex;
+            align-items: center; /* Ensure both columns stretch equally */
+            justify-content: space-between; /* Distribute space evenly between columns */
+            gap: 10px; /* Space between columns */
+            margin-top: 0px;
+            padding: 10px 30px;
+          }
+          
+          .help-left {
+            flex: 1; /* Take half the width */
+            display: flex;
         
-
+            align-items: center; /* Center image vertically */
+          }
+          
+          .help-right {
+            color: #000000;
+            font-size: 12pt;
+            flex: 1; /* Take half the width */
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between rows */
         
-.help-container {
-    display: flex;
-    align-items: center; /* Ensure both columns stretch equally */
-    justify-content: space-between; /* Distribute space evenly between columns */
-    gap: 10px; /* Space between columns */
-    margin-top: 0px;
-    padding: 10px 30px;
-  }
-  
-  .help-left {
-    flex: 1; /* Take half the width */
-    display: flex;
-
-    align-items: center; /* Center image vertically */
-  }
-  
-  .help-right {
-    color: #000000;
-    font-size: 12pt;
-    flex: 1; /* Take half the width */
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between rows */
-
-}
-
-  
-
-  .small-image {
-    width: 60px; /* Small icon size */
-    height: 60px;
-    object-fit: cover;
-    border-radius: 5px; /* Optional: Soft edges for icons */
-  }
-  
-  .about-section {
-    font-family: 'Poppins', Arial, sans-serif;
-    padding: 20px 0;
-    background-color: #F6F6F6;
-}
-
-.about-container {
-    display: flex;
-    align-items: stretch; /* Changed from center to stretch for equal height */
-    justify-content: space-between;
-    gap: 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Left Column Styling */
-.about-left {
-    flex: 1;
-    background: white;
-    padding: 40px; /* Reduced from 100px */
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.about-left h1 {
-    color: #000000;
-    font-size: 24pt;
-    margin-bottom: 10px;
-}
-
-.about-left p {
-    color: #828283;
-    font-size: 14pt;
-}
-
-/* Right Column Styling */
-.about-right {
-    flex: 1;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden; /* Ensures the image stays within bounds */
-}
-
-.image-container {
-    width: 100%;
-    height: 100%;
-}
-
-.about-right img {
-    width: 150%;
-    height: 150%;
-    object-fit: cover; /* Ensures the image covers the area without distorting */
-    display: block;
-}
-
-/* Overlay Text on Image */
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 10px;
-    width: 100%;
-    z-index: 2;
-}
-
-.overlay-text h1 {
-    font-size: 30pt;
-    margin: 0;
-}
-
-.overlay-text h2 {
-    color: rgb(71, 71, 71);
-    font-size: 14pt; /* Increased from 07pt */
-    margin: 5px 0 0 0;
-}
-
-/* Image Styling */
-.team-social-icon-container img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ddd;
-    margin-bottom: 10px; /* Adds spacing between the image and icons */
-}
-
-/* Social Icons Styling */
-.team-social-social-icons {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    gap: 50%; /* Space between icons */
-    margin-top: 10px;
-}
-
-.team-social-icons a:hover {
-
-    font-size: 30pt;
-    color: gray; /* Changes color on hover */
-}
-
+        }
+        
+          
+        
+          .small-image {
+            width: 60px; /* Small icon size */
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px; /* Optional: Soft edges for icons */
+          }
+          
+          .about-section {
+            font-family: 'Poppins', Arial, sans-serif;
+            padding: 20px 0;
+            background-color: #F6F6F6;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: stretch; /* Changed from center to stretch for equal height */
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        /* Left Column Styling */
+        .about-left {
+            flex: 1;
+            background: white;
+            padding: 40px; /* Reduced from 100px */
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .about-left h1 {
+            color: #000000;
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        
+        .about-left p {
+            color: #828283;
+            font-size: 14pt;
+        }
+        
+        /* Right Column Styling */
+        .about-right {
+            flex: 1;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden; /* Ensures the image stays within bounds */
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .about-right img {
+            width: 150%;
+            height: 150%;
+            object-fit: cover; /* Ensures the image covers the area without distorting */
+            display: block;
+        }
+        
+        /* Overlay Text on Image */
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 10px;
+            width: 100%;
+            z-index: 2;
+        }
+        
+        .overlay-text h1 {
+            font-size: 30pt;
+            margin: 0;
+        }
+        
+        .overlay-text h2 {
+            color: rgb(71, 71, 71);
+            font-size: 14pt; /* Increased from 07pt */
+            margin: 5px 0 0 0;
+        }
+        
+        /* Image Styling */
+        .team-social-icon-container img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ddd;
+            margin-bottom: 10px; /* Adds spacing between the image and icons */
+        }
+        
+        /* Social Icons Styling */
+        .team-social-social-icons {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            gap: 50%; /* Space between icons */
+            margin-top: 10px;
+        }
+        
+        .team-social-icons a:hover {
+        
+            font-size: 30pt;
+            color: gray; /* Changes color on hover */
+        }
     </style> 
 
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar">
+        <nav class="navbar" style="background-color: #00102E;  ">
             <a class="navbar-brand" href="#page-top">
                 <img src="./assets/img/preview.png" alt="Logo">
             </a>
@@ -828,8 +770,7 @@
                     <!-- Social Icons Centered Below the Image -->
                     <div class="team-social-icons">
                         <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#!" aria-label="YouTube"><i class="fab fa-github"></i></a>
                         <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
@@ -844,6 +785,12 @@
                     <div class="icon-container">
                         <img src="./assets/img/team/lungi.png" alt="Lungile Mthethwa">
                     </div>
+                    <!-- Social Icons Centered Below the Image -->
+                    <div class="team-social-icons">
+                        <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
 
@@ -855,6 +802,12 @@
                     <div class="icon-container">
                         <img src="./assets/img/team/Jwara.png" alt="Nkosiphendule Jwara">
                     </div>
+                    <!-- Social Icons Centered Below the Image -->
+                    <div class="team-social-icons">
+                        <a href="https://www.linkedin.com/in/nkosiphendule-jwara/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#!" aria-label="YouTube"><i class="fab fa-github"></i></a>
+                        <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>                  
                 </div>
             </div>
         </div>
@@ -932,7 +885,7 @@
 
 
 <!-- Services Section-->
-<section class="partners-section" style="font-family: 'Poppins', Arial, sans-serif">
+<section class="partners-section" style="font-family: 'Poppins', Arial, sans-serif" >
     <div>
         <div>
             <h1>OUR PARTNERS</h1>
@@ -959,7 +912,7 @@
                 <div class="slide"><img src="assets/logos/seda.webp" alt="Partner 15" /></div>
                 <div class="slide"><img src="assets/logos/ServiceSeta.webp" alt="Partner 16" /></div>
                 <div class="slide"><img src="assets/logos/Standard_bank.webp" alt="Partner 15" /></div>
-                <div class="slide"><img src="assets/logos/TETA.webp" alt="Partner 16" /></div>
+                <div class="slide"><img src="assets/logos/TETA.jpg" alt="Partner 16" /></div>
                 <div class="slide"><img src="assets/logos/edtea.webp" alt="Partner 6" /></div>
                 <div class="slide"><img src="assets/logos/employment.webp" alt="Partner 7" /></div>
                 <div class="slide"><img src="assets/logos/ETDP-SETA.webp" alt="Partner 8" /></div>
@@ -970,120 +923,7 @@
         </div>
     </div>
 </section>
-        <!-- Contact-->
-        <section class="contact-section" id="contact">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">
-                        Drop us a line via email for inquiries or collaborations</h3>
-                </div>
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <div class="row align-items-stretch mb-5">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                            <div class="form-group">
-                                <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-                </form>
-            </div>
-        </section>
-
-<div>
-
-</div>
-
-<!-- Scroll to Top Button -->
-<a href="#top" id="scrollToTop">
-    <i class="fa fa-arrow-up"></i> <!-- Font Awesome Up Arrow -->
-</a>
-
-        
-<!-- Footer -->
-<footer class="footer py-4">
-    <div class="container">
-        <!-- First Row: Four Equal Columns -->
-        <div class="row text-white text-center text-lg-start align-items-center">
-            
-            <!-- Copyright -->
-            <div class="col-lg-4">
-                <h5>©2025 SMMEs VIRTUAL INCUBATION</h5>
-            </div>
-                   
-            <div class="col-lg-4 d-flex justify-content-center">
-                <a class="link-light text-decoration-none" href="#!">Terms of Use</a>
-            </div>
-            
-            <!-- Social Icons (Aligned to Far Right) -->
-            <div class="col-lg-4 text-lg-end">
-                <div class="social-icons">
-                    <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Second Row: Business Licensing Text -->
-        <div class="row mt-3 text-white text-center">
-            <div class="col">
-                <p>
-                    Code SA Virtual Incubation is a licensed business services provider in terms of the Business 
-                    Advisory and Intermediary Services Act and a registered credit provider in terms of the 
-                    National Credit Act, registration number NCRCP15.
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+ 
 
 
 
@@ -1324,124 +1164,38 @@
                 </div>
             </div>
         </div>
+    <!-- Scroll to Top Button -->
+    <a href="#top" id="scrollToTop" style="background-color:#2AC6A7">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+
+
+        <!-- Where the footer is -->
+        <div id="footer-container"></div>
+        
+        <script>
+            // Load footer content
+            fetch('Footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        </script>
+
+
+
+        <script src="js/scripts.js"></script>
+        <script src="js/main.js"></script>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        <script>
-  window.addEventListener("scroll", function () {
-    let navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-      navbar.classList.add("scroll"); // Add transparent effect
-    } else {
-      navbar.classList.remove("scroll"); // Restore navy background
-    }
-  });
-
-// Function to toggle the dropdown visibility when clicked
-function toggleDropdown(event, dropdownId) {
-    event.preventDefault(); // Prevent the link from navigating
-  
-    // Get all dropdowns
-    var allDropdowns = document.querySelectorAll('.dropdown-content');
-    
-    // Loop through and hide all dropdowns, except the one that was clicked
-    allDropdowns.forEach(function(dropdown) {
-      if (dropdown.id !== dropdownId) {
-        dropdown.style.display = 'none';
-      }
-    });
-  
-    // Toggle the visibility of the selected dropdown
-    var dropdown = document.getElementById(dropdownId);
-    if (dropdown.style.display === 'block') {
-      dropdown.style.display = 'none';
-    } else {
-      dropdown.style.display = 'block';
-    }
-  }
-  
-  // Close dropdown if clicked outside of the dropdown
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
-      var dropdowns = document.querySelectorAll('.dropdown-content');
-      dropdowns.forEach(function(dropdown) {
-        dropdown.style.display = 'none';
-      });
-    }
-  }
-  
-
-  let slideIndex = 0;
-  const slidesToShow = 4;
-  const slides = document.querySelectorAll(".slide");
-  const totalSlides = slides.length;
-  const slideTrack = document.querySelector(".slide-track");
-  const slideWidth = 100 / slidesToShow; // Each slide takes a fraction of the container
-  
-  // Set initial position
-  slideTrack.style.transform = `translateX(0%)`;
-  
-  // Function to move slides automatically
-  function showSlides() {
-      slideIndex++;
-      if (slideIndex > totalSlides - slidesToShow) {
-          // Reset to the first set of slides when reaching the end
-          slideIndex = 0;
-      }
-      updateSlidePosition();
-  }
-  
-  // Manual Slide Navigation
-  function moveSlides(n) {
-      slideIndex += n;
-  
-      if (slideIndex < 0) {
-          slideIndex = totalSlides - slidesToShow;
-      } else if (slideIndex > totalSlides - slidesToShow) {
-          slideIndex = 0;
-      }
-  
-      updateSlidePosition();
-  }
-  
-  // Function to update slide position
-  function updateSlidePosition() {
-      slideTrack.style.transition = "transform 0.5s ease-in-out";
-      slideTrack.style.transform = `translateX(-${slideIndex * slideWidth}%)`;
-  }
-  
-  // Auto slide every 5 seconds
-  setInterval(showSlides, 5000);
-
-  document.addEventListener("DOMContentLoaded", function () {
-    var scrollToTopBtn = document.getElementById("scrollToTop");
-
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 300) { // Show button after scrolling down
-            scrollToTopBtn.style.opacity = "1";
-            scrollToTopBtn.style.visibility = "visible";
-        } else {
-            scrollToTopBtn.style.opacity = "0";
-            scrollToTopBtn.style.visibility = "hidden";
-        }
-    });
-
-    // Smooth scroll effect
-    scrollToTopBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-});
-  
-</script>
-
-
 
     </body>
 </html>
