@@ -11699,5 +11699,28 @@ figure img {
                 0 3px 15px rgba(0, 0, 0, 0.3);
 }
 
+.team-page-section {
+  color:#F3F3F3;
+  background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border effect */
+  backdrop-filter: blur(10px); /* Glass blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 15px; /* Soft rounded corners */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2), 
+              0 2px 10px rgba(0, 0, 0, 0.2); /* Glossy glowing effect */
+  padding: 20px; /* Space inside the section */
+  margin: 20px; /* Space outside the section */
+  transition: all 0.3s ease-in-out; /* Smooth effect */
+}
+
+/* Optional: Add a subtle hover effect */
+.team-page-section:hover {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3), 
+              0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+
   
 
