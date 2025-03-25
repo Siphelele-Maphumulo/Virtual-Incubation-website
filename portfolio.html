@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Form</title>
+    
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/porfolio.css" rel="stylesheet" />
+    
+    
+	  <style>
+
+      body {
+        background: url('./assets/img/header-bb.jpg');
+        background-size: 100%; /* Zooms out slightly */
+        background-position: 60% center; /* Moves image slightly to the right */
+        background-repeat: no-repeat; /* Prevents repeating */
+        background-attachment: fixed; /* Keeps image fixed on scroll */
+        margin-bottom: 5%;
+
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between; /* Push logo left & links right */
+      align-items: center;
+      padding: 05px 10px;
+      background-color: #00102E;
+      font-family: 'Poppins', sans-serif; /* Modern, professional font */
+      position: fixed; /* Keep navbar fixed at the top */
+      transition: background-color 0.3s ease-in-out; /* Smooth transition */
+      width: 100%;
+      
+    }
+
+
+    .scrolled {
+      background-color: #00102e67 !important; /* Change color when scrolled */
+    }
+    
+    .navbar-brand img {
+      height: 80px; /* Slightly larger logo */
+      width: 300px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 10px; /* Increased spacing for a more balanced layout */
+    }
+    
+    .nav-links li a {
+      padding-top: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600; /* Slightly bolder for readability */
+      font-size: 0.8rem; /* Adjusted size for professional appearance */
+      padding: 12px 8px;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    /* Glass border hover effect */
+    .nav-links li a:hover {
+      color: #5755B1;
+      border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
+    }
+    
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #00102E;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  text-align: left; /* Vertically align the items */
+}
+
+/* Style for the links inside the dropdown */
+.dropdown-content a {
+  color: #00102E; /* Dark color for text */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of links on hover */
+.dropdown-content a:hover {
+  color: #5755B1;
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
+}
+
+/* Show the dropdown when the button is clicked (via the toggleDropdown function) */
+.dropdown.show .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the button when hovered */
+.dropdown:hover .dropbtn {
+  color: #5755B1;
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
+}
+
+/* Style for the dropdown icon */
+.dropdown-icon {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white; /* Triangle pointing down */
+  position: absolute;
+  left: 40px; /* Position it on the right side of the button */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center the icon */
+}
+
+.footer .container {
+  max-width: 90%; /* Make the container take full width */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.footer a {
+  color: white; /* Ensure links are white */
+  text-decoration: none;
+}
+
+
+  /* Floating button styles */
+  #scrollToTop {
+      position: fixed;
+      bottom: 30px; /* Position at the bottom */
+      right: 30px; /* Position at the right */
+      width: 50px;
+      height: 50px;
+      background-color: #2AC8A8; /* Button color */
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 24px;
+      border-radius: 50%; /* Make it a circle */
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+      opacity: 0; /* Initially hidden */
+      visibility: hidden;
+  }
+
+  /* Hover effect */
+  #scrollToTop:hover {
+      background-color: #249e8d; /* Slightly darker on hover */
+  }
+
+  /* Font Awesome Icon */
+  .fa-arrow-up {
+      font-size: 24px;
+      font-weight: bold;
+  }
+	  </style>
+
+  </head>
+    <!-- Navigation-->
+    <nav class="navbar">
+      <a class="navbar-brand" href="#page-top">
+          <img src="./assets/img/preview.png" alt="Logo">
+      </a>
+      <ul class="nav-links" style="padding-top: 10px; padding-right:8%">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Our Services</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#contact">Contact Us</a></li>
+          <li class="dropdown">
+              <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">User 
+                  <span class="dropdown-icon"></span>
+                </a>
+                
+              <div class="dropdown-content" id="dropdown1">
+                <a href="register.html">Register</a>
+                <a href="login.html">Login</a>
+                <a href="#password-reset">Password Reset</a>
+              </div>
+            </li>
+            
+      </ul>
+  </nav>
+</header>
+
+<body id="page-top" >
+    <div class="container" >
+      <span class="big-circle"></span>
+      <img src="img/shape.png" class="square" alt="" />
+      <div class="form" style="margin-top: 18%; margin-bottom:20%;">
+        <div class="contact-info">
+          <h3 class="title">Connect With People Using Your Portfolio </h3>
+          <p class="text">
+            Fill in the form on the right to allow customer, investor and other businesses to
+		 visit your company website easily with a click of a button.
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="img/location.png" class="icon" alt="" />
+              <p></p>
+            </div>
+            <div class="information">
+              <img src="img/email.png" class="icon" alt="" />
+              <p></p>
+            </div>
+            <div class="information">
+              <img src="img/phone.png" class="icon" alt="" />
+              <p></p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us :</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+<!--company_portfolio.php-->
+          <form action="https://formspree.io/f/mpzepvez" method="post" autocomplete="off" enctype="multipart/form-data">
+            <h3 class="title">Portfolio Form</h3>
+            <div class="input-container">
+              <input  id="company" name="company" type="text" class="input" required=""/>
+              <label for="">Company Name</label>
+              <span>Company Name</span>
+            </div>
+            <div class="input-container">
+              <input id="owner" name="owner" type="text"  class="input" required=""/>
+              <label for="">Owner</label>
+              <span>Owner</span>
+            </div>
+            <div class="input-container">
+              <input id="website" name="website" type="text" class="input" required=""/>
+              <label for="">Website</label>
+              <span>Website</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea id="description" name="description" type="text" class="input"></textarea>
+              <label for="">Company Description</label>
+              <span>Message</span>
+            </div>
+			  
+			 <div class="input-container">
+              <input id="logo" name="logo" type="text"  class="input" required=""/>
+              <label for="">Company Logo Link</label>
+              <span>Company Logo Image Link</span>
+				 			  <div>
+			  	<a href="https://www.linkpicture.com/en/?set=en" target="_blank">
+				 <button class="favorite"
+					type="button">
+					Create image link
+				</button> </a>
+			  </div>
+            </div>
+            
+<!-- Scroll to Top Button -->
+<a href="#top" id="scrollToTop">
+  <i class="fa fa-arrow-up"></i> <!-- Font Awesome Up Arrow -->
+</a>
+
+
+			 <!--<div class="input-container textarea">
+              <input id="image" type="file" name="image"  accept=".jpg, .jpeg, .png" value=""> <br> <br>
+            </div>-->
+			  
+ 
+			  
+                            <input type="submit" value="Submit" class="btn btn-info btn-block" name="submit">
+          </form>
+        </div>
+    <script>
+const inputs = document.querySelectorAll(".input");
+
+function focusFunc() {
+  let parent = this.parentNode;
+  parent.classList.add("focus");
+}
+
+function blurFunc() {
+  let parent = this.parentNode;
+  if (this.value == "") {
+    parent.classList.remove("focus");
+  }
+}
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", focusFunc);
+  input.addEventListener("blur", blurFunc);
+});
+	</script>
+		  
+		  
+
+			
+<!-- Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('.checkoption').click(function() {
+$('.checkoption').not(this).prop('checked', false);
+});
+
+});
+
+
+window.addEventListener("scroll", function () {
+let navbar = document.querySelector(".navbar");
+if (window.scrollY > 50) {
+navbar.classList.add("scroll"); // Add transparent effect
+} else {
+navbar.classList.remove("scroll"); // Restore navy background
+}
+});
+
+// Function to toggle the dropdown visibility when clicked
+function toggleDropdown(event, dropdownId) {
+event.preventDefault(); // Prevent the link from navigating
+
+// Get all dropdowns
+var allDropdowns = document.querySelectorAll('.dropdown-content');
+
+// Loop through and hide all dropdowns, except the one that was clicked
+allDropdowns.forEach(function(dropdown) {
+if (dropdown.id !== dropdownId) {
+dropdown.style.display = 'none';
+}
+});
+
+// Toggle the visibility of the selected dropdown
+var dropdown = document.getElementById(dropdownId);
+if (dropdown.style.display === 'block') {
+dropdown.style.display = 'none';
+} else {
+dropdown.style.display = 'block';
+}
+}
+
+// Close dropdown if clicked outside of the dropdown
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
+var dropdowns = document.querySelectorAll('.dropdown-content');
+dropdowns.forEach(function(dropdown) {
+dropdown.style.display = 'none';
+});
+}
+}
+
+
+<!-- JavaScript for Smooth Scrolling & Visibility -->
+document.addEventListener("DOMContentLoaded", function () {
+ var scrollToTopBtn = document.getElementById("scrollToTop");
+
+ window.addEventListener("scroll", function () {
+     if (window.scrollY > 300) { // Show button after scrolling down
+         scrollToTopBtn.style.opacity = "1";
+         scrollToTopBtn.style.visibility = "visible";
+     } else {
+         scrollToTopBtn.style.opacity = "0";
+         scrollToTopBtn.style.visibility = "hidden";
+     }
+ });
+
+ // Smooth scroll effect
+ scrollToTopBtn.addEventListener("click", function (e) {
+     e.preventDefault();
+     window.scrollTo({ top: 0, behavior: "smooth" });
+ });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+ var scrollToTopBtn = document.getElementById("scrollToTop");
+
+ window.addEventListener("scroll", function () {
+     if (window.scrollY > 300) { // Show button after scrolling down
+         scrollToTopBtn.style.opacity = "1";
+         scrollToTopBtn.style.visibility = "visible";
+     } else {
+         scrollToTopBtn.style.opacity = "0";
+         scrollToTopBtn.style.visibility = "hidden";
+     }
+ });
+
+ // Smooth scroll effect
+ scrollToTopBtn.addEventListener("click", function (e) {
+     e.preventDefault();
+     window.scrollTo({ top: 0, behavior: "smooth" });
+ });
+});
+
+window.addEventListener("scroll", function() {
+  var navbar = document.querySelector(".navbar");
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
+
+
+</script>
+
+ </div>
+</div>
+</div>
+<!-- Footer -->
+<footer style="margin-bottom: -200px;">
+
+<footer style=" background:#00102E; color: white; padding: 20px 0; font-family: Arial, sans-serif;">
+   <p class="footer">
+       Code SA Virtual Incubation is a licensed business services provider in terms of the Business 
+       Advisory and Intermediary Services Act and a registered credit provider in terms of the 
+       National Credit Act, registration number NCRCP15.
+   </p>
+   <div class="container">
+       <!-- First row with company details -->
+       <div class="row">
+           <div class="col">
+               <i class="fas fa-envelope"></i> <strong>Email:</strong> info@codingmadeeasy.org
+           </div>
+           <div class="col">
+               <i class="fas fa-map-marker-alt"></i> <strong>Our Offices:</strong> Unit 8E Trio Industrial Park, 8 Shepstone Road, The Wolds, New Germany, South Africa
+           </div>
+           <div class="col">
+               <i class="fas fa-phone-alt"></i> <strong>Telephone:</strong> +27 63 313 7391
+           </div>
+           <div class="col">
+               <i class="fas fa-clock"></i> <strong>Opening Hours:</strong><br>
+               Mon - Thu: 08:30 - 16:30<br>
+               Fri: 08:30 - 14:30<br>
+               Sat: 10:00 - 14:30<br>
+               Sun: Closed
+           </div>
+       </div>
+
+       <!-- Second row with useful links -->
+       <div class="row">
+           <div class="col">
+               <a href="#help" class="footer-link"><i class="fas fa-info-circle"></i> Help</a>
+           </div>
+           <div class="col">
+               <a href="#guide" class="footer-link"><i class="fas fa-book-open"></i> Guide</a>
+           </div>
+           <div class="col">
+               <a href="#companies" class="footer-link"><i class="fas fa-briefcase"></i> Companies</a>
+           </div>
+           <div class="col">
+               <a href="#team" class="footer-link"><i class="fas fa-users"></i> Our Team</a>
+           </div>
+       </div>
+
+       <!-- Terms and Copyright -->
+       <div class="footer-terms">
+           <div class="row">
+               <div class="col text-center">
+                   <a href="#terms" class="footer-link">Terms of Use</a> |  
+                   <span>© 2025 SMMEs Virtual Incubation</span>
+               </div>
+           </div>
+       </div>
+   </div>
+</footer>        
+
+</body>
+
+
+</html>

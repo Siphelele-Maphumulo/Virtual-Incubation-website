@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Ensures compatibility with old versions of IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures mobile responsiveness -->
+    <meta name="description" content="A professional website with a fully responsive design.">
+    <meta name="author" content="Your Name">
+    <meta name="keywords" content="mentoring, coaching, support, business growth">
+    
+    <!-- Favicon (Replace 'favicon.ico' with your actual favicon file) -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google fonts-->   
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+    <!-- Normalize CSS (To ensure consistency across all browsers) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/home.css" rel="stylesheet" />
+
+    <!-- Font Awesome (For Icons) -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    
+    
+    <title>SMMEs Virtual Incubation</title>
+    <!-- Favicon-->
+    <style>
+          
+        .header-content {
+            display: flex;
+            justify-content: center; /* Centers text in the middle of the screen */
+            gap: 20px; /* Space between logo and text */
+            max-width: 100%;
+
+        }
+        .help-text{
+                text-decoration: none; /* Removes underline */
+        }
+        .help-text{
+            text-decoration: none; /* Removes underline */
+        }
+
+        /* Remove underline and default link styling */
+        .help-right a {
+            text-decoration: none; /* No underline */
+            color: inherit; /* Inherit color from parent */
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+        
+        /* Change color to green when hovered */
+        .help-right a:hover {
+            color: #4CAF50; /* Slightly green */
+        }
+        
+        .text-uppercase{
+            color: #000000;
+        }
+        
+        .logo {
+            width: 350px; /* Increase width */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain;
+            position: absolute;
+            top: -350px; /* Moves logo slightly upward */
+            left: 400px; /* Keeps it far left */
+            padding-left: 150px; /* Extra spacing for positioning */
+        }
+        
+        .headings-section {
+            color:#fff;
+            flex: 1; /* Takes up remaining space */
+            margin-left: auto; /* Pushes text to the right side */
+            right: 0%;
+        }
+        
+        .text-section {
+            flex: 1; /* Takes up remaining space */
+            text-align: right; /* Aligns text to the right */
+            margin-left: auto; /* Pushes text to the right side */
+            right: 16%;
+        }
+        
+        .masthead-heading {
+            font-size: 4rem; /* Wider text */
+            font-weight: 500;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+
+
+        }
+        
+        .subheading {
+            font-size: 12pt; /* Slightly bigger for visibility */
+            font-weight:400;
+            color: #f0f0f0;
+            font-family: 'Open Sans', sans-serif;
+            max-width: 100%;
+            line-height:normal; /* No extra line spacing */
+            text-align: left; /* Aligns text to the right */
+            margin-left: 25%; /* Pushes text to the right side */
+
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Push logo left & links right */
+            align-items: center;
+            padding: 05px 10px;
+            background-color: #00102E;
+            font-family: 'Poppins', sans-serif; /* Modern, professional font */
+          }
+          
+          .navbar-brand img {
+            height: 80px; /* Slightly larger logo */
+            width: 300px;
+          }
+          
+          .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px; /* Increased spacing for a more balanced layout */
+          }
+          
+          .nav-links li a {
+            padding-top: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600; /* Slightly bolder for readability */
+            font-size: 0.8rem; /* Adjusted size for professional appearance */
+            padding: 12px 8px;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+          }
+          
+          /* Glass border hover effect */
+          .nav-links li a:hover {
+            color: #5755B1;
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
+          }
+          
+          #services {
+            padding: 0; /* Removes top padding */
+          }
+
+          
+          .quotation-section {
+            padding: 0; /* Removes top padding */
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            text-align: center; /* Ensures text is centered */
+            width: 100%; /* Ensures it takes full width */
+            min-height: 100vh; /* Ensures full viewport height */
+            margin-top: 5%; /* Remove top spacing */
+            padding-bottom: 5%;
+
+        }
+        
+        .contact-section {
+            color: snow;
+            padding-bottom: 3rem !important;
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            text-align: center; /* Ensures text is centered */
+            width: 100%; /* Ensures it spans the full width */
+          }
+          
+          #contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centers content vertically */
+            align-items: center; /* Centers content horizontally */
+            text-align: center; /* Ensures text is centered */
+            width: 100%; /* Ensures it spans the full width */
+            padding: 40px 40px; /* Optional: Padding to avoid tight edges */
+          }
+
+          .partners-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centers content vertically */
+            align-items: center; /* Centers content horizontally */
+            text-align: center; /* Ensures text is centered */
+            padding: 50px 0;
+            padding-top: 0;
+        
+        }
+
+        .footer {
+            background-color: #00102E; /* Dark blue background */
+            color: white; /* White text */
+            padding: 50px 0;
+            width: 100vw; /* Ensure full viewport width */
+            margin: 0; /* Remove any margins */
+            left: 0;
+            right: 0;
+        }
+        
+        .footer .container {
+            max-width: 90%; /* Make the container take full width */
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        .footer a {
+            color: white; /* Ensure links are white */
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Social Icons Styling */
+        .social-icons {
+            display: flex;
+            justify-content: flex-end; /* Align to the far right */
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .social-icons a:hover {
+            color: #5755B1;
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
+            padding: 5px;
+        }
+        
+        .hLogin-btn {
+            background-color: #ffffff; /* Grey background */
+            color:darkgrey; /* Text color */
+            border: none; /* Remove any default borders */
+            width: 150px; /* Large width */
+            height: 60px; /* Large height */
+            font-family: "Open Sans", sans-serif;
+          
+            font-size: 18px; /* Make text bigger */
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            position: absolute;
+            top: -200px; /* Adjust to move it slightly up */
+            right: -18%; /* Position at the start (left) */
+            padding: 20px 30px;
+            text-decoration: none; /* Removes underline */
+            display: inline-block; /* Ensures it's treated as a button */
+          }
+          
+          .hLogin-btn:hover {
+            color:#fff;
+            background-color: #8fbc8f;
+            animation: bounce 0.6s infinite ease-in-out;
+          }
+          
+
+          
+    </style> 
+
+    </head>
+    <body id="top">
+        <!-- Navigation-->
+        <nav class="navbar">
+            <a class="navbar-brand" href="#top">
+                <img src="./assets/img/preview.png" alt="Logo">
+            </a>
+            <ul class="nav-links" style="padding-top: 10px; padding-right:8%">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#help-section">Help</a></li>
+                <li><a href="#advertising">Quote</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">User 
+                        <span class="dropdown-icon"></span>
+                      </a>
+                      
+                    <div class="dropdown-content" id="dropdown1">
+                      <a href="#register">Register</a>
+                      <a href="#login">Login</a>
+                      <a href="#password-reset">Password Reset</a>
+                    </div>
+                  </li>
+                  
+            </ul>
+        </nav>
+        
+<!-- Masthead -->
+<header class="masthead">
+    <div class="container">
+        <div class="header-content">
+            <!-- Text Section -->
+            <div class="text-section"> 
+                <div class="headings-section">
+                    <h1 style="color:#fff; left:-150px;">WELCOME TO OUR</h1> 
+                    <h1 style="color:#fff">KZN SMME VIRTUAL INCUBATION</h1>
+                    <div class="subheading" style="left:-80px;">
+                        With over years of business and company experience, we'll bring our wealth of knowledge and insight to provide you with the most complete business solutions for your small, big, and upcoming businesses.
+                    </div>
+                </div>
+                <!-- Logo Section -->
+                <img src="./assets/logos/sendme.webp" alt="Logo" class="logo">
+                
+                <div style="padding-bottom:0%; display: flex; gap: 30px;">
+                    <a class="custom-btn" href="register.html">Join Us</a>
+                    <a class="hLogin-btn" href="login.html" style="color: #000000;">Login</a>
+                </div>  
+            </div>
+        </div>    
+    </div>
+</header>
+
+<!-- Help Section Divider -->
+<div id="help-section" style="height: 80px; background: transparent;"></div>
+
+<!-- Services Section -->
+<section style="font-family: 'Poppins', Arial, sans-serif; padding-top: 0px;">
+    <div>
+        <h1 style="color:black; text-align: center;">How Can We Help You?</h1>
+
+        <div class="help-container">
+            <!-- Left Column: Full Image -->
+            <div class="help-left" style="padding-left: 10%;">
+                <img src="./assets/img/help.webp" alt="Full Image" class="full-image">
+            </div>
+
+            <!-- Right Column: 3 Rows with Small Images and Text -->
+            <div class="help-right">
+                <div class="help-row">
+                    
+                        <img src="./assets/img/logos/register.gif" alt="Icon 1" class="small-image">
+                        <p class="help-text"><a href="https://www.cipc.co.za/wp-content/uploads/Step_by_step_Guide/Upload-Documents-New-Company.pdf" target="_blank">Complete Registering My Business</p></a>
+                    
+                </div>
+                <div class="help-row">
+                    <img src="./assets/img/logos/funds.gif" alt="Icon 2" class="small-image">
+                    <p class="help-text">Complete Funding Applications</p>
+                </div>
+                <div class="help-row">
+                    <img src="./assets/img/logos/profiles.gif" alt="Icon 3" class="small-image">
+                    <p class="help-text">Complete Creating Business Portfolio</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Services Section-->
+<section class="quotation-section" style="font-family: 'Poppins', Arial, sans-serif; color:black; background-color: #F1F1F1; padding: 40px 0;">
+    <div id="advertising" style="text-align: center;">
+        <div>
+            <h1 style="color: black;">COST OF ADVERTISING</h1>
+            <h3 style="color: black;">Do you want to advertise your business?</h3>
+            <p style="color: black;">Advertise your business under budget with us!</p>
+
+            <!-- Get A Quote Button -->
+            <!-- Get A Quote Button -->
+<a data-bs-toggle="modal" href="#portfolioModal5" class="get-quote-btn" 
+style="background-color: #2AC8A8; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 18px;">
+Get A Quote
+</a>
+        </div>
+
+        <!-- YouTube Video Embed -->
+        <div style="margin-top: 40px;">
+            <iframe width="620" height="400" src="https://www.youtube.com/embed/969bduWhDNU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Portfolio Grid-->
+<section class="page-section" id="portfolio" style="background-color: #D3D2D9;padding-top:5%;margin-top: 2%;">
+
+    <div class="text-center" style="padding-bottom:5%">
+        <h2 class="section-heading text-uppercase">How can we be of service to you today?</h2>
+    </div>
+
+    <div class="row" style=" width:100%; padding-bottom:10%; padding-left:2%">
+        <div class="col-lg-3 col-sm-6 mb-4">
+            <!-- Portfolio item 2-->
+            <div class="portfolio-item" style="height: 500px; width:auto; position: relative; background-image: url('assets/img/gal-3.jpg'); background-size: cover; background-position: center;">
+                <div class="portfolio-overlay" style="background-color: #b3b12093;"></div>
+                <div class="portfolio-caption">
+                    <div class="portfolio-caption-heading"><h2>Support</h2></div>
+                    <div class="portfolio-caption-subheading text-muted">Our award-winning team of entrepreneurs treat each business with passionate and creativity.</div>
+                    <button class="btn btn-transparent-white" data-bs-toggle="modal" href="#portfolioModal2">Support</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6 mb-4">
+            <!-- Portfolio item 1-->
+            <div class="portfolio-item" style="height: 500px; width:auto; position: relative; background-image: url('assets/img/advertise.png'); background-size: cover; background-position: center;">
+                <div class="portfolio-overlay" style="background-color: rgba(134, 56, 212, 0.7);"></div>
+                <div class="portfolio-caption">
+                    <div class="portfolio-caption-heading"><h2>Blog</h2></div>
+                    <div class="portfolio-caption-subheading text-muted">Read our news, stories and also read about other people's business and see how they succeed in todays world.</div>
+                    <button class="btn btn-transparent-white" data-bs-toggle="modal" href="#portfolioModal1">Blog</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6 mb-4">
+            <!-- Portfolio item 3-->
+            <div class="portfolio-item" style="height: 500px; width:auto; position: relative; background-image: url('assets/img/portfolio.jpg'); background-size: cover; background-position: center;">
+                <div class="portfolio-overlay" style="background-color: rgba(68, 146, 172, 0.7);"></div>
+                <div class="portfolio-caption">
+                    <div class="portfolio-caption-heading"><h2>Portfolio</h2></div>
+                    <div class="portfolio-caption-subheading text-muted">We allow registered users to create their business portfolios for free. These portfolios stay forever and give viewers the ability to connect with your business.</div>
+                    <button class="btn btn-transparent-white" data-bs-toggle="modal" href="#portfolioModal3">Portfolio</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6 mb-4">
+            <!-- Portfolio item 4-->
+            <div class="portfolio-item" style="height: 500px; width:auto; position: relative; background-image: url('assets/img/Success.jpg'); background-size: cover; background-position: center;">
+                <div class="portfolio-overlay" style="background-color: #d65179c0;"></div>
+                <div class="portfolio-caption">
+                    <div class="portfolio-caption-heading"><h2>Success</h2></div>
+                    <div class="portfolio-caption-subheading text-muted">Trust our incubator website to work with you 1 on 1, each step of the way to your business success. We provide you with support from scratch to a successful business. </div>
+                    <button class="btn btn-transparent-white" data-bs-toggle="modal" href="#portfolioModal4">Success</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Companies Grid-->
+<section class="page-section" id="portfolio" style="padding-top:5%; margin-top: 0%; background-color: #F1F1F1;">
+    <div class="text-center" style="padding-bottom:5%;">
+        <h1 class="section-heading text-uppercase" style="color:black;">Companies We Work With</h1>
+    </div>
+
+    <div >
+        <div class="company-grid">
+            <div class="company-row">
+                <div class="company-column">
+                    <img src="./assets/companies/doc.webp" alt="Company 1 Logo" class="company-logo">
+                </div>
+                <div class="company-column">
+                    <img src="./assets/companies/Ebolethu.webp" alt="Company 2 Logo" class="company-logo">
+                </div>
+                <div class="company-column">
+                    <img src="./assets/companies/sbe_eskomlogo.png" alt="Company 9 Logo" class="company-logo">
+                    
+                </div>
+            </div>
+            <div class="company-row">
+                <div class="company-column" style="background-color: #FEC000;">
+                    <img src="./assets/companies/Khula.webp" alt="Company 4 Logo" class="company-logo">
+                </div>
+                <div class="company-column" style="background-color: #000000;">
+                    <img src="./assets/companies/princeD.png" alt="Company 8 Logo" class="company-logo">
+                </div>
+                <div class="company-column" style="background-color: #662D92;">
+                    <img src="./assets/companies/hollywoodbets-logo.webp" alt="Company 3 Logo" class="company-logo">
+                    
+                </div>
+            </div>
+            <div class="company-row">
+                <div class="company-column">
+                    <img src="./assets/companies/magic.webp" alt="Company 5 Logo" class="company-logo">
+                </div>
+                <div class="company-column">
+                    <img src="./assets/companies/Vuma103fm.png" alt="Company 8 Logo" class="company-logo">
+                </div>
+                <div class="company-column">
+                    <img src="./assets/companies/MAXHOSA_AFRICA.webp" alt="Company 6 Logo" class="company-logo">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Contact-->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h3 class="section-subheading text-muted">
+                        Drop us a line via email for inquiries or collaborations</h3>
+                </div>
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- Name input-->
+                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Email address input-->
+                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center text-white mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                            To activate this form, sign up at
+                            <br />
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                </form>
+            </div>
+        </section>
+
+<div>
+
+</div>
+        
+<!-- Footer -->
+<footer class="footer py-4">
+    <div class="container">
+        <!-- First Row: Four Equal Columns -->
+        <div class="row text-white text-center text-lg-start align-items-center">
+            
+            <!-- Copyright -->
+            <div class="col-lg-4">
+                <h5>©2025 SMMEs VIRTUAL INCUBATION</h5>
+            </div>
+                   
+            <div class="col-lg-4 d-flex justify-content-center">
+                <a class="link-light text-decoration-none" href="#!">Terms of Use</a>
+            </div>
+            
+            <!-- Social Icons (Aligned to Far Right) -->
+            <div class="col-lg-4 text-lg-end">
+                <div class="social-icons">
+                    <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row: Business Licensing Text -->
+        <div class="row mt-3 text-white text-center">
+            <div class="col">
+                <p>
+                    Code SA Virtual Incubation is a licensed business services provider in terms of the Business 
+                    Advisory and Intermediary Services Act and a registered credit provider in terms of the 
+                    National Credit Act, registration number NCRCP15.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<a href="#top" id="scrollToTop">
+    <i class="fa fa-arrow-up"></i> <!-- Font Awesome Up Arrow -->
+</a>
+
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal">
+                        <img src="assets/img/close-icon.svg" alt="Close modal" />
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Updated Content -->
+                                    <h2 class="text-uppercase" style="color: black">Blog</h2>
+                                    <p class="item-intro text-muted">Explore inspiring stories, insights, and success journeys from businesses around the Mzansi.</p>
+                                    
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/advertise.png" alt="..." />
+        
+                                    <p>
+                                        Welcome to our blog—your go-to space for thought-provoking articles, success stories, and the latest trends in business and technology. Whether you’re an aspiring entrepreneur, a seasoned business owner, or simply curious about the world of innovation, our blog offers valuable insights to keep you informed and inspired.
+                                    </p>
+        
+                                    <p>
+                                        Discover how businesses are overcoming challenges, adapting to market changes, and leveraging technology to stay ahead. Read personal stories from entrepreneurs who turned ideas into thriving ventures, and gain knowledge from industry experts who share their experiences and strategies.
+                                    </p>
+        
+                                    <p>
+                                        Stay updated with the latest news, explore in-depth case studies, and find motivation in the journeys of those who have built success from the ground up. Because in today’s world, knowledge is power—and every story has the potential to spark the next big idea.
+                                    </p>
+        
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Updated Content -->
+                                    <h2 class="text-uppercase">Support</h2>
+                                    <p class="item-intro text-muted">Passion. Creativity. Dedication. That’s what drives our team to help businesses thrive.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/gal-3.jpg" alt="..." />
+                                    
+                                    <p>
+                                        In today's fast-paced and competitive world, having a reliable support system can make all the difference. Our award-winning team of entrepreneurs understands the unique challenges businesses face, and we are committed to providing tailored solutions that foster growth, sustainability, and success. 
+                                    </p>
+                                
+                                    <p>
+                                        With a passion for innovation and an eye for creativity, we work closely with businesses to identify their needs and craft strategies that set them apart. Whether it's through cutting-edge technology, strategic consulting, or hands-on mentorship, we ensure that every business we support is equipped with the tools and insights needed to navigate an ever-evolving market.
+                                    </p>
+                                
+                                    <p>
+                                        Our journey is fueled by the belief that entrepreneurship is not just about starting a business but about creating impact. We empower businesses by connecting them with industry leaders, providing access to essential resources, and offering guidance that transforms visions into reality. From startups taking their first steps to established companies seeking expansion, our team is here to offer unwavering support.
+                                    </p>
+                                
+                                    <p>
+                                        Success is not a solo journey—it thrives in collaboration, innovation, and resilience. Let us be the support system that propels your business forward.
+                                    </p>
+                                
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal">
+                        <img src="assets/img/close-icon.svg" alt="Close modal" />
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Updated Content -->
+                                    <h2 class="text-uppercase">Portfolio</h2>
+                                    <p class="item-intro text-muted">Create and showcase your business portfolio for free.</p>
+                                    
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio.jpg" alt="Portfolio showcase" />
+        
+                                    <p>
+                                        We believe in the power of visibility and connection. That’s why we offer a free platform where registered users can create their business portfolios, ensuring they are accessible to potential clients, investors, and collaborators—forever.
+                                    </p>
+        
+                                    <p>
+                                        A strong business portfolio is more than just a digital presence; it’s your opportunity to showcase your brand, highlight your expertise, and attract new opportunities. Whether you're a freelancer, a startup, or an established business, our platform allows you to present your work in a professional and engaging way.
+                                    </p>
+        
+                                    <p>
+                                        Viewers can explore different portfolios, learn about businesses, and connect directly with owners. By providing an easy-to-use and long-lasting platform, we help businesses thrive in the digital world. Join us today and start building a portfolio that leaves a lasting impact.
+                                    </p>
+        
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+<!-- Portfolio item 4 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal">
+                <img src="assets/img/close-icon.svg" alt="Close modal" />
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Updated Content -->
+                            <h2 class="text-uppercase">Success</h2>
+                            <p class="item-intro text-muted">Your journey to business success starts here.</p>
+
+                            <img class="img-fluid d-block mx-auto" src="assets/img/Success.jpg" alt="Business success" />
+
+                            <p>
+                                Trust our incubator platform to guide you every step of the way in building and growing your business. Whether you are just starting out or looking to scale, we provide personalized support, expert mentorship, and valuable resources to help you achieve sustainable success.
+                            </p>
+
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>One-on-One Mentorship:</strong>
+                                    Get personalized guidance from industry experts who will work closely with you to refine your business strategy.
+                                </li>
+                                <li>
+                                    <strong>Startup Development:</strong>
+                                    From idea validation to business launch, we assist entrepreneurs in transforming concepts into fully operational businesses.
+                                </li>
+                                <li>
+                                    <strong>Funding & Investment Support:</strong>
+                                    Access potential funding opportunities and investor networks to fuel your business growth.
+                                </li>
+                                <li>
+                                    <strong>Business Growth Strategies:</strong>
+                                    Learn proven techniques to scale your business, enhance brand visibility, and expand your market reach.
+                                </li>
+                                <li>
+                                    <strong>Continuous Support:</strong>
+                                    Our commitment doesn’t end after launch – we provide ongoing support to help you navigate challenges and seize new opportunities.
+                                </li>
+                            </ul>
+
+                            <p>
+                                Success is not just about having a great idea; it's about having the right support system to turn that idea into reality. Join us and take your business to the next level.
+                            </p>
+
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Close Window
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Portfolio item 4 modal popup -->
+            <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen"> <!-- Fullscreen modal -->
+                    <div class="modal-content">
+                        <div class="close-modal" data-bs-dismiss="modal">
+                            <img src="assets/img/close-icon.svg" alt="Close modal" />
+                        </div>
+                        <div class="modal-body p-0">
+                            <!-- Full-page guide.html -->
+                            <iframe id="guideFrame" src="" frameborder="0" style="width: 100%; height: 100vh;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- jQuery to load guide.html into the iframe when the modal opens -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+                $('#portfolioModal5').on('shown.bs.modal', function () {
+                    $('#guideFrame').attr('src', 'qoute.html'); // Load guide.html into the iframe
+                });
+            </script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+
+
+  window.addEventListener("scroll", function () {
+    let navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scroll"); // Add transparent effect
+    } else {
+      navbar.classList.remove("scroll"); // Restore navy background
+    }
+  });
+
+// Function to toggle the dropdown visibility when clicked
+function toggleDropdown(event, dropdownId) {
+    event.preventDefault(); // Prevent the link from navigating
+  
+    // Get all dropdowns
+    var allDropdowns = document.querySelectorAll('.dropdown-content');
+    
+    // Loop through and hide all dropdowns, except the one that was clicked
+    allDropdowns.forEach(function(dropdown) {
+      if (dropdown.id !== dropdownId) {
+        dropdown.style.display = 'none';
+      }
+    });
+  
+    // Toggle the visibility of the selected dropdown
+    var dropdown = document.getElementById(dropdownId);
+    if (dropdown.style.display === 'block') {
+      dropdown.style.display = 'none';
+    } else {
+      dropdown.style.display = 'block';
+    }
+  }
+  
+  // Close dropdown if clicked outside of the dropdown
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
+      var dropdowns = document.querySelectorAll('.dropdown-content');
+      dropdowns.forEach(function(dropdown) {
+        dropdown.style.display = 'none';
+      });
+    }
+  }
+  
+
+  <!-- JavaScript for Smooth Scrolling & Visibility -->
+      document.addEventListener("DOMContentLoaded", function () {
+          var scrollToTopBtn = document.getElementById("scrollToTop");
+  
+          window.addEventListener("scroll", function () {
+              if (window.scrollY > 300) { // Show button after scrolling down
+                  scrollToTopBtn.style.opacity = "1";
+                  scrollToTopBtn.style.visibility = "visible";
+              } else {
+                  scrollToTopBtn.style.opacity = "0";
+                  scrollToTopBtn.style.visibility = "hidden";
+              }
+          });
+  
+          // Smooth scroll effect
+          scrollToTopBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+      });
+  
+  
+  
+  
+</script>
+    </body>
+</html>

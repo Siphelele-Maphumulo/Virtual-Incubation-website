@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Form</title>
+
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="css/guide.css" rel="stylesheet">
+
+    <style>
+      /* Apply background image */
+      body {
+          background: url('./assets/img/guide.jpg') no-repeat center center fixed;
+          background-size: cover;
+          margin: 0;
+          padding: 0;
+          font-family: 'Poppins', sans-serif;
+      }
+  
+      .content-container {
+          max-width: 800px;
+          margin: auto;
+          padding: 20px;
+          line-height: 1.6;
+          color: #333;
+      }
+  
+      .section-title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-top: 20px;
+      }
+  
+      .divider {
+          border-top: 2px solid #ddd;
+          margin: 10px 0;
+      }
+  
+      .highlight {
+          font-weight: bold;
+          color: #00102E;
+      }
+  
+      /* Navigation bar */
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 20px;
+          background-color: #00102E;
+          font-family: 'Poppins', sans-serif;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1000;
+      }
+  
+      .navbar-brand img {
+          height: 80px;
+          width: 300px;
+      }
+  
+      .nav-links {
+          display: flex;
+          list-style: none;
+          gap: 10px;
+      }
+  
+      .nav-links li a {
+          text-decoration: none;
+          color: white;
+          font-weight: 600;
+          font-size: 0.8rem;
+          padding: 12px 8px;
+          transition: all 0.3s ease-in-out;
+      }
+  
+      .nav-links li a:hover {
+          color: #5755B1;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.1);
+      }
+  
+      /* Dropdown */
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #00102E;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+          border-radius: 5px;
+      }
+  
+      .dropdown-content a {
+          color: white;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+      }
+  
+      .dropdown-content a:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+      }
+  
+      .dropdown:hover .dropdown-content {
+          display: block;
+      }
+  
+      /* Two-column layout */
+      /* Adjust the content to prevent it from going under the navbar */
+      .container {
+          display: flex;
+          height: auto; /* Change from 100vh to auto to allow scrolling */
+          padding: 20px;
+          padding-top: 100px; /* Adjust according to navbar height */
+          flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+      }
+  
+      .left-container {
+          width: 40%;
+      }
+  
+      .right-container {
+          width: 50%;
+          padding: 40px;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+      }
+  
+      /* Floating button */
+      #scrollToTop {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          width: 50px;
+          height: 50px;
+          background-color: #2AC8A8;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          font-size: 24px;
+          border-radius: 50%;
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease-in-out;
+          opacity: 0;
+          visibility: hidden;
+      }
+  
+      #scrollToTop:hover {
+          background-color: #249e8d;
+      }
+  
+      /* CTA Styles */
+      .cta-container {
+          display: flex;
+          align-items: center;
+          background: #f9f9f9;
+          border-radius: 8px;
+          overflow: hidden;
+          margin-top: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+  
+      .cta-image {
+          width: 40%;
+          background-size: cover;
+          background-position: center;
+          min-height: 200px;
+      }
+  
+      .cta-content {
+          padding: 20px;
+          width: 60%;
+      }
+  
+      .cta-title {
+          font-size: 1.8rem;
+          font-weight: bold;
+          color: #00102E;
+          margin-bottom: 10px;
+      }
+  
+      .cta-description {
+          font-size: 1rem;
+          margin-bottom: 15px;
+      }
+  
+      .cta-button {
+          display: inline-block;
+          padding: 10px 15px;
+          background: #685555;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: background 0.3s;
+      }
+  
+      .cta-button:hover {
+          background: #005bb5;
+      }
+  
+      /* Heading Styles */
+      .elementor-heading-title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: #00102E;
+          margin-top: 20px;
+      }
+  
+      /* Divider Styles */
+      .elementor-divider-separator {
+          border-top: 2px solid #ddd;
+          display: block;
+          width: 100%;
+          margin: 10px 0;
+      }
+  
+      /* Text Content Styles */
+      .elementor-text-editor p {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 10px;
+      }
+  
+      /* Bold Text for Section Highlights */
+      .elementor-text-editor strong {
+          color: #00102E;
+          font-weight: bold;
+      }
+  
+      .elementor-widget-container,
+      .elementor-text-editor,
+      .elementor-heading-title {
+          color: black !important;
+      }
+  
+      /* Container to make the iframe responsive */
+      .elementor-widget-iframe {
+          position: relative;
+          padding-bottom: 56.25%; /* Aspect ratio 16:9 (height / width = 9 / 16 = 0.5625) */
+          height: 0;
+          overflow: hidden;
+          max-width: 100%;
+      }
+  
+      /* iframe element styles */
+      .elementor-widget-iframe iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: 0;
+      }
+  
+      /* Title Styling */
+      .elementor-cta__title {
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 15px;
+      }
+  
+      /* Description Styling */
+      .elementor-cta__description {
+          font-size: 16px;
+          line-height: 1.5;
+          color: #666;
+          margin-bottom: 20px;
+      }
+  
+      /* Button Styling */
+      .elementor-cta__button {
+          display: inline-flex;
+          align-items: center;
+          padding: 10px 20px;
+          background-color: #BBA194; /* Grey background */
+          color: white;
+          text-decoration: none;
+          font-size: 16px;
+          border-radius: 5px;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+  
+      .elementor-cta__button:hover {
+          background-color: #999; /* Darker grey on hover */
+          transform: scale(1.05); /* Slight grow effect */
+      }
+  
+      /* Icon Styling in Button */
+      .elementor-cta__button i {
+          margin-left: 10px;
+          font-size: 18px;
+      }
+  
+      /* Wrapper Styling for Button */
+      .elementor-cta__button-wrapper {
+          display: inline-block;
+      }
+  
+      .no-underline-links {
+          text-decoration: none;
+          color: #5755B1;
+      }
+  
+      .no-underline-links:hover {
+          color: #5755B1;
+      }
+  
+      a {
+          text-decoration: none;
+          color: #5755B1;
+      }
+  
+      a:hover {
+          color: #5755B1;
+      }
+  
+      /* Media Queries for Responsiveness */
+      @media (max-width: 1200px) {
+          .container {
+              flex-direction: column;
+              padding-top: 150px; /* Adjust for larger screens */
+          }
+  
+          .left-container, .right-container {
+              width: 100%;
+              padding: 10px;
+          }
+  
+          .navbar-brand img {
+              width: 250px;
+              height: 60px;
+          }
+  
+          .cta-container {
+              flex-direction: column;
+          }
+  
+          .cta-image {
+              width: 100%;
+              min-height: 150px;
+          }
+  
+          .cta-content {
+              width: 100%;
+          }
+      }
+  
+      @media (max-width: 768px) {
+          .container {
+              padding-top: 120px; /* Adjust for medium screens */
+          }
+  
+          .nav-links {
+              flex-direction: column;
+              gap: 15px;
+              padding: 10px 0;
+          }
+  
+          .cta-container {
+              flex-direction: column;
+              margin-top: 15px;
+          }
+  
+          .cta-image {
+              width: 100%;
+              min-height: 150px;
+          }
+  
+          .cta-content {
+              width: 100%;
+          }
+      }
+  
+      @media (max-width: 480px) {
+          .navbar {
+              padding: 10px;
+          }
+  
+          .navbar-brand img {
+              width: 180px;
+              height: 50px;
+          }
+  
+          .nav-links li a {
+              font-size: 0.7rem;
+          }
+  
+          .cta-button {
+              font-size: 14px;
+          }
+  
+          .cta-container {
+              flex-direction: column;
+              margin-top: 10px;
+          }
+  
+          .cta-image {
+              width: 100%;
+              min-height: 120px;
+          }
+  
+          .cta-content {
+              width: 100%;
+          }
+      }
+  </style>
+  
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#page-top">
+            <img src="./assets/img/preview.png" alt="Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Our Services</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">User</a>
+                <div class="dropdown-content">
+                    <a href="register.html">Register</a>
+                    <a href="login.html">Login</a>
+                    <a href="#password-reset">Password Reset</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="left-container"></div> <!-- Left column (empty) -->
+        <div class="right-container">
+          <h1>1. Starting a Business Checklist (SA Citizens)</h1>
+          <div>
+          <div class="elementor-element elementor-element-d437387 elementor-widget elementor-widget-image" data-id="d437387" data-element_type="widget" data-widget_type="image.default">
+            <div class="elementor-widget-container">
+                    <div class="elementor-image">
+                            <img decoding="async" width="647" height="458" src="https://www.doingbusiness.org.za/wp-content/uploads/2020/10/checklist.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.doingbusiness.org.za/wp-content/uploads/2020/10/checklist.png 647w, https://www.doingbusiness.org.za/wp-content/uploads/2020/10/checklist-300x212.png 300w" sizes="(max-width: 647px) 100vw, 647px" />														</div>
+                </div>
+            </div>
+            
+            
+            <h1>2. Starting a Business Checklist (Foreigners)</h1>
+            
+            <div class="content-container">
+              <p>The rules and regulations for operating a business in South Africa are the same for both locals and foreigners. All businesses must comply with South African laws.</p>
+          
+              <h3 class="section-title">2.1 Business Permit</h3>
+              <div class="divider"></div>
+          
+              <p>To register a business, foreigners must have the relevant visa. A <span class="highlight">business permit (business visa)</span> is required for foreign entrepreneurs who intend to establish or run a foreign-owned business.</p>
+          
+              <p>Two conditions determine eligibility for a business visa:</p>
+              <ol>
+                  <li>Invest a prescribed amount of R5 million into an existing business or provide a business plan with proof of the R5 million capital contribution.</li>
+                  <li>Establish a business that is of national interest to South Africa, as outlined in the <span style="text-decoration: none; color: #5755B1;"><a href="https://www.gov.za/documents/industrial-policy-action-plan-ipap-201819-202021-9-may-2018-0000" target="_blank" rel="noopener noreferrer">IPAP policy document</a> </span>(no minimum capital investment required).</li>
+              </ol>
+          
+              <p>The Department of Home Affairs manages the business visa process, while the Department of Trade, Industry, and Competition supports granting business visas for companies with a significant economic impact.</p>
+          
+              <p>If employing foreign nationals, a work permit application must be submitted through <span style="text-decoration: none; color: #5755B1;"><a href="https://www.vfsglobal.com/" target="_blank" rel="noopener noreferrer">VFS Global</a></span> .</p>
+          </div>
+        </div>
+        <div class="cta-container">
+          <div class="cta-image" style="background-image: url('https://www.doingbusiness.org.za/wp-content/uploads/2020/10/vfs.jpg');"></div>
+          <div class="cta-content">
+              <div class="cta-title">VFS Global</div>
+              <div class="cta-description">
+                  VFS Global is the world's largest visa outsourcing and technology services specialist for governments and diplomatic missions worldwide.
+              </div>
+              <a class="cta-button" href="http://www.vfsglobal.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+          </div>
+      </div>
+
+<!-- Work Permit Section -->
+<div class="elementor-element elementor-widget elementor-widget-heading" data-id="e910efb" data-element_type="widget" data-widget_type="heading.default">
+  <div class="elementor-widget-container">
+      <h3 class="elementor-heading-title elementor-size-default">2.2 Work Permit</h3>
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="elementor-element elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="c92cd78" data-element_type="widget" data-widget_type="divider.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-divider">
+          <span class="elementor-divider-separator"></span>
+      </div>
+  </div>
+</div>
+
+<!-- Work Permit Description -->
+<div class="elementor-element color-scheme-inherit text-left elementor-widget elementor-widget-text-editor" data-id="199cf16" data-element_type="widget" data-widget_type="text-editor.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-text-editor elementor-clearfix">
+          <p>Work permits (temporary visas) are issued by the Department of Home Affairs and facilitated by VFS Global.</p>
+          <p>The types of work-related temporary visas are as follows:</p>
+          <p><strong>General Work Visas</strong>: Issued to foreigners where it has been proven beyond reasonable doubt that South African citizens and permanent residents with the relevant qualifications, skills, or experience are not available for appointment.</p>
+          <p><strong>Critical Skills Visa</strong>: From time to time, the Minister of Home Affairs publishes a critical skills list in a Government Gazette. To apply for a critical skills visa, you must provide proof of qualifications.</p>
+          <p><strong>Intra-company transfer visa</strong>: Multi-national companies may transfer an existing employee in a key position from a foreign branch to a branch, subsidiary, or an affiliate of that company in South Africa. Such employees must apply for intra-company transfer work permits.</p>
+      </div>
+  </div>
+</div>
+
+<!-- Business Registration Section -->
+<div class="elementor-element elementor-widget elementor-widget-heading" data-id="8f94539" data-element_type="widget" data-widget_type="heading.default">
+  <div class="elementor-widget-container">
+      <h2 class="elementor-heading-title elementor-size-default">3. How to register a business</h2>
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="elementor-element elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="37b949c" data-element_type="widget" data-widget_type="divider.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-divider">
+          <span class="elementor-divider-separator"></span>
+      </div>
+  </div>
+</div>
+
+<div class="elementor-element elementor-element-6dbc53c color-scheme-inherit text-left elementor-widget elementor-widget-text-editor" data-id="6dbc53c" data-element_type="widget" data-widget_type="text-editor.default">
+  <div class="elementor-widget-container">
+          <div class="elementor-text-editor elementor-clearfix">
+  <p>The Companies Intellectual Property Commission through its new portal referred to as the Bizportal has made the registering a business process seamless. Through the Bizportal, an entrepreneur can register a business within a few hours for a minimal cost of R125. You can also reserve a company name at a cost of R50. Reserving a company name is totally optional.</p><p>The Bizportal allows an entrepreneur to register a Company, Company name, Tax registration number, Domain name registration, B-BBEE certificate, Compensation Fund registration, Unemployment Insurance Fund registration and Business bank account.</p><p>Identity verification (ID card/book) will be done real-time with the Department of Home Affairs and other sophisticated measures which serves as a necessary buffer to ensure the integrity of the portal. ID copy is not needed in this process.</p><p>Bizportal was developed in response to the quest of improving the ease of doing business in South Africa, specifically, starting a business.</p><p>Watch these great videos below that gives you an introduction to Bizportal.</p>					</div>
+      </div>
+  </div>
+
+  <section class="wd-negative-gap elementor-section elementor-inner-section elementor-element elementor-element-fa6eafa elementor-section-boxed elementor-section-height-default elementor-section-height-default wd-section-disabled" data-id="fa6eafa" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-row">
+  <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-80fb158" data-id="80fb158" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+      <div class="elementor-widget-wrap">
+    <div class="elementor-element elementor-element-e2938e1 player elementor-aspect-ratio-169 elementor-widget elementor-widget-video" data-id="e2938e1" data-element_type="widget" data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/youtu.be\/KyZIWjdv9r8&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;,&quot;aspect_ratio&quot;:&quot;169&quot;}" data-widget_type="video.default">
+<div class="elementor-widget-container">
+  <div class="elementor-wrapper elementor-fit-aspect-ratio elementor-open-inline">
+<div class="elementor-video"></div>		</div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-2bfb3ca" data-id="2bfb3ca" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+      <div class="elementor-widget-wrap">
+    <div class="elementor-element elementor-element-c72c5cd player elementor-aspect-ratio-169 elementor-widget elementor-widget-video" data-id="c72c5cd" data-element_type="widget" data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/www.youtube.com\/watch?v=DpXucifoElI&amp;t=18s&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;,&quot;aspect_ratio&quot;:&quot;169&quot;}" data-widget_type="video.default">
+<div class="elementor-widget-container">
+  <div class="elementor-wrapper elementor-fit-aspect-ratio elementor-open-inline">
+<div class="elementor-video"></div>		</div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+        </div>
+  </div>
+</section>
+<div class="elementor-element elementor-element-d0c4600 elementor-cta--layout-image-left elementor-cta--mobile-layout-image-above elementor-cta--skin-classic elementor-animated-content elementor-widget elementor-widget-call-to-action" data-id="d0c4600" data-element_type="widget" data-widget_type="call-to-action.default">
+<div class="elementor-widget-container">
+  <div class="elementor-cta">
+  <div class="elementor-cta__bg-wrapper">
+<div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.doingbusiness.org.za/wp-content/uploads/2020/10/Screenshot-2020-10-01-at-20.04.14.png);"></div>
+<div class="elementor-cta__bg-overlay"></div>
+</div>
+
+<iframe width="335" height="188" src="https://www.youtube.com/embed/KyZIWjdv9r8" title="BizPortal Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<div class="elementor-cta__content">
+  <!-- Title Section -->
+  <div class="elementor-cta__title elementor-cta__content-item elementor-content-item">
+      Bizportal
+  </div>
+  
+  <!-- Description Section -->
+  <div class="elementor-cta__description elementor-cta__content-item elementor-content-item">
+      BizPortal is a platform developed by the Companies and Intellectual Property Commission (CIPC) to offer company registration and related services in a simple, seamless digital way that is completely paperless.
+  </div>
+
+  <!-- Button Section -->
+  <div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item">
+      <a class="elementor-cta__button elementor-button elementor-size-sm wpel-icon-right" href="http://www.bizportal.gov.za" target="_blank" rel="external noopener noreferrer">
+          Visit Website
+          <i class="wpel-icon fa fa-address-book" aria-hidden="true"></i>
+      </a>
+  </div>
+</div>
+
+<div class="elementor-cta__content">
+  <!-- Title Section -->
+  <div class="elementor-cta__title elementor-cta__content-item elementor-content-item">
+      Bizportal
+  </div>
+  
+  <!-- Description Section -->
+  <div class="elementor-cta__description elementor-cta__content-item elementor-content-item">
+      BizPortal is a platform developed by the Companies and Intellectual Property Commission (CIPC) to offer company registration and related services in a simple, seamless, and paperless digital way.
+  </div>
+
+  <!-- Button Section -->
+  <div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item">
+      <a class="elementor-cta__button elementor-button elementor-size-sm wpel-icon-right" href="http://www.bizportal.gov.za" target="_blank" rel="external noopener noreferrer">
+          Visit Website
+          <i class="wpel-icon fa fa-address-book" aria-hidden="true"></i>
+      </a>
+  </div>
+</div>
+
+<!-- Section for "How to Reserve a Company Name?" -->
+<div class="elementor-element elementor-widget-heading" data-id="5875e16" data-element_type="widget" data-widget_type="heading.default">
+  <div class="elementor-widget-container">
+      <h2 class="elementor-heading-title elementor-size-default">4. How to reserve a company name?</h2>
+  </div>
+</div>
+
+<div class="elementor-element elementor-widget-divider" data-id="a932801" data-element_type="widget" data-widget_type="divider.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-divider">
+          <span class="elementor-divider-separator"></span>
+      </div>
+  </div>
+</div>
+
+<!-- Explanation of Name Reservation Process -->
+<div class="elementor-element elementor-widget-text-editor" data-id="a8febb6" data-element_type="widget" data-widget_type="text-editor.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-text-editor elementor-clearfix">
+          <p>In terms of the Companies Act, 2008, a company may be registered with or without a company name. When a company is registered without a reserved name, its registration number automatically becomes the company name. The cost to reserve a name is only R50.</p>
+          <p>Name reservation can be done through the <a href="http://www.cipc.co.za" target="_blank" rel="noopener external noreferrer">CIPC website<i class="wpel-icon fa fa-address-book" aria-hidden="true"></i></a> or through the <a href="http://www.bizportal.gov.za" target="_blank" rel="noopener external noreferrer">Bizportal website<i class="wpel-icon fa fa-address-book" aria-hidden="true"></i></a>.</p>
+          <p><strong>CIPC process:</strong></p>
+          <ol>
+              <li>Login to the CIPC eServices portal with your registered login details (please ensure you have a valid email address).</li>
+              <li>Click on the Name Reservations icon, then click on the proposed name.</li>
+              <li>Proceed to enter your proposed names (a minimum of 1 name and a maximum of 4 names).</li>
+          </ol>
+      </div>
+  </div>
+</div>
+
+<!-- Icon Box for Approves Name -->
+<div class="elementor-element elementor-widget-icon-box" data-id="2e8184c" data-element_type="widget" data-widget_type="icon-box.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-icon-box-wrapper">
+          <div class="elementor-icon-box-icon">
+              <span class="elementor-icon">
+                  <i aria-hidden="true" class="far fa-check-circle"></i>
+              </span>
+          </div>
+          <div class="elementor-icon-box-content">
+              <p class="elementor-icon-box-title"></p>
+              <p class="elementor-icon-box-description">
+                  Approved name(s) will be denoted by a green tick, indicating that the name(s) is/are available for use.
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Icon Box for Rejected Name -->
+<div class="elementor-element elementor-widget-icon-box" data-id="d11e562" data-element_type="widget" data-widget_type="icon-box.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-icon-box-wrapper">
+          <div class="elementor-icon-box-icon">
+              <span class="elementor-icon">
+                  <i aria-hidden="true" class="far fa-times-circle"></i>
+              </span>
+          </div>
+          <div class="elementor-icon-box-content">
+              <p class="elementor-icon-box-title"></p>
+              <p class="elementor-icon-box-description">
+                  Rejected name(s) will be denoted by a red cross, indicating that the name(s) is/are not available for use.
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Additional Text -->
+<div class="elementor-element elementor-widget-text-editor" data-id="846cbcb" data-element_type="widget" data-widget_type="text-editor.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-text-editor elementor-clearfix">
+          <p>4. You can then proceed to lodge a name reservation for the chosen name. You will receive an SMS and an email confirming your name reservation, along with a tracking number.</p>
+      </div>
+  </div>
+</div>
+
+<iframe width="335" height="188" src="https://www.youtube.com/embed/-WivyXQHOnU" title="How to Reserve a Company Name" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<section class="wd-negative-gap elementor-section elementor-inner-section elementor-element elementor-element-832b011 elementor-section-boxed elementor-section-height-default elementor-section-height-default wd-section-disabled" data-id="832b011" data-element_type="section">
+  <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-row">
+          <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-380e390" data-id="380e390" data-element_type="column">
+              <div class="elementor-column-wrap elementor-element-populated">
+                  <div class="elementor-widget-wrap">
+                      <div class="elementor-element elementor-element-9fa86c4 player elementor-aspect-ratio-169 elementor-widget elementor-widget-video" data-id="9fa86c4" data-element_type="widget" data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/www.youtube.com\/watch?v=-WivyXQHOnU&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;,&quot;aspect_ratio&quot;:&quot;169&quot;}" data-widget_type="video.default">
+                          <div class="elementor-widget-container">
+                              <div class="elementor-wrapper elementor-fit-aspect-ratio elementor-open-inline">
+                                  <div class="elementor-video"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-24824f0" data-id="24824f0" data-element_type="column">
+              <div class="elementor-column-wrap elementor-element-populated">
+                  <div class="elementor-widget-wrap">
+                      <div class="elementor-element elementor-element-75a3039 player elementor-aspect-ratio-169 elementor-widget elementor-widget-video" data-id="75a3039" data-element_type="widget" data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/www.youtube.com\/watch?v=Yl4DgxBlPIA&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;,&quot;aspect_ratio&quot;:&quot;169&quot;}" data-widget_type="video.default">
+                          <div class="elementor-widget-container">
+                              <div class="elementor-wrapper elementor-fit-aspect-ratio elementor-open-inline">
+                                  <div class="elementor-video"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<div class="elementor-element elementor-element-42f3c82 elementor-widget elementor-widget-heading" data-id="42f3c82" data-element_type="widget" data-widget_type="heading.default">
+  <div class="elementor-widget-container">
+      <h2 class="elementor-heading-title elementor-size-default">5. Domain Name</h2>
+  </div>
+</div>
+
+<div class="elementor-element elementor-element-4d644bd elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="4d644bd" data-element_type="widget" data-widget_type="divider.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-divider">
+          <span class="elementor-divider-separator"></span>
+      </div>
+  </div>
+</div>
+
+<div class="elementor-element elementor-element-a173b91 color-scheme-inherit text-left elementor-widget elementor-widget-text-editor" data-id="a173b91" data-element_type="widget" data-widget_type="text-editor.default">
+  <div class="elementor-widget-container">
+      <div class="elementor-text-editor elementor-clearfix">
+          <p>A domain name is a unique address that represents a unique location on the internet. It serves as a memorable address and a means for visitors to find your website or e-mail address.</p>
+          <p>Credit to [ZADNA: <a href="http://www.zadna.org.za" data-wpel-link="external" target="_blank" rel="external noopener noreferrer" class="wpel-icon-right">www.zadna.org.za<i class="wpel-icon fa fa-address-book" aria-hidden="true"></i></a>]</p>
+      </div>
+  </div>
+</div>
+
+<div class="elementor-element elementor-element-d0da5a1 player elementor-aspect-ratio-169 elementor-widget elementor-widget-video" data-id="d0da5a1" data-element_type="widget" data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/">
+
+<iframe width="670" height="377" src="https://www.youtube.com/embed/klpZBcQQXHQ" title="CIPC .za Domain Registration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<div class="elementor-element elementor-element-f29bb43 elementor-widget elementor-widget-heading" data-id="f29bb43" data-element_type="widget" data-widget_type="heading.default">
+  <div class="elementor-widget-container">
+<h3 class="elementor-heading-title elementor-size-default">5.1 What to do before registering a domain name?</h3>		</div>
+  </div>
+  <div class="elementor-element elementor-element-8b500e9 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="8b500e9" data-element_type="widget" data-widget_type="divider.default">
+  <div class="elementor-widget-container">
+    <div class="elementor-divider">
+<span class="elementor-divider-separator">
+      </span>
+</div>
+  </div>
+  </div>
+  <div class="elementor-element elementor-element-05abd6d color-scheme-inherit text-left elementor-widget elementor-widget-text-editor" data-id="05abd6d" data-element_type="widget" data-widget_type="text-editor.default">
+  <div class="elementor-widget-container">
+          <div class="elementor-text-editor elementor-clearfix">
+  <p>Please check that all the conditions below are met before starting with the domain name registration process.</p><ol><li>Your CIPC customer profile must be up to date</li><li>Registered company/CC/Co-op to link the domain to</li><li>Debit or credit card for payment</li><li>Read the frequently asked questions </li></ol>					</div>
+      </div>
+  </div>
+  <div class="elementor-element elementor-element-6e92a4d elementor-widget elementor-widget-heading" data-id="6e92a4d" data-element_type="widget" data-widget_type="heading.default">
+  <div class="elementor-widget-container">
+<h3 class="elementor-heading-title elementor-size-default">5.2 How to check if a domain name exists?</h3>		</div>
+  </div>
+  <div class="elementor-element elementor-element-c6a8265 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="c6a8265" data-element_type="widget" data-widget_type="divider.default">
+  <div class="elementor-widget-container">
+    <div class="elementor-divider">
+<span class="elementor-divider-separator">
+      </span>
+</div>
+  </div>
+  </div>
+  <div class="elementor-element elementor-element-fdfc5ef color-scheme-inherit text-left elementor-widget elementor-widget-text-editor" data-id="fdfc5ef" data-element_type="widget" data-widget_type="text-editor.default">
+  <div class="elementor-widget-container">
+          <div class="elementor-text-editor elementor-clearfix">
+  <p>You will need to log in into CIPC eServices/domain name services/enterprise details.</p><p>You will need your enterprise number and confirmation of the first listed director’s ID number. Then proceed to type in the domain name of your choice under “proposed domain name”. If the domain name is not available you can check who owns the domain under “whois”</p><p>CIPC is in collaboration with <a href="http://www.zadna.org.za" target="_blank" rel="noopener external noreferrer" data-wpel-link="external" class="wpel-icon-right">ZADNA<i class="wpel-icon fa fa-address-book" aria-hidden="true"></i></a> and <a href="https://registry.net.za/" target="_blank" rel="noopener external noreferrer" data-wpel-link="external" class="wpel-icon-right">ZACR<i class="wpel-icon fa fa-address-book" aria-hidden="true"></i></a> now offers domain name registration for any registered company, close corporation or co-operative. The co.za domain name registration costs R51.75 which all goes to the regulator of domain names, ZADNA. Please note, that one cannot use the funds they have available in the CIPC virtual account; you will need to either a debit or credit card to register a domain</p><p>Domain registration through CIPC or ZADNA will have to be transferred to an accredited registrar within a year to avoid deregistration.</p>					</div>
+      </div>
+  </div>
+  <div class="elementor-element elementor-element-e2397b4 elementor-widget elementor-widget-heading" data-id="e2397b4" data-element_type="widget" data-widget_type="heading.default">
+  <div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default">6. Types of Businesses that can be registered on Bizportal</h2>		</div>
+  </div>
+  <div class="elementor-element elementor-element-447b57b elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="447b57b" data-element_type="widget" data-widget_type="divider.default">
+  <div class="elementor-widget-container">
+    <div class="elementor-divider">
+<span class="elementor-divider-separator">
+      </span>
+</div>
+  </div>
+  </div>
+  <div class="elementor-element elementor-element-9aaee80 color-scheme-inherit text-left elementor-widget elementor-widget-text-editor" data-id="9aaee80" data-element_type="widget" data-widget_type="text-editor.default">
+  <div class="elementor-widget-container">
+          <div class="elementor-text-editor elementor-clearfix">
+  <p>Two types of companies may be incorporated under the Companies Act 2008, namely Non-Profit Companies (NPC) and Profit companies.</p><p><strong>6.1 Non-Profit companies are characterised by:</strong></p><ul><li>Incorporated for a public benefit purpose</li><li>Minimum of 3 directors for incorporation</li><li>The name of the company must end with “NPC”</li></ul><p><strong>6.2 Profit companies are categorised as companies without restrictions on the transferability of their shares and that do not prohibit offers to the public.</strong></p><p>Profit companies may be incorporated under the following types:</p><ul><li><u>Personal Liability Companies</u> – is a private company that is mainly used by associations such as Lawyers, Engineers and Accountants. The company name must end with “Incorporated” usually abbreviated as “Inc”. <strong>(Not applicable in Bizportal and only can be done via CIPC eServices Portal).</strong></li><li><u>Private Companies (Pty) Ltd</u> – is a company treated by the South African law as a separate legal entity and has to register as a tax payer in its own right.</li></ul><p>Private Companies can be characterised by:</p><ul><li>Name of the private company must end with “Proprietary Limited” abbreviated as “(Pty) Ltd”</li><li>Private company does not offer shares to the public</li><li>All the shareholders are directors which means there no need to seek shareholder approval for certain board actions</li><li><u>Close Corporation (CC)</u> – a Close Corporation is a company similar to a private company. It is a legal entity with its own personality and uninterrupted succession and must register as a taxpayer in its own right. A CC has no share capital and therefore no shareholders. The owners of the CC are the members of the CC.</li></ul><p><strong><u>6.3 Number of Directors can be registered (various portals)</u></strong></p><p>(Pty) Ltd requires a minimum of 1 director to be incorporated and NPC requires a minimum of 3 directors to be incorporated.</p><p><strong><u>6.4 Number of shares. How many shares will the company be able to issue?</u></strong></p><p>You can decide from issuing 100 shares, 1000 shares, or other.</p><p><u><strong>6.5 Identification Documents</strong> </u></p><p>If registering through the Bizportal you will need the South African IDs for verification purposes and to answer questions such as:</p><ol><li>Date of issue of the identity document or card</li><li>Marriage date, as recorded by the Department of Home Affairs</li><li>Spouse’s ID number.</li></ol><p><strong><u>6.6 Residential address of the Directors</u></strong></p><p>In the process of registering a company, you will be required to provide the Directors addresses so make sure you have the correct addresses for director’s correspondence and geographical purposes.</p><p><strong><u>6.7 Residential address of the Business</u></strong></p><p>In the process of registering a company, you will be required to provide the business address (location of the business) so make sure you have the correct address of the business for company’s correspondence and geographical purposes.</p><p><strong><u>6.8 Number of employees</u><u> </u></strong></p><p>A Private Company can employ staff. Permanent staff will have to be registered for Unemployment Insurance Fund or Compensation Fund at the Department of Employment and Labour. The registration can be completed through the Bizportal as well.</p><p><strong><u>6.9 VAT Registration</u></strong></p><p>It is mandatory for a business to register for VAT if the total value of taxable supplies made in any consecutive twelve-month period exceed or is likely to exceed R1 million.</p><p>The business can register for VAT through <a href="https://www.sars.gov.za/TaxTypes/VAT/Pages/How-to-register-for-VAT-on-eFiling.aspx" target="_blank" rel="noopener external noreferrer" data-wpel-link="external" class="wpel-icon-right">SARS’s eFiling<i class="wpel-icon fa fa-address-book" aria-hidden="true"></i></a> alternatively, <a href="https://www.sars.gov.za/AllDocs/OpsDocs/SARSForms/VAT101%20-%20Value%20Added%20Tax%20Registration%20Application%20-%20External%20form.pdf" target="_blank" rel="noopener external noreferrer" data-wpel-link="external" class="wpel-icon-right">complete the VAT 101 Application for Registration form<i class="wpel-icon fa fa-address-book" aria-hidden="true"></i></a> and submit the form at the local SARS branch within 21 days from date of exceeding R1 million.</p><p><strong><u>6.10 Bank Account registration </u></strong></p><p>You can register for a bank account while registering your company through the Bizportal. All that you need to do is select the bank of your choice then your business information will be sent in real-time to the bank you have chosen.</p><ul><li><u>Which banks can the business owner register with at an initial stage?</u></li></ul><p>The CIPC has collaborated with banking institutions in an effort to offer one stop and seamless transactional experience with the following banks:</p><ul><li>Absa</li><li>First National Bank</li><li>Nedbank</li><li>Sasfin Bank</li><li>Standard Bank</li></ul><p>Make sure you have the following with you before you can proceed:</p><ul><li>South African ID</li><li>A 3D secure cheque or credit card that is enabled for online transactions</li><li>A list of up to four proposed names for your company</li><li>For director verification you need to have all directors’ IDs and marriage certificates if married.</li></ul>					</div>
+      </div>
+  </div>
+  <div class="elementor-element elementor-element-0deab22 elementor-cta--layout-image-left elementor-cta--mobile-layout-image-above elementor-cta--skin-classic elementor-animated-content elementor-widget elementor-widget-call-to-action" data-id="0deab22" data-element_type="widget" data-widget_type="call-to-action.default">
+  <div class="elementor-widget-container">
+    <div class="elementor-cta">
+    <div class="elementor-cta__bg-wrapper">
+  <div class="elementor-cta__bg elementor-bg" style="background-image: url(https://www.doingbusiness.org.za/wp-content/uploads/2020/10/Screenshot-2020-10-01-at-20.04.14.png);"></div>
+  <div class="elementor-cta__bg-overlay"></div>
+</div>
+        <div class="elementor-cta__content">
+  
+  <div class="elementor-cta__title elementor-cta__content-item elementor-content-item">Bizportal</div>
+            <div class="elementor-cta__description elementor-cta__content-item elementor-content-item">
+      BizPortal is a platform developed by the Companies and Intellectual Property Commission (CIPC) to offer company registration and related services in a simple seamless digital way which is completely paperless. 					</div>
+  
+            <div class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item ">
+    <a class="elementor-cta__button elementor-button elementor-size-sm wpel-icon-right" href="http://www.bizportal.gov.za" target="_blank" data-wpel-link="external" rel="external noopener noreferrer">
+      Visit Website					<i class="wpel-icon fa fa-address-book" aria-hidden="true"></i></a>
+    </div>
+        </div>
+      </div>
+  </div>
+  </div>
+      </div>
+    </div>
+</div>
+          </div>
+    </div>
+</section>
+
+<!-- Scroll to Top Button -->
+<a href="#top" id="scrollToTop">
+  <i class="fa fa-arrow-up"></i> <!-- Font Awesome Up Arrow -->
+</a>
+
+
+
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+         <script type="text/javascript">
+         $(document).ready(function(){
+      
+            $('.checkoption').click(function() {
+               $('.checkoption').not(this).prop('checked', false);
+            });
+      
+         });
+      
+      
+         window.addEventListener("scroll", function () {
+          let navbar = document.querySelector(".navbar");
+          if (window.scrollY > 50) {
+            navbar.classList.add("scroll"); // Add transparent effect
+          } else {
+            navbar.classList.remove("scroll"); // Restore navy background
+          }
+        });
+      
+      // Function to toggle the dropdown visibility when clicked
+      function toggleDropdown(event, dropdownId) {
+          event.preventDefault(); // Prevent the link from navigating
+        
+          // Get all dropdowns
+          var allDropdowns = document.querySelectorAll('.dropdown-content');
+          
+          // Loop through and hide all dropdowns, except the one that was clicked
+          allDropdowns.forEach(function(dropdown) {
+            if (dropdown.id !== dropdownId) {
+              dropdown.style.display = 'none';
+            }
+          });
+        
+          // Toggle the visibility of the selected dropdown
+          var dropdown = document.getElementById(dropdownId);
+          if (dropdown.style.display === 'block') {
+            dropdown.style.display = 'none';
+          } else {
+            dropdown.style.display = 'block';
+          }
+        }
+        
+        // Close dropdown if clicked outside of the dropdown
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
+            var dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(function(dropdown) {
+              dropdown.style.display = 'none';
+            });
+          }
+        }
+        
+      
+        <!-- JavaScript for Smooth Scrolling & Visibility -->
+            document.addEventListener("DOMContentLoaded", function () {
+                var scrollToTopBtn = document.getElementById("scrollToTop");
+        
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 300) { // Show button after scrolling down
+                        scrollToTopBtn.style.opacity = "1";
+                        scrollToTopBtn.style.visibility = "visible";
+                    } else {
+                        scrollToTopBtn.style.opacity = "0";
+                        scrollToTopBtn.style.visibility = "hidden";
+                    }
+                });
+        
+                // Smooth scroll effect
+                scrollToTopBtn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            });
+      
+      
+            document.addEventListener("DOMContentLoaded", function () {
+                var scrollToTopBtn = document.getElementById("scrollToTop");
+        
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 300) { // Show button after scrolling down
+                        scrollToTopBtn.style.opacity = "1";
+                        scrollToTopBtn.style.visibility = "visible";
+                    } else {
+                        scrollToTopBtn.style.opacity = "0";
+                        scrollToTopBtn.style.visibility = "hidden";
+                    }
+                });
+        
+                // Smooth scroll effect
+                scrollToTopBtn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            });
+
+
+          </Script>
+        <!---Above here-->
+      </div>
+          
+    </div>
+
+</body>
+</html>

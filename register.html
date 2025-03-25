@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMMEs Virtual Incubation</title>
+    <meta name="description" content="A template with animated columns and a content preview." />
+    <meta name="keywords" content="layout, uidesign, template, css, javascript, columns, grid" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/bml8yys.css">
+
+        <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" type="text/css" href="/css/register.css" />
+    
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+    
+
+    <style>
+        /* General Resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, #fff, #fff);
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-column {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            opacity: 0.4; /* Make images semi-transparent */
+            z-index: 1; /* Place images behind the form */
+        }
+
+        .image-column .column__img1 {
+            width: 120px; /* Set a fixed width */
+            height: 120px; /* Set a fixed height */
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+            object-fit: cover; /* Ensure images maintain zoom and fill the space */
+        }
+
+        .form-column {
+            position: relative;
+            z-index: 2; /* Place form in front of images */
+            background: #fff;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .wrapper .title-text {
+            display: flex;
+            width: 200%;
+        }
+
+        .wrapper .title {
+            width: 50%;
+            font-size: 35px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .slide-controls {
+            position: relative;
+            display: flex;
+            height: 50px;
+            width: 100%;
+            overflow: hidden;
+            margin: 30px 0 10px 0;
+            justify-content: space-between;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+        }
+
+        .slide-controls .slide {
+            height: 100%;
+            width: 100%;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 48px;
+            cursor: pointer;
+            z-index: 1;
+            transition: all 0.6s ease;
+        }
+
+        .slide-controls .slider-tab {
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            left: 0;
+            z-index: 0;
+            border-radius: 5px;
+            background: linear-gradient(to right, #5755B1, #5755B1);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        #signup:checked ~ .slider-tab {
+            left: 50%;
+        }
+
+        #signup:checked ~ label.signup {
+            color: #fff;
+            cursor: default;
+            user-select: none;
+        }
+
+        #signup:checked ~ label.login {
+            color: #000;
+        }
+
+        #login:checked ~ label.signup {
+            color: #000;
+        }
+
+        #login:checked ~ label.login {
+            cursor: default;
+            user-select: none;
+        }
+
+        .form-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .form-inner {
+            display: flex;
+            width: 200%;
+        }
+
+        .form-inner form {
+            width: 50%;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .form-inner form .field {
+            height: 50px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .form-inner form .field input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            padding-left: 15px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
+            border-bottom-width: 2px;
+            font-size: 17px;
+            transition: all 0.3s ease;
+        }
+
+        .form-inner form .field input:focus {
+            border-color: #12e8f0;
+        }
+
+        .form-inner form .field input::placeholder {
+            color: #999;
+            transition: all 0.3s ease;
+        }
+
+        form .field input:focus::placeholder {
+            color: #b3b3b3;
+        }
+
+        .form-inner form .pass-link {
+            margin-top: 5px;
+        }
+
+        .form-inner form .signup-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .form-inner form .pass-link a,
+        .form-inner form .signup-link a {
+            color: #0e45dd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .form-inner form .pass-link a:hover,
+        .form-inner form .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        form .btn {
+            height: 50px;
+            width: 100%;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        form .btn .btn-layer {
+            height: 100%;
+            width: 300%;
+            position: absolute;
+            left: -100%;
+            background: linear-gradient(to right, #5755B1, #5755B1, #5755B1, #5755B1);
+            border-radius: 5px;
+            transition: all 0.4s ease;
+        }
+
+        form .btn:hover .btn-layer {
+            left: 0;
+        }
+
+        form .btn input[type="submit"] {
+            height: 100%;
+            width: 100%;
+            z-index: 2;
+            position: relative;
+            background: none;
+            border: none;
+            color: #fff;
+            padding-left: 0;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 12px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .invalid {
+            border: 1px solid red;
+        }
+
+        .highlight {
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Push logo left & links right */
+            align-items: center;
+            padding: 05px 10px;
+            background-color: #00102E;
+            font-family: 'Poppins', sans-serif; /* Modern, professional font */
+          }
+          
+          .navbar-brand img {
+            height: 40px; /* Slightly larger logo */
+            width: 180px;
+          }
+          
+          .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px; /* Increased spacing for a more balanced layout */
+          }
+          
+          .nav-links li a {
+            padding-top: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 400; /* Slightly bolder for readability */
+            font-size: 0.8rem; /* Adjusted size for professional appearance */
+            padding: 12px 8px;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+          }
+          
+          /* Glass border hover effect */
+          .nav-links li a:hover {
+            color: #5755B1;
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
+          }
+
+        .footer {
+            background-color: #00102E; /* Dark blue background */
+            color: white; /* White text */
+            padding: 50px 0;
+            width: 100vw; /* Ensure full viewport width */
+            margin: 0; /* Remove any margins */
+            left: 0;
+            right: 0;
+        }
+        
+        .footer .container {
+            max-width: 90%; /* Make the container take full width */
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        .footer a {
+            color: white; /* Ensure links are white */
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Social Icons Styling */
+        .social-icons {
+            display: flex;
+            justify-content: flex-end; /* Align to the far right */
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .social-icons a:hover {
+            color: #5755B1;
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
+            padding: 5px;
+        }
+/* Ensure dropdown starts hidden */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #00102E;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Dropdown items styling */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure dropdown container is positioned correctly */
+.dropdown {
+    position: relative;
+}
+
+/* Add animation for dropdown */
+.dropdown-content.show {
+    display: block;
+}
+  
+          
+          
+    </style> 
+
+   
+        <!-- Navigation-->
+        <nav class="navbar">
+            <a class="navbar-brand" href="#page-top">
+                <img src="./assets/img/preview.png" alt="Logo">
+            </a>
+            <ul class="nav-links" style="padding-top: 10px; padding-right:8%">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Our Services</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">User 
+                        <span class="dropdown-icon"></span>
+                      </a>
+                      
+                    <div class="dropdown-content" id="dropdown1">
+                      <!-- <a href="#register">Register</a>
+                      <a href="#login">Login</a> -->
+                      <a href="#password-reset">Password Reset</a>
+                    </div>
+                  </li>
+                  
+            </ul>
+        </nav>
+</head>
+<body>
+    <div class="container">
+        <!-- Image Column -->
+        <div class="image-column">
+        <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/1.png)"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/2.png)"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/3.png)"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/4.png)"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/5.png)"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/6.png)"></div>
+            </div>
+        <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/7.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/8.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/5.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/39.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/11.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/12.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/13.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/29.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/16.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/17.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/18.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/20.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/23.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/24.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/25.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/26.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/11.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/20.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/25.png"></div>
+            </div>
+        <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/29.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/31.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/32.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/33.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/34.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/35.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/36.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/14.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/38.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/35.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/41.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/1.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/2.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/3.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/5.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/6.png"></div>
+
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/30.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/16.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/17.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/18.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/18.png"></div>
+            </div>
+        <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/24.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/23.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/20.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/13.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/12.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/11.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/39.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/5.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/8.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/41.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/35.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/38.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/14.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/36.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/55.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/34.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/33.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/32.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/31.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/30.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/25.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/11.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/26.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/25.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/24.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/23.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/20.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/18.png"></div>
+            </div>
+            <div class="column column--bottom">
+                <div class="column__img1" style="background-image:url(assets/logos/17.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/16.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/30.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/30.png"></div>
+                <div class="column__img1" style="background-image:url(assets/logos/13.png"></div>
+            </div>
+
+        </div>
+
+        <!-- Form Column -->
+        <div class="form-column">
+            <div class="wrapper">
+                <div class="form-container">
+                    <div class="slide-controls">
+                        <input type="radio" name="slide" id="login" checked>
+                        <input type="radio" name="slide" id="signup">
+                        <label for="login" class="slide login">Login</label>
+                        <label for="signup" class="slide signup">Sign Up</label>
+                        <div class="slider-tab"></div>
+                    </div>
+
+                    <?php if (isset($_SESSION['error'])): ?>
+                        <p style="color: red;"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
+                    <?php endif; ?>
+
+                    <div class="form-inner">
+                    <form class="login" id="login-form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                            <div class="field">
+                                <input type="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="field">
+                                <input type="password" name="password" placeholder="Password" required>
+                            </div>
+                            <div class="field btn">
+                                <div class="btn-layer"></div>
+                                <input type="submit" value="Login">
+                            </div>
+                            
+                            <!-- Insert Image Below the Login Button -->
+
+                            <div class="login-image" style="text-align: center; margin-top: 40px;">
+                                <img src="assets/img/Anim.gif" alt="Login Image" style="width: 100px;" class="column__img1">
+                            </div>
+
+                        </form>
+
+
+                        <form class="signup" id="signup-form" action="signup.php" method="POST">
+                            <div class="field">
+                                <input type="text" name="firstname" placeholder="First Name" required>
+                            </div>
+                            <div class="field">
+                                <input type="text" name="lastname" placeholder="Last Name" required>
+                            </div>
+                            <div class="field">
+                                <input type="text" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="field">
+                                <input type="password" name="password" placeholder="Password" required>
+                            </div>
+                            <div class="field btn">
+                                <div class="btn-layer"></div>
+                                <input type="submit" value="Sign Up" id="submit-btn">
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const loginForm = document.querySelector("form.login");
+    const loginBtn = document.querySelector("label.login");
+    const signupBtn = document.querySelector("label.signup");
+
+    // Function to switch to Sign Up
+    const switchToSignUp = () => {
+        loginForm.style.marginLeft = "-50%";
+        document.getElementById("signup").checked = true; // Ensure "Sign Up" is checked
+    };
+
+    // Function to switch to Login
+    const switchToLogin = () => {
+        loginForm.style.marginLeft = "0%";
+        document.getElementById("login").checked = true;
+    };
+
+    // Attach event listeners
+    signupBtn.onclick = switchToSignUp;
+    loginBtn.onclick = switchToLogin;
+
+    // Set Sign Up as default on page load
+    window.onload = switchToSignUp;
+    
+    
+    window.addEventListener("scroll", function () {
+        let navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scroll"); // Add transparent effect
+        } else {
+          navbar.classList.remove("scroll"); // Restore navy background
+        }
+      });
+    
+    // Function to toggle the dropdown visibility when clicked
+    function toggleDropdown(event, dropdownId) {
+        event.preventDefault(); // Prevent the link from navigating
+      
+        // Get all dropdowns
+        var allDropdowns = document.querySelectorAll('.dropdown-content');
+        
+        // Loop through and hide all dropdowns, except the one that was clicked
+        allDropdowns.forEach(function(dropdown) {
+          if (dropdown.id !== dropdownId) {
+            dropdown.style.display = 'none';
+          }
+        });
+      
+        // Toggle the visibility of the selected dropdown
+        var dropdown = document.getElementById(dropdownId);
+        if (dropdown.style.display === 'block') {
+          dropdown.style.display = 'none';
+        } else {
+          dropdown.style.display = 'block';
+        }
+      }
+      
+      // Close dropdown if clicked outside of the dropdown
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
+          var dropdowns = document.querySelectorAll('.dropdown-content');
+          dropdowns.forEach(function(dropdown) {
+            dropdown.style.display = 'none';
+          });
+        }
+      }
+  
+    
+</script>
+
+</body>
+</html>
