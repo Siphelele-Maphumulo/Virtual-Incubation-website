@@ -10823,18 +10823,7 @@ header.masthead * {
   text-align: center; /* Ensure heading is centered */
 }
 
-/* Subheading Styling */
-.subheading {
-  font-size: 1.25rem; /* Adjust subheading font size */
-  font-weight: 400; /* Regular weight for subheading */
-  line-height: 2.2; /* Increased line spacing for better readability */
-  white-space: pre-line; /* Ensures correct line breaks */
-  color: #fff;
-  max-width: 100%; /* Control width of subheading */
-  margin: 0 auto; /* Centers the subheading */
-  text-align: center; /* Ensure subheading is centered */
-  position: relative; /* Ensure it's positioned relatively to parent container */
-}
+
 
 
 /* Logo Styling */
@@ -11235,14 +11224,6 @@ section#contact form#contactForm :-ms-input-placeholder {
   width: 100%; /* Ensures it spans the full width */
 }
 
-.subheading {
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  margin-bottom: 20px;
-  font-family: "Roboto", sans-serif;
-
-  text-align: center;
-}
 
   /* Centering container */
   .icon-box-container {

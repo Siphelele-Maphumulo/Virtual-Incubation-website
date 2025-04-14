@@ -28,6 +28,106 @@
     
     <title>Footer</title>
     <style>
+        /* Contact Section Styles */
+        .contact-section {
+            background-color: #00102E;
+            color: white;
+            padding: 60px 0;
+            width: 100%;
+        }
+        
+        .contact-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .section-heading {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .section-subheading {
+            font-size: 1.25rem;
+            margin-bottom: 50px;
+        }
+        
+        /* Form Styles */
+        #contactForm {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #5755B1;
+            box-shadow: 0 0 5px rgba(87, 85, 177, 0.5);
+            outline: none;
+        }
+        
+        .form-group-textarea textarea {
+            height: 180px;
+            resize: vertical;
+        }
+        
+        .btn-primary {
+            background-color: #5755B1;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3f3d8f;
+        }
+        
+        .invalid-feedback {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .section-heading {
+                font-size: 2rem;
+            }
+            
+            .section-subheading {
+                font-size: 1rem;
+            }
+            
+            #contactForm {
+                padding: 20px;
+            }
+            
+            .row.align-items-stretch {
+                flex-direction: column;
+            }
+            
+            .col-md-6 {
+                width: 100%;
+                padding: 0;
+            }
+        }
+
         /* Footer Base Styles */
         .footer {
             background-color: #00102E;
@@ -55,7 +155,6 @@
         
         .footer-container {  
             width: 100%;
-            height: 110%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
@@ -251,73 +350,6 @@
 </head>
 <body>
 
-
-   <!-- Contact-->
-   <section class="contact-section" id="contact">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted" style="color: azure;">
-                Drop us a line via email for inquiries or collaborations</h3>
-        </div>
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- * * SB Forms Contact Form * *-->
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- This form is pre-integrated with SB Forms.-->
-        <!-- To make this form functional, sign up at-->
-        <!-- https://startbootstrap.com/solution/contact-forms-->
-        <!-- to get an API token!-->
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-            <div class="row align-items-stretch mb-5">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <!-- Name input-->
-                        <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                    </div>
-                    <div class="form-group">
-                        <!-- Email address input-->
-                        <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                    </div>
-                    <div class="form-group mb-md-0">
-                        <!-- Phone number input-->
-                        <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group form-group-textarea mb-md-0">
-                        <!-- Message input-->
-                        <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                    </div>
-                </div>
-            </div>
-            <!-- Submit success message-->
-            <!---->
-            <!-- This is what your users will see when the form-->
-            <!-- has successfully submitted-->
-            <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center text-white mb-3">
-                    <div class="fw-bolder">Form submission successful!</div>
-                    To activate this form, sign up at
-                    <br />
-                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                </div>
-            </div>
-            <!-- Submit error message-->
-            <!---->
-            <!-- This is what your users will see when there is-->
-            <!-- an error submitting the form-->
-            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-            <!-- Submit Button-->
-            <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-        </form>
-    </div>
-</section>
-
 <div>
 
 </div>
@@ -451,6 +483,9 @@
                 behavior: "smooth"
             });
         });
-    </script>
+
+        </script>
+
+        <script src="js/validation.js"></script>
 </body>
 </html>

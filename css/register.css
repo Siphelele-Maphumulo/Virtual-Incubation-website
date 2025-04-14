@@ -1038,3 +1038,70 @@ h1 {
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
           }
+
+		  /* Style for the dropdown icon */
+/* Style the dropdown container */
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		  }
+		  
+		  /* Style the button inside the dropdown */
+		  .dropbtn {
+		  
+		  }
+		  
+		  /* Dropdown content (hidden by default) */
+		  .dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #00102E;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+			z-index: 1;
+			border-radius: 5px;
+			text-align: left; /* Vertically align the items */
+		  }
+		  
+		  /* Style for the links inside the dropdown */
+		  .dropdown-content a {
+			color: #00102E; /* Dark color for text */
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		  }
+		  
+		  /* Change color of links on hover */
+		  .dropdown-content a:hover {
+			color: #5755B1;
+			border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
+		  }
+		  
+		  /* Show the dropdown when the button is clicked (via the toggleDropdown function) */
+		  .dropdown.show .dropdown-content {
+			display: block;
+		  }
+		  
+		  /* Change the background color of the button when hovered */
+		  .dropdown:hover .dropbtn {
+			color: #5755B1;
+			border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
+		  }
+		  
+		  /* Style for the dropdown icon */
+		  .dropdown-icon {
+			width: 0;
+			height: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 5px solid white; /* Triangle pointing down */
+			position: absolute;
+			left: 40px; /* Position it on the right side of the button */
+			top: 50%;
+			transform: translateY(-50%); /* Vertically center the icon */
+		  }
+  

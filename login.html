@@ -6,14 +6,15 @@
     <title>SMMEs Virtual Incubation</title>
     <meta name="description" content="A template with animated columns and a content preview." />
     <meta name="keywords" content="layout, uidesign, template, css, javascript, columns, grid" />
-    <meta name="author" content="Codrops" />
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/bml8yys.css">
-
-        <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" type="text/css" href="/css/register.css" />
     
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" type="text/css" href="/css/register.css" />
     
     <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
     
@@ -27,52 +28,75 @@
             font-family: 'Raleway', sans-serif;
         }
 
-        html, body {
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(to right, #fff, #fff);
-            overflow: hidden;
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-gray);
+            background-color: var(--white);
         }
 
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-blue);
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
         .container {
             position: relative;
-            height: 100vh;
+            min-height: 100vh; /* Changed from height: 100vh */
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0px;
+            z-index: 1;
         }
 
-        .image-column {
-            position: absolute;
+        .image-background {
+            position: fixed;
             top: 0;
             left: 0;
-            width: 110%;
+            width: 100%;
             height: 100%;
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-auto-rows: 120px;
             gap: 10px;
-            opacity: 0.4; /* Make images semi-transparent */
-            z-index: 1; /* Place images behind the form */
+            opacity: 0.3;
+            z-index: 0;
+            padding: 10px;
+            overflow: hidden;
         }
 
-        .image-column .column__img1 {
-            width: 120px; /* Set a fixed width */
-            height: 120px; /* Set a fixed height */
-            background-size: cover;
+        .image-background .bg-img {
+            width: 100%;
+            height: 100%;
+            background-size: contain;
             background-position: center;
-            margin-bottom: 10px;
-            object-fit: cover; /* Ensure images maintain zoom and fill the space */
+            background-repeat: no-repeat;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-background .bg-img:hover {
+            transform: scale(1.1);
+            opacity: 0.7;
         }
 
         .form-column {
             position: relative;
-            z-index: 2; /* Place form in front of images */
-            background: #fff;
-            padding: 60px;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
             border-radius: 10px;
             box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
+            max-width: 350px;
             width: 100%;
+            margin: 50px 0;
         }
 
         .wrapper .title-text {
@@ -271,295 +295,380 @@
             font-weight: bold;
         }
         
-        .navbar {
-            display: flex;
-            justify-content: space-between; /* Push logo left & links right */
-            align-items: center;
-            padding: 05px 10px;
-            background-color: #00102E;
-            font-family: 'Poppins', sans-serif; /* Modern, professional font */
-          }
-          
-          .navbar-brand img {
-            height: 40px; /* Slightly larger logo */
-            width: 180px;
-          }
-          
-          .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 10px; /* Increased spacing for a more balanced layout */
-          }
-          
-          .nav-links li a {
-            padding-top: 20px;
-            text-decoration: none;
-            color: white;
-            font-weight: 400; /* Slightly bolder for readability */
-            font-size: 0.8rem; /* Adjusted size for professional appearance */
-            padding: 12px 8px;
-            position: relative;
-            transition: all 0.3s ease-in-out;
-          }
-          
-          /* Glass border hover effect */
-          .nav-links li a:hover {
-            color: #5755B1;
-            border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
-          }
+             /* Navigation */
+             .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                box-shadow: var(--box-shadow);
+                transition: var(--transition);
+            }
+    
+            .navbar.scroll {
+                padding: 0.5rem 0%;
+                background-color: rgba(0, 16, 46, 0.95);
+            }
+    
+            .navbar-brand img {
+                height: 50px;
+                transition: var(--transition);
+            }
+    
+            .nav-links {
+                display: flex;
+                list-style: none;
+                gap: -20px;
+                font-size: small;
+            }
+    
+            .nav-links li a {
+                color: var(--white);
+                font-weight: 200;
+                padding: 0.5rem 1rem;
+                border-radius: var(--border-radius);
+                transition: var(--transition);
+            }
+    
+            .nav-links li a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            
+            
+             /* Dropdown */
+             .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: var(--primary-color);
+                min-width: 150px;
+                box-shadow: var(--box-shadow);
+                border-radius: var(--border-radius);
+                z-index: 1;
+            }
+    
+            .dropdown-content a {
+                color: var(--white);
+                padding: 0.5rem 1rem;
+                display: block;
+                transition: var(--transition);
+            }
+    
+            .dropdown-content a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+    
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+              
 
-        .footer {
-            background-color: #00102E; /* Dark blue background */
-            color: white; /* White text */
-            padding: 50px 0;
-            width: 100vw; /* Ensure full viewport width */
-            margin: 0; /* Remove any margins */
-            left: 0;
-            right: 0;
-        }
-        
-        .footer .container {
-            max-width: 90%; /* Make the container take full width */
-            padding-left: 0;
-            padding-right: 0;
-        }
-        
-        .footer a {
-            color: white; /* Ensure links are white */
+        /* Scroll to Top Button */
+        #scrollToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #29C0A3;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        #scrollToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #scrollToTop:hover {
+            background: #3a3891;
+            transform: translateY(-5px);
+        }
+
+        /* Footer Styles */
+        .footer-section {
+            background-color: #00102E; /* Solid dark blue */
+            color: #fff;
+            padding: 60px 0 30px;
+            position: relative;
+            z-index: 1;
         }
         
-        .footer a:hover {
-            text-decoration: underline;
+        .footer-bottom {
+            background-color: #00102E; /* Matching dark blue */
+            padding: 20px 0;
+            color: #ecf0f1;
+            border-top: 1px solid rgba(255,255,255,0.1); /* Optional subtle border */
         }
-        
-        /* Social Icons Styling */
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+            padding-bottom: 30px;
+        }
+
+        .footer-col {
+            flex: 1 0 25%;
+            padding: 0 15px;
+            margin-bottom: 30px;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .footer-col p {
+            color: #ecf0f1;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            margin-bottom: 10px;
+            color: #ecf0f1;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-list li:before {
+            content: "•";
+            color: #2AC6A7;
+            position: absolute;
+            left: 0;
+        }
+
+        .subscription-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .subscription-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .subscription-form button {
+            background-color: #2AC6A7;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .subscription-form button:hover {
+            background-color: #249a88;
+        }
+
+        .footer-bottom-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .footer-bottom-col {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            max-height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .footer-link {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #2AC6A7;
+        }
+
         .social-icons {
             display: flex;
-            justify-content: flex-end; /* Align to the far right */
+            justify-content: center;
             gap: 15px;
         }
-        
+
         .social-icons a {
-            color: white;
-            font-size: 24px;
-            transition: color 0.3s ease-in-out;
+            color: #ecf0f1;
+            background-color: #2c3e50;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
         }
-        
+
         .social-icons a:hover {
-            color: #5755B1;
-            border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
-            padding: 5px;
+            background-color: #2AC6A7;
+            transform: translateY(-3px);
         }
-        
-/* Ensure dropdown starts hidden */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #00102E;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    border-radius: 5px;
-    overflow: hidden;
-}
 
-/* Dropdown items styling */
-.dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: 0.3s;
-}
+        .licensing-text {
+            font-size: 12px;
+            text-align: center;
+            color: #bdc3c7;
+            line-height: 1.5;
+        }
 
-/* Hover effect */
-.dropdown-content a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
+        .full-width {
+            flex: 0 0 100%;
+        }
 
-/* Ensure dropdown container is positioned correctly */
-.dropdown {
-    position: relative;
-}
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .footer-col {
+                flex: 1 0 50%;
+            }
+            
+            .form-column {
+                padding: 30px;
+            }
+        }
 
-/* Add animation for dropdown */
-.dropdown-content.show {
-    display: block;
-}
-  
+        @media (max-width: 768px) {
+            .footer-col {
+                flex: 1 0 100%;
+            }
+            
+            .footer-bottom-col {
+                flex: 1 0 100%;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .footer-bottom-row {
+                flex-direction: column;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                margin-top: 10px;
+            }
+            
+            .dropdown-content {
+                position: static;
+                width: 100%;
+            }
+            
+            .form-column {
+                padding: 20px;
+                margin-top: 80px;
+            }
+            
+            .image-background {
+                position: fixed; /* Changed from fixed to absolute */
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                grid-auto-rows: 120px;
+                gap: 10px;
+                opacity: 0.3;
+                z-index: 0;
+                padding: 10px;
+                pointer-events: none; /* Allows clicking through to form elements */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-column {
+                padding: 15px;
+            }
+            
+            .slide-controls .slide {
+                font-size: 16px;
+            }
+            
+            #scrollToTop {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
     </style> 
-
-   
-        <!-- Navigation-->
-        <nav class="navbar">
-            <a class="navbar-brand" href="#page-top">
-                <img src="./assets/img/preview.png" alt="Logo">
-            </a>
-            <ul class="nav-links" style="padding-top: 10px; padding-right:8%">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#services">Our Services</a></li>
-                <li><a href="index.html#about">About Us</a></li>
-                <li><a href="index.html#contact">Contact Us</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">User 
-                        <span class="dropdown-icon"></span>
-                      </a>
-                      
-                    <div class="dropdown-content" id="dropdown1">
-                      <!-- <a href="#register">Register</a>
-                      <a href="#login">Login</a> -->
-                      <a href="#password-reset">Password Reset</a>
-                    </div>
-                  </li>
-                  
-            </ul>
-        </nav>
 </head>
 <body>
-    <div class="container">
-        <!-- Image Column -->
-        <div class="image-column">
-        <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/1.png)"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/2.png)"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/3.png)"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/4.png)"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/5.png)"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/6.png)"></div>
-            </div>
-        <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/7.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/8.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/5.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/39.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/11.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/12.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/13.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/29.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/16.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/17.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/18.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/20.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/23.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/24.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/25.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/26.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/11.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/20.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/25.png"></div>
-            </div>
-        <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/29.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/31.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/32.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/33.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/34.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/35.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/36.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/14.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/38.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/35.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/41.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/1.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/2.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/3.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/5.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/6.png"></div>
+    <!-- Navigation-->
+    <nav class="navbar" style="background-color: #00102E; color:#fff">
+        <a class="navbar-brand" href="#page-top">
+            <img src="./assets/img/preview.png" alt="Logo">
+        </a>
+        <ul class="nav-links" style="padding-top: 0px; padding-right:2%">
+            <li><a href="home.html"><i class="fas fa-house"></i>Home</a></li>
+            <li><a href="index.html#services"><i class="fas fa-handshake"></i>Our Services</a></li>
+            <li><a href="index.html#digital"><i class="fas fa-info-circle"></i>About Us</a></li>
+            <li><a href="index.html#contact"><i class="fas fa-envelope"></i>Contact Us</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')"> 
+                    <i class="fa fa-user"></i> User  
+                    <span class="dropdown-icon"><i class="fa fa-caret-down"></i></span>
+                </a>
+                <div class="dropdown-content" id="dropdown1">
+                    <a href="#password-reset"><i class="fas fa-key"></i> Password Reset</a>    
+                </div>
+            </li>
+        </ul>
+    </nav>
 
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/30.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/16.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/17.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/18.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/18.png"></div>
-            </div>
-        <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/24.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/23.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/20.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/13.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/12.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/11.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/39.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/5.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/8.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/41.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/35.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/38.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/14.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/36.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/55.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/34.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/33.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/32.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/31.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/30.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/25.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/11.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/26.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/25.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/24.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/23.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/40.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/28.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/20.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/18.png"></div>
-            </div>
-            <div class="column column--bottom">
-                <div class="column__img1" style="background-image:url(assets/logos/17.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/16.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/15.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/30.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/30.png"></div>
-                <div class="column__img1" style="background-image:url(assets/logos/13.png"></div>
-            </div>
-
-        </div>
+    <div class="container" style="padding-bottom: 0%;padding-top: 40px;">
+        <!-- Image Background -->
+        <div class="image-background" id="imageBackground"></div>
 
         <!-- Form Column -->
         <div class="form-column">
             <div class="wrapper">
                 <div class="form-container">
-
                     <div class="slide-controls">
                         <input type="radio" name="slide" id="login" checked>
                         <input type="radio" name="slide" id="signup">
@@ -573,7 +682,6 @@
                     <?php endif; ?>
 
                     <div class="form-inner">
-                    
                         <form class="login" id="login-form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                             <div class="field">
                                 <input type="email" name="email" placeholder="Email" required>
@@ -588,7 +696,6 @@
                             <div class="login-image" style="text-align: center; margin-top: 40px;">
                                 <img src="assets/img/Anim.gif" alt="Login Image" style="width: 100px;" class="column__img1">
                             </div>
-
                         </form>
 
                         <form class="signup" id="signup-form" action="signup.php" method="POST">
@@ -615,62 +722,201 @@
         </div>
     </div>
 
-    <script>
-    const loginForm = document.querySelector("form.login");
-    const loginBtn = document.querySelector("label.login");
-    const signupBtn = document.querySelector("label.signup");
-
-    // Function to switch to Login (default view)
-    const switchToLogin = () => {
-        loginForm.style.marginLeft = "0%";
-        document.getElementById("login").checked = true; // Ensure "Login" is checked
-    };
-
-    // Function to switch to Sign Up
-    const switchToSignUp = () => {
-        loginForm.style.marginLeft = "-50%";
-        document.getElementById("signup").checked = true;
-    };
-
-    // Attach event listeners
-    signupBtn.onclick = switchToSignUp;
-    loginBtn.onclick = switchToLogin;
-
-    // Set Login as default on page load
-    window.onload = switchToLogin;
-
-
-// Function to toggle dropdown visibility
-function toggleDropdown(event, dropdownId) {
-    event.preventDefault(); // Prevent page reload on click
-
-    var dropdown = document.getElementById(dropdownId);
-
-    // Close all dropdowns before toggling the selected one
-    document.querySelectorAll('.dropdown-content').forEach(function (item) {
-        if (item !== dropdown) {
-            item.classList.remove('show');
-        }
-    });
-
-    // Toggle the selected dropdown
-    dropdown.classList.toggle('show');
-}
-
-// Close dropdown when clicking outside
-document.addEventListener('click', function (event) {
-    if (!event.target.closest('.dropdown')) {
-        document.querySelectorAll('.dropdown-content').forEach(function (dropdown) {
-            dropdown.classList.remove('show');
-        });
-    }
-});
-
-  
+    <!-- Scroll to Top Button -->
+    <a href="#top" id="scrollToTop">
+        <i class="fa fa-arrow-up"></i>
+    </a>
     
-</script>
+    <!-- Footer Content Section -->
+    <section class="footer-section">
+        <div class="footer-container">
+            <div class="footer-row">
+                <!-- About Us Column -->
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>
+                        SMMEs Virtual Incubation is focused on incubating to accelerate the first mile and guiding the journey to the last mile. 
+                        We incubate and grow small and micro companies with market valuation potential headquartered in South Africa.
+                    </p>
+                    <p>
+                        Monday – Thursday: 08:30 - 16:30 <br>
+                        Friday: 08:30 – 02:30 <br>
+                        Saturday: 10:00 – 02:30 <br>
+                        Sunday: Closed
+                    </p>
+                </div>
+
+                <!-- Services Column -->
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="service-list">  
+                        <li>SETA Registration and Mentorship</li>  
+                        <li>Business Profile</li>  
+                        <li>Marketing and Advertising</li>  
+                        <li>Business Mentorship</li>  
+                        <li>WSP - Workplace Skills Plan submission (closes 31 April)</li>  
+                        <li>SARS (Tax Returns and more)</li>  
+                        <li>Funding for your business</li>  
+                        <li>Workshops</li>  
+                        <li>Recruitment</li>  
+                    </ul>  
+                </div>
+
+                <!-- Recent Posts Column -->
+                <div class="footer-col">
+                    <h3>Recent Post</h3>
+                    <div id="recent-posts">
+                        <!-- Blog posts will be loaded here dynamically -->
+                        <p>Check back soon for updates!</p>
+                    </div>
+                </div>
+
+                <!-- Contact Us Column -->
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>📍 Unit 8E Trio Industrial Park, 8 Shepstone Road, The Wolds, New Germany</p>  
+                    <p>📞 +27633137391</p>  
+                    <p>✉ info@codingmadeeasy.co.za</p>  
+
+                    <!-- Subscription Form -->
+                    <h4>Subscribe to Our Newsletter</h4>
+                    <form class="subscription-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 
+        <footer class="footer-bottom" style="background-color: #00102E;">
+            <div class="footer-container">
+                <div class="footer-bottom-row">
+                    <div class="footer-bottom-col">
+                        <a href="#!" class="footer-link">Terms of Use</a>
+                        <a href="#!" class="footer-link">Privacy Policy</a>
+                    </div>
+                    
+                    <div class="footer-bottom-col">
+                        <img src="assets/img/logos/logo.png" alt="Company Logo" class="footer-logo">
+                        <p>©2025 SMMEs VIRTUAL INCUBATION</p>
+    
+                    </div>
+                    
+                    <div class="footer-bottom-col">
+                        <div class="social-icons">
+                            <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="footer-bottom-row">
+                    <div class="footer-bottom-col full-width">
+                        <p class="licensing-text">
+                            Code SA Virtual Incubation is a licensed business services provider in terms of the Business 
+                            Advisory and Intermediary Services Act and a registered credit provider in terms of the 
+                            National Credit Act, registration number NCRCP15.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
+    </section>
+
+    <!-- Footer Bottom Section -->
+
+
+    <script>
+        // Function to toggle dropdown visibility
+        function toggleDropdown(event, dropdownId) {
+            event.preventDefault();
+            var dropdown = document.getElementById(dropdownId);
+            
+            // Close all dropdowns before toggling the selected one
+            document.querySelectorAll('.dropdown-content').forEach(function(item) {
+                if (item !== dropdown) {
+                    item.classList.remove('show');
+                }
+            });
+            
+            // Toggle the selected dropdown
+            dropdown.classList.toggle('show');
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-content').forEach(function(dropdown) {
+                    dropdown.classList.remove('show');
+                });
+            }
+        });
+
+        // Form switching functionality
+        const loginForm = document.querySelector("form.login");
+        const loginBtn = document.querySelector("label.login");
+        const signupBtn = document.querySelector("label.signup");
+        
+        const switchToLogin = () => {
+            loginForm.style.marginLeft = "0%";
+            document.getElementById("login").checked = true;
+        };
+        
+        const switchToSignUp = () => {
+            loginForm.style.marginLeft = "-50%";
+            document.getElementById("signup").checked = true;
+        };
+        
+        signupBtn.onclick = switchToSignUp;
+        loginBtn.onclick = switchToLogin;
+        
+        window.onload = switchToLogin;
+
+        // Scroll to Top Button Functionality
+        window.addEventListener("scroll", function() {
+            var scrollToTopButton = document.getElementById("scrollToTop");
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add("show");
+            } else {
+                scrollToTopButton.classList.remove("show");
+            }
+        });
+        
+        document.getElementById("scrollToTop").addEventListener("click", function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // Random background images
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageBackground = document.getElementById('imageBackground');
+            const imageCount = 100; // Total number of images available
+            const imagesToShow = 100; // Number of images to display
+            
+            // Create an array of all possible image numbers
+            const allImages = Array.from({length: imageCount}, (_, i) => i + 1);
+            
+            // Shuffle the array to get random order
+            const shuffled = allImages.sort(() => 0.5 - Math.random());
+            
+            // Take the first 'imagesToShow' images
+            const selectedImages = shuffled.slice(0, imagesToShow);
+            
+            // Create image elements
+            selectedImages.forEach(imgNum => {
+                const imgDiv = document.createElement('div');
+                imgDiv.className = 'bg-img';
+                imgDiv.style.backgroundImage = `url(assets/logos/${imgNum}.png)`;
+                imageBackground.appendChild(imgDiv);
+            });
+        });
+    </script>
 </body>
 </html>

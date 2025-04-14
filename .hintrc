@@ -7,7 +7,8 @@
       "default",
       {
         "ignore": [
-          "-webkit-text-size-adjust"
+          "-webkit-text-size-adjust",
+          "user-select"
         ]
       }
     ],

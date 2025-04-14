@@ -1,0 +1,2858 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Company Preview with Details</title>
+		<meta name="description" content="Book Preview with BookBlock" />
+		<meta name="keywords" content="BookBlock, book preview, look inside, css, transforms, animations, css3, 3d, perspective, fullscreen" />
+		<meta name="author" content="Codrops" />
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/demo.css" />
+		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/bookblock.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script>
+		/* Modernizr 2.7.1 (Custom Build) | MIT & BSD
+ * Build: http://modernizr.com/download/#-cssanimations-csstransforms3d-csstransitions-shiv-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes-load
+ */
+;window.Modernizr=function(a,b,c){function z(a){j.cssText=a}function A(a,b){return z(m.join(a+";")+(b||""))}function B(a,b){return typeof a===b}function C(a,b){return!!~(""+a).indexOf(b)}function D(a,b){for(var d in a){var e=a[d];if(!C(e,"-")&&j[e]!==c)return b=="pfx"?e:!0}return!1}function E(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:B(f,"function")?f.bind(d||b):f}return!1}function F(a,b,c){var d=a.charAt(0).toUpperCase()+a.slice(1),e=(a+" "+o.join(d+" ")+d).split(" ");return B(b,"string")||B(b,"undefined")?D(e,b):(e=(a+" "+p.join(d+" ")+d).split(" "),E(e,b,c))}var d="2.7.1",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m=" -webkit- -moz- -o- -ms- ".split(" "),n="Webkit Moz O ms",o=n.split(" "),p=n.toLowerCase().split(" "),q={},r={},s={},t=[],u=t.slice,v,w=function(a,c,d,e){var f,i,j,k,l=b.createElement("div"),m=b.body,n=m||b.createElement("body");if(parseInt(d,10))while(d--)j=b.createElement("div"),j.id=e?e[d]:h+(d+1),l.appendChild(j);return f=["&#173;",'<style id="s',h,'">',a,"</style>"].join(""),l.id=h,(m?l:n).innerHTML+=f,n.appendChild(l),m||(n.style.background="",n.style.overflow="hidden",k=g.style.overflow,g.style.overflow="hidden",g.appendChild(n)),i=c(l,a),m?l.parentNode.removeChild(l):(n.parentNode.removeChild(n),g.style.overflow=k),!!i},x={}.hasOwnProperty,y;!B(x,"undefined")&&!B(x.call,"undefined")?y=function(a,b){return x.call(a,b)}:y=function(a,b){return b in a&&B(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=u.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(u.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(u.call(arguments)))};return e}),q.cssanimations=function(){return F("animationName")},q.csstransforms3d=function(){var a=!!F("perspective");return a&&"webkitPerspective"in g.style&&w("@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}",function(b,c){a=b.offsetLeft===9&&b.offsetHeight===3}),a},q.csstransitions=function(){return F("transition")};for(var G in q)y(q,G)&&(v=G.toLowerCase(),e[v]=q[G](),t.push((e[v]?"":"no-")+v));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)y(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},z(""),i=k=null,function(a,b){function l(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function m(){var a=s.elements;return typeof a=="string"?a.split(" "):a}function n(a){var b=j[a[h]];return b||(b={},i++,a[h]=i,j[i]=b),b}function o(a,c,d){c||(c=b);if(k)return c.createElement(a);d||(d=n(c));var g;return d.cache[a]?g=d.cache[a].cloneNode():f.test(a)?g=(d.cache[a]=d.createElem(a)).cloneNode():g=d.createElem(a),g.canHaveChildren&&!e.test(a)&&!g.tagUrn?d.frag.appendChild(g):g}function p(a,c){a||(a=b);if(k)return a.createDocumentFragment();c=c||n(a);var d=c.frag.cloneNode(),e=0,f=m(),g=f.length;for(;e<g;e++)d.createElement(f[e]);return d}function q(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return s.shivMethods?o(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+m().join().replace(/[\w\-]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(s,b.frag)}function r(a){a||(a=b);var c=n(a);return s.shivCSS&&!g&&!c.hasCSS&&(c.hasCSS=!!l(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),k||q(a,c),a}var c="3.7.0",d=a.html5||{},e=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,f=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,g,h="_html5shiv",i=0,j={},k;(function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",g="hidden"in a,k=a.childNodes.length==1||function(){b.createElement("a");var a=b.createDocumentFragment();return typeof a.cloneNode=="undefined"||typeof a.createDocumentFragment=="undefined"||typeof a.createElement=="undefined"}()}catch(c){g=!0,k=!0}})();var s={elements:d.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video",version:c,shivCSS:d.shivCSS!==!1,supportsUnknownElements:k,shivMethods:d.shivMethods!==!1,type:"default",shivDocument:r,createElement:o,createDocumentFragment:p};a.html5=s,r(b)}(this,b),e._version=d,e._prefixes=m,e._domPrefixes=p,e._cssomPrefixes=o,e.testProp=function(a){return D([a])},e.testAllProps=F,e.testStyles=w,e.prefixed=function(a,b,c){return b?F(a,b,c):F(a,"pfx")},g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+t.join(" "):""),e}(this,this.document),function(a,b,c){function d(a){return"[object Function]"==o.call(a)}function e(a){return"string"==typeof a}function f(){}function g(a){return!a||"loaded"==a||"complete"==a||"uninitialized"==a}function h(){var a=p.shift();q=1,a?a.t?m(function(){("c"==a.t?B.injectCss:B.injectJs)(a.s,0,a.a,a.x,a.e,1)},0):(a(),h()):q=0}function i(a,c,d,e,f,i,j){function k(b){if(!o&&g(l.readyState)&&(u.r=o=1,!q&&h(),l.onload=l.onreadystatechange=null,b)){"img"!=a&&m(function(){t.removeChild(l)},50);for(var d in y[c])y[c].hasOwnProperty(d)&&y[c][d].onload()}}var j=j||B.errorTimeout,l=b.createElement(a),o=0,r=0,u={t:d,s:c,e:f,a:i,x:j};1===y[c]&&(r=1,y[c]=[]),"object"==a?l.data=c:(l.src=c,l.type=a),l.width=l.height="0",l.onerror=l.onload=l.onreadystatechange=function(){k.call(this,r)},p.splice(e,0,u),"img"!=a&&(r||2===y[c]?(t.insertBefore(l,s?null:n),m(k,j)):y[c].push(l))}function j(a,b,c,d,f){return q=0,b=b||"j",e(a)?i("c"==b?v:u,a,b,this.i++,c,d,f):(p.splice(this.i++,0,a),1==p.length&&h()),this}function k(){var a=B;return a.loader={load:j,i:0},a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=s?l:n.parentNode,l=a.opera&&"[object Opera]"==o.call(a.opera),l=!!b.attachEvent&&!l,u=r?"object":l?"script":"img",v=l?"script":u,w=Array.isArray||function(a){return"[object Array]"==o.call(a)},x=[],y={},z={timeout:function(a,b){return b.length&&(a.timeout=b[0]),a}},A,B;B=function(a){function b(a){var a=a.split("!"),b=x.length,c=a.pop(),d=a.length,c={url:c,origUrl:c,prefixes:a},e,f,g;for(f=0;f<d;f++)g=a[f].split("="),(e=z[g.shift()])&&(c=e(c,g));for(f=0;f<b;f++)c=x[f](c);return c}function g(a,e,f,g,h){var i=b(a),j=i.autoCallback;i.url.split(".").pop().split("?").shift(),i.bypass||(e&&(e=d(e)?e:e[a]||e[g]||e[a.split("/").pop().split("?")[0]]),i.instead?i.instead(a,e,f,g,h):(y[i.url]?i.noexec=!0:y[i.url]=1,f.load(i.url,i.forceCSS||!i.forceJS&&"css"==i.url.split(".").pop().split("?").shift()?"c":c,i.noexec,i.attrs,i.timeout),(d(e)||d(j))&&f.load(function(){k(),e&&e(i.origUrl,h,g),j&&j(i.origUrl,h,g),y[i.url]=2})))}function h(a,b){function c(a,c){if(a){if(e(a))c||(j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}),g(a,j,b,0,h);else if(Object(a)===a)for(n in m=function(){var b=0,c;for(c in a)a.hasOwnProperty(c)&&b++;return b}(),a)a.hasOwnProperty(n)&&(!c&&!--m&&(d(j)?j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}:j[n]=function(a){return function(){var b=[].slice.call(arguments);a&&a.apply(this,b),l()}}(k[n])),g(a[n],j,b,n,h))}else!c&&l()}var h=!!a.test,i=a.load||a.both,j=a.callback||f,k=j,l=a.complete||f,m,n;c(h?a.yep:a.nope,!!i),i&&c(i)}var i,j,l=this.yepnope.loader;if(e(a))g(a,0,l,0);else if(w(a))for(i=0;i<a.length;i++)j=a[i],e(j)?g(j,0,l,0):w(j)?B(j):Object(j)===j&&h(j,l);else Object(a)===a&&h(a,l)},B.addPrefix=function(a,b){z[a]=b},B.addFilter=function(a){x.push(a)},B.errorTimeout=1e4,null==b.readyState&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",A=function(){b.removeEventListener("DOMContentLoaded",A,0),b.readyState="complete"},0)),a.yepnope=k(),a.yepnope.executeStack=h,a.yepnope.injectJs=function(a,c,d,e,i,j){var k=b.createElement("script"),l,o,e=e||B.errorTimeout;k.src=a;for(o in d)k.setAttribute(o,d[o]);c=j?h:c||f,k.onreadystatechange=k.onload=function(){!l&&g(k.readyState)&&(l=1,c(),k.onload=k.onreadystatechange=null)},m(function(){l||(l=1,c(1))},e),i?k.onload():n.parentNode.insertBefore(k,n)},a.yepnope.injectCss=function(a,c,d,e,g,i){var e=b.createElement("link"),j,c=i?h:c||f;e.href=a,e.rel="stylesheet",e.type="text/css";for(j in d)e.setAttribute(j,d[j]);g||(n.parentNode.insertBefore(e,n),m(c,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))};
+		</script>	
+		
+		
+		<style>
+/* Colors 1185 */
+
+html,
+body,
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.container.hide-overflow { overflow: hidden }
+
+.main {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.bookshelf {
+    position: relative;
+    margin: 40px auto 0;
+    list-style: none;
+    text-align: center;
+}
+
+.bookshelf figure {
+    position: relative;
+    display: inline-block;
+    margin: 40px 0 0 0;
+    padding: 45px 0;
+    max-width: 75%;
+    width: 324px;
+    vertical-align: top;
+}
+
+/* Perspectiv wrapper, figure and book */
+
+.perspective {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-perspective: 1800px;
+    perspective: 1800px;
+}
+
+.book {
+    position: relative;
+    margin: 0 auto;
+    width: 180px;
+    height: 260px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.book div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.cover {
+    z-index: 10;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.cover::before {
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    visibility: hidden;
+    width: 20px;
+    height: 100%;
+    background: #000;
+    content: '';
+    -webkit-transform: translateX(-100%) rotateY(-90deg);
+    transform: translateX(-100%) rotateY(-90deg);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.front {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.inner {
+    border-width: 3px;
+    border-style: solid;
+    background-color: #fff;
+}
+
+.bookshelf .book .inner-left {
+    border-right: none;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.inner-right { border-left: none }
+
+/* Buttons and figcaption */
+
+.buttons {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.buttons a {
+    display: inline-block;
+    padding: 0 8px;
+    color: rgba(100, 105, 106, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.65em;
+    line-height: 1.5;
+}
+
+.buttons a:first-child:not(:only-child) { border-right: 1px solid rgba(100, 105, 106, 0.3) }
+
+.buttons a:hover,
+.buttons a:active { color: #64696a }
+
+.bookshelf figcaption {
+    position: relative;
+    top: 100%;
+    padding: 0 2em;
+    text-align: center;
+}
+
+.bookshelf figcaption h2 {
+    margin: 1em 0 0 0;
+    font-weight: 300;
+    font-size: 1.8em;
+    font-family: "Abril Fatface", serif;
+}
+
+.bookshelf figcaption h2 span {
+    position: relative;
+    display: block;
+    margin: 1em 0 0 0;
+    padding: 1em 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-size: 0.4em;
+    font-family: "Lato", sans-serif;
+}
+
+.bookshelf figcaption h2 span::before,
+.details ul li:first-child::after {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    content: '';
+}
+
+/* Details panel */
+
+.details {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.details ul {
+    margin: 0;
+    padding: 60px 30px 0 30px;
+    list-style: none;
+    text-align: left;
+}
+
+.csstransformspreserve3d .details ul { padding: 60px 30px 0 70px }
+
+.details ul li {
+    margin: 0 0 10px;
+    font-weight: 300;
+}
+
+.details ul li:not(:first-child) { font-weight: 700 }
+
+.details ul li:first-child {
+    position: relative;
+    margin: 0 0 15px 0;
+    padding: 0 0 15px 0;
+    text-align: justify;
+}
+
+.details ul li:first-child::after {
+    top: 100%;
+    left: 0;
+}
+
+.close-details {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    visibility: hidden;
+    width: 20px;
+    height: 20px;
+    font-size: 0;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.details-open .close-details { visibility: visible }
+
+.close-details:hover { opacity: 1 }
+
+.close-details::before,
+.close-details::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: #333;
+    content: '';
+}
+
+.close-details::before {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.close-details::after {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Custom BookBlock */
+
+.bb-custom-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 10px;
+    width: 100%;
+    height: 100%;
+    border-width: 3px 10px;
+    border-style: solid;
+}
+
+.bb-custom-wrapper::before,
+.bb-custom-wrapper::after {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 10px;
+    height: 100%;
+    background: -webkit-linear-gradient(left, #dddddd 33.33%, #f0f0f0 33.33%, #f0f0f0 66.66%, white 66.66%);
+    background: linear-gradient(to right, #dddddd 33.33%, #f0f0f0 33.33%, #f0f0f0 66.66%, white 66.66%);
+    background-size: 3px 100%;
+    content: '';
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.bb-custom-wrapper::before { left: 0 }
+
+.bb-custom-wrapper::after { right: 0 }
+
+.bb-custom-wrapper .bb-bookblock {
+    width: 100%;
+    height: 100%;
+    -webkit-perspective: 2000px;
+    perspective: 2000px;
+}
+
+.bb-custom-side {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 50%;
+    height: 100%;
+}
+
+.bb-custom-side::before {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    width: 80px;
+    height: 100%;
+    box-shadow: inset 30px 0 40px -20px rgba(0, 0, 0, 0.1);
+    content: '';
+}
+
+.bb-custom-side:first-child::before {
+    right: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.05), inset -30px 0 40px -20px rgba(0, 0, 0, 0.15);
+}
+
+.page-layout-1 h3,
+.page-layout-1 p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    max-width: 260px;
+    width: 100%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.page-layout-1 h3 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 3em;
+    font-family: "Sacramento", serif;
+}
+
+.page-layout-1 h3 span {
+    display: block;
+    padding: 5px 0 15px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    text-transform: uppercase;
+    font-size: 3em;
+    font-family: "Six Caps", sans-serif;
+    line-height: 1;
+}
+
+.page-layout-1 p {
+    padding: 0 10px;
+    text-align: right;
+    font-style: italic;
+    font-family: "Cardo", serif;
+}
+
+.page-layout-2 {
+    background: -webkit-linear-gradient(left, #64696a 50%, white 50%);
+    background: linear-gradient(to right, #64696a 50%, white 50%);
+}
+
+.page-layout-2:first-child {
+    background: -webkit-linear-gradient(left, white 50%, #64696a 50%);
+    background: linear-gradient(to right, white 50%, #64696a 50%);
+}
+
+.page-layout-2 div {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    padding: 0 10% 10%;
+    width: 50%;
+}
+
+.page-layout-2 div:first-child { left: 0 }
+
+.page-layout-2:first-child div:last-child,
+.page-layout-2:last-child div:first-child { color: #fff }
+
+.page-layout-2 h3 {
+    margin: 0;
+    font-size: 6em;
+    font-family: "Cardo", serif;
+}
+
+.page-layout-3:last-child {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url(https://www.linkpicture.com/q/Innovation_1.jpg) no-repeat;
+    background-size: cover;
+}
+
+.page-layout-3 div { padding: 10% }
+
+.page-layout-3 h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 14em;
+    font-family: "Six Caps", sans-serif;
+}
+
+.page-layout-3 p {
+    margin: 0;
+    text-indent: 5px;
+    font-style: italic;
+    font-family: "Cardo", serif;
+}
+
+/* Book navigation */
+
+.bb-custom-wrapper > nav a {
+    position: absolute;
+    z-index: 1000;
+    font-size: 0;
+    opacity: 0.4;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.bb-custom-wrapper > nav a:hover { opacity: 1 }
+
+.bb-custom-wrapper > nav a {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(221, 221, 221, 0.7);
+}
+
+.bb-nav-prev,
+.bb-nav-next {
+    top: 50%;
+    left: 25px;
+    margin-top: -15px;
+}
+
+.bb-nav-close {
+    top: 15px;
+    right: 25px;
+}
+
+.bb-nav-next {
+    right: 25px;
+    left: auto;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.bb-custom-wrapper > nav a::before,
+.bb-custom-wrapper > nav a::after {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 1px;
+    height: 50%;
+    background: #333;
+    content: '';
+}
+
+.bb-custom-wrapper > nav a.bb-nav-close::before,
+.bb-custom-wrapper > nav a.bb-nav-close::after {
+    top: 15%;
+    left: 50%;
+    height: 70%;
+}
+
+.bb-custom-wrapper > nav a:not(.bb-nav-close)::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+}
+
+.bb-custom-wrapper > nav a:not(.bb-nav-close)::after {
+    top: 50%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.bb-custom-wrapper > nav a.bb-nav-close::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.bb-custom-wrapper > nav a.bb-nav-close::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/****** Custom book colors and borders *****/
+
+/* Custom book covers */
+
+.no-csstransforms3d .book[data-book="book-1"],
+.no-js .book[data-book="book-1"],
+.book[data-book="book-1"] .front {
+    background: url(https://www.linkpicture.com/q/Guide_2.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Guide_2.png), #e3d29f;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Guide_2.png), #e3d29f;
+}
+
+.book[data-book="book-1"] .inner { border-color: #e3d29f }
+
+.book[data-book="book-1"] .cover::before {
+    background: url(https://www.linkpicture.com/q/Guide_2.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/Guide_2.png), #e3d29f;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/Guide_2.png), #e3d29f;
+}
+
+.no-csstransforms3d .book[data-book="book-2"],
+.no-js .book[data-book="book-2"],
+.book[data-book="book-2"] .front {
+    background: url(https://www.linkpicture.com/q/microsoft_2.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/microsoft_2.png), #f6a7a5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/microsoft_2.png), #f6a7a5;
+}
+
+.book[data-book="book-2"] .inner { border-color: #f6a7a5; }
+
+.book[data-book="book-2"] .cover::before {
+    background: url(https://www.linkpicture.com/q/micro_1.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/micro_1.png), #f6a7a5;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/micro_1.png), #f6a7a5;
+}
+
+.no-csstransforms3d .book[data-book="book-3"],
+.no-js .book[data-book="book-3"],
+.book[data-book="book-3"] .front {
+    background: url(https://www.linkpicture.com/q/Nike_1.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Nike_1.png), #000000;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Nike_1.png), #000000;
+    background-size:contain;
+    background-repeat:repeat-x;
+}
+
+.book[data-book="book-3"] .inner { border-color: #000000 }
+
+.book[data-book="book-3"] .cover::before {
+    background: url(https://www.linkpicture.com/q/CodeSASpin_1.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/CodeSASpin_1.png), #000000;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/CodeSASpin_1.png), #000000;
+}
+
+.no-csstransforms3d .book[data-book="book-4"],
+.no-js .book[data-book="book-4"],
+.book[data-book="book-4"] .front {
+    background: url(https://www.linkpicture.com/q/Cisco_3.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Cisco_3.png), #fbfff1;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Cisco_3.png), #fbfff1;
+
+
+}
+
+.book[data-book="book-4"] .inner { border-color: #fbfff1; }
+
+.book[data-book="book-4"] .cover::before {
+    background: url(https://www.linkpicture.com/q/CiscoSpin_2.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/CiscoSpin_2.png), #fbfff1;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/CiscoSpin_2.png), #fbfff1;
+}
+
+.no-csstransforms3d .book[data-book="book-5"],
+.no-js .book[data-book="book-5"],
+.book[data-book="book-5"] .front {
+    background: url(https://www.linkpicture.com/q/SHell_1.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/SHell_1.png), #f8eb48;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/SHell_1.png), #f5e50b;
+}
+
+.book[data-book="book-5"] .inner { border-color: #f8eb48 }
+
+.book[data-book="book-5"] .cover::before {
+    background: url(https://www.linkpicture.com/q/SHellSpin_1.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/SHellSpin_1.png), #f8eb48;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/SHellSpin_1.png), #f8eb48;
+}
+
+.no-csstransforms3d .book[data-book="book-6"],
+.no-js .book[data-book="book-6"],
+.book[data-book="book-6"] .front {
+    background: url(https://www.linkpicture.com/q/MTN.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MTN.png), #FFCB01;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MTN.png), #FFCB01;
+}
+
+.book[data-book="book-6"] .inner { border-color: #ffd800 }
+
+.book[data-book="book-6"] .cover::before {
+    background: url(https://www.linkpicture.com/q/MTN.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/MTN.png), #ffd800;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/MTN.png), #ffd800;
+}
+
+.no-csstransforms3d .book[data-book="book-7"],
+.no-js .book[data-book="book-7"],
+.book[data-book="book-7"] .front {
+    background: url(https://www.linkpicture.com/q/unilever.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/unilever.png), #ebe6e5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/unilever.png), #ebe6e5;
+}
+
+.book[data-book="book-7"] .inner { border-color: #95dbb0 }
+
+.book[data-book="book-7"] .cover::before {
+    background: url(https://www.linkpicture.com/q/UniliverSpin.jpg);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/UniliverSpin.jpg), #76c9ad;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/UniliverSpin.jpg), #76c9ad;
+}
+
+.no-csstransforms3d .book[data-book="book-8"],
+.no-js .book[data-book="book-8"],
+.book[data-book="book-8"] .front {
+    background: url(https://www.linkpicture.com/q/amazon.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/amazon.png), #f5f5f5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/amazon.png), #f5f5f5;
+}
+
+.book[data-book="book-8"] .inner { border-color: #f5f5f5 }
+
+.book[data-book="book-8"] .cover::before {
+    background: url(https://www.linkpicture.com/q/amazonSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/amazonSpin.png), #f5f5f5;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/amazonSpin.png), #f5f5f5;
+}
+
+.no-csstransforms3d .book[data-book="book-9"],
+.no-js .book[data-book="book-9"],
+.book[data-book="book-9"] .front {
+    background: url(https://www.linkpicture.com/q/Toyota_1.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Toyota_1.png), #ffffff;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Toyota_1.png), #ffffff;
+    /* background-repeat: no-repeat;
+     background-size: 95% 90%;*/
+}
+
+.book[data-book="book-9"] .inner { border-color: #d3d3d3 }
+
+.book[data-book="book-9"] .cover::before {
+    background: url(https://www.linkpicture.com/q/ToyotaSpin_1.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/ToyotaSpin_1.png), #f7a56e;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/ToyotaSpin_1.png), #f7a56e;
+}
+
+.no-csstransforms3d .book[data-book="book-10"],
+.no-js .book[data-book="book-10"],
+.book[data-book="book-10"] .front {
+    background: url(https://www.linkpicture.com/q/MAXHOSA_1.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MAXHOSA_1.png), #000000;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MAXHOSA_1.png), #000000;
+}
+
+.book[data-book="book-10"] .inner { border-color: #000000 }
+
+.book[data-book="book-10"] .cover::before {
+    background: url(https://www.linkpicture.com/q/UniliverSpin.jpg);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/UniliverSpin.jpg), #000000;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/UniliverSpin.jpg), #000000;
+}
+
+.no-csstransforms3d .book[data-book="book-11"],
+.no-js .book[data-book="book-11"],
+.book[data-book="book-11"] .front {
+    background: url(https://www.linkpicture.com/q/Cebo_1.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Cebo_1.png), #F08321;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Cebo_1.png), #F08321;
+}
+
+.book[data-book="book-11"] .inner { border-color: #F08321 }
+
+.book[data-book="book-11"] .cover::before {
+    background: url(https://www.linkpicture.com/q/amazon.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/amazon.png), #F08321;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/amazon.png), #F08321;
+}
+
+.no-csstransforms3d .book[data-book="book-12"],
+.no-js .book[data-book="book-12"],
+.book[data-book="book-12"] .front {
+    background: url(https://www.linkpicture.com/q/hollywood_1.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/hollywood_1.png), #662E8E;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/hollywood_1.png), #662E8E;
+    /* background-repeat: no-repeat;
+     background-size: 95% 90%;*/
+}
+
+.book[data-book="book-12"] .inner { border-color: #662E8E }
+
+.book[data-book="book-12"] .cover::before {
+    background: url(https://www.linkpicture.com/q/HollywoodSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/HollywoodSpin.png), #662E8E;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/HollywoodSpin.png), #662E8E;
+}
+
+.no-csstransforms3d .book[data-book="book-13"],
+.no-js .book[data-book="book-13"],
+.book[data-book="book-13"] .front {
+    background: url(https://www.linkpicture.com/q/MICSETA.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MICSETA.png), #009BDB;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MICSETA.png), #009BDB;
+    /* background-repeat: no-repeat;
+     background-size: 95% 90%;*/
+}
+
+.book[data-book="book-13"] .inner { border-color: #009BDB;}
+
+	.book[data-book="book-13"] .cover::before {
+		background: url(https://www.linkpicture.com/q/MICSETASpin.png);
+		background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/MICSETASpin.png), #009BDB;
+		background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/MICSETASpin.png), #009BDB;
+	}
+
+
+.no-csstransforms3d .book[data-book="book-14"],
+.no-js .book[data-book="book-14"],
+.book[data-book="book-14"] .front {
+    background: url(https://www.linkpicture.com/q/impucu.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/impucu.png), #fdfdfd;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/impucu.png), #fdfdfd;
+    /* background-repeat: no-repeat;
+     background-size: 95% 90%;*/
+}
+
+.book[data-book="book-14"] .inner { border-color: #fdfdfd }
+
+.book[data-book="book-14"] .cover::before {
+    background: url(https://www.linkpicture.com/q/impucuSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/impucuSpin.png), #fdfdfd;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/impucuSpin.png), #fdfdfd;
+}
+/* border around bookblock same as book cover color*/
+
+.no-csstransforms3d .book[data-book="book-15"],
+.no-js .book[data-book="book-15"],
+.book[data-book="book-15"] .front {
+    background: url(https://www.linkpicture.com/q/Busd.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Busd.png), #0A3B5B;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Busd.png), #0A3B5B;
+    /* background-repeat: no-repeat;
+     background-size: 95% 90%;*/
+}
+
+.book[data-book="book-15"] .inner { border-color: #0A3B5B;}
+
+	.book[data-book="book-15"] .cover::before {
+		background: url(https://www.linkpicture.com/q/BusidocsPIN.png);
+		background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/BusidocsPIN.png), #0A3B5B;
+		background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/BusidocsPIN.png), #0A3B5B;
+	}
+
+#book-1 { border-color: #e3d29f }
+
+#book-2 { border-color: #f6a7a5 }
+
+#book-3 { border-color: #000000 }
+
+#book-4 { border-color: #d3d3d3 }
+
+#book-5 { border-color: #f8eb48}
+
+#book-6 { border-color: #ffd800}
+
+#book-7 { border-color: #76c9ad }
+
+#book-8 { border-color: #f5f5f5}
+
+#book-9 { border-color: #c0c0c0 }
+
+#book-10 { border-color: #000000 }
+
+#book-11 { border-color: #F08321}
+
+#book-12 { border-color: #662E8E }
+
+#book-13 { border-color: #009BDB }
+
+#book-14 { border-color: #fdfdfd }
+
+#book-15 { border-color: #0A3B5B }
+
+/****** Transitions ******/
+
+/* Book open / view inside */
+
+.book {
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.3s 0.3s;
+    transition: transform 0.5s, opacity 0.3s 0.3s;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+}
+
+.csstransformspreserve3d .bookshelf figure.open .cover {
+    -webkit-animation: openSmallBook 0.5s forwards;
+    animation: openSmallBook 0.5s forwards;
+}
+
+.csstransformspreserve3d .bookshelf figure.close .cover {
+    -webkit-animation: closeSmallBook 0.5s forwards;
+    animation: closeSmallBook 0.5s forwards;
+}
+
+.bookshelf figure.open .book {
+    z-index: 1000;
+    -webkit-animation: scaleUpSmallBook 0.5s forwards;
+    animation: scaleUpSmallBook 0.5s forwards;
+}
+
+.bookshelf figure.close .book {
+    -webkit-animation: scaleDownSmallBook 0.5s forwards;
+    animation: scaleDownSmallBook 0.5s forwards;
+}
+
+.inner-right {
+    background-color: #ddd;
+    -webkit-transition: background-color 0.5s 0.25s;
+    transition: background-color 0.5s 0.25s;
+}
+
+.open .inner-right {
+    background-color: #f9f9f9;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.bb-custom-wrapper {
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: visibility 0s 0.5s;
+    transition: visibility 0s 0.5s;
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+.bb-custom-wrapper.show {
+    visibility: visible;
+    -webkit-transition: visibility 0s;
+    transition: visibility 0s;
+    -webkit-animation: openBigBook 0.5s forwards;
+    animation: openBigBook 0.5s forwards;
+}
+
+.no-cssanimations .bb-custom-wrapper.show { opacity: 1 }
+
+.bb-custom-wrapper.hide {
+    -webkit-animation: closeBigBook 0.5s forwards;
+    animation: closeBigBook 0.5s forwards;
+}
+
+.no-cssanimations .bb-custom-wrapper.hide { opacity: 0 }
+
+/* Details open / view details */
+
+.bookshelf figure {
+    z-index: 100;
+    -webkit-transition: z-index 0s 0.3s;
+    transition: z-index 0s 0.3s;
+}
+
+.bookshelf figure.details-open {
+    z-index: 101;
+    -webkit-transition: none;
+    transition: none;
+}
+
+.csstransformspreserve3d .details-open .book {
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    -webkit-transform: translateX(-36px) rotateY(90deg);
+    transform: translateX(-36px) rotateY(90deg);
+}
+
+.no-csstransformspreserve3d .details-open .book {
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.csstransformspreserve3d .cover::before {
+    -webkit-transition: visibility 0s 0.5s;
+    transition: visibility 0s 0.5s;
+}
+
+.csstransformspreserve3d .details-open .cover::before {
+    visibility: visible;
+    -webkit-transition: none;
+    transition: none;
+}
+
+.details {
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.details-open .details {
+    visibility: hidden;
+    opacity: 1;
+    z-index: 10;
+    -webkit-transition: opacity 0.5s, visibility 0s;
+    transition: opacity 0.5s, visibility 0s;
+}
+
+.details ul li {
+    visibility: visible;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    -webkit-transform: translateX(30%);
+    transform: translateX(30%);
+}
+
+.details-open .details ul li:first-child {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.details-open .details ul li:nth-child(2) {
+    -webkit-transition-delay: 0.15s;
+    transition-delay: 0.15s;
+}
+
+.details-open .details ul li:nth-child(3) {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.details-open .details ul li:nth-child(4) {
+    -webkit-transition-delay: 0.25s;
+    transition-delay: 0.25s;
+}
+
+.details-open .details ul li {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+/* Details background */
+
+.bookshelf figure::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.bookshelf figure.details-open::before {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 0.3s, visibility 0s;
+    transition: opacity 0.3s, visibility 0s;
+}
+
+/* Overlay when viewing details */
+
+.bookshelf figure::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 0;
+    background: rgba(51, 51, 51, 0.1);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, height 0s 0.3s;
+    transition: opacity 0.3s, height 0s 0.3s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.bookshelf figure.details-open::after {
+    height: 100%;
+    opacity: 1;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+/* Animations */
+@-webkit-keyframes openSmallBook { 
+    0% { }
+    55%, 100% { -webkit-transform: rotateY(-180deg) }
+}
+@keyframes openSmallBook { 
+    0% { }
+    55%, 100% { -webkit-transform: rotateY(-180deg); transform: rotateY(-180deg); }
+}
+@-webkit-keyframes closeSmallBook { 
+    0%, 45% { -webkit-transform: rotateY(-180deg) }
+    100% { -webkit-transform: rotateY(0deg) }
+}
+@keyframes closeSmallBook { 
+    0%, 45% { -webkit-transform: rotateY(-180deg); transform: rotateY(-180deg); }
+    100% { -webkit-transform: rotateY(0deg); transform: rotateY(0deg); }
+}
+@-webkit-keyframes scaleUpSmallBook { 
+    0% { }
+    85%, 100% { -webkit-transform: scale(1.4) }
+}
+@keyframes scaleUpSmallBook { 
+    0% { }
+    85%, 100% { -webkit-transform: scale(1.4); transform: scale(1.4); }
+}
+@-webkit-keyframes scaleDownSmallBook { 
+    0%, 15% { -webkit-transform: scale(1.4) }
+    100% { -webkit-transform: scale(1) }
+}
+@keyframes scaleDownSmallBook { 
+    0%, 15% { -webkit-transform: scale(1.4); transform: scale(1.4); }
+    100% { -webkit-transform: scale(1); transform: scale(1); }
+}
+@-webkit-keyframes openBigBook { 
+    0% { }
+    45% { opacity: 0; -webkit-transform: scale(0.95); }
+    85% { opacity: 1 }
+    100% { opacity: 1; -webkit-transform: scale(1); }
+}
+@keyframes openBigBook { 
+    0% { }
+    45% { opacity: 0; -webkit-transform: scale(0.95); transform: scale(0.95); }
+    85% { opacity: 1 }
+    100% { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
+}
+@-webkit-keyframes closeBigBook { 
+    0%, 15% { opacity: 1; -webkit-transform: scale(1); }
+    55%, 100% { opacity: 0; -webkit-transform: scale(0.95); }
+}
+@keyframes closeBigBook { 
+    0%, 15% { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
+    55%, 100% { opacity: 0; -webkit-transform: scale(0.95); transform: scale(0.95); }
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 68.75em) { 
+  .bb-custom-wrapper { font-size: 75% }
+
+  .page-layout-3 h3 { font-size: 9em }
+}
+
+@media screen and (max-width: 41.375em) { 
+  .bb-custom-wrapper { font-size: 60% }
+
+  .page-layout-3 h3 { font-size: 6em }
+}
+
+@media screen and (max-width: 29.75em) { 
+  .bb-custom-wrapper { font-size: 40% }
+
+  .page-layout-2 div {
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 50%;
+  }
+
+  .page-layout-2 div:first-child { top: 0 }
+
+  .page-layout-2 {
+      background: -webkit-linear-gradient(top, #64696a 50%, white 50%);
+      background: linear-gradient(to bottom, #64696a 50%, white 50%);
+  }
+
+  .page-layout-2:first-child {
+      background: -webkit-linear-gradient(top, white 50%, #64696a 50%);
+      background: linear-gradient(to bottom, white 50%, #64696a 50%);
+  }
+}
+
+@media screen and (max-width: 26.3125em) { 
+  .details-open .book {
+      -webkit-transform: rotateY(90deg);
+      transform: rotateY(90deg);
+  }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*demo.css */
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Sacramento|Abril+Fatface|Six+Caps|Cardo:400italic,700);
+@font-face {
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+body {
+	font-family: 'Lato', Arial, sans-serif;
+	color: #64696a;
+	background: #fff;
+}
+
+a {
+	color: #ddd;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #fff;
+}
+
+.codrops-header {
+	position: relative;
+	margin: 0 auto;
+	padding: 2em 1em;
+	color: #fff;
+	text-align: center;
+	background: url(https://www.linkpicture.com/q/bgheader.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+.codrops-header h1 {
+	font-size: 2.625em;
+	line-height: 1.3;
+	margin: 0;
+	font-weight: 300;
+}
+
+.codrops-header h1 span {
+	display: block;
+	font-size: 60%;
+	opacity: 0.7;
+	padding: 0 0 0.6em 0.1em;
+}
+
+/* To Navigation Style */
+.codrops-top {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	left: 0;
+	text-transform: uppercase;
+	font-size: 0.69em;
+	line-height: 2.2;
+	text-align: justify;
+}
+
+.codrops-top a {
+	color: #f0f0f0;
+	text-decoration: none;
+	padding: 0 1em;
+	letter-spacing: 0.1em;
+	display: inline-block;
+}
+
+.codrops-top a:hover {
+	color: #fff;
+}
+
+.codrops-top span.right {
+	float: right;
+}
+
+.codrops-top span.right a {
+	float: left;
+	display: block;
+}
+
+.codrops-icon:before {
+	font-family: 'codropsicons';
+	margin: 0 4px;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.codrops-icon-drop:before {
+	content: "\e001";
+}
+
+.codrops-icon-prev:before {
+	content: "\e004";
+}
+
+.related {
+	margin-top: 5em;
+	color: #fff;
+	background: #333;
+	text-align: center;
+	font-size: 1.25em;
+	padding: 3em 0;
+	overflow: hidden;
+}
+
+.related a {
+	display: inline-block;
+	text-align: left;
+	margin: 20px auto;
+	padding: 10px 20px;
+	opacity: 0.8;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-backface-visibility: hidden;
+}
+
+.related a:hover,
+.related a:active {
+	opacity: 1;
+}
+
+.related a img {
+	max-width: 100%;
+}
+
+.related a h3 {
+	font-weight: 300;
+	margin-top: 0.15em;
+	color: #fff;
+}
+
+@media screen and (max-width: 40em) {
+
+	.codrops-icon span {
+		display: none;
+	}
+
+	.codrops-icon:before {
+		font-size: 160%;
+		line-height: 2;
+	}
+
+}
+
+
+
+
+		</style>
+	</head>
+	<body>
+		<div id="scroll-wrap" class="container">
+			<header class="codrops-header">
+				<div class="codrops-top clearfix">
+					
+					
+				</div>
+				<h1 Style="color: white; font-weight: Bold">Exploring Company Profiles <span>Details</span></h1>	
+			</header>
+			<div class="main">
+				<div id="bookshelf" class="bookshelf">
+					<figure>
+						<div class="book" data-book="book-1"></div>
+						<div class="buttons"><a href="#">Look inside</a></div>
+						<figcaption><h2>Guidelines<span>CodeSA Institute</span></h2></figcaption>
+					</figure>
+					<figure>
+						<div class="book" data-book="book-2"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Microsoft <span>Bill Gates  and Paul Allen</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Microsoft is a technology giant known for its software products like Windows and Office, shaping the modern computing landscape.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+					<figure>
+						<div class="book" data-book="book-8"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Amazon <span>Jeff Bezos</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Amazon started as an online bookstore and has grown into the world's largest e-commerce platform, offering diverse products and services, including cloud computing through Amazon Web Services (AWS)</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+					<figure>
+						<div class="book" data-book="book-10"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>MAXHOSA<span>Laduma Ngxokolo</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>MAXHOSA is a contemporary African fashion brand founded by Laduma Ngxokolo. Known for its striking knitwear, the brand draws inspiration from Xhosa beadwork and patterns.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+
+					<figure>
+						<div class="book" data-book="book-12"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Hollywood Bets<span>Warren and Victor Chandler</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Hollywood Bets is a prominent betting and gaming company known for its sports and horse racing betting platforms.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+					<figure>
+						<div class="book" data-book="book-11"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Cebolethu<span>Sandile Luthuli and Nomfundo Mcoyi</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li> Cebolethu is a South African retail and distribution company. It specializes in providing essential consumer products, particularly in rural and underserved areas.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+
+					<figure>
+						<div class="book" data-book="book-15"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Business Doctors<span>Levington & Davies</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Business Doctors and its strategic partners provide a unique blend of coaching and hands on business support services. We have developed a first of its kind Enterprise Development Solution that will change the SA SME development landscape.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+					
+					<figure>
+						<div class="book" data-book="book-4"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Cisco <span>Leonard Bosack and Sandy Lerner</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Cisco is a networking technology leader, providing solutions for networking and communication infrastructure, facilitating digital connectivity worldwide.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+
+					<figure>
+						<div class="book" data-book="book-13"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>MICTSETA<span>Government</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>MICTSETA's primary mission is to promote skills development and training within the media, information, and communication technology sectors.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+
+					<figure>
+						<div class="book" data-book="book-14"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Impucuzeko<span>Government</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Impucuzeko Training & Skills Development is a company that specializes in empowering individuals through comprehensive training and skill enhancement programs. I fosters self-reliance and autonomy among its clients.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+
+					<figure>
+						<div class="book" data-book="book-3"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Nike <span>Bill Bowerman and Phil Knight</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Nike is a global sportswear brand renowned for its athletic footwear, apparel, and equipment, emphasizing innovation and performance.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+					
+					<figure>
+						<div class="book" data-book="book-9"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Toyota<span>Kiichiro Toyoda</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Toyota is a renowned automobile manufacturer known for its quality, innovation, and sustainability, producing a diverse lineup of vehicles worldwide.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+
+					<figure>
+						<div class="book" data-book="book-6"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>MTN<span>Mcebisi Jonas and Phuthuma Nhleko</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>MTN is a telecommunications company connecting people across Africa and the Middle East, offering mobile services, data, and digital solutions.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+					<figure>
+						<div class="book" data-book="book-7"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Unilever<span>William Hesketh Lever and James Darcy Lever</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li> Unilever is a consumer goods conglomerate producing a wide range of products, from food and beverages to personal care and cleaning products.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+
+					<figure>
+						<div class="book" data-book="book-5"></div>
+						<div class="buttons"><a href="#">Look inside</a><a href="#">Details</a></div>
+						<figcaption><h2>Shell <span>Marcus Samuel and Henri Deterding</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Royal Dutch Shell is a major energy company engaged in oil, gas, and petrochemicals, playing a pivotal role in the global energy industry.</li>
+								<li>Code SA Institute</li>
+								<li>25.08.2023</li>
+								<li>SMMEs Virtual Incubation</li>
+							</ul>
+						</div>
+					</figure>
+
+				</div>
+			</div><!-- /main -->
+			<!-- <div class="related">
+				<h3>If you enjoyed this demo you might also like:</h3>
+				<a href="http://tympanus.net/Development/AnimatedBooks/">
+					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/07/AnimatedBooks1-300x162.png" />
+					<h3>Animated Books</h3>
+				</a>
+				<a href="http://tympanus.net/Development/3DBookShowcase/">
+					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/01/3DBookShowcase_Main-300x162.jpg" />
+					<h3>3D Book Showcase</h3>
+				</a>
+			</div> -->
+		</div><!-- /container -->
+
+		<!-- Fullscreen BookBlock -->
+		<!-- for demo purpose we repeat each bookblock -->
+		<div class="bb-custom-wrapper" id="book-1">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>GUIDE</h3>
+							<p>Published (2023 &ndash; 2024)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Read Me <span>RULES AND GUIDLINES</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p><b>Users are required to adhere to the rules outlined in this document, as per company regulations. Compliance with these guidelines is essential for maintaining a productive and secure environment.</b></p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Privacy</h3>
+							<p>Safeguard all confidential information within the business profile, refraining from sharing or misusing any data without explicit authorization.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Ethical Conduct</h3>
+							<p>Act with integrity, avoiding any actions that could harm the profile owner's reputation or business interests.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Authorized Usage</h3>
+							<p>Access the profile only for legitimate purposes approved by the owner. Unauthorized actions could result in disciplinary actions.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 30pt;">No Impersonation</h3>
+							<p>Do not impersonate the profile owner, engage in fraudulent activities, or misrepresent their identity or intentions.</p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-2">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>Microsoft</h3>
+							<p>Established (1975)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Founded by <span>Bill & Gates</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"Your most unhappy customers are your greatest source of learning."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Microsoft, co-founded by Bill Gates and Paul Allen, has redefined computing with Windows and Office,</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Microsoft's best-known software products are the Windows line of operating systems, the Microsoft 365 suite of productivity applications, and the Internet Explorer and Edge web browsers.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/MicrosoftAfrica" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/microsoft/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/microsoftsa/?hl=en" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://www.microsoft.com/en-za/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto: Microsoft@support.com" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:0860 2255 67" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d896.1675859420918!2d28.017894559543834!3d-26.044340127757135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9573f632840a45%3A0xe1b087dc6fbc2cb8!2sMicrosoft!5e0!3m2!1sen!2sza!4v1692426535149!5m2!1sen!2sza" width="400" height="550" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-3">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>Nike</h3>
+							<p>Established (1964)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Founded by <span>Bowerman & Knight </span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"To master the journey, you must believe that what you're doing is worthwhile."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Founded by Bill Bowerman and Phil Knight, Nike excels in athletic footwear, apparel, and equipment. It's a symbol of sports excellence.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>We champion continual progress for athletes and sport by taking action to help athletes. Every job at NIKE, Inc. is grounded in cultivating a culture of innovation to leave an enduring impact.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/nike" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/nike" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/nike/" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="http://nike.com/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto: Microsoft@support.com" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="ttel:0112560701" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d432.7179785188463!2d30.991152507837352!3d-29.81394436795382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7072dd38a7477%3A0xf648982ff6346efb!2sNike%20Factory%20Store!5e0!3m2!1sen!2sza!4v1692492439722!5m2!1sen!2sza" width="400" height="550" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-4">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>Cisco</h3>
+							<p>Established (1984)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Microsoft, co-founded by Bill Gates and Paul Allen, has redefined computing with Windows and Office,</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Microsoft's best-known software products are the Windows line of operating systems, the Microsoft 365 suite of productivity applications, and the Internet Explorer and Edge web browsers.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/MicrosoftAfrica" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/microsoft/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/microsoftsa/?hl=en" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://www.microsoft.com/en-za/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto: Microsoft@support.com" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:0860 2255 67" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d896.1675859420918!2d28.017894559543834!3d-26.044340127757135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9573f632840a45%3A0xe1b087dc6fbc2cb8!2sMicrosoft!5e0!3m2!1sen!2sza!4v1692426535149!5m2!1sen!2sza" width="400" height="550" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-5">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>Shell</h3>
+							<p>Established (1907)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Established by <span>Samuel & Deterding</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"Business has to give people enriching, rewarding lives or it's simply not worth doing."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Microsoft, co-founded by Bill Gates and Paul Allen, has redefined computing with Windows and Office,</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Microsoft's best-known software products are the Windows line of operating systems, the Microsoft 365 suite of productivity applications, and the Internet Explorer and Edge web browsers.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/MicrosoftAfrica" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/microsoft/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/microsoftsa/?hl=en" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://www.microsoft.com/en-za/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto: Microsoft@support.com" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:0860 2255 67" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d896.1675859420918!2d28.017894559543834!3d-26.044340127757135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9573f632840a45%3A0xe1b087dc6fbc2cb8!2sMicrosoft!5e0!3m2!1sen!2sza!4v1692426535149!5m2!1sen!2sza" width="400" height="550" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-6">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>MTN Group</h3>
+							<p>Established (1970)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Founded by <span>Jonas & Nhleko</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"Never underestimate the power of dreams and the influence of the human spirit."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Microsoft, co-founded by Bill Gates and Paul Allen, has redefined computing with Windows and Office,</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Microsoft's best-known software products are the Windows line of operating systems, the Microsoft 365 suite of productivity applications, and the Internet Explorer and Edge web browsers.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/MicrosoftAfrica" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/microsoft/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/microsoftsa/?hl=en" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://www.microsoft.com/en-za/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto: Microsoft@support.com" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:0860 2255 67" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d896.1675859420918!2d28.017894559543834!3d-26.044340127757135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9573f632840a45%3A0xe1b087dc6fbc2cb8!2sMicrosoft!5e0!3m2!1sen!2sza!4v1692426535149!5m2!1sen!2sza" width="400" height="550" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-7">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>Unilever</h3>
+							<p>Established (1930)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Formed by <span>Lever Brothers</span>
+						</h3>
+					</div> 
+					<div class="bb-custom-side page-layout-1">
+						<p>"The goodwill of people is the only enduring thing in any business."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p> Formed through a merger in 1930, Unilever is a consumer goods giant producing food, beverages, personal care, and cleaning products.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Unilever is driven by our purpose: to make sustainable living commonplace. It’s why we come to work. It’s why we’re in business. It’s how we inspire exceptional performance.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/UnileverZA/?brand_redir=24496278123" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/unilever" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/unilever" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://www.unilever.co.za/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto:consumer.affairs-za@unilever.com" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:031 344 1706" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.3121964519482!2d31.06443667491844!3d-29.739676617209508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef705d3bb1bf069%3A0x63378c332a74198c!2sUnilever%20South%20Africa%20Head%20office!5e0!3m2!1sen!2sza!4v1692494725880!5m2!1sen!2sza" width="400" height="550" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-8">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>Amazon</h3>
+							<p>Established (1994)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Established by <span>Jeff Bezos</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"Your brand is what other people say about you when you're not in the room."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Established by Jeff Bezos, Amazon began as an online bookstore and has since evolved into the world's largest e-commerce platform.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Amazon, Inc. is an American multinational technology company focusing on e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/Amazon" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/unilever" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/amazon/" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://www.amazon.com/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto:consumer.affairs-za@unilever.com" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:031 344 1706" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14662665.489094649!2d9.591064453124998!3d-26.204734267107575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950f7327f334f3%3A0x4b7931f225105fdf!2sAmazon%20Office%20Renovation%20and%20Alterations%20Johannesburg!5e0!3m2!1sen!2sza!4v1692495694450!5m2!1sen!2sza" width="400" height="550" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-9">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>Toyota</h3>
+							<p>Established (1937)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Established by <span>Kiichiro Toyoda</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"The harder you work, the luckier you get."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Established by Kiichiro Toyoda, Toyota is a renowned automobile manufacturer known for quality and innovation. They offer a diverse range of vehicles.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Toyota Motor Corporation is a Japanese multinational automotive manufacturer in Toyota City, Aichi, Japan. Toyota is one of the largest car manufacturers in the world, producing about 10 million vehicles per year.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/toyotasouthafrica" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/microsoft/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/toyota_sa/" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://www.toyota.co.za/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto: ccc@toyota.co.za" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:0800139111" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+							
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5811.150467358591!2d30.929870845421245!3d-29.99865815178709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7adee580f5c9d%3A0x5689574126249ffe!2stoyota%20SA!5e0!3m2!1sen!2sza!4v1692494340650!5m2!1sen!2sza" width="400" height="550" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-10">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3>MAXHOSA</h3>
+							<p>Established (2010)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Founded by <span>Laduma Ngxokolo.</span>
+						</h3>
+					</div> 
+					<div class="bb-custom-side page-layout-1">
+						<p>"The secret of business is to know something that nobody else knows."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p> MAXHOSA Africa is a South African knitwear brand founded in 2010 by Laduma Ngxokolo. This was with the desire to explore knitwear design solutions that would be suitable for amakrwala (Xhosa initiates).</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Maxhosa beadwork patterns, symbolism and colours, we discovered they are best source of inspiration for knitwear.
+								MAXHOSA designs showcase the beauty, culture, language and aspiration of the Xhosa people.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/MAXHOSA" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/in/themba-mbuyisa-5080b469/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/maxhosa/" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://shop.maxhosa.africa/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto:info@maxhosa.africa" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:+27 67 861 6465" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+				
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14317.278721760473!2d28.0439383!3d-26.2188004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950fa1a8bf5925%3A0x2156fd4a8dad8a60!2sMAXHOSA%20AFRICA%20Showroom!5e0!3m2!1sen!2sza!4v1692535761392!5m2!1sen!2sza" width="400" height="500" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-11">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3 style="font-size: 120pt;">Cebolethu Group</h3>
+							<p>Established (2010)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Established by <span>Luthuli & Mcoyi</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Established by Sandile Luthuli, Cebolethu aims to deliver exceptional service as a funeral society to perform dignified funerals and services.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p> Cebolethu is a South African retail and distribution company. It specializes in providing essential consumer products, particularly in rural and underserved areas. </p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/IcebolethuGroup/" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.instagram.com/icebogroup/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/icebogroup/" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="icebolethugroup.co.z/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto:info@icebolethu.co.za" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:086 000 7580" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+							
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.8243387453713!2d30.995894666757835!3d-29.869339415498967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7a98cf9f70db7%3A0x4797b39330683e5a!2sIcebolethu%20Funerals!5e0!3m2!1sen!2sza!4v1692536912198!5m2!1sen!2sza" width="300" height="490" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<div class="bb-custom-wrapper" id="book-12">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3 style="font-size: 120pt;">Hollywood Bets
+
+							</h3>
+							<p>Established (2000)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Founded by <span>Warren & Chandler</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"The gambling known as business looks with austere disfavor upon the business known as gambling."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Warren and Victor Chandler established the company with the aim of providing betting and gaming services, primarily in the sports and horse racing sector.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Hollywoodbets is a sports betting company based in South Africa. It is also known as Hollywood Sportsbook. The company offers betting via its website, mobisite, call centre, and USSD.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/hollywoodbets" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/hollywoodbets/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/hollywoodbets" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://hollywoodbets.net"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto:hwhelpline@hollywoodbets.net" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:
+								087 353 7633" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+							
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.7462246063146!2d31.05814527554158!3d-29.72710947508492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef705eb7351f119%3A0xdf9ad7eb0b73b642!2sHollywoodbets%20Head%20Office!5e0!3m2!1sen!2sza!4v1692534952047!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+
+		<div class="bb-custom-wrapper" id="book-13">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3 style="font-size: 120pt;">MICTSETA
+
+							</h3>
+							<p>Established (2001)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Established by<span>Government</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>" Shaping Futures through Media, Information, and Communication Technology Excellence."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>The South Africa goverment created seta which is responsible for overseeing skills development and training initiatives in the media, information, and communication technology sectors across the country.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>MICTSETA was was created as part of the South African government's efforts to promote skills development and education within the media, information, and communication technology sectors. </p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/profile.php?id=100064473800888 " class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/mict-seta" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.linkedin.com/company/mict-seta/" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://www.mict.org.za"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto:info@mict.org.za" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:011 207 2600" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1805007.364707573!2d28.26074402303514!3d-27.920226571026703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e956e0bee2f423d%3A0x7a4ac28276d2c355!2sMict%20Seta!5e0!3m2!1sen!2sza!4v1692866230841!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		
+		<div class="bb-custom-wrapper" id="book-12">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3 style="font-size: 120pt;">Hollywood Bets
+
+							</h3>
+							<p>Established (2000)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Founded by <span>Warren & Chandler</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"The gambling known as business looks with austere disfavor upon the business known as gambling."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Warren and Victor Chandler established the company with the aim of providing betting and gaming services, primarily in the sports and horse racing sector.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Hollywoodbets is a sports betting company based in South Africa. It is also known as Hollywood Sportsbook. The company offers betting via its website, mobisite, call centre, and USSD.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/Impucuzeko/" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/hollywoodbets/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/Impucuzeko" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://impucuzeko.co.za/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto:info@impucuzeko.co.za" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:
+								031 301 1113" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+							
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.7462246063146!2d31.05814527554158!3d-29.72710947508492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef705eb7351f119%3A0xdf9ad7eb0b73b642!2sHollywoodbets%20Head%20Office!5e0!3m2!1sen!2sza!4v1692534952047!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+
+		<div class="bb-custom-wrapper" id="book-14">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3 style="font-size: 120pt;">Impucuzeko
+
+							</h3>
+							<p>Established (2011)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Established by<span>Sandile Ndlanya</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"Clean your self with success black people."</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Impucuzeko Training and Skills Development is a non-profit company incorporated under section 21 of the Companies Act. The main purposes of the organization are to provide training and develop business skills with specific focus on, though not limited to, the Art sector.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Impucuzeko has pride in creating a reputation as an organization with integrity and a highly successful and respected organization within the events management, music business, training and film production fields </p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/hollywoodbets" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/hollywoodbets/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://www.instagram.com/hollywoodbets" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://hollywoodbets.net"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto:hwhelpline@hollywoodbets.net" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:
+								087 353 7633" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1730.071393799241!2d31.00574090674578!3d-29.860155672068764!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7a9ebece1c733%3A0x44896a29e3d10331!2s135%20Che%20Guevara%20Rd%2C%20Bulwer%2C%20Berea%2C%204083%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1692852977461!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+
+		<div class="bb-custom-wrapper" id="book-15">
+			<div class="bb-bookblock">
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-3">
+						<div>
+							<h3 style="font-size: 120pt;">Business  Doctors
+
+							</h3>
+							<p>Established (2014)</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-3">
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-1">
+						<h3>
+							Founded by <span>Matthew and Rod</span>
+						</h3>
+					</div>
+					<div class="bb-custom-side page-layout-1">
+						<p>"Business health is wealth!"</p>
+					</div>
+				</div>
+				<div class="bb-item">
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Owner</h3>
+							<p>Business Doctors is South Africa's business support network dedicated to helping small and medium sized businesses achieve their vision.</p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">About</h3>
+							<p>Business Doctors offers Free Strategic Health Check, Business & Marketing Strategy, Business Builder, Sales Accelerator, People Performance, and Implementation and interim support.</p>
+						</div>
+					</div>
+					<div class="bb-custom-side page-layout-2">
+						<div>
+							<h3 style="font-size: 36pt;">Contact</h3>
+							<p><a href="https://www.facebook.com/businessdoctorssa/" class="icon facebook" target="_blank">
+								<i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;&nbsp;Facebook</i>
+							  </a></p>
+							  <p><a href="https://www.linkedin.com/company/10470847/" class="icon linkedin" target="_blank">
+								<i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;&nbsp;LinkedIn</i>
+							  </a></p>
+				
+							  <p><a href="https://twitter.com/SMEDoc" class="icon instagram" target="_blank">
+								<i class="fab fa-instagram">&nbsp;&nbsp;&nbsp;&nbsp;<b>Instagram</b></i>
+							  </a></p>
+							  <p><a href="https://businessdoctors.co.za/"  class="icon glob" target="_blank">
+								<i class="fa fa-globe" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Website</i>
+							  </a></p>
+							  <p><a href="mailto:info@business-doctors.co.za" class="icon envelope">
+								<i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Email</i>
+							  </a></p>
+							  <p><a href="tel:011 028 2854" class="icon mobile">
+								<i class="fa fa-phone-square" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;Call</i>
+							  </a></p>
+						</div>
+						<div>
+							<h3 style="font-size: 36pt;">Location</h3>
+
+							
+							<p style="margin-left: -30%; margin-bottom: -30%"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28669.361998504002!2d27.92592!3d-26.077031!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9575a6071a6a59%3A0x57ab8ac799410836!2sWild%20Fig%20Business%20Park!5e0!3m2!1sen!2sus!4v1692868685087!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /bb-bookblock -->
+			<nav>
+				<a href="#" class="bb-nav-prev">Previous</a>
+				<a href="#" class="bb-nav-next">Next</a>
+				<a href="#" class="bb-nav-close">Close</a>
+			</nav>
+		</div><!-- /bb-custom-wrapper -->
+		<!-- Bookblock.min.js-->
+		<script> (function(c){var a=c.document,d=c.Modernizr;d.addTest("csstransformspreserve3d",function(){var h=d.prefixed("transformStyle");var g="preserve-3d";var f;if(!h){return false}h=h.replace(/([A-Z])/g,function(j,i){return"-"+i.toLowerCase()}).replace(/^ms-/,"-ms-");d.testStyles("#modernizr{"+h+":"+g+";}",function(i,j){f=c.getComputedStyle?getComputedStyle(i,null).getPropertyValue(h):""});return(f===g)});function e(g,f){for(var h in f){if(f.hasOwnProperty(h)){g[h]=f[h]}}return g}function b(g,f){this.el=g;this.options=e(this.defaults,f);this._init()}b.prototype={defaults:{startPage:1,orientation:"vertical",direction:"ltr",speed:1000,easing:"ease-in-out",shadows:true,shadowSides:0.2,shadowFlip:0.1,circular:false,nextEl:"",prevEl:"",autoplay:false,interval:3000,onEndFlip:function(f,h,g){return false},onBeforeFlip:function(f){return false}},_init:function(){this.el.className+=" bb-"+this.options.orientation;this.items=Array.prototype.slice.call(this.el.querySelectorAll(".bb-item"));this.itemsCount=this.items.length;if((this.options.startPage>0)&&(this.options.startPage<=this.itemsCount)){this.currentIdx=(this.options.startPage-1)}else{this.currentIdx=0}this.previous=-1;this.current=this.items[this.currentIdx];this.current.style.display="block";this.elWidth=this.el.offsetWidth;var f={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd",msTransition:"MSTransitionEnd",transition:"transitionend"};this.transEndEventName=f[d.prefixed("transition")];this.support=d.csstransitions&&d.csstransforms3d&&d.csstransformspreserve3d;this._initEvents();if(this.options.autoplay){this.options.circular=true;this._startSlideshow()}},_initEvents:function(){var f=this;if(this.options.nextEl!==""){a.querySelector(this.options.nextEl).addEventListener("click",function(){f._action("next");return false});a.querySelector(this.options.nextEl).addEventListener("touchstart",function(){f._action("next");return false})}if(this.options.prevEl!==""){a.querySelector(this.options.prevEl).addEventListener("click",function(){f._action("prev");return false});a.querySelector(this.options.prevEl).addEventListener("touchstart",function(){f._action("prev");return false})}c.addEventListener("resize",function(){f._resizeHandler()})},_action:function(f,g){this._stopSlideshow();this._navigate(f,g)},_navigate:function(f,g){if(this.isAnimating){return false}this.options.onBeforeFlip(this.currentIdx);this.isAnimating=true;this.current=this.items[this.currentIdx];if(g!==undefined){this.currentIdx=g}else{if(f==="next"&&this.options.direction==="ltr"||f==="prev"&&this.options.direction==="rtl"){if(!this.options.circular&&this.currentIdx===this.itemsCount-1){this.end=true}else{this.previous=this.currentIdx;this.currentIdx=this.currentIdx<this.itemsCount-1?this.currentIdx+1:0}}else{if(f==="prev"&&this.options.direction==="ltr"||f==="next"&&this.options.direction==="rtl"){if(!this.options.circular&&this.currentIdx===0){this.end=true}else{this.previous=this.currentIdx;this.currentIdx=this.currentIdx>0?this.currentIdx-1:this.itemsCount-1}}}}this.nextItem=!this.options.circular&&this.end?this.current:this.items[this.currentIdx];this.items.forEach(function(j,h){j.style.display="none"});if(!this.support){this._layoutNoSupport(f)}else{this._layout(f)}},_layoutNoSupport:function(g){this.nextItem.style.display="block";this.end=false;this.isAnimating=false;var f=g==="next"&&this.currentIdx===this.itemsCount-1||g==="prev"&&this.currentIdx===0;this.options.onEndFlip(this.previous,this.currentIdx,f)},_layout:function(i){var o=this,j=this._addSide("left",i),p=this._addSide("middle",i),l=this._addSide("right",i),f=j.querySelector("div.bb-overlay"),m=p.querySelector("div.bb-front").querySelector("div.bb-flipoverlay"),n=p.querySelector("div.bb-back").querySelector("div.bb-flipoverlay"),k=l.querySelector("div.bb-overlay"),h=this.end?400:this.options.speed;var g=this.items[0];this.el.insertBefore(j,g);this.el.insertBefore(p,g);this.el.insertBefore(l,g);j.style.zIndex=102;p.style.zIndex=103;l.style.zIndex=101;p.style.transitionDuration=h+"ms";p.style.transitionTimingFunction=this.options.easing;p.addEventListener(this.transEndEventName,function(r){if((" "+r.target.className+" ").replace(/[\n\t]/g," ").indexOf(" bb-page ")>-1){Array.prototype.slice.call(o.el.querySelectorAll(".bb-page")).forEach(function(t,s){o.el.removeChild(t)});o.nextItem.style.display="block";o.end=false;o.isAnimating=false;var q=i==="next"&&o.currentIdx===o.itemsCount-1||i==="prev"&&o.currentIdx===0;o.options.onEndFlip(o.previous,o.currentIdx,q)}});if(i==="prev"){p.className+=" bb-flip-initial"}if(this.options.shadows&&!this.end){if(i==="next"){m.style.transition="opacity "+this.options.speed/2+"ms linear";n.style.transition="opacity "+this.options.speed/2+"ms linear "+this.options.speed/2+"ms";n.style.opacity=this.options.shadowFlip;f.style.transition="opacity "+this.options.speed/2+"ms linear "+this.options.speed/2+"ms";k.style.transition="opacity "+this.options.speed/2+"ms linear";k.style.opacity=this.options.shadowSides}else{if(i==="prev"){m.style.transition="opacity "+this.options.speed/2+"ms linear "+this.options.speed/2+"ms";m.style.opacity=this.options.shadowFlip;n.style.transition="opacity "+this.options.speed/2+"ms linear";f.style.transition="opacity "+this.options.speed/2+"ms linear";f.style.opacity=this.options.shadowSides;k.style.transition="opacity "+this.options.speed/2+"ms linear "+this.options.speed/2+"ms"}}}setTimeout(function(){p.className+=o.end?" bb-flip-"+i+"-end":" bb-flip-"+i;if(o.options.shadows&&!o.end){m.style.opacity=i==="next"?o.options.shadowFlip:0;n.style.opacity=i==="next"?0:o.options.shadowFlip;f.style.opacity=i==="next"?o.options.shadowSides:0;k.style.opacity=i==="next"?0:o.options.shadowSides}},25)},_addSide:function(h,g){var j=a.createElement("div");j.className="bb-page";switch(h){case"left":var f=g==="next"?this.current.innerHTML:this.nextItem.innerHTML;j.innerHTML='<div class="bb-back"><div class="bb-outer"><div class="bb-content"><div class="bb-inner">'+f+'</div></div><div class="bb-overlay"></div></div></div>';break;case"middle":var k=g==="next"?this.current.innerHTML:this.nextItem.innerHTML;var i=g==="next"?this.nextItem.innerHTML:this.current.innerHTML;j.innerHTML='<div class="bb-front"><div class="bb-outer"><div class="bb-content"><div class="bb-inner">'+k+'</div></div><div class="bb-flipoverlay"></div></div></div><div class="bb-back"><div class="bb-outer"><div class="bb-content" style="width:'+this.elWidth+'px"><div class="bb-inner">'+i+'</div></div><div class="bb-flipoverlay"></div></div></div>';break;case"right":var f=g==="next"?this.nextItem.innerHTML:this.current.innerHTML;j.innerHTML='<div class="bb-front"><div class="bb-outer"><div class="bb-content"><div class="bb-inner">'+f+'</div></div><div class="bb-overlay"></div></div></div>';break}return j},_startSlideshow:function(){var f=this;this.slideshow=setTimeout(function(){f._navigate("next");if(f.options.autoplay){f._startSlideshow()}},this.options.interval)},_stopSlideshow:function(){if(this.options.autoplay){clearTimeout(this.slideshow);this.options.autoplay=false}},next:function(){this._action(this.options.direction==="ltr"?"next":"prev")},prev:function(){this._action(this.options.direction==="ltr"?"prev":"next")},jump:function(g){g-=1;if(g===this.currentIdx||g>=this.itemsCount||g<0){return false}var f;if(this.options.direction==="ltr"){f=g>this.currentIdx?"next":"prev"}else{f=g>this.currentIdx?"prev":"next"}this._action(f,g)},last:function(){this.jump(this.itemsCount)},first:function(){this.jump(1)},_resizeHandler:function(){var f=this;function g(){f._resize();f._resizeTimeout=null}if(this._resizeTimeout){clearTimeout(this._resizeTimeout)}this._resizeTimeout=setTimeout(g,50)},_resize:function(){this.elWidth=this.el.offsetWidth},isActive:function(){return this.isAnimating},update:function(){var f=this.items[this.current];this.items=Array.prototype.slice.call(this.el.querySelectorAll(".bb-item"));this.itemsCount=this.items.length;this.currentIdx=this.items.indexOf(f)},destroy:function(){if(this.options.autoplay){this._stopSlideshow()}this.el.className=this.el.className.replace(new RegExp("(^|\\s+)bb-"+this.options.orientation+"(\\s+|$)")," ");this.items.forEach(function(g,f){g.style.display="block"});if(this.options.nextEl!==""){this.options.nextEl.removeEventListener("click");this.options.nextEl.removeEventListener("touchstart")}if(this.options.prevEl!==""){this.options.prevEl.removeEventListener("click");this.options.prevEl.removeEventListener("touchstart")}c.removeEventListener("debouncedresize")}};c.BookBlock=b})(window);</script>
+		
+				<!-- BookShelf.js-->
+		<script> /**
+ * bookshelf.js v1.0.0
+
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * Copyright 2014, Codrops
+ * 
+ */
+(function() {
+
+	var supportAnimations = 'WebkitAnimation' in document.body.style ||
+			'MozAnimation' in document.body.style ||
+			'msAnimation' in document.body.style ||
+			'OAnimation' in document.body.style ||
+			'animation' in document.body.style,
+		animEndEventNames = {
+			'WebkitAnimation' : 'webkitAnimationEnd',
+			'OAnimation' : 'oAnimationEnd',
+			'msAnimation' : 'MSAnimationEnd',
+			'animation' : 'animationend'
+		},
+		// animation end event name
+		animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
+		scrollWrap = document.getElementById( 'scroll-wrap' ),
+		docscroll = 0,
+		books = document.querySelectorAll( '#bookshelf > figure' );
+
+	function scrollY() {
+		return window.pageYOffset || window.document.documentElement.scrollTop;
+	}
+
+	function Book( el ) {
+		this.el = el;
+		this.book = this.el.querySelector( '.book' );
+		this.ctrls = this.el.querySelector( '.buttons' );
+		this.details = this.el.querySelector( '.details' );
+		// create the necessary structure for the books to rotate in 3d
+		this._layout();
+
+		this.bbWrapper = document.getElementById( this.book.getAttribute( 'data-book' ) );
+		if( this.bbWrapper ) {
+			this._initBookBlock();
+		}
+		this._initEvents();
+	}
+
+	Book.prototype._layout = function() {
+		if( Modernizr.csstransforms3d ) {
+			this.book.innerHTML = '<div class="cover"><div class="front"></div><div class="inner inner-left"></div></div><div class="inner inner-right"></div>';
+			var perspective = document.createElement( 'div' );
+			perspective.className = 'perspective';
+			perspective.appendChild( this.book );
+			this.el.insertBefore( perspective, this.ctrls );
+		}
+		if( this.details ) {
+			this.closeDetailsCtrl = document.createElement( 'span' )
+			this.closeDetailsCtrl.className = 'close-details';
+			this.details.appendChild( this.closeDetailsCtrl );
+		}
+	}
+
+	Book.prototype._initBookBlock = function() {
+		// initialize bookblock instance
+		this.bb = new BookBlock( this.bbWrapper.querySelector( '.bb-bookblock' ), {
+			speed : 700,
+			shadowSides : 0.8,
+			shadowFlip : 0.4
+		} );
+		// boobkblock controls
+		this.ctrlBBClose = this.bbWrapper.querySelector( ' .bb-nav-close' );
+		this.ctrlBBNext = this.bbWrapper.querySelector( ' .bb-nav-next' );
+		this.ctrlBBPrev = this.bbWrapper.querySelector( ' .bb-nav-prev' );
+	}
+
+	Book.prototype._initEvents = function() {
+		var self = this;
+		if( !this.ctrls ) return;
+
+		if( this.bb ) {
+			this.ctrls.querySelector( 'a:nth-child(1)' ).addEventListener( 'click', function( ev ) { ev.preventDefault(); self._open(); } );
+			this.ctrlBBClose.addEventListener( 'click', function( ev ) { ev.preventDefault(); self._close(); } );
+			this.ctrlBBNext.addEventListener( 'click', function( ev ) { ev.preventDefault(); self._nextPage(); } );
+			this.ctrlBBPrev.addEventListener( 'click', function( ev ) { ev.preventDefault(); self._prevPage(); } );
+		}
+
+		if( this.details ) {
+			this.ctrls.querySelector( 'a:nth-child(2)' ).addEventListener( 'click', function( ev ) { ev.preventDefault(); self._showDetails(); } );
+			this.closeDetailsCtrl.addEventListener( 'click', function() { self._hideDetails(); } );
+		}
+	}
+
+	Book.prototype._open = function() {
+		docscroll = scrollY();
+		
+		classie.add( this.el, 'open' );
+		classie.add( this.bbWrapper, 'show' );
+
+		var self = this,
+			onOpenBookEndFn = function( ev ) {
+				this.removeEventListener( animEndEventName, onOpenBookEndFn );
+				document.body.scrollTop = document.documentElement.scrollTop = 0;
+				classie.add( scrollWrap, 'hide-overflow' );
+			};
+
+		if( supportAnimations ) {
+			this.bbWrapper.addEventListener( animEndEventName, onOpenBookEndFn );
+		}
+		else {
+			onOpenBookEndFn.call();
+		}
+	}
+
+	Book.prototype._close = function() {
+		classie.remove( scrollWrap, 'hide-overflow' );
+		setTimeout( function() { document.body.scrollTop = document.documentElement.scrollTop = docscroll; }, 25 );
+		classie.remove( this.el, 'open' );
+		classie.add( this.el, 'close' );
+		classie.remove( this.bbWrapper, 'show' );
+		classie.add( this.bbWrapper, 'hide' );
+
+		var self = this,
+			onCloseBookEndFn = function( ev ) {
+				this.removeEventListener( animEndEventName, onCloseBookEndFn );
+				// reset bookblock starting page
+				self.bb.jump(1);
+				classie.remove( self.el, 'close' );
+				classie.remove( self.bbWrapper, 'hide' );
+			};
+
+		if( supportAnimations ) {
+			this.bbWrapper.addEventListener( animEndEventName, onCloseBookEndFn );
+		}
+		else {
+			onCloseBookEndFn.call();
+		}
+	}
+
+	Book.prototype._nextPage = function() {
+		this.bb.next();
+	}
+
+	Book.prototype._prevPage = function() {
+		this.bb.prev();
+	}
+
+	Book.prototype._showDetails = function() {
+		classie.add( this.el, 'details-open' );
+	}
+
+	Book.prototype._hideDetails = function() {
+		classie.remove( this.el, 'details-open' );
+	}
+
+	function init() {
+		[].slice.call( books ).forEach( function( el ) {
+			new Book( el );
+		} );
+	}
+
+	init();
+
+})();</script>
+		
+						<!--classie.js-->
+		<script>/*!
+ * classie - class helper functions
+ * from bonzo https://github.com/ded/bonzo
+ * 
+ * classie.has( elem, 'my-class' ) -> true/false
+ * classie.add( elem, 'my-new-class' )
+ * classie.remove( elem, 'my-unwanted-class' )
+ * classie.toggle( elem, 'my-class' )
+ */
+
+/*jshint browser: true, strict: true, undef: true */
+/*global define: false */
+
+( function( window ) {
+
+'use strict';
+
+// class helper functions from bonzo https://github.com/ded/bonzo
+
+function classReg( className ) {
+  return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+}
+
+// classList support for class management
+// altho to be fair, the api sucks because it won't accept multiple classes at once
+var hasClass, addClass, removeClass;
+
+if ( 'classList' in document.documentElement ) {
+  hasClass = function( elem, c ) {
+    return elem.classList.contains( c );
+  };
+  addClass = function( elem, c ) {
+    elem.classList.add( c );
+  };
+  removeClass = function( elem, c ) {
+    elem.classList.remove( c );
+  };
+}
+else {
+  hasClass = function( elem, c ) {
+    return classReg( c ).test( elem.className );
+  };
+  addClass = function( elem, c ) {
+    if ( !hasClass( elem, c ) ) {
+      elem.className = elem.className + ' ' + c;
+    }
+  };
+  removeClass = function( elem, c ) {
+    elem.className = elem.className.replace( classReg( c ), ' ' );
+  };
+}
+
+function toggleClass( elem, c ) {
+  var fn = hasClass( elem, c ) ? removeClass : addClass;
+  fn( elem, c );
+}
+
+var classie = {
+  // full names
+  hasClass: hasClass,
+  addClass: addClass,
+  removeClass: removeClass,
+  toggleClass: toggleClass,
+  // short names
+  has: hasClass,
+  add: addClass,
+  remove: removeClass,
+  toggle: toggleClass
+};
+
+// transport
+if ( typeof define === 'function' && define.amd ) {
+  // AMD
+  define( classie );
+} else {
+  // browser global
+  window.classie = classie;
+}
+
+})( window );
+</script>
+		
+
+		
+	</body>
+</html>

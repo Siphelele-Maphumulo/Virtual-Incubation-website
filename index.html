@@ -25,7 +25,7 @@
     <!-- Font Awesome (For Icons) -->
     <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
 
 
     
@@ -33,7 +33,18 @@
     <title>SMMEs Virtual Incubation</title>
     <!-- Favicon-->
     <style>
-          
+        :root {
+            --primary-color: #00102E;
+            --secondary-color: #2AC6A7;
+            --white: #FFFFFF;
+            --text-gray: #828283;
+            --dark-blue: #00102E;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease-in-out;
+        }
+
+
         .header-content {
             display: flex;
             justify-content: center; /* Centers text in the middle of the screen */
@@ -41,14 +52,14 @@
             max-width: 100%;
 
         }
-        
+
         .logo {
-            width: 350px; /* Increase width */
+            width: 300px; /* Increase width */
             height: auto; /* Maintain aspect ratio */
             object-fit: contain;
             position: absolute;
-            top: -150px; /* Moves logo slightly upward */
-            left: 80px; /* Keeps it far left */
+            top: -180px; /* Moves logo slightly upward */
+            left: 100px; /* Keeps it far left */
             padding-left: 50px; /* Extra spacing for positioning */
         }
         
@@ -79,46 +90,99 @@
             max-width: 100%;
             padding-bottom: 20px;
         }
+
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-gray);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-blue);
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
         
+        /* Navigation */
         .navbar {
             display: flex;
-            justify-content: space-between; /* Push logo left & links right */
+            justify-content: space-between;
             align-items: center;
-            padding: 05px 10px;
-            background-color: #00102E;  
-            font-family: 'Poppins', sans-serif; /* Modern, professional font */
-          }
-          
-          .navbar-brand img {
-            height: 80px; /* Slightly larger logo */
-            width: 300px;
-          }
-          
-          .nav-links {
+            padding: 0.5rem 0%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .navbar.scroll {
+            padding: 0.5rem 0%;
+            background-color: rgba(0, 16, 46, 0.95);
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            transition: var(--transition);
+        }
+
+        .nav-links {
             display: flex;
             list-style: none;
-            gap: 10px; /* Increased spacing for a more balanced layout */
-          }
-          
-          .nav-links li a {
-            padding-top: 20px;
-            text-decoration: none;
-            color: white;
-            font-weight: 400; /* Slightly bolder for readability */
-            font-size: 0.8rem; /* Adjusted size for professional appearance */
-            padding: 12px 8px;
-            position: relative;
-            transition: all 0.3s ease-in-out;
-          }
-          
-          /* Glass border hover effect */
-          .nav-links li a:hover {
-            color: #5755B1;
-            border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
-          }
-          
+            gap: -20px;
+            font-size: small;
+        }
+
+        .nav-links li a {
+            color: var(--white);
+            font-weight: 200;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dropdown */
+         /* Dropdown */
+         .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--primary-color);
+            min-width: 150px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        
           #services {
             padding: 0; /* Removes top padding */
           }
@@ -159,117 +223,314 @@
             width: 100%; /* Ensures it spans the full width */
           }
           
-          #contact {
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Centers content vertically */
-            align-items: center; /* Centers content horizontally */
-            text-align: center; /* Ensures text is centered */
-            width: 100%; /* Ensures it spans the full width */
-            padding: 40px 40px; /* Optional: Padding to avoid tight edges */
+          
+    /* Partners Section - Professional Styling */
+    .partners-section {
+        padding: 80px 0;
+        background-color: #f8fafc;
+        position: relative;
+        font-family: 'Poppins', Arial, sans-serif;
+    }
 
-          }
+    .partners-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
-          .partners-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Centers content vertically */
-            align-items: center; /* Centers content horizontally */
-            text-align: center; /* Ensures text is centered */
-            padding: 40px 0;
-            padding-top: 0;
+    .partners-header {
+        margin-bottom: 50px;
+        text-align: center;
+    }
 
-        
+    .partners-header h1 {
+        color: #00102E;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .partners-header h1:after {
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 3px;
+        background: #2AC8A8;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 20px 0;
+    }
+
+    .slide-track {
+        display: flex;
+        align-items: center;
+        animation: scroll 30s linear infinite;
+        width: calc(250px * 8); /* Adjust based on number of slides */
+    }
+
+    .slide {
+        width: 200px;
+        height: 100px;
+        margin: 0 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+    }
+
+    .slide:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    .slide img {
+        max-width: 100%;
+        max-height: 80px;
+        object-fit: contain;
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-250px * 24)); /* Half of total width */
+    }
+}
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+        .partners-header h1 {
+            font-size: 2rem;
         }
+        
+        .slide {
+            width: 180px;
+            margin: 0 15px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .partners-section {
+            padding: 60px 0;
+        }
+        
+        .slide {
+            width: 150px;
+            height: 80px;
+            margin: 0 10px;
+        }
+        
+        .slide img {
+            max-height: 60px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .partners-header h1 {
+            font-size: 1.8rem;
+        }
+        
+        .slide {
+            width: 120px;
+            height: 70px;
+        }
+    }
+
         
         /* General Styling for About Section */
-        #about {
-            background-color: #ffffff;
-            padding: 0% 0;
-            margin-top: 2%; /* Reduced from 8% */
-        }
-        
-        /* Section Heading */
-        #about .section-heading {
-            text-transform: uppercase;
-            font-weight: bold;
-            color: #000000; /* Black color for text */
-            margin-bottom: 0%;
-            font-size: 1rem;
-        }
-        
-        /* Portfolio Item Container */
-        .portfolio-item {
-            color: black; /* Black text */
-            height: 100%;
-            display: flex;
+    /* About Section Styling */
+    #about {
+        background-color: #ffffff;
+        padding: 50px 0;
+        position: relative;
+    }
+
+    .about-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .about-left {
+        flex: 1;
+        position: relative;
+    }
+
+    .about-left img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 15px 30px rgba(0, 16, 46, 0.1);
+    }
+
+    .about-right {
+        flex: 1;
+    }
+
+    .about-right h1 {
+        color: #00102E;
+        font-size: 2.8rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .about-right h2 {
+        color: #2AC8A8;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .about-right p {
+        color: #555555;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 992px) {
+        .about-container {
             flex-direction: column;
-            align-items: center;
-            position: relative;
-            border-radius: 0; /* Sharp edges */
-            overflow: hidden;
-            transition: background-color 0.3s ease-in-out;
-            padding: 10px;
-            text-align: center;
-            height: 300px; /* Adjusted height */
-            border: 1px solid #ddd; /* Border to define sharp edges */
+            gap: 40px;
+            padding: 0 20px;
         }
         
-        /* Hover Effect for Portfolio Item */
-        .portfolio-item:hover {
-            background-color: #2ac8a82f; /* Slight grey background on hover */
+        .about-right h1 {
+            font-size: 2.2rem;
         }
         
-        /* Icon Container */
-        .icon-container {
-            margin-bottom: 100px;
-        }
-        
-        .icon-container i {
-            font-size: 400px; /* Large icons (300x300) */
-            color: black; /* Black icons */
-        }
-        
-        /* Portfolio Caption */
-        .portfolio-caption h2 {
+        .about-right h2 {
             font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: black; /* Black text */
         }
+    }
         
-        .portfolio-caption p {
-            font-size: 1rem;
-            color: black; /* Black text */
-        }
-        
-        /* Hover Effects */
-        .portfolio-item:hover .icon-container i {
-            color: black; /* Keep the icon black on hover */
-        }
-        
-        .portfolio-item:hover .portfolio-caption h2 {
-            color: black; /* Keep the heading black on hover */
-        }
-        
-        .portfolio-item:hover .portfolio-caption p {
-            color: black; /* Keep the paragraph text black on hover */
-        }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .portfolio-item {
-                height: 400px;
-            }
-        
-            .portfolio-caption h2 {
-                font-size: 1.2rem;
-            }
-        
-            .portfolio-caption p {
-                font-size: 0.9rem;
-            }
-        }
+/* Portfolio Item Container */
+.portfolio-item {
+    color: black; /* Black text */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 0; /* Sharp edges */
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
+    padding: 30px 15px; /* Balanced padding */
+    text-align: center;
+    height: 400px; /* Adjusted height */
+    border: 1px solid #ddd; /* Border to define sharp edges */
+    justify-content: space-between; /* Ensures even spacing */
+}
+
+/* Hover Effect for Portfolio Item */
+.portfolio-item:hover {
+    background-color: #2ac8a82f; /* Slight grey background on hover */
+}
+
+/* Icon Container */
+.icon-container {
+    width: 90px; /* Ensures uniform size */
+    height: 90px;
+    background: white;
+    border-radius: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* Larger icon */
+    color: black; /* Black icon color */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px; /* Consistent spacing */
+}
+
+/* Portfolio Caption */
+.portfolio-caption h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black; /* Black text */
+}
+
+.portfolio-caption p {
+    font-size: 1rem;
+    color: black; /* Black text */
+}
+
+/* Hover Effects */
+.portfolio-item:hover .icon-container {
+    background: #2AC8A8;
+    color: white;
+    transform: scale(1.1);
+}
+
+.portfolio-caption {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-caption h2 {
+    color: #00102E;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.portfolio-caption h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: #2AC8A8;
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-caption h2:after {
+    width: 60px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .portfolio-item {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-item {
+        margin-top: 50px;
+        padding: 50px 20px;
+    }
+
+    .icon-container {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+
+    .portfolio-caption h2 {
+        font-size: 1.3rem;
+    }
+}
+
 
         /* Smooth Scrolling */
         html {
@@ -289,7 +550,7 @@
     
         .meet-team {
             text-align: center;
-            font-size: 30pt;
+            font-size: 100pt;
             font-weight: 800;
             color: white;
             -webkit-text-stroke: 2px black;
@@ -319,7 +580,7 @@
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
-            max-width: 300px;
+            max-width: 400px;
             text-align: center;
         }
         
@@ -330,23 +591,23 @@
         
         /* Role & Name Styling */
         .team-role {
-            font-size: 14pt;
+            font-size: 18pt;
             font-weight: bold;
             color: #555;
             margin-bottom: 5px;
         }
         
         .team-name {
-            font-size: 16pt;
+            font-size: 20pt;
             font-weight: bold;
             color: #222;
             margin-bottom: 15px;
         }
         
         /* Image Styling */
-        .icon-container img {
-            width: 120px;
-            height: 120px;
+        .teamicon-container img {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #ddd;
@@ -512,29 +773,512 @@
             font-size: 30pt;
             color: gray; /* Changes color on hover */
         }
-    </style> 
+        
+        .image-container {
+            display: flex;
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically (if needed) */
+            width: 100%;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%; /* Ensures it stays responsive */
+            height: auto;
+            display: block; /* Removes extra padding from inline elements */
+        }
+        
+    /* Floating button styles */
+ /* Scroll to Top Button */
+ #contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url("../assets/img/map-image.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: rgba(0, 16, 46, 0.8);
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.text-center {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section-subheading {
+    font-size: 1rem;
+    color: #CED4DA;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-col {
+    flex: 1;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+textarea.form-control {
+    min-height: 150px;
+}
+
+.btn-submit {
+    background-color: #0089FF;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .contact-container {
+        padding: 30px 20px;
+    }
+}
+
+
+
+/* Footer Styles */
+footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 60px 0 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.footer-column p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.service-list {
+    list-style: none;
+}
+
+.service-list li {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.service-list li:before {
+    content: "•";
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.subscription-form {
+    display: flex;
+    margin-top: 20px;
+}
+
+.subscription-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+}
+
+.subscription-form button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.subscription-form button:hover {
+    background-color: #249e8d;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+background-color: #00102E;
+padding: 20px 0;
+text-align: center;
+}
+
+.footer-bottom .container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 15px;
+}
+
+.footer-bottom-row {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+}
+
+.footer-bottom-col {
+flex: 1;
+min-width: 100%;
+padding: 10px 0;
+text-align: center;
+}
+
+.footer-bottom-col p {
+margin: 0;
+padding: 0 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+.footer-col {
+    flex: 0 0 50%;
+}
+}
+
+@media (max-width: 768px) {
+.footer-col {
+    flex: 0 0 100%;
+    text-align: center;
+}
+
+.service-list li {
+    text-align: center;
+    padding-left: 0;
+}
+
+.service-list li:before {
+    display: none;
+}
+
+.footer-bottom-col {
+    flex: 0 0 100%;
+}
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.licensing-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+<!-- /* Scroll to Top Button */
+#scrollToTop {
+    position: fixed;
+    bottom: 30px; /* Position at the bottom */
+    right: 30px; /* Position at the right */
+    width: 50px;
+    height: 50px;
+    background-color: #2AC8A8; /* Button color */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    border-radius: 50%; /* Make it a circle */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden;
+}
+
+#scrollToTop.show {
+    opacity: 1;
+    visibility: visible;
+} -->
+
+#scrollToTop:hover {
+    background-color: #249e8d;
+    transform: translateY(-3px);
+}
+
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .footer-column {
+        flex: 1 0 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .footer-links a {
+        margin: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .subscription-form {
+        flex-direction: column;
+    }
+
+    .subscription-form input {
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .subscription-form button {
+        border-radius: 5px;
+        padding: 12px;
+    }
+}
+
+/* Modal Overlay (Background) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Newsletter Button Styles */
+.newsletter-btn {
+    background-color: #2AC6A7;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-btn:hover {
+    background-color: #1da58a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.newsletter-btn:active {
+    transform: translateY(0);
+}
+
+/* Full-Screen Modal Content */
+#newsletterModal .modal-content {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background:#00102E;
+    border-radius: 0;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Close Button Styling */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: rgb(233, 10, 10);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.close-modal:hover {
+    transform: scale(1.2);
+}
+
+/* Iframe - Ensure it fits well */
+.newsletter-iframe {
+    width: 95%;
+    height: 90%;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #newsletterModal .modal-content {
+        padding: 10px;
+    }
+    .newsletter-iframe {
+        height: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .close-modal {
+        font-size: 1.5rem;
+        top: 10px;
+        right: 15px;
+    }
+    .newsletter-iframe {
+        height: 75%;
+    }
+}
+</style>
 
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar" style="background-color: #00102E;  ">
+        <nav class="navbar" style="background-color: #00102E; font-weight: 200;">
             <a class="navbar-brand" href="#page-top">
                 <img src="./assets/img/preview.png" alt="Logo">
             </a>
-            <ul class="nav-links" style=" padding-right:8%">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+            
+            <ul class="nav-links" style="padding-top: 10px; padding-right:0%; gap:0%">
+                <li><a href="home.html"><i class="fas fa-house"></i>Home</a></li>
+                <li><a href="#services"><i class="fas fa-handshake"></i>Our Services</a></li>
+                <li><a href="#digital"><i class="fas fa-info-circle"></i>About Us</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i>Contact Us</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">User 
-                        <span class="dropdown-icon"></span>
-                      </a>
+                    <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')"> 
+                        <i class="fa fa-user"></i> User  
+                        <span ><i class="fa fa-caret-down"></i></span>
+                    </a>
                       
                     <div class="dropdown-content" id="dropdown1">
-                      <a href="register.html">Register</a>
-                      <a href="login.html">Login</a>
-                      <a href="#password-reset">Password Reset</a>
+                        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+                        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="#password-reset"><i class="fas fa-key"></i> Password Reset</a>                        
                     </div>
                   </li>
                   
@@ -554,10 +1298,9 @@
                     SMMEs VIRTUAL <br> INCUBATION
                 </div>
                 <div class="subheading" >
-                    Grow your business! Have access to services like web design,<br>
-                    marketing, mentoring, management assistance, and support.<br> 
-                    There are others you will engage with virtually from anywhere<br> 
-                    around the country!
+                    Boost your business! Access top services like web design,<br> 
+                    marketing, mentorship, management support, and more.<br> 
+                    Engage with others virtually from anywhere across the country!
                 </div>
             </div>
         </div>
@@ -567,7 +1310,7 @@
             <div class="icon-box">
                 <i class="fas fa-people-carry icon"></i>
                 <b>MENTORING</b>
-                <p>Get expert advice and mentoring.<br>Avoid obstacles and <br>set yourself and your business for success.</p>
+                <p>Get expert advice and mentoring. Avoid obstacles and set yourself and your business for success.</p>
             </div>
             <div class="icon-box">
                 <i class="fas fa-balance-scale icon"></i>
@@ -589,27 +1332,22 @@
 
 <!-- Services Section -->
 <!-- About Section -->
-<section style="font-family: 'Poppins', Arial, sans-serif; padding-top:1px; padding-bottom:1px">
-    <div class="help-container">
-        <!-- Left Column: Full Image -->
-        <div class="help-left">
-            <img src="./assets/img/art-about.png" alt="Full Image" class="full-image">
+<section id="about">
+    <div class="about-container">
+        <!-- Left Column: Image -->
+        <div class="about-left">
+            <img src="./assets/img/art-about.png" alt="About SMMEs Virtual Incubation">
         </div>
 
         <!-- Right Column: Content -->
-        <div class="help-right"  id="about" >
-            <h1 style="color: #000000;font-size: 50pt; margin-bottom:1px">About us</h1>
-            <h1 style="color: #00102E;font-size: 30pt; padding-top:1px">Ignite and Accelerate Ideas</h1>
-            <p>SMMEs Virtual Incubation is focused on incubating to accelerate the first mile and guiding the journey to the last mile. 
-            We incubate and grow small and micro companies with market valuation potential headquartered in South Africa.
-            </p>
-
-            <p>We are the industry's first to offer a unique model of combining technology partnership, incubation and domain/tech acceleration capabilities for founders.
-            </p>
-
-            <p>Combining state of the art services with access to a global ecosystem allows us to create the next big startup or product. Let us partner and build your 
-               legendary company together.
-            </p>
+        <div class="about-right">
+            <h1>About Us</h1>
+            <h2>We Ignite and Accelerate Every Idea</h2>
+            <p>SMMEs Virtual Incubation specializes in accelerating early-stage development while providing comprehensive guidance through every growth phase. We cultivate and scale small and micro enterprises with significant market potential, headquartered in South Africa.</p>
+            
+            <p>As industry pioneers, we offer an innovative model that integrates technology partnerships, incubation services, and domain-specific acceleration capabilities for visionary founders.</p>
+            
+            <p>By combining cutting-edge services with access to a global innovation ecosystem, we empower the creation of transformative startups and products. Partner with us to build your industry-defining company.</p>
         </div>
     </div>
 </section>
@@ -664,8 +1402,8 @@
 <section class="coreservice-page-section">
     <div class="text-center" style="padding-bottom:5%">
         <h6 style="text-align: left;">CORE SERVICES</h6>
-        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:40pt">Promoting Digital</h2>
-        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:40pt">Business Transformation</h2>
+        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:20pt; color:#000000">Promoting Digital</h2>
+        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:20pt; color:#000000">Business Transformation</h2>
     </div>
 
     <div class="row" style="width:100%; ">
@@ -751,7 +1489,20 @@
 
 
 <!-- Team Section -->
-<section class="team-page-section">
+<section class="team-page-section" style="
+    position: relative;
+    background-image: url(./assets/img/team/wall.jpg);
+    background-size: cover;
+    background-position: top center; /* Ensures the top part is fully visible */
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Ensures it covers the full viewport */
+    padding: 100px 0px 80px; /* Increased top padding for better spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+">
+
     <div class="text-center overlay">
         <h2 class="section-heading text-uppercase meet-team">MEET OUR TEAM</h2>
         <h3 class="meet-team-subtitle">We Transform Vision Into Value</h3>
@@ -764,7 +1515,7 @@
                 <div class="team-card text-center">
                     <h6 class="team-role">Software Developer</h6>
                     <h6 class="meet-team-subtitle">Siphelele A. Maphumulo</h6>
-                    <div class="icon-container">
+                    <div class="teamicon-container">
                         <img src="./assets/img/team/Sphe.png" alt="Siphelele A. Maphumulo">
                     </div>
                     <!-- Social Icons Centered Below the Image -->
@@ -781,8 +1532,8 @@
             <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
                 <div class="team-card">
                     <h6 class="team-role">Founder</h6>
-                    <h6 class="meet-team-subtitle">Lungile Mthethwa</h6>
-                    <div class="icon-container">
+                    <h6 class="meet-team-subtitle">Lungile<br> Mthethwa</h6>
+                    <div class="teamicon-container">
                         <img src="./assets/img/team/lungi.png" alt="Lungile Mthethwa">
                     </div>
                     <!-- Social Icons Centered Below the Image -->
@@ -799,7 +1550,7 @@
                 <div class="team-card">
                     <h6 class="team-role">Software Developer</h6>
                     <h6 class="meet-team-subtitle">Nkosiphendule Jwara</h6>
-                    <div class="icon-container">
+                    <div class="teamicon-container">
                         <img src="./assets/img/team/Jwara.png" alt="Nkosiphendule Jwara">
                     </div>
                     <!-- Social Icons Centered Below the Image -->
@@ -817,9 +1568,9 @@
 
 <!-- Services Section-->
 <section class="digital-section" style="font-family: 'Poppins', Arial, sans-serif; margin-top:-8%">
-    <div class="container" >
+    <div class="container" id="digital" style="padding-top: 5%;">
         <div class="text-center"  >
-            <h1 id="digital"style="color:black">DIGITAL DISRUPTION</h1>
+            <h1 style="color:black">DIGITAL DISRUPTION</h1>
             <h3 style="font-size:15pt">We Incubate, Nourish & Grow Startups</h3>
             <div style="font-size:12pt; font-family: 'Poppins', Arial, sans-serif;">
                 <p>We craft to leverage the inherent skills, which enables to unleash the full potential of core competencies. Encouraging innovation in
@@ -828,17 +1579,18 @@
             </div>
 
         </div>
-        <div >
-            <img  src="assets/img/Digital-Disruption.webp" alt="..." />
+        <div class="image-container">
+            <img src="assets/img/Digital-Disruption.webp" alt="Digital Disruption" />
         </div>
+        
     </div>
 </section>
 
 <!-- Services Section-->
 <section class="service-section" style="font-family: 'Poppins', Arial, sans-serif; margin-top:-25%">
-    <div class="container" id="services">
+    <div class="container" id="services" style="padding-top: 15%;">
         <div class="text-center"  >
-            <h1 >GET ACCESS TO SERVICES</h1>
+            <h1 >QUICK ACCESS TO REGISTRATION SERVICES</h1>
             <h3>We are uniquely positioned with skills to build your business</h3>
         </div>
         <div class="row text-center">
@@ -884,42 +1636,63 @@
 </section>
 
 
-<!-- Services Section-->
-<section class="partners-section" style="font-family: 'Poppins', Arial, sans-serif" >
-    <div>
-        <div>
-            <h1>OUR PARTNERS</h1>
+<!-- Partners Section -->
+<section class="partners-section">
+    <div class="partners-container">
+        <div class="partners-header">
+            <h1>TRUSTED PARTNERS</h1>
+            <p>We collaborate with industry leaders to deliver exceptional value</p>
         </div>
+        
         <div class="slider">
-            <!-- Navigation Arrows -->
-
-            <!-- Slides -->
             <div class="slide-track">
-                <div class="slide"><img src="assets/logos/Python.webp" alt="Partner 1" /></div>
-                <div class="slide"><img src="assets/logos/ceta.webp" alt="Partner 2" /></div>
-                <div class="slide"><img src="assets/logos/cathsseta.webp" alt="Partner 3" /></div>
-                <div class="slide"><img src="assets/logos/chieta.webp" alt="Partner 4" /></div>
-                <div class="slide"><img src="assets/logos/cisco.webp" alt="Partner 5" /></div>
-                <div class="slide"><img src="assets/logos/edtea.webp" alt="Partner 6" /></div>
-                <div class="slide"><img src="assets/logos/employment.webp" alt="Partner 7" /></div>
-                <div class="slide"><img src="assets/logos/ETDP-SETA.webp" alt="Partner 8" /></div>
-                <div class="slide"><img src="assets/logos/labour.webp" alt="Partner 9" /></div>
-                <div class="slide"><img src="assets/logos/HWSETA.webp" alt="Partner 10" /></div>
-                <div class="slide"><img src="assets/logos/LGSETA.webp" alt="Partner 11" /></div>
-                <div class="slide"><img src="assets/logos/Microsoft.webp" alt="Partner 12" /></div>
-                <div class="slide"><img src="assets/logos/miningseta.webp" alt="Partner 13" /></div>
-                <div class="slide"><img src="assets/logos/nyanda.webp" alt="Partner 14" /></div>
-                <div class="slide"><img src="assets/logos/seda.webp" alt="Partner 15" /></div>
-                <div class="slide"><img src="assets/logos/ServiceSeta.webp" alt="Partner 16" /></div>
-                <div class="slide"><img src="assets/logos/Standard_bank.webp" alt="Partner 15" /></div>
-                <div class="slide"><img src="assets/logos/TETA.jpg" alt="Partner 16" /></div>
-                <div class="slide"><img src="assets/logos/edtea.webp" alt="Partner 6" /></div>
-                <div class="slide"><img src="assets/logos/employment.webp" alt="Partner 7" /></div>
-                <div class="slide"><img src="assets/logos/ETDP-SETA.webp" alt="Partner 8" /></div>
-                <div class="slide"><img src="assets/logos/labour.webp" alt="Partner 9" /></div>
-                <div class="slide"><img src="assets/logos/HWSETA.webp" alt="Partner 10" /></div>
-                <div class="slide"><img src="assets/logos/LGSETA.webp" alt="Partner 11" /></div>
+                <!-- Partner Logos - Ascending Order -->
+                <div class="slide"><img src="assets/logos/1.png" alt="Partner 1" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/2.png" alt="Partner 2" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/3.png" alt="Partner 3" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/4.png" alt="Partner 4" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/5.png" alt="Partner 5" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/6.png" alt="Partner 6" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/7.png" alt="Partner 7" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/8.png" alt="Partner 8" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/9.png" alt="Partner 9" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/10.png" alt="Partner 10" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/11.png" alt="Partner 11" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/12.png" alt="Partner 12" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/13.png" alt="Partner 13" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/14.png" alt="Partner 14" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/15.png" alt="Partner 15" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/16.png" alt="Partner 16" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/17.png" alt="Partner 17" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/18.png" alt="Partner 18" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/19.png" alt="Partner 19" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/20.png" alt="Partner 20" loading="lazy" /></div>
+
+
+            
+                <!-- Partner Logos - Descending Order -->
+                <div class="slide"><img src="assets/logos/40.png" alt="Partner 40" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/39.png" alt="Partner 39" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/38.png" alt="Partner 38" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/37.png" alt="Partner 37" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/36.png" alt="Partner 35" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/35.png" alt="Partner 35" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/34.png" alt="Partner 34" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/33.png" alt="Partner 33" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/32.png" alt="Partner 32" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/31.png" alt="Partner 31" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/29.png" alt="Partner 29" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/28.png" alt="Partner 28" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/27.png" alt="Partner 27" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/26.png" alt="Partner 26" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/25.png" alt="Partner 25" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/24.png" alt="Partner 24" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/23.png" alt="Partner 23" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/22.png" alt="Partner 22" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/21.png" alt="Partner 21" loading="lazy" /></div>
             </div>
+            
+            
         </div>
     </div>
 </section>
@@ -1164,38 +1937,333 @@
                 </div>
             </div>
         </div>
-    <!-- Scroll to Top Button -->
-    <a href="#top" id="scrollToTop" style="background-color:#2AC6A7">
-        <i class="fa fa-arrow-up"></i>
-    </a>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container text-center" style="max-width: 800px; margin: auto;">
+      <h2 class="section-heading text-uppercase">Contact Us</h2>
+      <h3 class="section-subheading text-muted" style="color: azure;">
+        Drop us a line via email for inquiries or collaborations
+      </h3>
+  
+      <form id="contactForm" style="width: 100%;">
+        <div class="row align-items-stretch mb-5">
+          <!-- Left Column Inputs -->
+          <div class="col-md-6">
+            <div class="form-group">
+              <input class="form-control" id="name" type="text" placeholder="Your Name *" required />
+              <div class="invalid-feedback">A name is required.</div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="email" type="email" placeholder="Your Email *" required />
+              <div class="invalid-feedback">An email is required.</div>
+              <div class="invalid-feedback" style="display: none;">Email is not valid.</div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required />
+              <div class="invalid-feedback">A phone number is required.</div>
+            </div>
+          </div>
+  
+          <!-- Right Column Textarea -->
+          <div class="col-md-6">
+            <div class="form-group form-group-textarea mb-0">
+              <textarea class="form-control" id="message" placeholder="Your Message *" required></textarea>
+              <div class="invalid-feedback">A message is required.</div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Submission Messages -->
+        <div id="submitSuccessMessage" class="d-none text-center text-white mb-3">
+          <div class="fw-bolder">Form submission successful!</div>
+        </div>
+        <div id="submitErrorMessage" class="d-none text-center text-danger mb-3">
+          Error sending message!
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit" disabled>
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer Content -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+  
+        <!-- About Us -->
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <p>SMMEs Virtual Incubation focuses on guiding startups from the first mile to the last.</p>
+          <p>We support small and micro businesses with growth potential in South Africa.</p>
+          <p><i class="fas fa-clock"></i> Mon–Thu: 08:30–16:30 | Fri: 08:30–14:30 | Sat: 10:00–14:30</p>
+        </div>
+  
+        <!-- Services -->
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="service-list">
+            <li>SETA Registration & Mentorship</li>
+            <li>Business Profile Development</li>
+            <li>Marketing & Advertising</li>
+            <li>Workplace Skills Plan Submission</li>
+            <li>Tax Compliance Services</li>
+            <li>Funding Assistance</li>
+            <li>Professional Workshops</li>
+          </ul>
+        </div>
+  
+        <!-- Recent Updates -->
+        <div class="footer-column">
+          <h3>Recent Updates</h3>
+          <p>Check back soon for news and updates!</p>
+        </div>
+  
+        <!-- Contact Info -->
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park, New Germany</p>
+          <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
+          <p><i class="fas fa-envelope"></i> info@codingmadeeasy.co.za</p>
+  
+          <!-- Newsletter Button -->
+          <button id="newsletterButton" class="newsletter-btn">
+            Subscribe to Newsletter <i class="fas fa-envelope"></i>
+          </button>
+  
+          <!-- Modal for Newsletter -->
+          <div id="newsletterModal" class="modal-overlay">
+            <div class="modal-content">
+              <button class="close-modal">&times;</button>
+              <h2>Stay in Business and Updated</h2>
+              <iframe class="newsletter-iframe"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer Bottom -->
+    <div class="footer py-4">
+      <div class="footer-container">
+  
+        <div class="footer-bottom-row">
+          <div class="footer-bottom-col">
+            <img src="assets/img/logos/logo.png" alt="SMMEs Logo" />
+            <h5>©2025 SMMEs VIRTUAL INCUBATION</h5>
+          </div>
+  
+          <div class="footer-bottom-col">
+            <a href="#!" class="link-light text-decoration-none">Terms of Use</a>
+          </div>
+  
+          <div class="footer-bottom-col">
+            <div class="social-icons">
+              <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="footer-bottom-row">
+          <p>
+            Code SA Virtual Incubation is a licensed business service provider under the Business Advisory and Intermediary Services Act and a registered credit provider under the National Credit Act (NCRCP15).
+          </p>
+        </div>
+  
+      </div>
+    </div>
+  </footer>
+  
+
+<!-- Scripts -->
+<script src="js/validation.js"></script>
+
+<script>
+
+    // Scroll to Top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+    
+        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
 
 
-        <!-- Where the footer is -->
-        <div id="footer-container"></div>
-        
-        <script>
-            // Load footer content
-            fetch('Footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-container').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading footer:', error));
-        </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const newsletterBtn = document.getElementById('newsletterButton');
+        const newsletterModal = document.getElementById('newsletterModal');
+        const closeModalBtn = newsletterModal.querySelector('.close-modal');
+        const iframe = newsletterModal.querySelector('.newsletter-iframe');
+
+        function openNewsletterModal() {
+            document.body.classList.add('modal-open');
+            newsletterModal.classList.add('active');
+            newsletterModal.style.display = "flex"; // Show modal
+            iframe.src = "newsletter.html";
+            setTimeout(() => closeModalBtn.focus(), 100);
+        }
+
+        function closeNewsletterModal() {
+            document.body.classList.remove('modal-open');
+            newsletterModal.classList.remove('active');
+            newsletterModal.style.display = "none"; // Hide modal
+            iframe.src = "";
+            newsletterBtn.focus();
+        }
+
+        if (newsletterBtn) {
+            newsletterBtn.addEventListener('click', openNewsletterModal);
+            closeModalBtn.addEventListener('click', closeNewsletterModal);
+            newsletterModal.addEventListener('click', function(e) {
+                if (e.target === newsletterModal) closeNewsletterModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && newsletterModal.classList.contains('active')) {
+                    closeNewsletterModal();
+                }
+            });
+        }
+    });
+</script>
+
+<script>
+
+ document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".mobile-menu-btn");
+    const navLinks = document.getElementById("nav-links");
+
+    menuButton.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", function (event) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        const dropdownButtons = document.querySelectorAll(".dropbtn");
+
+        let isDropdownButton = Array.from(dropdownButtons).some(button => button.contains(event.target));
+        let isDropdownContent = Array.from(dropdowns).some(dropdown => dropdown.contains(event.target));
+
+        if (!isDropdownButton && !isDropdownContent) {
+            dropdowns.forEach(dropdown => dropdown.style.display = "none");
+        }
+    });
+
+    document.querySelectorAll(".dropbtn").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const dropdown = this.nextElementSibling;
+            document.querySelectorAll(".dropdown-content").forEach(d => {
+                if (d !== dropdown) d.style.display = "none"; // Close other dropdowns
+            });
+
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        });
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        // Only prevent default if href is not just #
+        if (this.getAttribute('href') !== '#') {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return; // Skip if href is just #
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks) navLinks.classList.remove('show');
+            }
+        }
+    });
+});
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show/hide the scroll-to-top button based on scroll position
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) { // Adjust the scroll offset as needed
+                scrollToTopButton.classList.add('show'); // Show the button
+            } else {
+                scrollToTopButton.classList.remove('show'); // Hide the button
+            }
+        });
+    
+        // Smooth scroll to the top when the button is clicked
+        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default anchor action
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll
+            });
+        });
+    });
+    
+    
+</script>
 
 
 
-        <script src="js/scripts.js"></script>
-        <script src="js/main.js"></script>
 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script>
+    let container = document.querySelector(".slide-track");
+
+    function createSlides(start, end) {
+        for (let i = start; i <= end; i++) {
+            let slide = document.createElement("div");
+            slide.classList.add("slide");
+            slide.innerHTML = `<img src="assets/logos/${i}.png" alt="Partner ${i}" loading="lazy" />`;
+            container.appendChild(slide);
+        }
+    }
+
+    createSlides(1, 40); // Ascending
+    createSlides(40, 1); // Descending
+    createSlides(1, 40); // Duplicate Ascending
+    createSlides(40, 1); // Duplicate Descending
+</script>
 
     </body>
 </html>

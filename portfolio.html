@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Form</title>
     
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/css/pikaday.min.css">
 
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/porfolio.css" rel="stylesheet" />
@@ -41,89 +42,88 @@
       background-color: #00102e67 !important; /* Change color when scrolled */
     }
     
-    .navbar-brand img {
-      height: 80px; /* Slightly larger logo */
-      width: 300px;
-    }
-    
-    .nav-links {
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--dark-blue);
+      margin: 0;
+  }
+
+  a {
+      text-decoration: none;
+      color: inherit;
+  }
+  
+  /* Navigation */
+  .navbar {
+  color: azure;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+  }
+
+  .navbar.scroll {
+      padding: 0.5rem 0%;
+      background-color: rgba(0, 16, 46, 0.95);
+  }
+
+  .navbar-brand img {
+      height: 70px;
+      transition: var(--transition);
+  }
+
+  .nav-links {
       display: flex;
       list-style: none;
-      gap: 10px; /* Increased spacing for a more balanced layout */
-    }
-    
-    .nav-links li a {
-      padding-top: 20px;
-      text-decoration: none;
-      color: white;
-      font-weight: 600; /* Slightly bolder for readability */
-      font-size: 0.8rem; /* Adjusted size for professional appearance */
-      padding: 12px 8px;
-      position: relative;
-      transition: all 0.3s ease-in-out;
-    }
-    
-    /* Glass border hover effect */
-    .nav-links li a:hover {
-      color: #5755B1;
-      border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
-    }
-    
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #00102E;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 5px;
-  text-align: left; /* Vertically align the items */
-}
+      gap: -20px;
+      font-size: small;
+  }
 
-/* Style for the links inside the dropdown */
-.dropdown-content a {
-  color: #00102E; /* Dark color for text */
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+  .nav-links li a {
+      color: var(--white);
+      font-weight: 200;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+  }
 
-/* Change color of links on hover */
-.dropdown-content a:hover {
-  color: #5755B1;
-  border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
-}
+  .nav-links li a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+  }
 
-/* Show the dropdown when the button is clicked (via the toggleDropdown function) */
-.dropdown.show .dropdown-content {
-  display: block;
-}
 
-/* Change the background color of the button when hovered */
-.dropdown:hover .dropbtn {
-  color: #5755B1;
-  border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1); /* Light glass-like background */
-}
+   /* Dropdown */
+   .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color:#00102E;
+      min-width: 150px;
+      box-shadow: var(--box-shadow);
+      border-radius: var(--border-radius);
+      z-index: 1;
+  }
 
-/* Style for the dropdown icon */
-.dropdown-icon {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid white; /* Triangle pointing down */
-  position: absolute;
-  left: 40px; /* Position it on the right side of the button */
-  top: 50%;
-  transform: translateY(-50%); /* Vertically center the icon */
-}
+  .dropdown-content a {
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      display: block;
+      transition: var(--transition);
+  }
+
+  .dropdown-content a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
 
 .footer .container {
   max-width: 90%; /* Make the container take full width */
@@ -176,32 +176,36 @@
       <a class="navbar-brand" href="#page-top">
           <img src="./assets/img/preview.png" alt="Logo">
       </a>
-      <ul class="nav-links" style="padding-top: 10px; padding-right:8%">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#services">Our Services</a></li>
-          <li><a href="index.html#about">About Us</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
-          <li class="dropdown">
-              <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">User 
-                  <span class="dropdown-icon"></span>
-                </a>
-                
-              <div class="dropdown-content" id="dropdown1">
-                <a href="register.html">Register</a>
-                <a href="login.html">Login</a>
-                <a href="#password-reset">Password Reset</a>
-              </div>
-            </li>
-            
-      </ul>
-  </nav>
+      <ul class="nav-links" style="padding-top: 10px; padding-right:0%; gap:0%">
+        <li><a href="home.html"><i class="fas fa-house"></i>Home</a></li>
+        <li><a href="index.html#services"><i class="fas fa-handshake"></i>Our Services</a></li>
+        <li><a href="index.html#digital"><i class="fas fa-info-circle"></i>About Us</a></li>
+        <li><a href="index.html#contact"><i class="fas fa-envelope"></i>Contact Us</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')"> 
+                <i class="fa fa-user"></i> User  
+                <span ><i class="fa fa-caret-down"></i></span>
+            </a>
+              
+            <div class="dropdown-content" id="dropdown1">
+                    <a href="login.html" style="background-color: rgba(241, 143, 143, 0.329);">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <a href="#password-reset">
+                        <i class="fas fa-user-cog"></i> Account
+                    </a>                        
+            </div>
+          </li>
+          
+    </ul>
+</nav>
 </header>
 
 <body id="page-top" >
     <div class="container" >
       <span class="big-circle"></span>
       <img src="img/shape.png" class="square" alt="" />
-      <div class="form" style="margin-top: 18%; margin-bottom:20%;">
+      <div class="form" style="margin-top: 16%; margin-bottom:20%;">
         <div class="contact-info">
           <h3 class="title">Connect With People Using Your Portfolio </h3>
           <p class="text">

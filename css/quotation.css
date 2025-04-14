@@ -1,26 +1,7 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body,
-  input,
-  textarea {
-    font-family: "Poppins", sans-serif;
-  }
-  
   /* Full-height background starting from right half */
 
-   .container {
-    position: relative;
-    background-color: transparent;
-    overflow: hidden;
-    
-    align-items: center;
-    justify-content: center;
-  }
+
   
   .contact-form {
       background: linear-gradient(45deg, rgba(118, 86, 251, 0.8), rgba(27, 255, 255, 0.8)); 
