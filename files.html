@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>Company Preview with Details</title>
+		<title>Registered Companies</title>
 		<meta name="description" content="Book Preview with BookBlock" />
 		<meta name="keywords" content="BookBlock, book preview, look inside, css, transforms, animations, css3, 3d, perspective, fullscreen" />
 		<meta name="author" content="Codrops" />
@@ -13,7 +13,14 @@
 		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/demo.css" />
 		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/bookblock.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/css/pikaday.min.css">
+
+		<link href="css/component.css" rel="stylesheet" />
+		
 		<script>
 		/* Modernizr 2.7.1 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-cssanimations-csstransforms3d-csstransitions-shiv-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes-load
@@ -25,25 +32,12 @@
 		<style>
 /* Colors 1185 */
 
-html,
-body,
-.container {
-    width: 100%;
-    height: 100%;
-}
 
-body {
-    overflow: scroll;
-    overflow-x: hidden;
-}
 
-.container.hide-overflow { overflow: hidden }
 
-.main {
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 100%;
-}
+
+
+
 
 .bookshelf {
     position: relative;
@@ -399,7 +393,7 @@ body {
     right: 0;
     width: 50%;
     height: 100%;
-    background: url(https://www.linkpicture.com/q/Innovation_1.jpg) no-repeat;
+    background: url(assets/books/Innovation_1.jpg) no-repeat;
     background-size: cover;
 }
 
@@ -509,41 +503,41 @@ body {
 .no-csstransforms3d .book[data-book="book-1"],
 .no-js .book[data-book="book-1"],
 .book[data-book="book-1"] .front {
-    background: url(https://www.linkpicture.com/q/Guide_2.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Guide_2.png), #e3d29f;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Guide_2.png), #e3d29f;
+    background: url(assets/books/Guide.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Guide.png), #e3d29f;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Guide.png), #e3d29f;
 }
 
 .book[data-book="book-1"] .inner { border-color: #e3d29f }
 
 .book[data-book="book-1"] .cover::before {
-    background: url(https://www.linkpicture.com/q/Guide_2.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/Guide_2.png), #e3d29f;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/Guide_2.png), #e3d29f;
+    background: url(assets/books/Guide_2.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/Guide_2.png), #e3d29f;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/Guide_2.png), #e3d29f;
 }
 
 .no-csstransforms3d .book[data-book="book-2"],
 .no-js .book[data-book="book-2"],
 .book[data-book="book-2"] .front {
-    background: url(https://www.linkpicture.com/q/microsoft_2.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/microsoft_2.png), #f6a7a5;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/microsoft_2.png), #f6a7a5;
+    background:url(assets/books/microsoft.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/microsoft.png), #f6a7a5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/microsoft.png), #f6a7a5;
 }
 
 .book[data-book="book-2"] .inner { border-color: #f6a7a5; }
 
 .book[data-book="book-2"] .cover::before {
-    background: url(https://www.linkpicture.com/q/micro_1.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/micro_1.png), #f6a7a5;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/micro_1.png), #f6a7a5;
+    background: url(assets/books/MicroSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/MicroSpin.png), #f6a7a5;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/MicroSpin.png), #f6a7a5;
 }
 
 .no-csstransforms3d .book[data-book="book-3"],
 .no-js .book[data-book="book-3"],
 .book[data-book="book-3"] .front {
-    background: url(https://www.linkpicture.com/q/Nike_1.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Nike_1.png), #000000;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Nike_1.png), #000000;
+    background:  url(assets/books/Nike.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%),  url(assets/books/Nike.png), #000000;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%),  url(assets/books/Nike.png), #000000;
     background-size:contain;
     background-repeat:repeat-x;
 }
@@ -551,17 +545,17 @@ body {
 .book[data-book="book-3"] .inner { border-color: #000000 }
 
 .book[data-book="book-3"] .cover::before {
-    background: url(https://www.linkpicture.com/q/CodeSASpin_1.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/CodeSASpin_1.png), #000000;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/CodeSASpin_1.png), #000000;
+    background: url(assets/books/NikeSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/NikeSpin.png), #000000;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/NikeSpin.png), #000000;
 }
 
 .no-csstransforms3d .book[data-book="book-4"],
 .no-js .book[data-book="book-4"],
 .book[data-book="book-4"] .front {
-    background: url(https://www.linkpicture.com/q/Cisco_3.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Cisco_3.png), #fbfff1;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Cisco_3.png), #fbfff1;
+    background: url(assets/books/Cisco.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Cisco.png), #fbfff1;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Cisco.png), #fbfff1;
 
 
 }
@@ -569,81 +563,81 @@ body {
 .book[data-book="book-4"] .inner { border-color: #fbfff1; }
 
 .book[data-book="book-4"] .cover::before {
-    background: url(https://www.linkpicture.com/q/CiscoSpin_2.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/CiscoSpin_2.png), #fbfff1;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/CiscoSpin_2.png), #fbfff1;
+    background: url(assets/books/CiscoSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/CiscoSpin.png), #fbfff1;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/CiscoSpin.png), #fbfff1;
 }
 
 .no-csstransforms3d .book[data-book="book-5"],
 .no-js .book[data-book="book-5"],
 .book[data-book="book-5"] .front {
-    background: url(https://www.linkpicture.com/q/SHell_1.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/SHell_1.png), #f8eb48;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/SHell_1.png), #f5e50b;
+    background: url(assets/books/SHell.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/SHell.png), #f8eb48;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/SHell.png), #f5e50b;
 }
 
 .book[data-book="book-5"] .inner { border-color: #f8eb48 }
 
 .book[data-book="book-5"] .cover::before {
-    background: url(https://www.linkpicture.com/q/SHellSpin_1.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/SHellSpin_1.png), #f8eb48;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/SHellSpin_1.png), #f8eb48;
+    background: url(assets/books/SHellSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/SHellSpin.png), #f8eb48;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/SHellSpin.png), #f8eb48;
 }
 
 .no-csstransforms3d .book[data-book="book-6"],
 .no-js .book[data-book="book-6"],
 .book[data-book="book-6"] .front {
-    background: url(https://www.linkpicture.com/q/MTN.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MTN.png), #FFCB01;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MTN.png), #FFCB01;
+    background: url(assets/books/MTN.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/MTN.png), #FFCB01;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/MTN.png), #FFCB01;
 }
 
 .book[data-book="book-6"] .inner { border-color: #ffd800 }
 
 .book[data-book="book-6"] .cover::before {
-    background: url(https://www.linkpicture.com/q/MTN.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/MTN.png), #ffd800;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/MTN.png), #ffd800;
+    background: url(assets/books/MTNSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/MTNSpin.png), #ffd800;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/MTNSpin.png), #ffd800;
 }
 
 .no-csstransforms3d .book[data-book="book-7"],
 .no-js .book[data-book="book-7"],
 .book[data-book="book-7"] .front {
-    background: url(https://www.linkpicture.com/q/unilever.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/unilever.png), #ebe6e5;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/unilever.png), #ebe6e5;
+    background: url(assets/books/unilever.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/unilever.png), #ebe6e5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/unilever.png), #ebe6e5;
 }
 
 .book[data-book="book-7"] .inner { border-color: #95dbb0 }
 
 .book[data-book="book-7"] .cover::before {
-    background: url(https://www.linkpicture.com/q/UniliverSpin.jpg);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/UniliverSpin.jpg), #76c9ad;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/UniliverSpin.jpg), #76c9ad;
+    background: url(assets/books/UniliverSpin.jpg);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/UniliverSpin.jpg), #76c9ad;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/UniliverSpin.jpg), #76c9ad;
 }
 
 .no-csstransforms3d .book[data-book="book-8"],
 .no-js .book[data-book="book-8"],
 .book[data-book="book-8"] .front {
-    background: url(https://www.linkpicture.com/q/amazon.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/amazon.png), #f5f5f5;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/amazon.png), #f5f5f5;
+    background: url(assets/books/amazon.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/amazon.png), #f5f5f5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/amazon.png), #f5f5f5;
 }
 
 .book[data-book="book-8"] .inner { border-color: #f5f5f5 }
 
 .book[data-book="book-8"] .cover::before {
-    background: url(https://www.linkpicture.com/q/amazonSpin.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/amazonSpin.png), #f5f5f5;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/amazonSpin.png), #f5f5f5;
+    background: url(assets/books/amazonSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/amazonSpin.png), #f5f5f5;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/amazonSpin.png), #f5f5f5;
 }
 
 .no-csstransforms3d .book[data-book="book-9"],
 .no-js .book[data-book="book-9"],
 .book[data-book="book-9"] .front {
-    background: url(https://www.linkpicture.com/q/Toyota_1.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Toyota_1.png), #ffffff;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Toyota_1.png), #ffffff;
+    background: url(assets/books/Toyota.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Toyota.png), #ffffff;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Toyota.png), #ffffff;
     /* background-repeat: no-repeat;
      background-size: 95% 90%;*/
 }
@@ -651,49 +645,49 @@ body {
 .book[data-book="book-9"] .inner { border-color: #d3d3d3 }
 
 .book[data-book="book-9"] .cover::before {
-    background: url(https://www.linkpicture.com/q/ToyotaSpin_1.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/ToyotaSpin_1.png), #f7a56e;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/ToyotaSpin_1.png), #f7a56e;
+    background: url(assets/books/ToyotaSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/ToyotaSpin.png), #f7a56e;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/ToyotaSpin.png), #f7a56e;
 }
 
 .no-csstransforms3d .book[data-book="book-10"],
 .no-js .book[data-book="book-10"],
 .book[data-book="book-10"] .front {
-    background: url(https://www.linkpicture.com/q/MAXHOSA_1.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MAXHOSA_1.png), #000000;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MAXHOSA_1.png), #000000;
+    background: url(assets/books/MAXHOSA.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/MAXHOSA.png), #000000;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/MAXHOSA.png), #000000;
 }
 
 .book[data-book="book-10"] .inner { border-color: #000000 }
 
 .book[data-book="book-10"] .cover::before {
-    background: url(https://www.linkpicture.com/q/UniliverSpin.jpg);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/UniliverSpin.jpg), #000000;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/UniliverSpin.jpg), #000000;
+    background: url(assets/books/MAXHOSASPIN.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/MAXHOSASPIN.png), #000000;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/MAXHOSASPIN.png), #000000;
 }
 
 .no-csstransforms3d .book[data-book="book-11"],
 .no-js .book[data-book="book-11"],
 .book[data-book="book-11"] .front {
-    background: url(https://www.linkpicture.com/q/Cebo_1.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Cebo_1.png), #F08321;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Cebo_1.png), #F08321;
+    background: url(assets/books/Cebo_1.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Cebo_1.png), #F08321;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Cebo_1.png), #F08321;
 }
 
 .book[data-book="book-11"] .inner { border-color: #F08321 }
 
 .book[data-book="book-11"] .cover::before {
-    background: url(https://www.linkpicture.com/q/amazon.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/amazon.png), #F08321;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/amazon.png), #F08321;
+    background: url(assets/books/CebosPIN.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/CebosPIN.png), #F08321;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/CebosPIN.png), #F08321;
 }
 
 .no-csstransforms3d .book[data-book="book-12"],
 .no-js .book[data-book="book-12"],
 .book[data-book="book-12"] .front {
-    background: url(https://www.linkpicture.com/q/hollywood_1.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/hollywood_1.png), #662E8E;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/hollywood_1.png), #662E8E;
+    background: url(assets/books/hollywood_1.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/hollywood_1.png), #662E8E;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/hollywood_1.png), #662E8E;
     /* background-repeat: no-repeat;
      background-size: 95% 90%;*/
 }
@@ -701,17 +695,17 @@ body {
 .book[data-book="book-12"] .inner { border-color: #662E8E }
 
 .book[data-book="book-12"] .cover::before {
-    background: url(https://www.linkpicture.com/q/HollywoodSpin.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/HollywoodSpin.png), #662E8E;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/HollywoodSpin.png), #662E8E;
+    background: url(assets/books/HollywoodSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/HollywoodSpin.png), #662E8E;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/HollywoodSpin.png), #662E8E;
 }
 
 .no-csstransforms3d .book[data-book="book-13"],
 .no-js .book[data-book="book-13"],
 .book[data-book="book-13"] .front {
-    background: url(https://www.linkpicture.com/q/MICSETA.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MICSETA.png), #009BDB;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/MICSETA.png), #009BDB;
+    background: url(assets/books/MICSETA.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/MICSETA.png), #009BDB;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/MICSETA.png), #009BDB;
     /* background-repeat: no-repeat;
      background-size: 95% 90%;*/
 }
@@ -719,18 +713,18 @@ body {
 .book[data-book="book-13"] .inner { border-color: #009BDB;}
 
 	.book[data-book="book-13"] .cover::before {
-		background: url(https://www.linkpicture.com/q/MICSETASpin.png);
-		background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/MICSETASpin.png), #009BDB;
-		background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/MICSETASpin.png), #009BDB;
+		background: url(assets/books/MICSETASpin.png);
+		background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/MICSETASpin.png), #009BDB;
+		background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/MICSETASpin.png), #009BDB;
 	}
 
 
 .no-csstransforms3d .book[data-book="book-14"],
 .no-js .book[data-book="book-14"],
 .book[data-book="book-14"] .front {
-    background: url(https://www.linkpicture.com/q/impucu.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/impucu.png), #fdfdfd;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/impucu.png), #fdfdfd;
+    background: url(assets/books/impucu.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/impucu.png), #fdfdfd;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/impucu.png), #fdfdfd;
     /* background-repeat: no-repeat;
      background-size: 95% 90%;*/
 }
@@ -738,18 +732,18 @@ body {
 .book[data-book="book-14"] .inner { border-color: #fdfdfd }
 
 .book[data-book="book-14"] .cover::before {
-    background: url(https://www.linkpicture.com/q/impucuSpin.png);
-    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/impucuSpin.png), #fdfdfd;
-    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/impucuSpin.png), #fdfdfd;
+    background: url(assets/books/impucuSpin.png);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/impucuSpin.png), #fdfdfd;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/impucuSpin.png), #fdfdfd;
 }
 /* border around bookblock same as book cover color*/
 
 .no-csstransforms3d .book[data-book="book-15"],
 .no-js .book[data-book="book-15"],
 .book[data-book="book-15"] .front {
-    background: url(https://www.linkpicture.com/q/Busd.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Busd.png), #0A3B5B;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(https://www.linkpicture.com/q/Busd.png), #0A3B5B;
+    background: url(assets/books/Busd.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Busd.png), #0A3B5B;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Busd.png), #0A3B5B;
     /* background-repeat: no-repeat;
      background-size: 95% 90%;*/
 }
@@ -757,9 +751,9 @@ body {
 .book[data-book="book-15"] .inner { border-color: #0A3B5B;}
 
 	.book[data-book="book-15"] .cover::before {
-		background: url(https://www.linkpicture.com/q/BusidocsPIN.png);
-		background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/BusidocsPIN.png), #0A3B5B;
-		background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(https://www.linkpicture.com/q/BusidocsPIN.png), #0A3B5B;
+		background: url(assets/books/BusidocsPIN.png);
+		background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/BusidocsPIN.png), #0A3B5B;
+		background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(assets/books/BusidocsPIN.png), #0A3B5B;
 	}
 
 #book-1 { border-color: #e3d29f }
@@ -1133,12 +1127,12 @@ a:hover, a:focus {
 
 .codrops-header {
 	position: relative;
-	margin: 0 auto;
-	padding: 2em 1em;
+	padding-top: 8%;
+	bottom: 0%;
 	color: #fff;
 	text-align: center;
-	background: url(https://www.linkpicture.com/q/bgheader.jpg) no-repeat center center;
-	background-size: cover;
+	/*background: url(assets/books/bgheader.jpg) no-repeat center center;
+	background-size: cover;*/
 }
 
 .codrops-header h1 {
@@ -1257,11 +1251,192 @@ a:hover, a:focus {
 
 }
 
+body {
+	background: url('./assets/img/Files.png');
+	background-size: 100%; /* Zooms out slightly */
+	background-position: 60% center; /* Moves image slightly to the right */
+	background-repeat: no-repeat; /* Prevents repeating */
+	background-attachment: fixed; /* Keeps image fixed on scroll */
+
+}
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Push logo left & links right */
+  align-items: center;
+  padding: 05px 10px;
+  background-color: #00102E;
+  font-family: 'Poppins', sans-serif; /* Modern, professional font */
+  position: fixed; /* Keep navbar fixed at the top */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition */
+  width: 100%;
+  
+}
 
 
+.scrolled {
+  background-color: #00102e67 !important; /* Change color when scrolled */
+}
 
-		</style>
-	</head>
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dark-blue);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navigation */
+.navbar {
+color: azure;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.navbar.scroll {
+  padding: 0.5rem 0%;
+  background-color: rgba(0, 16, 46, 0.95);
+}
+
+.navbar-brand img {
+  height: 70px;
+  transition: var(--transition);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: -20px;
+  font-size: small;
+}
+
+.nav-links li a {
+  color: var(--white);
+  font-weight: 200;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.nav-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:#00102E;
+  min-width: 150px;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  display: block;
+  transition: var(--transition);
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.footer .container {
+max-width: 90%; /* Make the container take full width */
+padding-left: 0;
+padding-right: 0;
+}
+
+.footer a {
+color: white; /* Ensure links are white */
+text-decoration: none;
+}
+
+
+/* Floating button styles */
+#scrollToTop {
+  position: fixed;
+  bottom: 30px; /* Position at the bottom */
+  right: 30px; /* Position at the right */
+  width: 50px;
+  height: 50px;
+  background-color: #2AC8A8; /* Button color */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+  border-radius: 50%; /* Make it a circle */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden;
+}
+
+/* Hover effect */
+#scrollToTop:hover {
+  background-color: #249e8d; /* Slightly darker on hover */
+}
+
+/* Font Awesome Icon */
+.fa-arrow-up {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+  </style>
+
+</head>
+<!-- Navigation-->
+<nav class="navbar">
+  <a class="navbar-brand" href="#page-top">
+	  <img src="./assets/img/preview.png" alt="Logo">
+  </a>
+  <ul class="nav-links" style="padding-top: 10px; padding-right:0%; gap:0%">
+	<li><a href="home.html"><i class="fas fa-house"></i>Home</a></li>
+	<li><a href="index.html#services"><i class="fas fa-handshake"></i>Our Services</a></li>
+	<li><a href="index.html#digital"><i class="fas fa-info-circle"></i>About Us</a></li>
+	<li><a href="index.html#contact"><i class="fas fa-envelope"></i>Contact Us</a></li>
+	<li class="dropdown">
+		<a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')"> 
+			<i class="fa fa-user"></i> User  
+			<span ><i class="fa fa-caret-down"></i></span>
+		</a>
+		  
+		<div class="dropdown-content" id="dropdown1">
+				<a href="login.html" style="background-color: rgba(241, 143, 143, 0.329);">
+					<i class="fas fa-sign-out-alt"></i> Logout
+				</a>
+				<a href="#password-reset">
+					<i class="fas fa-user-cog"></i> Account
+				</a>                        
+		</div>
+	  </li>
+	  
+</ul>
+</nav>
+</header>
 	<body>
 		<div id="scroll-wrap" class="container">
 			<header class="codrops-header">
@@ -1269,7 +1444,7 @@ a:hover, a:focus {
 					
 					
 				</div>
-				<h1 Style="color: white; font-weight: Bold">Exploring Company Profiles <span>Details</span></h1>	
+				<h1 Style="color: rgb(86, 84, 84); font-weight: Bold; font-size:xx-large;">Exploring Company Profiles <span>All Registered Companies</span></h1>	
 			</header>
 			<div class="main">
 				<div id="bookshelf" class="bookshelf">
