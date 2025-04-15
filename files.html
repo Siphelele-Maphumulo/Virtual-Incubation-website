@@ -33,26 +33,25 @@
 /* Colors 1185 */
 
 
-
-
-
-
-
-
 .bookshelf {
-    position: relative;
-    margin: 40px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align books to the left */
+    align-items: flex-start;
+    gap: 20px; /* Space between books */
+    max-width: 1000px; /* Optional: limit width */
+    margin: 10px auto 0;
     list-style: none;
-    text-align: center;
+    padding: 0 20px;
 }
 
 .bookshelf figure {
     position: relative;
     display: inline-block;
-    margin: 40px 0 0 0;
-    padding: 45px 0;
+    margin: 20px 0 0 0;
+    padding: 25px 0;
     max-width: 75%;
-    width: 324px;
+	width: calc(33.33% - 20px); /* 3 books per row with gap */
     vertical-align: top;
 }
 
@@ -393,7 +392,7 @@
     right: 0;
     width: 50%;
     height: 100%;
-    background: url(assets/books/Innovation_1.jpg) no-repeat;
+    background: url(assets/books/Innovation.jpg) no-repeat;
     background-size: cover;
 }
 
@@ -669,9 +668,9 @@
 .no-csstransforms3d .book[data-book="book-11"],
 .no-js .book[data-book="book-11"],
 .book[data-book="book-11"] .front {
-    background: url(assets/books/Cebo_1.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Cebo_1.png), #F08321;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Cebo_1.png), #F08321;
+    background: url(assets/books/Cebo.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Cebo.png), #F08321;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/Cebo.png), #F08321;
 }
 
 .book[data-book="book-11"] .inner { border-color: #F08321 }
@@ -685,9 +684,9 @@
 .no-csstransforms3d .book[data-book="book-12"],
 .no-js .book[data-book="book-12"],
 .book[data-book="book-12"] .front {
-    background: url(assets/books/hollywood_1.png);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/hollywood_1.png), #662E8E;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/hollywood_1.png), #662E8E;
+    background: url(assets/books/hollywood.png);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/hollywood.png), #662E8E;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(assets/books/hollywood.png), #662E8E;
     /* background-repeat: no-repeat;
      background-size: 95% 90%;*/
 }
@@ -899,15 +898,13 @@
     visibility: hidden;
     opacity: 0;
     z-index: -1;
-    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
     transition: opacity 0.5s, visibility 0s 0.5s;
 }
 
 .details-open .details {
-    visibility: hidden;
+    visibility: visible;  /* <-- FIXED */
     opacity: 1;
     z-index: 10;
-    -webkit-transition: opacity 0.5s, visibility 0s;
     transition: opacity 0.5s, visibility 0s;
 }
 
@@ -2789,160 +2786,145 @@ text-decoration: none;
  * Copyright 2014, Codrops
  * 
  */
-(function() {
+ 
+ (function() {
+    var supportAnimations = 'WebkitAnimation' in document.body.style ||
+        'MozAnimation' in document.body.style ||
+        'msAnimation' in document.body.style ||
+        'OAnimation' in document.body.style ||
+        'animation' in document.body.style,
+        animEndEventNames = {
+            'WebkitAnimation': 'webkitAnimationEnd',
+            'OAnimation': 'oAnimationEnd',
+            'msAnimation': 'MSAnimationEnd',
+            'animation': 'animationend'
+        },
+        animEndEventName = animEndEventNames[Modernizr.prefixed('animation')],
+        scrollWrap = document.getElementById('scroll-wrap'),
+        docscroll = 0,
+        books = document.querySelectorAll('#bookshelf > figure');
 
-	var supportAnimations = 'WebkitAnimation' in document.body.style ||
-			'MozAnimation' in document.body.style ||
-			'msAnimation' in document.body.style ||
-			'OAnimation' in document.body.style ||
-			'animation' in document.body.style,
-		animEndEventNames = {
-			'WebkitAnimation' : 'webkitAnimationEnd',
-			'OAnimation' : 'oAnimationEnd',
-			'msAnimation' : 'MSAnimationEnd',
-			'animation' : 'animationend'
-		},
-		// animation end event name
-		animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
-		scrollWrap = document.getElementById( 'scroll-wrap' ),
-		docscroll = 0,
-		books = document.querySelectorAll( '#bookshelf > figure' );
+    function scrollY() {
+        return window.pageYOffset || window.document.documentElement.scrollTop;
+    }
 
-	function scrollY() {
-		return window.pageYOffset || window.document.documentElement.scrollTop;
-	}
+    function Book(el) {
+        this.el = el;
+        this.book = this.el.querySelector('.book');
+        this.ctrls = this.el.querySelector('.buttons');
+        this.details = this.el.querySelector('.details');
 
-	function Book( el ) {
-		this.el = el;
-		this.book = this.el.querySelector( '.book' );
-		this.ctrls = this.el.querySelector( '.buttons' );
-		this.details = this.el.querySelector( '.details' );
-		// create the necessary structure for the books to rotate in 3d
-		this._layout();
+        this._layout();
 
-		this.bbWrapper = document.getElementById( this.book.getAttribute( 'data-book' ) );
-		if( this.bbWrapper ) {
-			this._initBookBlock();
-		}
-		this._initEvents();
-	}
+        this.bbWrapper = document.getElementById(this.book.getAttribute('data-book'));
+        if (this.bbWrapper) {
+            this._initBookBlock();
+        }
 
-	Book.prototype._layout = function() {
-		if( Modernizr.csstransforms3d ) {
-			this.book.innerHTML = '<div class="cover"><div class="front"></div><div class="inner inner-left"></div></div><div class="inner inner-right"></div>';
-			var perspective = document.createElement( 'div' );
-			perspective.className = 'perspective';
-			perspective.appendChild( this.book );
-			this.el.insertBefore( perspective, this.ctrls );
-		}
-		if( this.details ) {
-			this.closeDetailsCtrl = document.createElement( 'span' )
-			this.closeDetailsCtrl.className = 'close-details';
-			this.details.appendChild( this.closeDetailsCtrl );
-		}
-	}
+        this._initEvents();
+    }
 
-	Book.prototype._initBookBlock = function() {
-		// initialize bookblock instance
-		this.bb = new BookBlock( this.bbWrapper.querySelector( '.bb-bookblock' ), {
-			speed : 700,
-			shadowSides : 0.8,
-			shadowFlip : 0.4
-		} );
-		// boobkblock controls
-		this.ctrlBBClose = this.bbWrapper.querySelector( ' .bb-nav-close' );
-		this.ctrlBBNext = this.bbWrapper.querySelector( ' .bb-nav-next' );
-		this.ctrlBBPrev = this.bbWrapper.querySelector( ' .bb-nav-prev' );
-	}
+    Book.prototype._layout = function() {
+        if (Modernizr.csstransforms3d) {
+            this.book.innerHTML = '<div class="cover"><div class="front"></div><div class="inner inner-left"></div></div><div class="inner inner-right"></div>';
+            var perspective = document.createElement('div');
+            perspective.className = 'perspective';
+            perspective.appendChild(this.book);
+            this.el.insertBefore(perspective, this.ctrls);
+        }
+        if (this.details) {
+            this.closeDetailsCtrl = document.createElement('span');
+            this.closeDetailsCtrl.className = 'close-details';
+            this.details.appendChild(this.closeDetailsCtrl);
+        }
+    };
 
-	Book.prototype._initEvents = function() {
-		var self = this;
-		if( !this.ctrls ) return;
+    Book.prototype._initBookBlock = function() {
+        this.bb = new BookBlock(this.bbWrapper.querySelector('.bb-bookblock'), {
+            speed: 700,
+            shadowSides: 0.8,
+            shadowFlip: 0.4
+        });
+        this.ctrlBBClose = this.bbWrapper.querySelector('.bb-nav-close');
+        this.ctrlBBNext = this.bbWrapper.querySelector('.bb-nav-next');
+        this.ctrlBBPrev = this.bbWrapper.querySelector('.bb-nav-prev');
+    };
 
-		if( this.bb ) {
-			this.ctrls.querySelector( 'a:nth-child(1)' ).addEventListener( 'click', function( ev ) { ev.preventDefault(); self._open(); } );
-			this.ctrlBBClose.addEventListener( 'click', function( ev ) { ev.preventDefault(); self._close(); } );
-			this.ctrlBBNext.addEventListener( 'click', function( ev ) { ev.preventDefault(); self._nextPage(); } );
-			this.ctrlBBPrev.addEventListener( 'click', function( ev ) { ev.preventDefault(); self._prevPage(); } );
-		}
+    Book.prototype._initEvents = function() {
+        var self = this;
+        if (!this.ctrls) return;
 
-		if( this.details ) {
-			this.ctrls.querySelector( 'a:nth-child(2)' ).addEventListener( 'click', function( ev ) { ev.preventDefault(); self._showDetails(); } );
-			this.closeDetailsCtrl.addEventListener( 'click', function() { self._hideDetails(); } );
-		}
-	}
+        if (this.bb) {
+            this.ctrls.querySelector('a:nth-child(1)').addEventListener('click', function(ev) {
+                ev.preventDefault();
+                self._open();
+            });
+            this.ctrlBBClose.addEventListener('click', function(ev) {
+                ev.preventDefault();
+                self._close();
+            });
+            this.ctrlBBNext.addEventListener('click', function(ev) {
+                ev.preventDefault();
+                self._nextPage();
+            });
+            this.ctrlBBPrev.addEventListener('click', function(ev) {
+                ev.preventDefault();
+                self._prevPage();
+            });
+        }
 
-	Book.prototype._open = function() {
-		docscroll = scrollY();
-		
-		classie.add( this.el, 'open' );
-		classie.add( this.bbWrapper, 'show' );
+        if (this.details) {
+            this.ctrls.querySelector('a:nth-child(2)').addEventListener('click', function(ev) {
+                ev.preventDefault();
+                self._showDetails();
+            });
+            this.closeDetailsCtrl.addEventListener('click', function() {
+                self._hideDetails();
+            });
+        }
+    };
 
-		var self = this,
-			onOpenBookEndFn = function( ev ) {
-				this.removeEventListener( animEndEventName, onOpenBookEndFn );
-				document.body.scrollTop = document.documentElement.scrollTop = 0;
-				classie.add( scrollWrap, 'hide-overflow' );
-			};
+    // updated to allow multiple details open
+    Book.prototype._showDetails = function() {
+        classie.toggle(this.el, 'details-open');
+    };
 
-		if( supportAnimations ) {
-			this.bbWrapper.addEventListener( animEndEventName, onOpenBookEndFn );
-		}
-		else {
-			onOpenBookEndFn.call();
-		}
-	}
+    Book.prototype._hideDetails = function() {
+        classie.remove(this.el, 'details-open');
+    };
 
-	Book.prototype._close = function() {
-		classie.remove( scrollWrap, 'hide-overflow' );
-		setTimeout( function() { document.body.scrollTop = document.documentElement.scrollTop = docscroll; }, 25 );
-		classie.remove( this.el, 'open' );
-		classie.add( this.el, 'close' );
-		classie.remove( this.bbWrapper, 'show' );
-		classie.add( this.bbWrapper, 'hide' );
+    Book.prototype._open = function() {
+        docscroll = scrollY();
+        classie.add(this.el, 'open');
+        classie.add(this.bbWrapper, 'show');
 
-		var self = this,
-			onCloseBookEndFn = function( ev ) {
-				this.removeEventListener( animEndEventName, onCloseBookEndFn );
-				// reset bookblock starting page
-				self.bb.jump(1);
-				classie.remove( self.el, 'close' );
-				classie.remove( self.bbWrapper, 'hide' );
-			};
+        var self = this,
+            onOpenBookEndFn = function(ev) {
+                this.removeEventListener(animEndEventName, onOpenBookEndFn);
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                classie.add(scrollWrap, 'hide-overflow');
+            };
 
-		if( supportAnimations ) {
-			this.bbWrapper.addEventListener( animEndEventName, onCloseBookEndFn );
-		}
-		else {
-			onCloseBookEndFn.call();
-		}
-	}
+        if (supportAnimations) {
+            this.bbWrapper.addEventListener(animEndEventName, onOpenBookEndFn);
+        } else {
+            onOpenBookEndFn.call();
+        }
+    };
 
-	Book.prototype._nextPage = function() {
-		this.bb.next();
-	}
+    // Additional Book methods...
 
-	Book.prototype._prevPage = function() {
-		this.bb.prev();
-	}
+    function init() {
+        [].slice.call(books).forEach(function(el) {
+            new Book(el);
+        });
+    }
 
-	Book.prototype._showDetails = function() {
-		classie.add( this.el, 'details-open' );
-	}
+    init();
+})();
 
-	Book.prototype._hideDetails = function() {
-		classie.remove( this.el, 'details-open' );
-	}
 
-	function init() {
-		[].slice.call( books ).forEach( function( el ) {
-			new Book( el );
-		} );
-	}
-
-	init();
-
-})();</script>
+</script>
 		
 						<!--classie.js-->
 		<script>/*!
