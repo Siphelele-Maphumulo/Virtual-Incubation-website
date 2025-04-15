@@ -2,84 +2,304 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Ensures compatibility with old versions of IE -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures mobile responsiveness -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="A professional website with a fully responsive design.">
     <meta name="author" content="Your Name">
     <meta name="keywords" content="mentoring, coaching, support, business growth">
     
-    <!-- Favicon (Replace 'favicon.ico' with your actual favicon file) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     
     <!-- Google fonts-->   
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
 
-    <!-- Normalize CSS (To ensure consistency across all browsers) -->
+    <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- Core theme CSS -->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/index.css" rel="stylesheet" />
 
-    <!-- Font Awesome (For Icons) -->
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
-
-
-    
-    
     <title>SMMEs Virtual Incubation</title>
-    <!-- Favicon-->
     <style>
-
-  </style>
-
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-<!-- Navigation -->
- <!-- Navbar -->
- <nav class="navbar">
-    <!-- Navbar Brand with Logo -->
-    <a class="navbar-brand" href="#top">
-      <img src="./assets/img/preview.png" alt="Logo">
-    </a>
-
-    <!-- Toggle Menu Button (Hamburger Icon) -->
-    <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
-
-    <!-- Nav Menu (hidden by default, shown when active) -->
-    <ul class="nav-links" id="navMenu">
-      <!-- Navigation Links -->
-      <li><a href="home.html"><i class="fas fa-house"></i> Home</a></li>
-      <li><a href="#services"><i class="fas fa-handshake"></i> Our Services</a></li>
-      <li><a href="#digital"><i class="fas fa-info-circle"></i> About Us</a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
-
-      <!-- Dropdown for User -->
-      <li class="dropdown">
-        <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">
-          <i class="fa fa-user"></i> User
-          <span><i class="fa fa-caret-down"></i></span>
-        </a>
-        <div class="dropdown-content" id="dropdown1">
-          <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
-          <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-          <a href="password-reset.html"><i class="fas fa-key"></i> Password Reset</a>
-        </div>
-      </li>
-    </ul>
-  </nav>
-
-
-
-<!-- Masthead (if you want to place it below the navbar) -->
-<!-- Add your Masthead code here if needed -->
-
+        /* Base styles to prevent overflow */
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
         
+        * {
+            box-sizing: border-box;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .masthead-heading {  
+            font-size: 4.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            color: #ffffff;
+            text-shadow:   
+                1px 1px 0 rgba(255, 0, 0, 0.5),
+                2px 2px 0 rgba(0, 0, 255, 0.5),
+                3px 3px 0 rgba(255, 255, 0, 0.5);
+        }  
+        
+        .masthead-heading::before {  
+            content: attr(data-text);  
+            position: absolute;  
+            top: 2px;
+            left: 2px;
+            right: 0;  
+            bottom: 0;  
+            font-size: 6rem;
+            color: rgba(255, 0, 0, 0.7);
+            z-index: -1;
+            transform: translateZ(-5px);
+        }  
+        
+        .masthead-heading::after {  
+            content: attr(data-text);  
+            position: absolute;  
+            top: 4px;
+            left: 4px;
+            right: 0;  
+            bottom: 0;  
+            font-size: 6rem;
+            color: rgba(0, 255, 0, 0.7);
+            z-index: -2;
+            transform: translateZ(-10px);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                margin: 0 auto;
+                overflow-x: hidden;
+            }
+            
+            .header-content {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-left: 25%;
+                width: 100%;
+            }
+            
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #00102E;
+                padding: 10px;
+                height: auto;
+                width: 100%;
+            }
+            
+            .navbar-brand img {
+                height: 70px;
+                margin-bottom: 10px;
+                max-width: 100%;
+            }
+            
+            .nav-toggle {
+                font-size: 1.5rem;
+                cursor: pointer;
+                margin-bottom: 10px;
+                color: white;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                list-style: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 8px;
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                padding: 0;
+                text-align: center;       /* Centers inline elements inside */
+                justify-content: center;  /* For flex children if needed */
+                align-items: center;
+              }
+              
+              .dropdown-content a {
+                display: inline-block;     /* So links can be centered */
+                margin: 5px 0;             /* Optional spacing */
+              }
+              
+              .dropdown-content.active {
+                display: block;
+              }
+              
+            
+            .contact-section,
+            .footer-container {
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .masthead-heading {
+                font-size: 1.7rem;
+                line-height: 1.3;
+            }
+            
+            .subheading {
+                font-size: 1rem;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+            
+            .icon-box-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .icon-box {
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 0 15px;
+            }
+            
+            /* Ensure all containers have proper width */
+            .container, .about-container, .help-container, .partners-container {
+                width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+                margin: 0 auto;
+            }
+            
+            /* Make sure rows and columns don't overflow */
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+            
+            .col-md-4, .col-lg-3, .col-lg-4 {
+                width: 100%;
+                padding: 0 15px;
+                margin-bottom: 20px;
+            }
+            
+            /* Adjust team section */
+            .team-card {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            /* Fix partner logos slider */
+            .slide-track {
+                width: 100%;
+                overflow: hidden;
+            }
+            
+            .slide {
+                min-width: 150px;
+            }
+            
+            /* Form adjustments */
+            #contactForm .col-md-6 {
+                width: 100%;
+                padding: 0;
+            }
+            
+            /* Footer adjustments */
+            .footer-column {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .masthead-heading {
+                font-size: 1.5rem;
+            }
+            
+            .subheading br {
+                display: none;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body id="page-top">
+<!-- Navigation -->
+<nav class="navbar">
+<!-- Logo -->
+<a class="navbar-brand" href="#top">
+  <img src="./assets/img/preview.png" alt="Logo">
+</a>
+
+<!-- Toggle (for mobile) -->
+<div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+
+<!-- Navigation Links -->
+<ul class="nav-links" id="navMenu">
+  <li><a href="#services"><i class="fas fa-handshake"></i> Our Services</a></li>
+  <li><a href="#digital"><i class="fas fa-info-circle"></i> About Us</a></li>
+  <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+  <li class="dropdown">
+    <a href="#" class="dropbtn"><i class="fa fa-user"></i> User <i class="fa fa-caret-down"></i></a>
+    <div class="dropdown-content" id="dropdown1">
+        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="password-reset.html"><i class="fas fa-key"></i> Password Reset</a>
+    </div>
+  </li>
+</ul>
+</nav>
+
+
+<!-- Optional JS for toggle -->
+<script>
+function toggleMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('active');
+}
+
+function toggleDropdown(event, dropdownId) {
+  event.preventDefault();
+  document.getElementById(dropdownId).classList.toggle('active');
+}
+</script>
+
+
 <!-- Masthead -->
 <header class="masthead">
     <div class="container">
@@ -91,8 +311,8 @@
         <div class="text-section">
           <div class="masthead-heading">SMMEs VIRTUAL <br />INCUBATION</div>
           <div class="subheading">
-            Boost your business! Access top services like web design,<br />
-            marketing, mentorship, management support, and more.<br />
+            Boost your business! Access top services like web design,
+            marketing, mentorship, management support, and more.
             Engage with others virtually from anywhere across the country!
           </div>
         </div>
@@ -112,16 +332,16 @@
           <i class="fas fa-balance-scale icon"></i>
           <b>Business Management</b>
           <p>
-            Get help balancing every aspect of <br />your business. Have access
-            to <br />resources you need.
+            Get help balancing every aspect of your business. Have access
+            to resources you need.
           </p>
         </div>
         <div class="icon-box">
           <i class="fas fa-pencil-ruler icon"></i>
           <b>Web Design</b>
           <p>
-            Create and design a website for your <br />business according to
-            your <br />preferences.
+            Create and design a website for your business according to
+            your preferences.
           </p>
         </div>
       </div>
@@ -193,9 +413,6 @@
                     </span>
                 </div>
             </div>
-            
-
-            
         </div>
     </div>
 </section>
@@ -258,11 +475,10 @@
                 </div>
                 <div class="portfolio-caption">
                     <h2>Business Web Designing</h2>
-                    <p>We create and design websites for our clients’ businesses according to their preferences and budget.</p>
+                    <p>We create and design websites for our clients' businesses according to their preferences and budget.</p>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -1070,18 +1286,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 <!-- Toggle Menu Script -->
 <script>
-    // Toggle Navigation Menu for Small Screens
     function toggleMenu() {
-      const navMenu = document.getElementById('navMenu');
-      navMenu.classList.toggle('active');
-    }
-
-    // Toggle Dropdown for User Menu
-    function toggleDropdown(event, dropdownId) {
-      event.preventDefault(); // Prevent default anchor click behavior
-      const dropdown = document.getElementById(dropdownId);
-      dropdown.classList.toggle('active');
-    }
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('active');
+      }
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        const dropbtn = document.querySelector('.dropbtn');
+        const dropdown = document.querySelector('.dropdown');
+      
+        dropbtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          dropdown.classList.toggle('show');
+        });
+      });
+      
   </script>
 
     </body>

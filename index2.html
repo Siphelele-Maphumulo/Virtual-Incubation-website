@@ -2,99 +2,261 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Ensures compatibility with old versions of IE -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures mobile responsiveness -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="A professional website with a fully responsive design.">
     <meta name="author" content="Your Name">
     <meta name="keywords" content="mentoring, coaching, support, business growth">
     
-    <!-- Favicon (Replace 'favicon.ico' with your actual favicon file) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     
     <!-- Google fonts-->   
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
 
-    <!-- Normalize CSS (To ensure consistency across all browsers) -->
+    <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- Core theme CSS -->
     <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/index2.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
 
-    <!-- Font Awesome (For Icons) -->
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
     <title>SMMEs Virtual Incubation</title>
-    <!-- Favicon-->
     <style>
-
-      
-
-  /* Responsive for small screens */
-  @media (max-width: 768px) {
-    body {
-      margin: 0 auto;
-      overflow-x: hidden;
-      box-sizing: border-box;
-    }
-  
-    .header-content {
-      padding-left: 25%;
-    }
-  
-    .navbar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #00102E;
-      padding: 10px;
-      height: 20%;
-    }
-  
-    .navbar-brand img {
-      height: 90px;
-      margin-bottom: 10px;
-    }
-  
-    .nav-toggle {
-      font-size: 1.rem;
-      cursor: pointer;
-      margin-bottom: 0px;
-      color: white;
-    }
-  
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      text-align: center;
-    }
-  
-    .nav-links.active {
-      display: flex;
-    }
-  
-    .nav-links li {
-      margin: 10px 0;
-    }
-  
-    .dropdown-content {
-      position: static; /* override for mobile */
-    }
-  
-    .contact-section,
-    .footer-container {
-      text-align: center;
-    }
-    
-    
-  }
-  
-  
-      </style>
+        /* Base styles to prevent overflow */
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .masthead-heading {  
+            font-size: 4.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            color: #ffffff;
+            text-shadow:   
+                1px 1px 0 rgba(255, 0, 0, 0.5),
+                2px 2px 0 rgba(0, 0, 255, 0.5),
+                3px 3px 0 rgba(255, 255, 0, 0.5);
+        }  
+        
+        .masthead-heading::before {  
+            content: attr(data-text);  
+            position: absolute;  
+            top: 2px;
+            left: 2px;
+            right: 0;  
+            bottom: 0;  
+            font-size: 6rem;
+            color: rgba(255, 0, 0, 0.7);
+            z-index: -1;
+            transform: translateZ(-5px);
+        }  
+        
+        .masthead-heading::after {  
+            content: attr(data-text);  
+            position: absolute;  
+            top: 4px;
+            left: 4px;
+            right: 0;  
+            bottom: 0;  
+            font-size: 6rem;
+            color: rgba(0, 255, 0, 0.7);
+            z-index: -2;
+            transform: translateZ(-10px);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                margin: 0 auto;
+                overflow-x: hidden;
+            }
+            
+            .header-content {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-left: 25%;
+                width: 100%;
+            }
+            
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #00102E;
+                padding: 10px;
+                height: auto;
+                width: 100%;
+            }
+            
+            .navbar-brand img {
+                height: 70px;
+                margin-bottom: 10px;
+                max-width: 100%;
+            }
+            
+            .nav-toggle {
+                font-size: 1.5rem;
+                cursor: pointer;
+                margin-bottom: 10px;
+                color: white;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                list-style: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 8px;
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                padding: 0;
+                text-align: center;       /* Centers inline elements inside */
+                justify-content: center;  /* For flex children if needed */
+                align-items: center;
+              }
+              
+              .dropdown-content a {
+                display: inline-block;     /* So links can be centered */
+                margin: 5px 0;             /* Optional spacing */
+              }
+              
+              .dropdown-content.active {
+                display: block;
+              }
+              
+            
+            .contact-section,
+            .footer-container {
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .masthead-heading {
+                font-size: 1.7rem;
+                line-height: 1.3;
+            }
+            
+            .subheading {
+                font-size: 1rem;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+            
+            .icon-box-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .icon-box {
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 0 15px;
+            }
+            
+            /* Ensure all containers have proper width */
+            .container, .about-container, .help-container, .partners-container {
+                width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+                margin: 0 auto;
+            }
+            
+            /* Make sure rows and columns don't overflow */
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+            
+            .col-md-4, .col-lg-3, .col-lg-4 {
+                width: 100%;
+                padding: 0 15px;
+                margin-bottom: 20px;
+            }
+            
+            /* Adjust team section */
+            .team-card {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            /* Fix partner logos slider */
+            .slide-track {
+                width: 100%;
+                overflow: hidden;
+            }
+            
+            .slide {
+                min-width: 150px;
+            }
+            
+            /* Form adjustments */
+            #contactForm .col-md-6 {
+                width: 100%;
+                padding: 0;
+            }
+            
+            /* Footer adjustments */
+            .footer-column {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .masthead-heading {
+                font-size: 1.5rem;
+            }
+            
+            .subheading br {
+                display: none;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
       
 
     </head>
