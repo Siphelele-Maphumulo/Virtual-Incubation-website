@@ -31,46 +31,99 @@
     <!-- Favicon-->
     <style>
 
-    </style>
+      
+
+  /* Responsive for small screens */
+  @media (max-width: 768px) {
+    body {
+      margin: 0 auto;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+  
+    .header-content {
+      padding-left: 25%;
+    }
+  
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #00102E;
+      padding: 10px;
+      height: 20%;
+    }
+  
+    .navbar-brand img {
+      height: 90px;
+      margin-bottom: 10px;
+    }
+  
+    .nav-toggle {
+      font-size: 1.rem;
+      cursor: pointer;
+      margin-bottom: 0px;
+      color: white;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+  
+    .dropdown-content {
+      position: static; /* override for mobile */
+    }
+  
+    .contact-section,
+    .footer-container {
+      text-align: center;
+    }
+    
+    
+  }
+  
+  
+      </style>
+      
 
     </head>
     <body id="page-top">
  <!-- Navigation -->
-<nav class="navbar" style="background-color: #00102E; font-weight: 200;">
-    <!-- Navbar Brand with Logo -->
-    <a class="navbar-brand" href="#page-top">
+ <nav class="navbar">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#top">
       <img src="./assets/img/preview.png" alt="Logo">
     </a>
   
-    <!-- Toggle and Links Container -->
-    <div class="nav-toggle-container">
-      <!-- Hamburger Menu Icon -->
-      <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+    <!-- Toggle (for mobile) -->
+    <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
   
-      <!-- Navigation Links -->
-      <ul class="nav-links" id="navMenu" style="padding-top: 10px;">
-        <li><a href="#services"><i class="fas fa-handshake"></i> Our Services</a></li>
-        <li><a href="#digital"><i class="fas fa-info-circle"></i> About Us</a></li>
-        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
-  
-        <!-- Dropdown -->
-        <li class="dropdown">
-          <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">
-            <i class="fa fa-user"></i> User
-            <span><i class="fa fa-caret-down"></i></span>
-          </a>
-          <div class="dropdown-content" id="dropdown1">
-            <a href="login.html" style="background-color: rgba(241, 143, 143, 0.329);">
-              <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-            <a href="#password-reset">
-              <i class="fas fa-user-cog"></i> Account
-            </a>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <!-- Navigation Links -->
+    <ul class="nav-links" id="navMenu">
+      <li><a href="#services"><i class="fas fa-handshake"></i> Our Services</a></li>
+      <li><a href="#digital"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn"><i class="fa fa-user"></i> User <i class="fa fa-caret-down"></i></a>
+        <div class="dropdown-content" id="dropdown1">
+          <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="password-reset.html"><i class="fas fa-key"></i> Password Reset</a>
+        </div>
+      </li>
+    </ul>
   </nav>
+  
   
   <!-- Optional JS for toggle -->
   <script>
@@ -92,27 +145,28 @@
         <div class="header-content">
             <!-- Logo Section -->
             <img src="./assets/img/white-logo-1536x1097.webp" alt="Logo" class="logo">
-
+          
             <!-- Text Section -->
-            <div class="text-section"> <!-- Adjusted padding and max width -->
-                <div class="masthead-heading">
-                    SMMEs VIRTUAL <br> INCUBATION
-                </div>
-                <div class="subheading" >
-                    Grow your business! Have access to services like web design,<br>
-                    marketing, mentoring, management assistance, and support.<br> 
-                    There are others you will engage with virtually from anywhere<br> 
-                    around the country!
-                </div>
+            <div class="text-section">
+              <div class="masthead-heading">
+                SMMEs VIRTUAL <br> INCUBATION
+              </div>
+              <div class="subheading">
+                Grow your business! Have access to services like web design,<br>
+                marketing, mentoring, management assistance, and support.<br> 
+                There are others you will engage with virtually from anywhere<br> 
+                around the country!
+              </div>
             </div>
-        </div>
+          </div>
+          
 
         <!-- Services Section -->
         <div class="icon-box-container">
             <div class="icon-box">
                 <i class="fas fa-people-carry icon"></i>
                 <b>MENTORING</b>
-                <p>Get expert advice and mentoring.<br>Avoid obstacles and <br>set yourself and your business for success.</p>
+                <p>Get expert advice and mentoring.<br>Avoid obstacles and set yourself and your business for success.</p>
             </div>
             <div class="icon-box">
                 <i class="fas fa-balance-scale icon"></i>
@@ -773,7 +827,27 @@
             });
         }
     });
+    
 </script>
+
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('active');
+      }
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        const dropbtn = document.querySelector('.dropbtn');
+        const dropdown = document.querySelector('.dropdown');
+      
+        dropbtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          dropdown.classList.toggle('show');
+        });
+      });
+      
+  </script>
+  
 
 </body>     
 </html>
