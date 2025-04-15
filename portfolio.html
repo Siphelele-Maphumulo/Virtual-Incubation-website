@@ -104,31 +104,6 @@ a {
   border-radius: 5px;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%); /* Centers the menu */
-    background-color: #00102E;
-    flex-direction: column;
-    width: 200px;
-    display: none;
-    text-align: center; /* Center text inside */
-    padding: 1rem;
-    z-index: 99; /* Ensure it's on top */
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
-
-
 /* =========================
    DROPDOWN MENU
 ========================= */
@@ -136,23 +111,18 @@ a {
   display: none;
   position: absolute;
   background-color: #00102E;
-  min-width: 150px;
+  min-width: 160px;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   z-index: 1;
-}
-
-.dropdown-content a {
-  color: var(--white);
-  padding: 0.5rem 1rem;
-  display: block;
 }
 
 .dropdown-content a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
   display: block;
 }
 
@@ -196,6 +166,7 @@ a {
   align-items: center;
   min-height: 100vh;
   padding-top: 100px;
+  padding-left: 15%;
   position: relative;
   z-index: 1;
 }
@@ -262,67 +233,108 @@ textarea.form-control {
     margin: 20px;
     padding: 20px;
   }
-}
 
-
-.nav-toggle {
-  display: none;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-  margin-right: 20px;
-}
-
-@media (max-width: 768px) {
   .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #00102E;
     position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00102E;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    z-index: 99;
   }
 
   .nav-links.active {
     display: flex;
   }
 
+  .hamburger {
+    display: flex;
+  }
+
+  /* Dropdown for mobile */
+  .dropdown {
+    position: relative; /* Adjust position to relative */
+    display: inline-block;
+    width: 100%; /* Ensure it takes full width */
+  }
+
+  .dropbtn {
+    background-color: #00102E;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%; /* Ensure button spans full width */
+  }
+
+  .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #00102E;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 5px;
+  }
+
+  .dropdown-content.active {
+    display: flex;
+    width: 100%;
+    left: 0; /* Make sure it's aligned with the button */
+    transform: translateX(0); /* Center dropdown */
+  }
+
+  .dropdown-content a {
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: center; /* Center text */
+  }
+
+  .dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Dropdown toggle script-friendly */
+.dropdown-content.active {
+  display: flex;
+}
+
+/* By default, hide the nav toggle */
+.nav-toggle {
+  display: none;
+}
+
+/* Media query to show nav toggle only on small screens */
+@media (max-width: 768px) {
   .nav-toggle {
     display: block;
   }
+  .dropdown-content {
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%);
+    width: 100%; /* Make it expand to full width */
+  }
 }
+
 </style>
+
+
           
 
 <header>
-  <nav class="navbar">
-    <a class="navbar-brand" href="#page-top">
-      <img src="./assets/img/preview.png" alt="Logo" />
-    </a>
-
-    <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
-
-    <ul class="nav-links" id="navMenu">
-      <li><a href="home.html"><i class="fas fa-house"></i> Home</a></li>
-      <li><a href="index.html#services"><i class="fas fa-handshake"></i> Our Services</a></li>
-      <li><a href="index.html#digital"><i class="fas fa-info-circle"></i> About Us</a></li>
-      <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">
-          <i class="fa fa-user"></i> User <span><i class="fa fa-caret-down"></i></span>
-        </a>
-        <div class="dropdown-content">
-          <a href="login.html" style="background-color: rgba(241, 143, 143, 0.329);">
-            <i class="fas fa-sign-out-alt"></i> Logout
-          </a>
-          <a href="#password-reset">
-            <i class="fas fa-user-cog"></i> Account
-          </a>
-        </div>
-      </li>
-    </ul>
-  </nav>
+  <div id="header"></div>
 </header>
 
 
@@ -330,6 +342,7 @@ textarea.form-control {
    <!-- Main Form Section -->
    <div class="container">
     <div class="form">
+    
       <div class="contact-info">
         <h3 class="title">Connect With People Using Your Portfolio</h3>
         <p class="text">
@@ -409,37 +422,13 @@ textarea.form-control {
   </div>
 
   <script>
+    // Toggle Menu (Hamburger Menu)
     function toggleMenu() {
       const navLinks = document.querySelector('.nav-links');
       navLinks.classList.toggle('active');
     }
-  </script>
-            
-<!-- Scroll to Top Button -->
-<a href="#top" id="scrollToTop" style="position: fixed; bottom: 30px; right: 30px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999;">
-  <i class="fa fa-arrow-up"></i>
-</a>
-
-<!-- Scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<script>
-  // Only one DOMContentLoaded listener for all scripts
-  document.addEventListener("DOMContentLoaded", function () {
-    // Input focus animation
-    const inputs = document.querySelectorAll(".input");
-    inputs.forEach((input) => {
-      input.addEventListener("focus", function () {
-        this.parentNode.classList.add("focus");
-      });
-      input.addEventListener("blur", function () {
-        if (this.value === "") {
-          this.parentNode.classList.remove("focus");
-        }
-      });
-    });
-
-    // Scroll to top button
+  
+    // Scroll to Top Button
     const scrollToTopBtn = document.getElementById("scrollToTop");
     window.addEventListener("scroll", function () {
       if (window.scrollY > 300) {
@@ -449,7 +438,7 @@ textarea.form-control {
         scrollToTopBtn.style.opacity = "0";
         scrollToTopBtn.style.visibility = "hidden";
       }
-
+  
       // Navbar scroll effect
       const navbar = document.querySelector(".navbar");
       if (window.scrollY > 50) {
@@ -458,43 +447,69 @@ textarea.form-control {
         navbar.classList.remove("scrolled");
       }
     });
-
+  
     // Smooth scroll on button click
     scrollToTopBtn.addEventListener("click", function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
-  });
-
-  // Single checkbox selection logic
-  $(document).ready(function () {
-    $('.checkoption').click(function () {
-      $('.checkoption').not(this).prop('checked', false);
-    });
-  });
-
-  // Dropdown toggle
-  function toggleDropdown(event, dropdownId) {
-    event.preventDefault();
-    var allDropdowns = document.querySelectorAll('.dropdown-content');
-    allDropdowns.forEach(function (dropdown) {
-      if (dropdown.id !== dropdownId) {
-        dropdown.style.display = 'none';
-      }
-    });
-    var dropdown = document.getElementById(dropdownId);
-    dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-  }
-
-  // Close dropdown if clicked outside
-  window.onclick = function (event) {
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
-      document.querySelectorAll('.dropdown-content').forEach(function (dropdown) {
-        dropdown.style.display = 'none';
+  
+    // Dropdown Toggle
+    document.addEventListener("DOMContentLoaded", function () {
+      const dropdownBtn = document.querySelector(".dropbtn");
+      const dropdownContent = document.querySelector(".dropdown-content");
+  
+      dropdownBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        dropdownContent.classList.toggle("active");
       });
+    });
+  
+    // Close dropdown if clicked outside
+    window.onclick = function (event) {
+      if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown-content').forEach(function (dropdown) {
+          dropdown.style.display = 'none';
+        });
+      }
+    };
+  
+    // Single checkbox selection logic
+    $(document).ready(function () {
+      $('.checkoption').click(function () {
+        $('.checkoption').not(this).prop('checked', false);
+      });
+    });
+  
+    // Dropdown Toggle (additional method for multiple dropdowns)
+    function toggleDropdown(event, dropdownId) {
+      event.preventDefault();
+      var allDropdowns = document.querySelectorAll('.dropdown-content');
+      allDropdowns.forEach(function (dropdown) {
+        if (dropdown.id !== dropdownId) {
+          dropdown.style.display = 'none';
+        }
+      });
+      var dropdown = document.getElementById(dropdownId);
+      dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
     }
-  };
-</script>
-
-</body>
-</html>
+  </script>
+  
+  <!-- Scroll to Top Button -->
+  <a href="#top" id="scrollToTop" style="position: fixed; bottom: 30px; right: 30px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999;">
+    <i class="fa fa-arrow-up"></i>
+  </a>
+  
+  <!-- External Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
+  </body>
+  </html>
+  
