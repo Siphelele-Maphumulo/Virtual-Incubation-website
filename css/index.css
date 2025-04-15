@@ -21,7 +21,7 @@
   height: auto; /* Maintain aspect ratio */
   object-fit: contain;
   position: absolute;
-  top: -180px; /* Moves logo slightly upward */
+  top: -110px; /* Moves logo slightly upward */
   left: 100px; /* Keeps it far left */
   padding-left: 50px; /* Extra spacing for positioning */
 }
