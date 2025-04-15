@@ -13,490 +13,488 @@
         <link href="css/porfolio.css" rel="stylesheet" />
     
     
-	  <style>
-
-      body {
-        background: url('./assets/img/header-bb.jpg');
-        background-size: 100%; /* Zooms out slightly */
-        background-position: 60% center; /* Moves image slightly to the right */
-        background-repeat: no-repeat; /* Prevents repeating */
-        background-attachment: fixed; /* Keeps image fixed on scroll */
-        margin-bottom: 5%;
-
-    }
-    .navbar {
-      display: flex;
-      justify-content: space-between; /* Push logo left & links right */
-      align-items: center;
-      padding: 05px 10px;
-      background-color: #00102E;
-      font-family: 'Poppins', sans-serif; /* Modern, professional font */
-      position: fixed; /* Keep navbar fixed at the top */
-      transition: background-color 0.3s ease-in-out; /* Smooth transition */
-      width: 100%;
-      
-    }
-
-
-    .scrolled {
-      background-color: #00102e67 !important; /* Change color when scrolled */
-    }
-    
-
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--dark-blue);
-      margin: 0;
-  }
-
-  a {
-      text-decoration: none;
-      color: inherit;
-  }
-  
-  /* Navigation */
-  .navbar {
-  color: azure;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-  }
-
-  .navbar.scroll {
-      padding: 0.5rem 0%;
-      background-color: rgba(0, 16, 46, 0.95);
-  }
-
-  .navbar-brand img {
-      height: 70px;
-      transition: var(--transition);
-  }
-
-  .nav-links {
-      display: flex;
-      list-style: none;
-      gap: -20px;
-      font-size: small;
-  }
-
-  .nav-links li a {
-      color: var(--white);
-      font-weight: 200;
-      padding: 0.5rem 1rem;
-      border-radius: var(--border-radius);
-      transition: var(--transition);
-  }
-
-  .nav-links li a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-  }
-
-
-   /* Dropdown */
-   .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color:#00102E;
-      min-width: 150px;
-      box-shadow: var(--box-shadow);
-      border-radius: var(--border-radius);
-      z-index: 1;
-  }
-
-  .dropdown-content a {
-      color: var(--white);
-      padding: 0.5rem 1rem;
-      display: block;
-      transition: var(--transition);
-  }
-
-  .dropdown-content a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .dropdown:hover .dropdown-content {
-      display: block;
-  }
-
-.footer .container {
-  max-width: 90%; /* Make the container take full width */
-  padding-left: 0;
-  padding-right: 0;
+        <style>
+/* =========================
+   GLOBAL STYLES
+========================= */
+body {
+  background: url('./assets/img/header-bb.jpg') no-repeat fixed center;
+  background-size: 100%;
+  background-position: 60% center;
+  margin-bottom: 5%;
 }
 
-.footer a {
-  color: white; /* Ensure links are white */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dark-blue);
+  margin: 0;
+}
+
+a {
   text-decoration: none;
+  color: inherit;
+}
+
+.text-center {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-heading {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section-subheading {
+  font-size: 1rem;
+  color: #CED4DA;
+}
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+.navbar {
+  color: azure;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #00102E;
+  z-index: 1000;
+}
+
+.navbar-brand img {
+  height: 70px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+
+.nav-links li a {
+  color: var(--white);
+  font-weight: 200;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the menu */
+    background-color: #00102E;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    text-align: center; /* Center text inside */
+    padding: 1rem;
+    z-index: 99; /* Ensure it's on top */
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
 
 
-  /* Floating button styles */
-  #scrollToTop {
-      position: fixed;
-      bottom: 30px; /* Position at the bottom */
-      right: 30px; /* Position at the right */
-      width: 50px;
-      height: 50px;
-      background-color: #2AC8A8; /* Button color */
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      font-size: 24px;
-      border-radius: 50%; /* Make it a circle */
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease-in-out;
-      opacity: 0; /* Initially hidden */
-      visibility: hidden;
+/* =========================
+   DROPDOWN MENU
+========================= */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #00102E;
+  min-width: 150px;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* =========================
+   SCROLL TO TOP BUTTON
+========================= */
+#scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #2AC8A8;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#scrollToTop:hover {
+  background-color: #249e8d;
+}
+
+.fa-arrow-up {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* =========================
+   FORM STYLES
+========================= */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.form {
+  max-width: 1000px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-col {
+  flex: 1;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #CED4DA;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+textarea.form-control {
+  min-height: 150px;
+}
+
+.btn-submit {
+  background-color: #0089FF;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
   }
 
-  /* Hover effect */
-  #scrollToTop:hover {
-      background-color: #249e8d; /* Slightly darker on hover */
+  .contact-container {
+    padding: 30px 20px;
   }
 
-  /* Font Awesome Icon */
-  .fa-arrow-up {
-      font-size: 24px;
-      font-weight: bold;
+  .form {
+    margin: 20px;
+    padding: 20px;
   }
-	  </style>
+}
 
-  </head>
-    <!-- Navigation-->
-    <nav class="navbar">
-      <a class="navbar-brand" href="#page-top">
-          <img src="./assets/img/preview.png" alt="Logo">
-      </a>
-      <ul class="nav-links" style="padding-top: 10px; padding-right:0%; gap:0%">
-        <li><a href="home.html"><i class="fas fa-house"></i>Home</a></li>
-        <li><a href="index.html#services"><i class="fas fa-handshake"></i>Our Services</a></li>
-        <li><a href="index.html#digital"><i class="fas fa-info-circle"></i>About Us</a></li>
-        <li><a href="index.html#contact"><i class="fas fa-envelope"></i>Contact Us</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')"> 
-                <i class="fa fa-user"></i> User  
-                <span ><i class="fa fa-caret-down"></i></span>
-            </a>
-              
-            <div class="dropdown-content" id="dropdown1">
-                    <a href="login.html" style="background-color: rgba(241, 143, 143, 0.329);">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
-                    <a href="#password-reset">
-                        <i class="fas fa-user-cog"></i> Account
-                    </a>                        
-            </div>
-          </li>
+
+.nav-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #00102E;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+</style>
           
+
+<header>
+  <nav class="navbar">
+    <a class="navbar-brand" href="#page-top">
+      <img src="./assets/img/preview.png" alt="Logo" />
+    </a>
+
+    <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+
+    <ul class="nav-links" id="navMenu">
+      <li><a href="home.html"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="index.html#services"><i class="fas fa-handshake"></i> Our Services</a></li>
+      <li><a href="index.html#digital"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">
+          <i class="fa fa-user"></i> User <span><i class="fa fa-caret-down"></i></span>
+        </a>
+        <div class="dropdown-content">
+          <a href="login.html" style="background-color: rgba(241, 143, 143, 0.329);">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+          <a href="#password-reset">
+            <i class="fas fa-user-cog"></i> Account
+          </a>
+        </div>
+      </li>
     </ul>
-</nav>
+  </nav>
 </header>
 
-<body id="page-top" >
-    <div class="container" >
-      <span class="big-circle"></span>
-      <img src="img/shape.png" class="square" alt="" />
-      <div class="form" style="margin-top: 16%; margin-bottom:20%;">
-        <div class="contact-info">
-          <h3 class="title">Connect With People Using Your Portfolio </h3>
-          <p class="text">
-            Fill in the form on the right to allow customer, investor and other businesses to
-		 visit your company website easily with a click of a button.
-          </p>
 
-          <div class="info">
-            <div class="information">
-              <img src="img/location.png" class="icon" alt="" />
-              <p></p>
-            </div>
-            <div class="information">
-              <img src="img/email.png" class="icon" alt="" />
-              <p></p>
-            </div>
-            <div class="information">
-              <img src="img/phone.png" class="icon" alt="" />
-              <p></p>
-            </div>
+<body id="page-top">
+   <!-- Main Form Section -->
+   <div class="container">
+    <div class="form">
+      <div class="contact-info">
+        <h3 class="title">Connect With People Using Your Portfolio</h3>
+        <p class="text">
+          Fill in the form on the right to allow customers, investors, and other businesses to
+          visit your company website easily with a click of a button.
+        </p>
+        <div class="info">
+          <div class="information">
+            <img src="img/location.png" class="icon" alt="" />
+            <p></p>
           </div>
-
-          <div class="social-media">
-            <p>Connect with us :</p>
-            <div class="social-icons">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
+          <div class="information">
+            <img src="img/email.png" class="icon" alt="" />
+            <p></p>
+          </div>
+          <div class="information">
+            <img src="img/phone.png" class="icon" alt="" />
+            <p></p>
           </div>
         </div>
 
-        <div class="contact-form">
-          <span class="circle one"></span>
-          <span class="circle two"></span>
-<!--company_portfolio.php-->
-          <form action="https://formspree.io/f/mpzepvez" method="post" autocomplete="off" enctype="multipart/form-data">
-            <h3 class="title">Portfolio Form</h3>
-            <div class="input-container">
-              <input  id="company" name="company" type="text" class="input" required=""/>
-              <label for="">Company Name</label>
-              <span>Company Name</span>
+        <div class="social-media">
+          <p>Connect with us :</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form action="https://formspree.io/f/mpzepvez" method="post" autocomplete="off" enctype="multipart/form-data">
+          <h3 class="title">Portfolio Form</h3>
+
+          <div class="input-container">
+            <input id="company" name="company" type="text" class="input" required />
+            <label>Company Name</label>
+            <span>Company Name</span>
+          </div>
+
+          <div class="input-container">
+            <input id="owner" name="owner" type="text" class="input" required />
+            <label>Owner</label>
+            <span>Owner</span>
+          </div>
+
+          <div class="input-container">
+            <input id="website" name="website" type="text" class="input" required />
+            <label>Website</label>
+            <span>Website</span>
+          </div>
+
+          <div class="input-container textarea">
+            <textarea id="description" name="description" class="input"></textarea>
+            <label>Company Description</label>
+            <span>Message</span>
+          </div>
+
+          <div class="input-container">
+            <input id="logo" name="logo" type="text" class="input" required />
+            <label>Company Logo Link</label>
+            <span>Company Logo Image Link</span>
+
+            <div>
+              <a href="https://www.linkpicture.com/en/?set=en" target="_blank">
+                <button class="favorite" type="button">Create image link</button>
+              </a>
             </div>
-            <div class="input-container">
-              <input id="owner" name="owner" type="text"  class="input" required=""/>
-              <label for="">Owner</label>
-              <span>Owner</span>
-            </div>
-            <div class="input-container">
-              <input id="website" name="website" type="text" class="input" required=""/>
-              <label for="">Website</label>
-              <span>Website</span>
-            </div>
-            <div class="input-container textarea">
-              <textarea id="description" name="description" type="text" class="input"></textarea>
-              <label for="">Company Description</label>
-              <span>Message</span>
-            </div>
-			  
-			 <div class="input-container">
-              <input id="logo" name="logo" type="text"  class="input" required=""/>
-              <label for="">Company Logo Link</label>
-              <span>Company Logo Image Link</span>
-				 			  <div>
-			  	<a href="https://www.linkpicture.com/en/?set=en" target="_blank">
-				 <button class="favorite"
-					type="button">
-					Create image link
-				</button> </a>
-			  </div>
-            </div>
+          </div>
+
+          <button class="btn-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
             
 <!-- Scroll to Top Button -->
-<a href="#top" id="scrollToTop">
-  <i class="fa fa-arrow-up"></i> <!-- Font Awesome Up Arrow -->
+<a href="#top" id="scrollToTop" style="position: fixed; bottom: 30px; right: 30px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999;">
+  <i class="fa fa-arrow-up"></i>
 </a>
 
-
-			 <!--<div class="input-container textarea">
-              <input id="image" type="file" name="image"  accept=".jpg, .jpeg, .png" value=""> <br> <br>
-            </div>-->
-			  
- 
-			  
-                            <input type="submit" value="Submit" class="btn btn-info btn-block" name="submit">
-          </form>
-        </div>
-    <script>
-const inputs = document.querySelectorAll(".input");
-
-function focusFunc() {
-  let parent = this.parentNode;
-  parent.classList.add("focus");
-}
-
-function blurFunc() {
-  let parent = this.parentNode;
-  if (this.value == "") {
-    parent.classList.remove("focus");
-  }
-}
-
-inputs.forEach((input) => {
-  input.addEventListener("focus", focusFunc);
-  input.addEventListener("blur", blurFunc);
-});
-	</script>
-		  
-		  
-
-			
-<!-- Script -->
+<!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
 
-$('.checkoption').click(function() {
-$('.checkoption').not(this).prop('checked', false);
-});
+<script>
+  // Only one DOMContentLoaded listener for all scripts
+  document.addEventListener("DOMContentLoaded", function () {
+    // Input focus animation
+    const inputs = document.querySelectorAll(".input");
+    inputs.forEach((input) => {
+      input.addEventListener("focus", function () {
+        this.parentNode.classList.add("focus");
+      });
+      input.addEventListener("blur", function () {
+        if (this.value === "") {
+          this.parentNode.classList.remove("focus");
+        }
+      });
+    });
 
-});
+    // Scroll to top button
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.style.opacity = "1";
+        scrollToTopBtn.style.visibility = "visible";
+      } else {
+        scrollToTopBtn.style.opacity = "0";
+        scrollToTopBtn.style.visibility = "hidden";
+      }
 
+      // Navbar scroll effect
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
 
-window.addEventListener("scroll", function () {
-let navbar = document.querySelector(".navbar");
-if (window.scrollY > 50) {
-navbar.classList.add("scroll"); // Add transparent effect
-} else {
-navbar.classList.remove("scroll"); // Restore navy background
-}
-});
+    // Smooth scroll on button click
+    scrollToTopBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
 
-// Function to toggle the dropdown visibility when clicked
-function toggleDropdown(event, dropdownId) {
-event.preventDefault(); // Prevent the link from navigating
+  // Single checkbox selection logic
+  $(document).ready(function () {
+    $('.checkoption').click(function () {
+      $('.checkoption').not(this).prop('checked', false);
+    });
+  });
 
-// Get all dropdowns
-var allDropdowns = document.querySelectorAll('.dropdown-content');
-
-// Loop through and hide all dropdowns, except the one that was clicked
-allDropdowns.forEach(function(dropdown) {
-if (dropdown.id !== dropdownId) {
-dropdown.style.display = 'none';
-}
-});
-
-// Toggle the visibility of the selected dropdown
-var dropdown = document.getElementById(dropdownId);
-if (dropdown.style.display === 'block') {
-dropdown.style.display = 'none';
-} else {
-dropdown.style.display = 'block';
-}
-}
-
-// Close dropdown if clicked outside of the dropdown
-window.onclick = function(event) {
-if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
-var dropdowns = document.querySelectorAll('.dropdown-content');
-dropdowns.forEach(function(dropdown) {
-dropdown.style.display = 'none';
-});
-}
-}
-
-
-<!-- JavaScript for Smooth Scrolling & Visibility -->
-document.addEventListener("DOMContentLoaded", function () {
- var scrollToTopBtn = document.getElementById("scrollToTop");
-
- window.addEventListener("scroll", function () {
-     if (window.scrollY > 300) { // Show button after scrolling down
-         scrollToTopBtn.style.opacity = "1";
-         scrollToTopBtn.style.visibility = "visible";
-     } else {
-         scrollToTopBtn.style.opacity = "0";
-         scrollToTopBtn.style.visibility = "hidden";
-     }
- });
-
- // Smooth scroll effect
- scrollToTopBtn.addEventListener("click", function (e) {
-     e.preventDefault();
-     window.scrollTo({ top: 0, behavior: "smooth" });
- });
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
- var scrollToTopBtn = document.getElementById("scrollToTop");
-
- window.addEventListener("scroll", function () {
-     if (window.scrollY > 300) { // Show button after scrolling down
-         scrollToTopBtn.style.opacity = "1";
-         scrollToTopBtn.style.visibility = "visible";
-     } else {
-         scrollToTopBtn.style.opacity = "0";
-         scrollToTopBtn.style.visibility = "hidden";
-     }
- });
-
- // Smooth scroll effect
- scrollToTopBtn.addEventListener("click", function (e) {
-     e.preventDefault();
-     window.scrollTo({ top: 0, behavior: "smooth" });
- });
-});
-
-window.addEventListener("scroll", function() {
-  var navbar = document.querySelector(".navbar");
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
+  // Dropdown toggle
+  function toggleDropdown(event, dropdownId) {
+    event.preventDefault();
+    var allDropdowns = document.querySelectorAll('.dropdown-content');
+    allDropdowns.forEach(function (dropdown) {
+      if (dropdown.id !== dropdownId) {
+        dropdown.style.display = 'none';
+      }
+    });
+    var dropdown = document.getElementById(dropdownId);
+    dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
   }
-});
 
-
+  // Close dropdown if clicked outside
+  window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown-content').forEach(function (dropdown) {
+        dropdown.style.display = 'none';
+      });
+    }
+  };
 </script>
 
- </div>
-</div>
-</div>
-<!-- Footer -->
-<footer style="margin-bottom: -200px;">
-
-<footer style=" background:#00102E; color: white; padding: 20px 0; font-family: Arial, sans-serif;">
-   <p class="footer">
-       Code SA Virtual Incubation is a licensed business services provider in terms of the Business 
-       Advisory and Intermediary Services Act and a registered credit provider in terms of the 
-       National Credit Act, registration number NCRCP15.
-   </p>
-   <div class="container">
-       <!-- First row with company details -->
-       <div class="row">
-           <div class="col">
-               <i class="fas fa-envelope"></i> <strong>Email:</strong> info@codingmadeeasy.org
-           </div>
-           <div class="col">
-               <i class="fas fa-map-marker-alt"></i> <strong>Our Offices:</strong> Unit 8E Trio Industrial Park, 8 Shepstone Road, The Wolds, New Germany, South Africa
-           </div>
-           <div class="col">
-               <i class="fas fa-phone-alt"></i> <strong>Telephone:</strong> +27 63 313 7391
-           </div>
-           <div class="col">
-               <i class="fas fa-clock"></i> <strong>Opening Hours:</strong><br>
-               Mon - Thu: 08:30 - 16:30<br>
-               Fri: 08:30 - 14:30<br>
-               Sat: 10:00 - 14:30<br>
-               Sun: Closed
-           </div>
-       </div>
-
-       <!-- Second row with useful links -->
-       <div class="row">
-           <div class="col">
-               <a href="#help" class="footer-link"><i class="fas fa-info-circle"></i> Help</a>
-           </div>
-           <div class="col">
-               <a href="#guide" class="footer-link"><i class="fas fa-book-open"></i> Guide</a>
-           </div>
-           <div class="col">
-               <a href="#companies" class="footer-link"><i class="fas fa-briefcase"></i> Companies</a>
-           </div>
-           <div class="col">
-               <a href="#team" class="footer-link"><i class="fas fa-users"></i> Our Team</a>
-           </div>
-       </div>
-
-       <!-- Terms and Copyright -->
-       <div class="footer-terms">
-           <div class="row">
-               <div class="col text-center">
-                   <a href="#terms" class="footer-link">Terms of Use</a> |  
-                   <span>© 2025 SMMEs Virtual Incubation</span>
-               </div>
-           </div>
-       </div>
-   </div>
-</footer>        
-
 </body>
-
-
 </html>
