@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A professional website with a fully responsive design.">
+    <meta name="author" content="Your Name">
+    <meta name="keywords" content="mentoring, coaching, support, business growth">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    
+    <!-- Google fonts-->   
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Core theme CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <title>Our Services</title>
+    <style>
+        /* Base styles to prevent overflow */
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .masthead-heading {  
+            font-size: 4.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            color: #ffffff;
+            text-shadow:   
+                1px 1px 0 #00102E,
+                2px 2px 0 rgba(0, 0, 255, 0.5),
+                3px 3px 0 rgba(228, 51, 20, 0.5);
+        }  
+        
+        .masthead-heading::before {  
+            content: attr(data-text);  
+            position: absolute;  
+            top: 2px;
+            left: 2px;
+            right: 0;  
+            bottom: 0;  
+            font-size: 6rem;
+            color: rgba(255, 0, 0, 0.7);
+            z-index: -1;
+            transform: translateZ(-5px);
+        }  
+        
+        .masthead-heading::after {  
+            content: attr(data-text);  
+            position: absolute;  
+            top: 4px;
+            left: 4px;
+            right: 0;  
+            bottom: 0;  
+            font-size: 6rem;
+            color: rgba(0, 255, 0, 0.7);
+            z-index: -2;
+            transform: translateZ(-10px);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                margin: 0 auto;
+                overflow-x: hidden;
+            }
+            
+            .header-content {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-left: 25%;
+                width: 100%;
+            }
+            
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #00102E;
+                padding: 10px;
+                height: auto;
+                width: 100%;
+            }
+            
+            .navbar-brand img {
+                height: 70px;
+                margin-bottom: 10px;
+                max-width: 100%;
+            }
+            
+            .nav-toggle {
+                font-size: 1.5rem;
+                cursor: pointer;
+                margin-bottom: 10px;
+                color: white;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                list-style: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 8px;
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                padding: 0;
+                text-align: center;       /* Centers inline elements inside */
+                justify-content: center;  /* For flex children if needed */
+                align-items: center;
+              }
+              
+              .dropdown-content a {
+                display: inline-block;     /* So links can be centered */
+                margin: 5px 0;             /* Optional spacing */
+              }
+              
+              .dropdown-content.active {
+                display: block;
+              }
+              
+            
+            .contact-section,
+            .footer-container {
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .masthead-heading {
+                font-size: 1.7rem;
+                line-height: 1.3;
+            }
+            
+            .subheading {
+                font-size: 1rem;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+            
+            .icon-box-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .icon-box {
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 0 15px;
+            }
+            
+            /* Ensure all containers have proper width */
+            .container, .about-container, .help-container, .partners-container {
+                width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+                margin: 0 auto;
+            }
+            
+            /* Make sure rows and columns don't overflow */
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+            
+            .col-md-4, .col-lg-3, .col-lg-4 {
+                width: 100%;
+                padding: 0 15px;
+                margin-bottom: 20px;
+            }
+            
+            /* Adjust team section */
+            .team-card {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            /* Fix partner logos slider */
+            .slide-track {
+                width: 100%;
+                overflow: hidden;
+            }
+            
+            .slide {
+                min-width: 150px;
+            }
+            
+            /* Form adjustments */
+            #contactForm .col-md-6 {
+                width: 100%;
+                padding: 0;
+            }
+            
+            /* Footer adjustments */
+            .footer-column {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .masthead-heading {
+                font-size: 1.5rem;
+            }
+            
+            .subheading br {
+                display: none;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+/* Base Styles */
+.team-page-section {
+    background: radial-gradient(ellipse at center, #1a2a3a 0%, transparent 100%);
+    padding: 20px 10px; /* Reduced padding */
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .team-page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.02)" d="M0,0 L100,0 L100,100 L0,100 Z"/></svg>');
+    background-size: 15px 15px;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .team-page-section .content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Slideshow Container */
+  .sslideshow-container {
+    width: 95%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Slide Wrapper and Slides */
+  .sslides-wrapper {
+    display: flex;
+    transition: transform 0.6s ease;
+  }
+  
+  .sslide {
+    min-width: 100%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    position: relative;
+  }
+  
+  .sslide::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(100,200,255,0.05) 0%, transparent 70%);
+    animation: rotateGradient 25s linear infinite;
+    z-index: 0;
+  }
+  
+  /* Slide Content */
+  .slide-content {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Slide Text */
+  .sslide h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #3b82f6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: fadeInUp 0.7s 0.3s forwards;
+  }
+  
+  .sslide p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: fadeInUp 0.7s 0.5s forwards;
+  }
+  
+  /* Slide Image */
+  .sslide img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    animation: zoomIn 0.7s 0.7s forwards;
+  }
+  
+  /* Button */
+  .sslide button {
+    margin-top: 15px;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 40px;
+    border: none;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInUp 0.7s 0.9s forwards;
+    transition: all 0.3s ease;
+  }
+  
+  .sslide button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+  }
+  
+  /* Navigation Buttons */
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .nav-button:hover {
+    background: rgba(59, 130, 246, 0.75);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .prev { left: 15px; }
+  .next { right: 15px; }
+  
+  /* Indicators */
+  .slide-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .indicator.active {
+    transform: scale(1.3);
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes rotateGradient {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .sslide h2 {
+      font-size: 2.5rem;
+    }
+    
+    .sslide p {
+      font-size: 1.1rem;
+    }
+    
+    .nav-button {
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .team-page-section {
+      padding: 60px 0;
+    }
+    
+    .sslide {
+      padding: 50px 30px;
+    }
+    
+    .sslide h2 {
+      font-size: 2rem;
+    }
+    
+    .nav-button {
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+    }
+    
+    .slide-indicators {
+      bottom: 20px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .sslide {
+      padding: 40px 20px;
+    }
+    
+    .sslide h2 {
+      font-size: 1.8rem;
+    }
+    
+    .sslide button {
+      padding: 12px 28px;
+      font-size: 1rem;
+    }
+  }
+    </style>
+</head>
+<body id="page-top">
+<!-- Navigation -->
+<nav class="navbar">
+<!-- Logo -->
+<a class="navbar-brand" href="#top">
+  <img src="./assets/img/preview.png" alt="Logo">
+</a>
+
+<!-- Toggle (for mobile) -->
+<div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+
+<!-- Navigation Links -->
+<ul class="nav-links" id="navMenu">
+  <li><a href="#services"><i class="fas fa-handshake"></i> Our Services</a></li>
+  <li><a href="#slide"><i class="fas fa-info-circle"></i> Resources</a></li>
+  <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+  <li class="dropdown">
+    <a href="#" class="dropbtn"><i class="fa fa-user"></i> User <i class="fa fa-caret-down"></i></a>
+    <div class="dropdown-content" id="dropdown1">
+        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="password-reset.html"><i class="fas fa-key"></i> Password Reset</a>
+    </div>
+  </li>
+</ul>
+</nav>
+
+
+<!-- Optional JS for toggle -->
+<script>
+function toggleMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('active');
+}
+
+function toggleDropdown(event, dropdownId) {
+  event.preventDefault();
+  document.getElementById(dropdownId).classList.toggle('active');
+}
+</script>
+
+
+<!-- Services Section -->
+<!-- About Section -->
+<section id="about">
+    <div style="display: flex; align-items: center;">
+        <!-- Left Column: Image -->
+        <div style="flex: 1;">
+            <img src="./assets/img/grow.webp" alt="About SMMEs Virtual Incubation" style="width: 100%; height: auto;">
+        </div>
+
+        <!-- Right Column: Content -->
+        <div  class="masthead-heading"  style="flex: 1; padding-left: 20px;">
+            <div class="masthead-heading">Our Services</div>
+        </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- About Us Section -->
+<section class="coreservice-page-section" id="services">
+    <div class="text-center" style="padding-bottom:5%">
+        <h1 style="text-align: center;">Why KZN SMMEs Virtual Incubation?</h1>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="font-size: 20pt; color: #000000; font-family: 'Open Sans', sans-serif;">
+                ✔ Years of experience in the industry.
+            </h2>
+            <h2 style="font-size: 20pt; color: #000000; font-family: 'Open Sans', sans-serif; text-align: right;">
+                ✔ Many companies have been assisted and are successful.
+            </h2>
+        </div>
+        
+    </div>
+
+    <div class="row" style="width:100%; ">
+
+        <!-- Column 1: Starting up a business -->
+      <!-- Services Section -->
+      <div class="icon-box-container">
+        <a href="files.html" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="icon-box">
+            <i class="fas fa-balance-scale icon"></i>
+            <b>Company Profile</b>
+            <p>Have an online business profile on the website.</p>
+          </div>
+        </a>
+      
+        <a href="https://www.aims-online.co.za/moderator-register" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="icon-box">
+            <i class="fas fa-people-carry icon"></i>
+            <b>SETA Registration and Mentorship</b>
+            <p>We help you get started or finish your business document submission and everything during your .</p>
+          </div>
+        </a>
+      
+        <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="icon-box">
+            <i class="fas fa-pencil-ruler icon"></i>
+            <b>Marketing and Advertising</b>
+            <p>Let customers see you, and get more people attracted to your business.</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="icon-box-container">
+        <a href="https://businessdoctors.co.za/book-a-coaching-session/" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="icon-box">
+            <i class="fas fa-people-carry icon"></i>
+            <b>Business Mentorship</b>
+            <p>Get expect advice and mentoring. Avoid obstacles and set yourself and your business for success.</p>
+          </div>
+        </a>
+      
+        <a href="https://www.mict.org.za/wsp-atr-submission-date-extended-to-31-may-2023/" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="icon-box">
+            <i class="fas fa-balance-scale icon"></i>
+            <b>WSP - Workplace Skills Plan submission (closes 31 April)</b>
+            <p>Get help with creating and submitting your WSP.</p>
+          </div>
+        </a>
+      
+        <a href="https://www.sars.gov.za/it-pt-ae-01-g02-how-to-efile-your-provisional-tax-return-external-guide/" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="icon-box">
+            <i class="fas fa-pencil-ruler icon"></i>
+            <b>SARS (Tax Returns and more)</b>
+            <p>Get help with filing your returns and more.</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="icon-box-container">
+        <a href="https://www.servicesseta.org.za/events/" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="icon-box">
+            <i class="fas fa-people-carry icon"></i>
+            <b>Funding for your business</b>
+            <p>Get help getting funding for your business.</p>
+          </div>
+        </a>
+      
+        <a href="https://www.exsa.co.za/?utm_source=chatgpt.com/" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="icon-box">
+            <i class="fas fa-balance-scale icon"></i>
+            <b>Business Workshops</b>
+            <p>Get access to workshops to get a broader understanding of everything.</p>
+          </div>
+        </a>
+      
+        <a href="https://www.durban.gov.za/press-statement/Register+now+to+showcase+at+the+North+Regional+Durban+Business+Fair/" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="icon-box">
+            <i class="fas fa-pencil-ruler icon"></i>
+            <b>Recruitment</b>
+            <p>Get help with recruiting prospects for your business.</p>
+          </div>
+        </a>
+      </div>
+      
+</section>
+
+
+<!-- Slide Show Section -->
+<section class="team-page-section" aria-label="Image carousel" id="slide">
+    <div class="sslideshow-container content-wrapper">
+      <div class="sslides-wrapper ">
+        <div class="sslide" aria-hidden="false">
+          <div class="slide-content">
+            <h2>Premium Business Solutions</h2>
+            <img src="assets/img/company.webp" alt="Our company headquarters">
+            <p>Discover how our innovative approach can transform your business operations and increase efficiency.</p>
+            <button aria-label="Learn more about our solutions">Create</button>
+          </div>
+        </div>
+        <div class="sslide" aria-hidden="true">
+          <div class="slide-content">
+            <h2>Get Started Today</h2>
+            <img src="assets/img/advertise.png" alt="Team collaboration">
+            <p>Join thousands of satisfied customers who have already benefited from our advertisment services.</p>
+            <button aria-label="Get started with our services">Advertisments</button>
+          </div>
+        </div>
+        <div class="sslide" aria-hidden="true">
+          <div class="slide-content">
+            <h2>Exclusive Membership</h2>
+            <img src="assets/img/Success.jpg" alt="Membership benefits">
+            <p>Register now to access premium features and personalized support for your business needs.</p>
+            <button aria-label="Register for membership">Submissions</button>
+          </div>
+        </div>
+      </div>
+  
+      <button class="nav-button prev" aria-label="Previous slide">❮</button>
+      <button class="nav-button next" aria-label="Next slide">❯</button>
+      
+      <div class="slide-indicators">
+        <div class="indicator active" data-index="0" aria-label="Go to slide 1"></div>
+        <div class="indicator" data-index="1" aria-label="Go to slide 2"></div>
+        <div class="indicator" data-index="2" aria-label="Go to slide 3"></div>
+      </div>
+    </div>
+  </section>
+  
+
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Vision</h2>
+                                    <p class="item-intro text-muted">To bridge the digital divide.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/222.jpg" alt="..." />
+                                    <p>To bridge the digital divide and empower South Africa's youth through accessible, engaging, and impactful tech education.</p>
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Our Story</h2>
+                                    <p class="item-intro text-muted">Witnessing firsthand the vast tech knowledge gap.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/11.jpg" alt="..." />
+                                    <p>Born from a 2023 internship experience, Thembelihle I.T Solutions founder, Siphelele Audacious Maphumulo, witnessed firsthand the vast tech knowledge gap among South African youth. Witnessing students unfamiliar with terms like Artificial Intelligence and the 4th Industrial Revolution ignited a passion within Siphelele to bridge this gap.
+                                         He envisioned a future where young people, equipped with cutting-edge tech skills, could not only access promising careers but also become innovators and creators, driving progress within their communities and beyond.</p>
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Mission</h2>
+                                    <p class="item-intro text-muted">Equip young minds with Tech knowledge.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/33.jpg" alt="..." />
+                                    <p>Equip young minds with the tools and knowledge needed to thrive in the 4th Industrial Revolution through comprehensive IT training, mentorship, and community outreach.</p>
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">What We Do</h2>
+                                    <p class="item-intro text-muted">Engaging workshops and bootcamps.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/44.jpg" alt="..." />
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Interactive Workshops:</strong>
+                                            Engaging workshops and bootcamps covering diverse tech fields like AI, Coding & Robotics, IoT, Data Science, Cloud Computing, Ethical Hacking, and Cyber Security.
+                                        </li>
+                                        <li>
+                                            <strong>School Outreach Programs:</strong>
+                                            Bringing interactive tech lessons directly to primary and high schools, sparking early interest and demystifying tech concepts.
+                                        </li>
+                                        <li>
+                                            <strong>Graduate and Youth Development:</strong>
+                                            LTailored training programs empowering unemployed graduates and young individuals with marketable IT skills
+                                        </li>
+                                        <li>
+                                            <strong>Mentorship Network:</strong>
+                                            Connecting experienced tech professionals with young learners, fostering valuable guidance and support.
+                                        </li>
+                                        <li>
+                                            <strong>Community Engagement:</strong>
+                                            Hosting tech forums, hackathons, and competitions to nurture a vibrant tech ecosystem within South African communities.
+                                        </li>
+
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 5 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Why Invest In Us</h2>
+                                    <p class="item-intro text-muted"></p>We prepare generations for success in the digital age.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/55.jpg" alt="..." />
+                                    <p>Why Invest in Thembelihle I.T Solutions?</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Addressing a Critical Need:</strong>
+                                            Our programs directly tackle the urgent need for tech education in South Africa, preparing future generations for success in the digital age.
+                                        </li>
+                                        <li>
+                                            <strong>Passionate and Experienced Leadership:</strong>
+                                            Our team's entrepreneurial drive and proven track record, coupled with a skilled individuals of tech experts, guarantee impactful execution.
+                                        </li>
+
+                                        <strong>Measurable Impact:</strong>
+                                        We track and report on the progress of our programs, demonstrating clear progress in terms of skills gained, job placements, and community engagement.
+                                    </li>
+                                    <li>
+                                        <strong>Sustainable Development:</strong>
+                                        We foster a culture of entrepreneurship and innovation, empowering young people to create tech solutions for their communities and beyond.
+                                    </li>
+
+                                    <strong>Investing in the Future:</strong>
+                                    By supporting Thembelihle I.T Solutions, you invest in the future of South Africa, building a thriving and tech-savvy generation ready to compete on a global stage.
+                                </li>
+
+                                <p>Join us in bridging the tech divide and igniting the next wave of South African tech pioneers. Contact Thembelihle I.T Solutions today and become a part of our journey towards a brighter, tech-driven future for all.</p>
+
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 6 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Our Strategies</h2>
+                                    <p class="item-intro text-muted">Transforming Tech Education with Mobile Labs.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/66.jpg" alt="..." />
+                                    <p>Beyond brick-and-mortar workshops, Thembelihle I.T Solutions envisions a future equipped with a fleet of state-of-the-art mobile IT labs. These 6m x 6m containers, outfitted with 12 high-performance computers, projectors, whiteboards, Wi-Fi, and photocopying facilities,
+                                         will act as self-contained tech oases. Mounted on 4x4 trailers, these labs will traverse geographical barriers, bringing our transformative programs directly to rural communities often marginalized from tech exposure</p>
+                                         <p>This innovative approach offers several strategic advantages:</p>
+                                         <ul class="list-inline">
+                                            <li>
+                                                <strong>Accessibility:</strong>
+                                                Bridging the physical divide, the mobile labs will reach previously inaccessible areas, democratizing tech education and ensuring rural youth aren't left behind in the digital revolution.
+                                            </li>
+                                            <li>
+                                                <strong>Agility:</strong>
+                                                Rapidly deployable and adaptable, the labs can cater to fluctuating student populations and diverse community needs.
+                                            </li>
+                                            <li>
+                                                <strong>Immersive Learning:</strong>
+                                                The container structure fosters a focused and collaborative learning environment, free from distractions, enhancing student engagement and knowledge retention.
+                                            </li>
+                                            <li>
+                                                <strong>Technology Integration:</strong>
+                                                Wi-Fi access empowers participation in webinars, summits, and live tech talks, keeping students up-to-date with the latest advancements.
+                                            </li>
+                                            <li>
+                                                <strong>Resource Sharing:</strong>
+                                                Photocopying facilities provide valuable document access, promoting effective learning and project documentation.
+                                            </li>
+                                        </ul>
+
+                                        <p>By investing in this mobile lab initiative, you're not just supporting a company, you're investing<span><b></b> in a sustainable, scalable, and impactful model for tech education.</b></span> You're empowering rural youth with the tools and knowledge to become active participants in the digital economy, propelling South Africa towards a more inclusive and innovative future</p>
+
+                                        <p>Remember, these mobile labs go beyond classrooms. They represent beacon's of opportunity, igniting imaginations and fostering a generation of tech-savvy changemakers in even the most remote corners of the country. 
+                                            Join us in making this vision a reality<span><b>– invest in Thembelihle I.T Solutions and invest in the future of South Africa's youth!</b></span></p>
+
+                                        <p>This revised profile highlights the innovative and forward-thinking nature of your mobile lab initiative. By using sophisticated terminology like "democratizing tech education" and "sustainable model,
+                                            " you appeal to the tech-savvy and socially conscious investors you're seeking. Remember, passion and purpose resonate strongly, so keep weaving them into your narrative to further strengthen your case.</p>
+
+                                        <p>We believe this enhanced profile will serve as a powerful tool in your quest for sponsorships and propel Thembelihle I.T Solutions toward achieving its ambitious and impactful mission.</p>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container text-center" style="max-width: 800px; margin: auto;">
+      <h2 class="section-heading text-uppercase">Contact Us</h2>
+      <h3 class="section-subheading text-muted" style="color: azure;">
+        Drop us a line via email for inquiries or collaborations
+      </h3>
+  
+      <form id="contactForm" style="width: 100%;">
+        <div class="row align-items-stretch mb-5">
+          <!-- Left Column Inputs -->
+          <div class="col-md-6">
+            <div class="form-group">
+              <input class="form-control" id="name" type="text" placeholder="Your Name *" required />
+              <div class="invalid-feedback">A name is required.</div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="email" type="email" placeholder="Your Email *" required />
+              <div class="invalid-feedback">An email is required.</div>
+              <div class="invalid-feedback" style="display: none;">Email is not valid.</div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required />
+              <div class="invalid-feedback">A phone number is required.</div>
+            </div>
+          </div>
+  
+          <!-- Right Column Textarea -->
+          <div class="col-md-6">
+            <div class="form-group form-group-textarea mb-0">
+              <textarea class="form-control" id="message" placeholder="Your Message *" required></textarea>
+              <div class="invalid-feedback">A message is required.</div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Submission Messages -->
+        <div id="submitSuccessMessage" class="d-none text-center text-white mb-3">
+          <div class="fw-bolder">Form submission successful!</div>
+        </div>
+        <div id="submitErrorMessage" class="d-none text-center text-danger mb-3">
+          Error sending message!
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit" disabled>
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer Content -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+  
+        <!-- About Us -->
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <p>SMMEs Virtual Incubation focuses on guiding startups from the first mile to the last.</p>
+          <p>We support small and micro businesses with growth potential in South Africa.</p>
+          <p><i class="fas fa-clock"></i> Mon–Thu: 08:30–16:30 | Fri: 08:30–14:30 | Sat: 10:00–14:30</p>
+        </div>
+  
+        <!-- Services -->
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="service-list">
+            <li>SETA Registration & Mentorship</li>
+            <li>Business Profile Development</li>
+            <li>Marketing & Advertising</li>
+            <li>Workplace Skills Plan Submission</li>
+            <li>Tax Compliance Services</li>
+            <li>Funding Assistance</li>
+            <li>Professional Workshops</li>
+          </ul>
+        </div>
+  
+        <!-- Recent Updates -->
+        <div class="footer-column">
+          <h3>Recent Updates</h3>
+          <p>Check back soon for news and updates!</p>
+        </div>
+  
+        <!-- Contact Info -->
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park, New Germany</p>
+          <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
+          <p><i class="fas fa-envelope"></i> info@codingmadeeasy.co.za</p>
+  
+          <!-- Newsletter Button -->
+          <button id="newsletterButton" class="newsletter-btn">
+            Subscribe to Newsletter <i class="fas fa-envelope"></i>
+          </button>
+  
+          <!-- Modal for Newsletter -->
+          <div id="newsletterModal" class="modal-overlay">
+            <div class="modal-content">
+              <button class="close-modal">&times;</button>
+              <h2>Stay in Business and Updated</h2>
+              <iframe class="newsletter-iframe"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer Bottom -->
+    <div class="footer py-4">
+      <div class="footer-container">
+  
+        <div class="footer-bottom-row">
+          <div class="footer-bottom-col">
+            <img src="assets/img/logos/logo.png" alt="SMMEs Logo" />
+            <h5>©2025 SMMEs VIRTUAL INCUBATION</h5>
+          </div>
+  
+          <div class="footer-bottom-col">
+            <a href="#!" class="link-light text-decoration-none">Terms of Use</a>
+          </div>
+  
+          <div class="footer-bottom-col">
+            <div class="social-icons">
+              <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="footer-bottom-row">
+          <p>
+            Code SA Virtual Incubation is a licensed business service provider under the Business Advisory and Intermediary Services Act and a registered credit provider under the National Credit Act (NCRCP15).
+          </p>
+        </div>
+  
+      </div>
+    </div>
+  </footer>
+  
+
+<!-- Scripts -->
+<script src="js/validation.js"></script>
+
+<script>
+
+    // Scroll to Top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+    
+        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const newsletterBtn = document.getElementById('newsletterButton');
+        const newsletterModal = document.getElementById('newsletterModal');
+        const closeModalBtn = newsletterModal.querySelector('.close-modal');
+        const iframe = newsletterModal.querySelector('.newsletter-iframe');
+
+        function openNewsletterModal() {
+            document.body.classList.add('modal-open');
+            newsletterModal.classList.add('active');
+            newsletterModal.style.display = "flex"; // Show modal
+            iframe.src = "newsletter.html";
+            setTimeout(() => closeModalBtn.focus(), 100);
+        }
+
+        function closeNewsletterModal() {
+            document.body.classList.remove('modal-open');
+            newsletterModal.classList.remove('active');
+            newsletterModal.style.display = "none"; // Hide modal
+            iframe.src = "";
+            newsletterBtn.focus();
+        }
+
+        if (newsletterBtn) {
+            newsletterBtn.addEventListener('click', openNewsletterModal);
+            closeModalBtn.addEventListener('click', closeNewsletterModal);
+            newsletterModal.addEventListener('click', function(e) {
+                if (e.target === newsletterModal) closeNewsletterModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && newsletterModal.classList.contains('active')) {
+                    closeNewsletterModal();
+                }
+            });
+        }
+    });
+</script>
+
+<script>
+
+ document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".mobile-menu-btn");
+    const navLinks = document.getElementById("nav-links");
+
+    menuButton.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", function (event) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        const dropdownButtons = document.querySelectorAll(".dropbtn");
+
+        let isDropdownButton = Array.from(dropdownButtons).some(button => button.contains(event.target));
+        let isDropdownContent = Array.from(dropdowns).some(dropdown => dropdown.contains(event.target));
+
+        if (!isDropdownButton && !isDropdownContent) {
+            dropdowns.forEach(dropdown => dropdown.style.display = "none");
+        }
+    });
+
+    document.querySelectorAll(".dropbtn").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const dropdown = this.nextElementSibling;
+            document.querySelectorAll(".dropdown-content").forEach(d => {
+                if (d !== dropdown) d.style.display = "none"; // Close other dropdowns
+            });
+
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        });
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        // Only prevent default if href is not just #
+        if (this.getAttribute('href') !== '#') {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return; // Skip if href is just #
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks) navLinks.classList.remove('show');
+            }
+        }
+    });
+});
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show/hide the scroll-to-top button based on scroll position
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) { // Adjust the scroll offset as needed
+                scrollToTopButton.classList.add('show'); // Show the button
+            } else {
+                scrollToTopButton.classList.remove('show'); // Hide the button
+            }
+        });
+    
+        // Smooth scroll to the top when the button is clicked
+        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default anchor action
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll
+            });
+        });
+    });
+    
+    
+</script>
+
+
+
+
+<script>
+    let container = document.querySelector(".slide-track");
+
+    function createSlides(start, end) {
+        for (let i = start; i <= end; i++) {
+            let slide = document.createElement("div");
+            slide.classList.add("slide");
+            slide.innerHTML = `<img src="assets/logos/${i}.png" alt="Partner ${i}" loading="lazy" />`;
+            container.appendChild(slide);
+        }
+    }
+
+    createSlides(1, 40); // Ascending
+    createSlides(40, 1); // Descending
+    createSlides(1, 40); // Duplicate Ascending
+    createSlides(40, 1); // Duplicate Descending
+</script>
+
+<!-- Toggle Menu Script -->
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('active');
+      }
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        const dropbtn = document.querySelector('.dropbtn');
+        const dropdown = document.querySelector('.dropdown');
+      
+        dropbtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          dropdown.classList.toggle('show');
+        });
+      });
+      
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slidesWrapper = document.querySelector('.sslides-wrapper');
+      const slides = document.querySelectorAll('.sslide');
+      const prevButton = document.querySelector('.prev');
+      const nextButton = document.querySelector('.next');
+      const indicators = document.querySelectorAll('.indicator');
+      let currentIndex = 0;
+      let autoSlideInterval;
+      const slideCount = slides.length;
+      let isAnimating = false;
+      
+      // Initialize slides
+      function updateSlides() {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update aria-hidden attributes
+        slides.forEach((slide, index) => {
+          slide.setAttribute('aria-hidden', index !== currentIndex);
+        });
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === currentIndex);
+        });
+        
+        // Reset animations for new slide
+        const activeSlide = slides[currentIndex];
+        const elements = activeSlide.querySelectorAll('h2, p, img, button');
+        
+        elements.forEach(el => {
+          el.style.animation = 'none';
+          void el.offsetWidth; // Trigger reflow
+          el.style.animation = null;
+        });
+        
+        setTimeout(() => isAnimating = false, 800);
+      }
+      
+      // Go to specific slide
+      function goToSlide(index) {
+        currentIndex = (index + slideCount) % slideCount;
+        updateSlides();
+        resetAutoSlide();
+      }
+      
+      // Next slide
+      function nextSlide() {
+        goToSlide(currentIndex + 1);
+      }
+      
+      // Previous slide
+      function prevSlide() {
+        goToSlide(currentIndex - 1);
+      }
+      
+      // Auto slide
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 6000);
+      }
+      
+      // Reset auto slide timer
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+      
+      // Event listeners
+      nextButton.addEventListener('click', nextSlide);
+      prevButton.addEventListener('click', prevSlide);
+      
+      indicators.forEach(indicator => {
+        indicator.addEventListener('click', function() {
+          goToSlide(parseInt(this.getAttribute('data-index')));
+        });
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') {
+          nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+          prevSlide();
+        }
+      });
+      
+      // Pause auto-slide on hover
+      const slideshow = document.querySelector('.sslideshow-container');
+      slideshow.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+      slideshow.addEventListener('mouseleave', startAutoSlide);
+      
+      // Initialize
+      updateSlides();
+      startAutoSlide();
+    });
+  </script>
+<!-- JavaScript -->
+
+    </body>
+</html>

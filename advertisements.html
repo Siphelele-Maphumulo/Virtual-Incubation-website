@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Perspective Mockup Slideshow | Demo 1</title>
+    <meta
+      name="description"
+      content="A perspective slideshow based on Franklin Ta's CSS matrix3d transforms"
+    />
+    <meta
+      name="keywords"
+      content="perspective, mockup, slideshow, transform, 3d, matrix, css"
+    />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link href="css/ads.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    <style>
+      /* General body background improvements */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        background-image: url("assets/img/china.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+      }
+
+      .square-container {
+        width: 600px;
+        height: 800px;
+        margin-left: 60px; /* slight left positioning */
+        margin-top: 60px;
+        position: relative;
+        background: rgba(
+          255,
+          255,
+          255,
+          0.95
+        ); /* slight transparency for ad feel */
+        padding: 30px;
+        box-sizing: border-box;
+        border-radius: 12px;
+      }
+
+      .inner-content {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mockup {
+        transform: scale(1);
+        transform-origin: center;
+      }
+
+      .mobile {
+        width: 300px !important;
+        height: 450px !important;
+      }
+
+      .slideshow {
+        padding: 0;
+        margin: 0;
+        width: 90%;
+        height: 100%;
+        list-style-type: none;
+      }
+
+      .slideshow__item {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 1;
+        transform: translate3d(-100%, 0, 0);
+      }
+
+      .slideshow__item.current {
+        pointer-events: auto;
+        z-index: 90;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .slideshow img {
+        width: 90%;
+        height: 90%;
+        object-fit:fill;
+      }
+
+      @keyframes inNext {
+        from {
+          transform: translate3d(100%, 0, 0);
+        }
+        to {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @keyframes outNext {
+        from {
+          transform: translate3d(0, 0, 0);
+        }
+        to {
+          transform: translate3d(-100%, 0, 0);
+        }
+      }
+
+      @keyframes inPrev {
+        from {
+          transform: translate3d(-100%, 0, 0);
+        }
+        to {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @keyframes outPrev {
+        from {
+          transform: translate3d(0, 0, 0);
+        }
+        to {
+          transform: translate3d(100%, 0, 0);
+        }
+      }
+
+      .slideshow__item.in--next {
+        animation: inNext 0.3s forwards;
+      }
+
+      .slideshow__item.out--next {
+        animation: outNext 0.3s forwards;
+      }
+
+      .slideshow__item.in--prev {
+        animation: inPrev 0.3s forwards;
+      }
+
+      .slideshow__item.out--prev {
+        animation: outPrev 0.3s forwards;
+      }
+
+      .codrops-header h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 38px;
+        margin-top: -10%;
+        color: #111;
+        letter-spacing: 1px;
+      }
+
+      .button {
+        background-color: rgb(103, 219, 103);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: background 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .button:hover {
+        background-color: rgb(83, 180, 83);
+      }
+
+      .button a {
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body class="demo-1">
+    <div class="container">
+    <br> <br> <br> <br> <br> <br>
+      <header class="codrops-header">
+        <h1 class="glass-text-bg">
+          <span class="glass-text-bg cebolethu">Company</span>
+          <p style="font-size: 60pt; margin: 0; color: #f8e914">Advertisments Page</p>
+
+          <i style="">
+            <span
+              style="color: rgb(255, 255, 255); font-size: 10pt"
+              class="company-description"
+            >All companies resgistered on our virtual incubation. Please click on explore to go to their websites.
+            </span>
+            <div class="">
+              <div class="slide-container">
+                <button
+                  class="glass-button"
+                  onclick="window.open('quotation.html', '_blank')"
+                style="background-color: rgb(240, 160, 69);">
+                  CREATE
+                </button>
+              </div>
+            </div>
+          </i>
+        </h1>
+      </header>
+      
+      
+      
+      
+      <!-- Business Doctors Section -->
+      <div id="wrap" class="wrap">
+        <div class="mockup">
+          <img class="mockup__img" src="assets/img/mockup.jpg" alt="Mockup" />
+          <div id="mobile" class="mobile">
+            <ul id="slideshow3" class="slideshow">
+              <li class="slideshow__item">
+                <img
+                  src="https://w0.peakpx.com/wallpaper/862/316/HD-wallpaper-proud-doctor-future-doctor-health-anatomy-heart-hospital-medical-medicine-nurse-nursing-paramedic-thumbnail.jpg"
+                  alt="Doctor"
+                />
+              </li>
+              <li class="slideshow__item">
+                <img
+                  src="https://www.what-franchise.com/images/uploads/companies/businessdoctorsheader.jpg"
+                  alt="Medical"
+                />
+              </li>
+              <li class="slideshow__item">
+                <img
+                  src="https://wallpapers.com/images/hd/doctor-with-stethoscope-ns774d1mrzrnhh59.jpg"
+                  alt="Doctor with stethoscope"
+                />
+              </li>
+              <li class="slideshow__item">
+                <img
+                  src="assets/img/image.png"
+                  alt="Medical team"
+                />
+              </li>
+              <li class="slideshow__item">
+                <img
+                  src="https://i.ytimg.com/vi/NfKSe4nGr8c/maxresdefault.jpg"
+                  alt="Medical team"
+                />
+              </li>
+            </ul>
+          </div>
+          
+          <header class="codrops-header">
+            <h1 class="glass-text-bg">
+              <span class="glass-text-bg cebolethu">Company</span>
+              <p style="font-size: 60pt; margin: 0; color: #0D3F5C">Business Doctors</p>
+
+              <i style="">
+                <span
+                  style="color: white; font-size: 10pt"
+                  class="company-description"
+                >
+                I’m looking to scale my business, where do I start?
+                </span>
+                <div class="">
+                  <div class="slide-container">
+                    <button
+                      class="glass-button"
+                      onclick="window.open('https://www.toyota.co.za/', '_blank')"
+                    >
+                      Explore
+                    </button>
+                  </div>
+                </div>
+              </i>
+            </h1>
+          </header>
+        </div>
+      </div>
+
+      <!-- Maxhosa Section -->
+      <div
+        style="
+          filter: sepia(1%) hue-rotate(1deg) brightness(1) saturate(2);
+          margin-top: 15%;
+        "
+      >
+        <div id="wrap" class="wrap">
+          <div class="mockup">
+            <img class="mockup__img" src="assets/img/mockup.jpg" alt="Mockup" />
+            <div id="mobile" class="mobile">
+              <ul id="slideshow" class="slideshow">
+                <li class="slideshow__item">
+                  <img
+                    src="https://shop.maxhosa.africa/cdn/shop/collections/D47A8103.jpg?v=1656723029&width=1920"
+                    alt="Maxhosa collection"
+                  />
+                </li>
+                <li class="slideshow__item">
+                  <img
+                    src="https://wwd.com/wp-content/uploads/2020/09/maxhosa-africa-s21-010.jpg?w=555&h=740&crop=1"
+                    alt="Maxhosa design"
+                  />
+                </li>
+                <li class="slideshow__item">
+                  <img
+                    src="https://www.thesouthafrican.com/wp-content/uploads/2020/09/14e4cff2-warren-masemola.jpg"
+                    alt="Maxhosa wear"
+                  />
+                </li>
+                <li class="slideshow__item">
+                  <img
+                    src="https://cdn.shopify.com/s/files/1/0256/3771/6049/t/3/assets/pf-8f69a654--maxhosaafricas21027-1.jpg?v=1600958435"
+                    alt="Maxhosa pattern"
+                  />
+                </li>
+              </ul>
+            </div>
+            <header class="codrops-header">
+              <h1 class="glass-text-bg">
+                <span class="glass-text-bg cebolethu">Company</span>
+                <p style="font-size: 60pt; margin: 0; color: red">Maxhosa</p>
+
+                <i style="">
+                  <span
+                    style="color: white; font-size: 10pt"
+                    class="company-description"
+                  >
+                  MAXHOSA designs showcase the beauty, culture, language and aspiration of the Xhosa people.
+                  </span>
+                  <div class="">
+                    <div class="slide-container">
+                      <button
+                        class="glass-button"
+                        onclick="window.open('https://www.icebolethugroup.co.za/', '_blank')"
+                      >
+                        Explore
+                      </button>
+                    </div>
+                  </div>
+                </i>
+              </h1>
+            </header>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cebolethu Section -->
+      <div
+        style="
+          filter: sepia(10%) hue-rotate(10deg) brightness(1.2) saturate(2);
+          margin-top: 15%;
+        "
+      >
+        <div id="wrap" class="wrap">
+          <div class="mockup">
+            <img class="mockup__img" src="assets/img/mockup.jpg" alt="Mockup" />
+            <div id="mobile" class="mobile">
+              <ul id="slideshow1" class="slideshow">
+                <li class="slideshow__item">
+                  <img
+                    src="https://cdn.24.co.za/files/Cms/General/d/3992/41a703d3413b45e8bdffd717a98f0a18.jpeg"
+                    alt="Cebolethu service"
+                  />
+                </li>
+                <li class="slideshow__item">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpMVJe1UPz19HG0x1CcnT98pvDj0fgRi6bvMBvFiIrCMYVDHICdBRJUMvRBpQwTy2-at4&usqp=CAU"
+                    alt="Cebolethu team"
+                  />
+                </li>
+                <li class="slideshow__item">
+                  <img
+                    src="https://media.licdn.com/dms/image/D4D22AQEOLwMa4mrsXg/feedshare-shrink_2048_1536/0/1680730621173?e=2147483647&v=beta&t=G30FvzYS4oTIEe_tKl_tZUQXQNwyfAq0C5wJ7TGhtu4"
+                    alt="Cebolethu event"
+                  />
+                </li>
+                <li class="slideshow__item">
+                  <img
+                    src="https://mojalove.mmsafrica.co.za/api/web-admin/zimoja/images/1071_63d77b699e69ab783e3c56f4_cebolethu_4.jpeg"
+                    alt="Cebolethu memorial"
+                  />
+                </li>
+              </ul>
+            </div>
+              <header class="codrops-header">
+                <h1 class="glass-text-bg">
+                  <span class="glass-text-bg cebolethu">Company</span>
+                  <p style="font-size: 60pt; margin: 0; color: #ff8000">
+                    Cebolethu
+                  </p>
+
+                  <i style="">
+                    <span
+                      style="color: white; font-size: 10pt"
+                      class="company-description"
+                    >
+                      ICEBOLETHU OFFERS RELIEF FROM THE EMOTIONAL AND FINANCIAL
+                      STRESS OF PLANNING A FUNERAL. AS A RESULT, THIS HELPS
+                      FAMILIES HONOR THEIR LOVED ONE. We're a widely respected
+                      funeral parlour, providing holistic funeral services with
+                      the utmost care.
+                    </span>
+                    <div class="">
+                      <div class="slide-container">
+                        <button
+                          class="glass-button"
+                          onclick="window.open('https://www.icebolethugroup.co.za/', '_blank')"
+                        >
+                          Explore
+                        </button>
+                      </div>
+                    </div>
+                  </i>
+                </h1>
+              </header>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toyota Section -->
+      <div
+        style="
+          filter: sepia(5%) hue-rotate(10deg) brightness(1.2) saturate(1);
+          margin-top: 15%;
+        "
+      >
+        <div id="wrap" class="wrap">
+          <div class="mockup">
+            <img class="mockup__img" src="assets/img/mockup.jpg" alt="Mockup" />
+            <div id="mobile" class="mobile">
+              <ul id="slideshow2" class="slideshow">
+                <li class="slideshow__item">
+                  <img
+                    src="https://e1.pxfuel.com/desktop-wallpaper/182/457/desktop-wallpaper-1125x2436-ford-ranger-raptor-iphone-xs-iphone-10-iphone-x-backgrounds-and.jpg"
+                    alt="Toyota vehicle"
+                  />
+                </li>
+                <li class="slideshow__item">
+                  <img
+                    src="https://images.hdqwalls.com/download/2022-toyota-land-cruiser-y1-240x400.jpg"
+                    alt="Toyota Land Cruiser"
+                  />
+                </li>
+                <li class="slideshow__item">
+                  <img
+                    src="https://www.wsupercars.com/thumbnails-phone/Toyota/2024-Toyota-Tacoma-TRD-Pro-006.jpg"
+                    alt="Toyota Tacoma"
+                  />
+                </li>
+                <li class="slideshow__item">
+                  <img
+                    src="https://www.wsupercars.com/thumbnails-phone/Toyota/2024-Toyota-Tacoma-TRD-Pro-005.jpg"
+                    alt="Toyota truck"
+                  />
+                </li>
+              </ul>
+            </div>
+            <header class="codrops-header">
+              <h1 class="glass-text-bg">
+                <span class="glass-text-bg cebolethu">Company</span>
+                <p style="font-size: 60pt; margin: 0; color: #e5e4e2">Toyota</p>
+
+                <i style="">
+                  <span
+                    style="color: white; font-size: 10pt"
+                    class="company-description"
+                  >
+                    Toyota Motor Corporation is a Japanese multinational
+                    automotive manufacturer headquartered in Toyota City, Aichi,
+                    Japan.
+                  </span>
+                  <div class="">
+                    <div class="slide-container">
+                      <button
+                        class="glass-button"
+                        onclick="window.open('https://www.toyota.co.za/', '_blank')"
+                      >
+                        Explore
+                      </button>
+                    </div>
+                  </div>
+                </i>
+              </h1>
+            </header>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load scripts from CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+
+    <script>
+      // Optimized Slideshow functionality
+      (function () {
+        "use strict";
+
+        function Slideshow(el, options) {
+          this.el = el;
+          this.options = Object.assign(
+            {
+              start: 0,
+              interval: 3500,
+            },
+            options
+          );
+
+          this.items = Array.from(this.el.children);
+          this.itemsCount = this.items.length;
+          this.current = Math.max(
+            0,
+            Math.min(this.options.start, this.itemsCount - 1)
+          );
+
+          this._setCurrent();
+          this._startSlideshow();
+        }
+
+        Slideshow.prototype._startSlideshow = function () {
+          if (this.slideshowtime) {
+            clearTimeout(this.slideshowtime);
+          }
+
+          this.slideshowtime = setTimeout(() => {
+            this._navigate("next");
+            this._startSlideshow();
+          }, this.options.interval);
+        };
+
+        Slideshow.prototype._navigate = function (direction) {
+          const oldItem = this.items[this.current];
+
+          if (direction === "next") {
+            this.current =
+              this.current < this.itemsCount - 1 ? this.current + 1 : 0;
+          } else {
+            this.current =
+              this.current > 0 ? this.current - 1 : this.itemsCount - 1;
+          }
+
+          const newItem = this.items[this.current];
+
+          classie.add(oldItem, `out--${direction}`);
+          classie.add(newItem, `in--${direction}`);
+
+          const onAnimationEnd = () => {
+            this._setCurrent(oldItem);
+            classie.remove(oldItem, `out--${direction}`);
+            classie.remove(newItem, `in--${direction}`);
+            newItem.removeEventListener("animationend", onAnimationEnd);
+          };
+
+          newItem.addEventListener("animationend", onAnimationEnd);
+        };
+
+        Slideshow.prototype._setCurrent = function (old) {
+          if (old) classie.remove(old, "current");
+          classie.add(this.items[this.current], "current");
+        };
+
+        // Initialize all slideshows
+        document.addEventListener("DOMContentLoaded", () => {
+          ["slideshow", "slideshow1", "slideshow2", "slideshow3"].forEach(
+            (id) => {
+              new Slideshow(document.getElementById(id));
+            }
+          );
+
+          // Mockup responsiveness
+          const wrap = document.getElementById("wrap");
+          const mockup = wrap.querySelector(".mockup");
+          const mockupWidth = mockup.offsetWidth;
+
+          function scaleMockup() {
+            const wrapWidth = wrap.offsetWidth;
+            const scale = wrapWidth / mockupWidth;
+            mockup.style.transform = `scale3d(${scale}, ${scale}, 1)`;
+          }
+
+          let resizeTimeout;
+          window.addEventListener("resize", () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(scaleMockup, 50);
+          });
+
+          scaleMockup();
+        });
+      })();
+    </script>
+  </body>
+</html>
