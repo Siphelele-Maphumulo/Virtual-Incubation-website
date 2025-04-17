@@ -1,960 +1,1330 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="no-js">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SMMEs Virtual Incubation</title>
-    <meta name="description" content="A template with animated columns and a content preview." />
-    <meta name="keywords" content="layout, uidesign, template, css, javascript, columns, grid" />
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://use.typekit.net/bml8yys.css">
-    
+    <meta
+      name="description"
+      content="A template with animated columns and a content preview."
+    />
+    <meta
+      name="keywords"
+      content="layout, uidesign, template, css, javascript, columns, grid"
+    />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/bml8yys.css" />
+
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" type="text/css" href="/css/register.css" />
-    
-    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
-    
+
+    <script>
+      document.documentElement.className = "js";
+      var supportsCssVars = function () {
+        var e,
+          t = document.createElement("style");
+        return (
+          (t.innerHTML = "root: { --tmp-var: bold; }"),
+          document.head.appendChild(t),
+          (e = !!(
+            window.CSS &&
+            window.CSS.supports &&
+            window.CSS.supports("font-weight", "var(--tmp-var)")
+          )),
+          t.parentNode.removeChild(t),
+          e
+        );
+      };
+      supportsCssVars() ||
+        alert(
+          "Please view this demo in a modern browser that supports CSS Variables."
+        );
+    </script>
 
     <style>
-        /* General Resets */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Raleway', sans-serif;
-        }
+      /* General Resets */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Raleway", sans-serif;
+      }
 
+      body {
+        font-family: "Montserrat", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        color: var(--text-gray);
+        background-color: var(--white);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--dark-blue);
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        position: relative;
+        min-height: 100vh; /* Changed from height: 100vh */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+        z-index: 1;
+      }
+
+      .image-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-auto-rows: 120px;
+        gap: 10px;
+        opacity: 0.3;
+        z-index: 0;
+        padding: 10px;
+        overflow: hidden;
+      }
+
+      .image-background .bg-img {
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .image-background .bg-img:hover {
+        transform: scale(1.1);
+        opacity: 0.7;
+      }
+
+      .form-column {
+        position: relative;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+        max-width: 350px;
+        width: 100%;
+        margin: 50px 0;
+      }
+
+      .wrapper .title-text {
+        display: flex;
+        width: 200%;
+      }
+
+      .wrapper .title {
+        width: 50%;
+        font-size: 35px;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .slide-controls {
+        position: relative;
+        display: flex;
+        height: 50px;
+        width: 100%;
+        overflow: hidden;
+        margin: 30px 0 10px 0;
+        justify-content: space-between;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+      }
+
+      .slide-controls .slide {
+        height: 100%;
+        width: 100%;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 48px;
+        cursor: pointer;
+        z-index: 1;
+        transition: all 0.6s ease;
+      }
+
+      .slide-controls .slider-tab {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        left: 0;
+        z-index: 0;
+        border-radius: 5px;
+        background: linear-gradient(to right, #5755b1, #5755b1);
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+
+      #signup:checked ~ .slider-tab {
+        left: 50%;
+      }
+
+      #signup:checked ~ label.signup {
+        color: #fff;
+        cursor: default;
+        user-select: none;
+      }
+
+      #signup:checked ~ label.login {
+        color: #000;
+      }
+
+      #login:checked ~ label.signup {
+        color: #000;
+      }
+
+      #login:checked ~ label.login {
+        cursor: default;
+        user-select: none;
+      }
+
+      .form-container {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .form-inner {
+        display: flex;
+        width: 200%;
+      }
+
+      .form-inner form {
+        width: 50%;
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .form-inner form .field {
+        height: 50px;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .form-inner form .field input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        padding-left: 15px;
+        border-radius: 5px;
+        border: 1px solid lightgrey;
+        border-bottom-width: 2px;
+        font-size: 17px;
+        transition: all 0.3s ease;
+      }
+
+      .form-inner form .field input:focus {
+        border-color: #12e8f0;
+      }
+
+      .form-inner form .field input::placeholder {
+        color: #999;
+        transition: all 0.3s ease;
+      }
+
+      form .field input:focus::placeholder {
+        color: #b3b3b3;
+      }
+
+      .form-inner form .pass-link {
+        margin-top: 5px;
+      }
+
+      .form-inner form .signup-link {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .form-inner form .pass-link a,
+      .form-inner form .signup-link a {
+        color: #0e45dd;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .form-inner form .pass-link a:hover,
+      .form-inner form .signup-link a:hover {
+        text-decoration: underline;
+      }
+
+      form .btn {
+        height: 50px;
+        width: 100%;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      form .btn .btn-layer {
+        height: 100%;
+        width: 300%;
+        position: absolute;
+        left: -100%;
+        background: linear-gradient(
+          to right,
+          #5755b1,
+          #5755b1,
+          #5755b1,
+          #5755b1
+        );
+        border-radius: 5px;
+        transition: all 0.4s ease;
+      }
+
+      form .btn:hover .btn-layer {
+        left: 0;
+      }
+
+      form .btn input[type="submit"] {
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        position: relative;
+        background: none;
+        border: none;
+        color: #fff;
+        padding-left: 0;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .error-msg {
+        color: red;
+        font-size: 12px;
+        display: block;
+        margin-top: 2px;
+      }
+
+      .invalid {
+        border: 1px solid red;
+      }
+
+      .highlight {
+        font-family: "Raleway", sans-serif;
+        font-weight: bold;
+      }
+
+      /* Scroll to Top Button */
+      #scrollToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #29c0a3;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+
+      #scrollToTop.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      #scrollToTop:hover {
+        background: #3a3891;
+        transform: translateY(-5px);
+      }
+
+      /* Footer Styles */
+      .footer-section {
+        background-color: #00102e;
+        color: #fff;
+        padding: 60px 0 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-bottom {
+        background-color: #00102e;
+        padding: 20px 0;
+        color: #ecf0f1;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      .footer-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        padding-bottom: 30px;
+      }
+
+      .footer-col {
+        flex: 1 0 25%;
+        padding: 0 15px;
+        margin-bottom: 30px;
+        min-width: 250px;
+      }
+
+      .footer-col h3 {
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .footer-col p {
+        color: #ecf0f1;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .service-list {
+        list-style: none;
+      }
+
+      .service-list li {
+        margin-bottom: 10px;
+        color: #ecf0f1;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .service-list li:before {
+        content: "•";
+        color: #2ac6a7;
+        position: absolute;
+        left: 0;
+      }
+
+      .subscription-form {
+        display: flex;
+        margin-top: 15px;
+      }
+
+      .subscription-form input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+      }
+
+      .subscription-form button {
+        background-color: #2ac6a7;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .subscription-form button:hover {
+        background-color: #249a88;
+      }
+
+      .footer-bottom-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .footer-bottom-col {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .footer-logo {
+        max-height: 50px;
+        margin-bottom: 10px;
+      }
+
+      .footer-link {
+        color: #ecf0f1;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-link:hover {
+        color: #2ac6a7;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .social-icons a {
+        color: #ecf0f1;
+        background-color: #2c3e50;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+
+      .social-icons a:hover {
+        background-color: #2ac6a7;
+        transform: translateY(-3px);
+      }
+
+      .licensing-text {
+        font-size: 12px;
+        text-align: center;
+        color: #bdc3c7;
+        line-height: 1.5;
+      }
+
+      .full-width {
+        flex: 0 0 100%;
+      }
+
+      /* Navigation */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 5%;
+        background-color: #00102e;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+        height: 50px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+        font-size: small;
+      }
+
+      .nav-links li a {
+        color: white;
+        font-weight: 200;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Dropdown */
+      .dropdown-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        background-color: #333; /* or any contrasting color */
+        padding: 20px;
+        width: 80%;
+        max-width: 300px;
+        z-index: 1000;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .dropdown-content.active,
+      .dropdown.show .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-content a {
+        color: white;
+        padding: 0.5rem 1rem;
+        display: block;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-content a:hover {
+        background-color: rgba(250, 10, 10, 0.301);
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
         body {
-            font-family: 'Montserrat', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: var(--text-gray);
-            background-color: var(--white);
+          margin: 0 auto;
+          overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--dark-blue);
-            margin: 0;
+        .navbar {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px;
+          height: auto;
+          width: 100%;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .container {
-            position: relative;
-            min-height: 100vh; /* Changed from height: 100vh */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0px;
-            z-index: 1;
+        .nav-toggle {
+          display: block;
+          order: 1;
         }
 
-        .image-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            grid-auto-rows: 120px;
-            gap: 10px;
-            opacity: 0.3;
-            z-index: 0;
-            padding: 10px;
-            overflow: hidden;
+        .navbar-brand {
+          order: 1;
         }
 
-        .image-background .bg-img {
-            width: 100%;
-            height: 100%;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          align-items: center; /* Center horizontally */
+          justify-content: center; /* Optional: center vertically if needed */
+          width: 100%;
+          padding: 20px 0;
+          margin: 0;
+          order: 3;
+          background-color: #00102e; /* Match navbar background */
         }
 
-        .image-background .bg-img:hover {
-            transform: scale(1.1);
-            opacity: 0.7;
+        .nav-links.active {
+          display: flex;
         }
 
-        .form-column {
-            position: relative;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-            max-width: 350px;
-            width: 100%;
-            margin: 50px 0;
+        .nav-links li {
+          margin: 10px 0;
+          list-style: none;
+          width: 100%;
+          text-align: center;
         }
 
-        .wrapper .title-text {
-            display: flex;
-            width: 200%;
+        .nav-links a {
+          display: inline-block;
+          padding: 10px 20px;
+          color: white;
+          border-radius: 4px;
+          transition: background-color 0.3s;
         }
 
-        .wrapper .title {
-            width: 50%;
-            font-size: 35px;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        .nav-links a:hover {
+          background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .slide-controls {
-            position: relative;
-            display: flex;
-            height: 50px;
-            width: 100%;
-            overflow: hidden;
-            margin: 30px 0 10px 0;
-            justify-content: space-between;
-            border: 1px solid lightgrey;
-            border-radius: 5px;
+        .dropdown-content {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: none;
+          background-color: #333; /* or any contrasting color */
+          padding: 20px;
+          width: 80%;
+          max-width: 300px;
+          z-index: 1000;
+          border-radius: 10px;
+          text-align: center;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
-
-        .slide-controls .slide {
-            height: 100%;
-            width: 100%;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 500;
-            text-align: center;
-            line-height: 48px;
-            cursor: pointer;
-            z-index: 1;
-            transition: all 0.6s ease;
-        }
-
-        .slide-controls .slider-tab {
-            position: absolute;
-            height: 100%;
-            width: 50%;
-            left: 0;
-            z-index: 0;
-            border-radius: 5px;
-            background: linear-gradient(to right, #5755B1, #5755B1);
-            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        input[type="radio"] {
-            display: none;
-        }
-
-        #signup:checked ~ .slider-tab {
-            left: 50%;
-        }
-
-        #signup:checked ~ label.signup {
-            color: #fff;
-            cursor: default;
-            user-select: none;
-        }
-
-        #signup:checked ~ label.login {
-            color: #000;
-        }
-
-        #login:checked ~ label.signup {
-            color: #000;
-        }
-
-        #login:checked ~ label.login {
-            cursor: default;
-            user-select: none;
-        }
-
-        .form-container {
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .form-inner {
-            display: flex;
-            width: 200%;
-        }
-
-        .form-inner form {
-            width: 50%;
-            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        .form-inner form .field {
-            height: 50px;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .form-inner form .field input {
-            height: 100%;
-            width: 100%;
-            outline: none;
-            padding-left: 15px;
-            border-radius: 5px;
-            border: 1px solid lightgrey;
-            border-bottom-width: 2px;
-            font-size: 17px;
-            transition: all 0.3s ease;
-        }
-
-        .form-inner form .field input:focus {
-            border-color: #12e8f0;
-        }
-
-        .form-inner form .field input::placeholder {
-            color: #999;
-            transition: all 0.3s ease;
-        }
-
-        form .field input:focus::placeholder {
-            color: #b3b3b3;
-        }
-
-        .form-inner form .pass-link {
-            margin-top: 5px;
-        }
-
-        .form-inner form .signup-link {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .form-inner form .pass-link a,
-        .form-inner form .signup-link a {
-            color: #0e45dd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .form-inner form .pass-link a:hover,
-        .form-inner form .signup-link a:hover {
-            text-decoration: underline;
-        }
-
-        form .btn {
-            height: 50px;
-            width: 100%;
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        form .btn .btn-layer {
-            height: 100%;
-            width: 300%;
-            position: absolute;
-            left: -100%;
-            background: linear-gradient(to right, #5755B1, #5755B1, #5755B1, #5755B1);
-            border-radius: 5px;
-            transition: all 0.4s ease;
-        }
-
-        form .btn:hover .btn-layer {
-            left: 0;
-        }
-
-        form .btn input[type="submit"] {
-            height: 100%;
-            width: 100%;
-            z-index: 2;
-            position: relative;
-            background: none;
-            border: none;
-            color: #fff;
-            padding-left: 0;
-            border-radius: 10px;
-            font-size: 20px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .error-msg {
-            color: red;
-            font-size: 12px;
-            display: block;
-            margin-top: 2px;
-        }
-
-        .invalid {
-            border: 1px solid red;
-        }
-
-        .highlight {
-            font-family: 'Raleway', sans-serif;
-            font-weight: bold;
-        }
-        
-             /* Navigation */
-             .navbar {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5rem 0%;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 1000;
-                box-shadow: var(--box-shadow);
-                transition: var(--transition);
-            }
-    
-            .navbar.scroll {
-                padding: 0.5rem 0%;
-                background-color: rgba(0, 16, 46, 0.95);
-            }
-    
-            .navbar-brand img {
-                height: 50px;
-                transition: var(--transition);
-            }
-    
-            .nav-links {
-                display: flex;
-                list-style: none;
-                gap: -20px;
-                font-size: small;
-            }
-    
-            .nav-links li a {
-                color: var(--white);
-                font-weight: 200;
-                padding: 0.5rem 1rem;
-                border-radius: var(--border-radius);
-                transition: var(--transition);
-            }
-    
-            .nav-links li a:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-            
-            
-             /* Dropdown */
-             .dropdown-content {
-                display: none;
-                position: absolute;
-                background-color: var(--primary-color);
-                min-width: 150px;
-                box-shadow: var(--box-shadow);
-                border-radius: var(--border-radius);
-                z-index: 1;
-            }
-    
-            .dropdown-content a {
-                color: var(--white);
-                padding: 0.5rem 1rem;
-                display: block;
-                transition: var(--transition);
-            }
-    
-            .dropdown-content a:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-    
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
-              
-
-        /* Scroll to Top Button */
-        #scrollToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: #29C0A3;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        #scrollToTop.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #scrollToTop:hover {
-            background: #3a3891;
-            transform: translateY(-5px);
-        }
-
-        /* Footer Styles */
-        .footer-section {
-            background-color: #00102E; /* Solid dark blue */
-            color: #fff;
-            padding: 60px 0 30px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .footer-bottom {
-            background-color: #00102E; /* Matching dark blue */
-            padding: 20px 0;
-            color: #ecf0f1;
-            border-top: 1px solid rgba(255,255,255,0.1); /* Optional subtle border */
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .footer-row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -15px;
-            padding-bottom: 30px;
+        .dropdown-content.active,
+        .dropdown.show .dropdown-content {
+          display: block;
         }
 
         .footer-col {
-            flex: 1 0 25%;
-            padding: 0 15px;
-            margin-bottom: 30px;
-            min-width: 250px;
-        }
-
-        .footer-col h3 {
-            color: #fff;
-            margin-bottom: 20px;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .footer-col p {
-            color: #ecf0f1;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .service-list {
-            list-style: none;
-        }
-
-        .service-list li {
-            margin-bottom: 10px;
-            color: #ecf0f1;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .service-list li:before {
-            content: "•";
-            color: #2AC6A7;
-            position: absolute;
-            left: 0;
-        }
-
-        .subscription-form {
-            display: flex;
-            margin-top: 15px;
-        }
-
-        .subscription-form input {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-        }
-
-        .subscription-form button {
-            background-color: #2AC6A7;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .subscription-form button:hover {
-            background-color: #249a88;
-        }
-
-        .footer-bottom-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
+          flex: 1 0 100%;
         }
 
         .footer-bottom-col {
-            flex: 1;
-            min-width: 200px;
-            margin-bottom: 15px;
-            text-align: center;
+          flex: 1 0 100%;
+          text-align: center;
+          margin-bottom: 20px;
         }
 
-        .footer-logo {
-            max-height: 50px;
-            margin-bottom: 10px;
+        .footer-bottom-row {
+          flex-direction: column;
         }
 
-        .footer-link {
-            color: #ecf0f1;
-            margin: 0 10px;
-            text-decoration: none;
-            transition: color 0.3s;
+        .form-column {
+          padding: 20px;
+          margin-top: 80px;
         }
 
-        .footer-link:hover {
-            color: #2AC6A7;
+        .image-background {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+          grid-auto-rows: 120px;
+          gap: 10px;
+          opacity: 0.3;
+          z-index: 0;
+          padding: 10px;
+          pointer-events: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .form-column {
+          padding: 25px;
         }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+        .slide-controls .slide {
+          font-size: 16px;
         }
 
-        .social-icons a {
-            color: #ecf0f1;
-            background-color: #2c3e50;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
+        #scrollToTop {
+          width: 40px;
+          height: 40px;
+          bottom: 20px;
+          right: 20px;
         }
 
-        .social-icons a:hover {
-            background-color: #2AC6A7;
-            transform: translateY(-3px);
+        .dropdown-content {
+          display: none;
         }
 
-        .licensing-text {
-            font-size: 12px;
-            text-align: center;
-            color: #bdc3c7;
-            line-height: 1.5;
+        .dropdown.show .dropdown-content {
+          display: block;
         }
+      }
 
-        .full-width {
-            flex: 0 0 100%;
-        }
+      /* Modal Overlay (Background) */
+      .modal-overlay {
+        position: fixed;
+        top: 10%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        display: none; /* Hidden by default */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .modal-overlay.active {
+        display: flex;
+      }
 
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .footer-col {
-                flex: 1 0 50%;
-            }
-            
-            .form-column {
-                padding: 30px;
-            }
-        }
+      /* Newsletter Button Styles */
+      .newsletter-btn {
+        background-color: #2ac6a7;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        @media (max-width: 768px) {
-            .footer-col {
-                flex: 1 0 100%;
-            }
-            
-            .footer-bottom-col {
-                flex: 1 0 100%;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            
-            .footer-bottom-row {
-                flex-direction: column;
-            }
-            
-            .navbar {
-                flex-direction: column;
-                padding: 10px;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                align-items: center;
-                margin-top: 10px;
-            }
-            
-            .dropdown-content {
-                position: static;
-                width: 100%;
-            }
-            
-            .form-column {
-                padding: 20px;
-                margin-top: 80px;
-            }
-            
-            .image-background {
-                position: fixed; /* Changed from fixed to absolute */
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-                grid-auto-rows: 120px;
-                gap: 10px;
-                opacity: 0.3;
-                z-index: 0;
-                padding: 10px;
-                pointer-events: none; /* Allows clicking through to form elements */
-            }
-        }
+      .newsletter-btn:hover {
+        background-color: #1da58a;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
 
-        @media (max-width: 480px) {
-            .form-column {
-                padding: 15px;
-            }
-            
-            .slide-controls .slide {
-                font-size: 16px;
-            }
-            
-            #scrollToTop {
-                width: 40px;
-                height: 40px;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-    </style> 
-</head>
-<body>
-    <!-- Navigation-->
-    <nav class="navbar" style="background-color: #00102E; color:#fff">
-        <a class="navbar-brand" href="#page-top">
-            <img src="./assets/img/preview.png" alt="Logo">
-        </a>
-        <ul class="nav-links" style="padding-top: 0px; padding-right:2%">
-            <li><a href="home.html"><i class="fas fa-house"></i>Home</a></li>
-            <li><a href="#services"><i class="fas fa-handshake"></i>Our Services</a></li>
-            <li><a href="#digital"><i class="fas fa-info-circle"></i>About Us</a></li>
-            <li><a href="#contact"><i class="fas fa-envelope"></i>Contact Us</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')"> 
-                    <i class="fa fa-user"></i> User  
-                    <span class="dropdown-icon"><i class="fa fa-caret-down"></i></span>
-                </a>
-                <div class="dropdown-content" id="dropdown1">
-                    <a href="#password-reset"><i class="fas fa-key"></i> Password Reset</a>    
-                </div>
+      .newsletter-btn:active {
+        transform: translateY(0);
+      }
+
+      /* Full-Screen Modal Content */
+      #newsletterModal .modal-content {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        background: #00102e;
+        border-radius: 0;
+        padding: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Close Button Styling */
+      .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: rgb(233, 10, 10);
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .close-modal:hover {
+        transform: scale(1.2);
+      }
+
+      /* Iframe - Ensure it fits well */
+      .newsletter-iframe {
+        width: 95%;
+        height: 90%;
+        border: none;
+        border-radius: 8px;
+      }
+    </style>
+    <body id="page-top" style="overflow-x: hidden">
+        <!-- Navigation-->
+        <nav class="navbar">
+          <a class="navbar-brand" href="#page-top">
+            <img src="./assets/img/preview.png" alt="Logo" />
+          </a>
+          <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+          <ul class="nav-links" id="navMenu">
+            <li>
+              <a href="home.html"><i class="fas fa-house"></i> Home</a>
             </li>
-        </ul>
-    </nav>
+            <li>
+              <a href="index.html#services"
+                ><i class="fas fa-handshake"></i> Our Services</a
+              >
+            </li>
+            <li>
+              <a href="index.html#digital"
+                ><i class="fas fa-info-circle"></i> About Us</a
+              >
+            </li>
+            <li>
+              <a href="index.html#contact"
+                ><i class="fas fa-envelope"></i> Contact Us</a
+              >
+            </li>
+            <li class="dropdown">
+              <a
+                href="#"
+                class="dropbtn"
+                onclick="toggleDropdown(event, 'dropdown1')"
+              >
+                <i class="fa fa-user"></i> User
+                <span class="dropdown-icon"><i class="fa fa-caret-down"></i></span>
+              </a>
+              <div class="dropdown-content" id="dropdown1">
+                <a href="#password-reset"
+                  ><i class="fas fa-key"></i> Password Reset</a
+                >
+              </div>
+            </li>
+          </ul>
+        </nav>
+    
+        <div class="container" style="padding-bottom: 0%; padding-top: 40px">
+          <!-- Image Background -->
+          <div class="image-background" id="imageBackground"></div>
+    
+          <script>
+            function toggleMenu() {
+              const navMenu = document.getElementById("navMenu");
+              navMenu.classList.toggle("active");
+            }
+    
+            function toggleDropdown(event) {
+              event.preventDefault();
+              event.stopPropagation();
+    
+              document
+                .querySelectorAll(".dropdown")
+                .forEach((drop) => drop.classList.remove("show"));
+    
+              const parentDropdown = event.currentTarget.closest(".dropdown");
+              parentDropdown.classList.toggle("show");
+            }
+    
+            // Optional: close dropdown when clicking outside
+            document.addEventListener("click", () => {
+              document
+                .querySelectorAll(".dropdown")
+                .forEach((drop) => drop.classList.remove("show"));
+            });
+          </script>
+  </head>
+ 
 
-    <div class="container" style="padding-bottom: 0%;padding-top: 40px;">
-        <!-- Image Background -->
-        <div class="image-background" id="imageBackground"></div>
-
-        <!-- Form Column -->
-        <div class="form-column">
-            <div class="wrapper">
-                <div class="form-container">
-                    <div class="slide-controls">
-                        <input type="radio" name="slide" id="login" checked>
-                        <input type="radio" name="slide" id="signup">
-                        <label for="login" class="slide login">Login</label>
-                        <label for="signup" class="slide signup">Sign Up</label>
-                        <div class="slider-tab"></div>
-                    </div>
-
-                    <?php if (isset($_SESSION['error'])): ?>
-                        <p style="color: red;"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
-                    <?php endif; ?>
-
-                    <div class="form-inner">
-                        <form class="login" id="login-form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                            <div class="field">
-                                <input type="email" name="email" placeholder="Email" required>
-                            </div>
-                            <div class="field">
-                                <input type="password" name="password" placeholder="Password" required>
-                            </div>
-                            <div class="field btn">
-                                <div class="btn-layer"></div>
-                                <input type="submit" value="Login">
-                            </div>
-                            <div class="login-image" style="text-align: center; margin-top: 40px;">
-                                <img src="assets/img/Anim.gif" alt="Login Image" style="width: 100px;" class="column__img1">
-                            </div>
-                        </form>
-
-                        <form class="signup" id="signup-form" action="signup.php" method="POST">
-                            <div class="field">
-                                <input type="text" name="firstname" placeholder="First Name" required>
-                            </div>
-                            <div class="field">
-                                <input type="text" name="lastname" placeholder="Last Name" required>
-                            </div>
-                            <div class="field">
-                                <input type="text" name="email" placeholder="Email" required>
-                            </div>
-                            <div class="field">
-                                <input type="password" name="password" placeholder="Password" required>
-                            </div>
-                            <div class="field btn">
-                                <div class="btn-layer"></div>
-                                <input type="submit" value="Sign Up" id="submit-btn">
-                            </div>
-                        </form>
-                    </div>
-                </div>
+      <!-- Form Column -->
+      <div class="form-column">
+        <div class="wrapper">
+          <div class="form-container">
+            <div class="slide-controls">
+              <input type="radio" name="slide" id="login" checked />
+              <input type="radio" name="slide" id="signup" />
+              <label for="login" class="slide login">Login</label>
+              <label for="signup" class="slide signup">Sign Up</label>
+              <div class="slider-tab"></div>
             </div>
+
+            <?php if (isset($_SESSION['error'])): ?>
+            <p style="color: red">
+              <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+            </p>
+            <?php endif; ?>
+
+            <div class="form-inner">
+              <form
+                class="login"
+                id="login-form"
+                action="login.php"
+                method="post"
+              >
+                <div class="field">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div class="field btn">
+                  <div class="btn-layer"></div>
+                  <input type="submit" value="Login" />
+                </div>
+                <div
+                  class="login-image"
+                  style="text-align: center; margin-top: 40px"
+                >
+                  <img
+                    src="assets/img/Anim.gif"
+                    alt="Login Image"
+                    style="width: 100px"
+                    class="column__img1"
+                  />
+                </div>
+              </form>
+
+              <form
+                class="signup"
+                id="signup-form"
+                action="signup.php"
+                method="POST"
+              >
+                <div class="field">
+                  <input
+                    type="text"
+                    name="firstname"
+                    placeholder="First Name"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    type="text"
+                    name="lastname"
+                    placeholder="Last Name"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div class="field btn">
+                  <div class="btn-layer"></div>
+                  <input type="submit" value="Sign Up" id="submit-btn" />
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Scroll to Top Button -->
     <a href="#top" id="scrollToTop">
-        <i class="fa fa-arrow-up"></i>
+      <i class="fa fa-arrow-up"></i>
     </a>
 
-   <!-- Footer Content Section -->
-   <section class="footer-section">
-    <div class="footer-container">
+    <!-- Footer Content Section -->
+    <section class="footer-section">
+      <div class="footer-container">
         <div class="footer-row">
-            <!-- About Us Column -->
-            <div class="footer-col">
-                <h3>About Us</h3>
-                <p>
-                    SMMEs Virtual Incubation is focused on incubating to accelerate the first mile and guiding the journey to the last mile. 
-                    We incubate and grow small and micro companies with market valuation potential headquartered in South Africa.
-                </p>
-                <p>
-                    Monday – Thursday: 08:30 - 16:30 <br>
-                    Friday: 08:30 – 02:30 <br>
-                    Saturday: 10:00 – 02:30 <br>
-                    Sunday: Closed
-                </p>
-            </div>
+          <!-- About Us Column -->
+          <div class="footer-col">
+            <h3>About Us</h3>
+            <p>
+              SMMEs Virtual Incubation is focused on incubating to accelerate
+              the first mile and guiding the journey to the last mile. We
+              incubate and grow small and micro companies with market valuation
+              potential headquartered in South Africa.
+            </p>
+            <p>
+              Monday – Thursday: 08:30 - 16:30 <br />
+              Friday: 08:30 – 02:30 <br />
+              Saturday: 10:00 – 02:30 <br />
+              Sunday: Closed
+            </p>
+          </div>
 
-            <!-- Services Column -->
-            <div class="footer-col">
-                <h3>Services</h3>
-                <ul class="service-list">  
-                    <li>SETA Registration and Mentorship</li>  
-                    <li>Business Profile</li>  
-                    <li>Marketing and Advertising</li>  
-                    <li>Business Mentorship</li>  
-                    <li>WSP - Workplace Skills Plan submission (closes 31 April)</li>  
-                    <li>SARS (Tax Returns and more)</li>  
-                    <li>Funding for your business</li>  
-                    <li>Workshops</li>  
-                    <li>Recruitment</li>  
-                </ul>  
-            </div>
+          <!-- Services Column -->
+          <div class="footer-col">
+            <h3>Services</h3>
+            <ul class="service-list">
+              <li>SETA Registration and Mentorship</li>
+              <li>Business Profile</li>
+              <li>Marketing and Advertising</li>
+              <li>Business Mentorship</li>
+              <li>WSP - Workplace Skills Plan submission (closes 31 April)</li>
+              <li>SARS (Tax Returns and more)</li>
+              <li>Funding for your business</li>
+              <li>Workshops</li>
+              <li>Recruitment</li>
+            </ul>
+          </div>
 
-            <!-- Recent Posts Column -->
-            <div class="footer-col">
-                <h3>Recent Post</h3>
-                <div id="recent-posts">
-                    <!-- Blog posts will be loaded here dynamically -->
-                    <p>Check back soon for updates!</p>
-                </div>
+          <!-- Recent Posts Column -->
+          <div class="footer-col">
+            <h3>Recent Post</h3>
+            <div id="recent-posts">
+              <!-- Blog posts will be loaded here dynamically -->
+              <p>Check back soon for updates!</p>
             </div>
+          </div>
 
-            <!-- Contact Us Column -->
-            <div class="footer-col">
-                <h3>Contact Us</h3>
-                <p>📍 Unit 8E Trio Industrial Park, 8 Shepstone Road, The Wolds, New Germany</p>  
-                <p>📞 +27633137391</p>  
-                <p>✉ info@codingmadeeasy.co.za</p>  
+          <!-- Contact Us Column -->
+          <div class="footer-col">
+            <h3>Contact Us</h3>
+            <p>
+              📍 Unit 8E Trio Industrial Park, 8 Shepstone Road, The Wolds, New
+              Germany
+            </p>
+            <p>📞 +27633137391</p>
+            <p>✉ info@codingmadeeasy.co.za</p>
 
-                <!-- Subscription Form -->
-                <h4>Subscribe to Our Newsletter</h4>
-                <form class="subscription-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
+            <!-- Subscription Form -->
+            <h4>Subscribe</h4>
+            <form class="subscription-form">
+              <!-- Trigger Button -->
+              <!-- Newsletter Subscription Button -->
+              <button id="newsletterButton" class="newsletter-btn">
+                Subscribe to Newsletter
+                <i class="fas fa-envelope"></i>
+              </button>
+            </form>
+          </div>
         </div>
-    </div>
+      </div>
 
+      <!-- Newsletter Modal -->
+      <div id="newsletterModal" class="modal-overlay">
+        <div class="modal-content">
+          <button class="close-modal">&times;</button>
+          <h2>Stay in Business and Updated</h2>
+          <iframe class="newsletter-iframe"></iframe>
+        </div>
+      </div>
 
-    <footer class="footer-bottom" style="background-color: #00102E;">
+      <footer class="footer-bottom" style="background-color: #00102e">
         <div class="footer-container">
-            <div class="footer-bottom-row">
-                <div class="footer-bottom-col">
-                    <a href="#!" class="footer-link">Terms of Use</a>
-                    <a href="#!" class="footer-link">Privacy Policy</a>
-                </div>
-                
-                <div class="footer-bottom-col">
-                    <img src="assets/img/logos/logo.png" alt="Company Logo" class="footer-logo">
-                    <p>©2025 SMMEs VIRTUAL INCUBATION</p>
-
-                </div>
-                
-                <div class="footer-bottom-col">
-                    <div class="social-icons">
-                        <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
+          <div class="footer-bottom-row">
+            <div class="footer-bottom-col">
+              <a href="#!" class="footer-link">Terms of Use</a>
+              <a href="#!" class="footer-link">Privacy Policy</a>
             </div>
 
-            <div class="footer-bottom-row">
-                <div class="footer-bottom-col full-width">
-                    <p class="licensing-text">
-                        Code SA Virtual Incubation is a licensed business services provider in terms of the Business 
-                        Advisory and Intermediary Services Act and a registered credit provider in terms of the 
-                        National Credit Act, registration number NCRCP15.
-                    </p>
-                </div>
+            <div class="footer-bottom-col">
+              <img
+                src="assets/img/logos/logo.png"
+                alt="Company Logo"
+                class="footer-logo"
+              />
+              <p>©2025 SMMEs VIRTUAL INCUBATION</p>
             </div>
+
+            <div class="footer-bottom-col">
+              <div class="social-icons">
+                <a href="#!" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#!" aria-label="YouTube"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a href="#!" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#!" aria-label="WhatsApp"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom-row">
+            <div class="footer-bottom-col full-width">
+              <p class="licensing-text">
+                Code SA Virtual Incubation is a licensed business services
+                provider in terms of the Business Advisory and Intermediary
+                Services Act and a registered credit provider in terms of the
+                National Credit Act, registration number NCRCP15.
+              </p>
+            </div>
+          </div>
         </div>
-    </footer>
+      </footer>
+    </section>
 
-</section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const newsletterBtn = document.getElementById("newsletterButton");
+        const newsletterModal = document.getElementById("newsletterModal");
+        const closeModalBtn = newsletterModal.querySelector(".close-modal");
+        const iframe = newsletterModal.querySelector(".newsletter-iframe");
 
-<!-- Footer Bottom Section -->
-<script>
-    // Function to toggle dropdown visibility
-    function toggleDropdown(event, dropdownId) {
-        event.preventDefault();
-        var dropdown = document.getElementById(dropdownId);
-        
-        // Close all dropdowns before toggling the selected one
-        document.querySelectorAll('.dropdown-content').forEach(function(item) {
-            if (item !== dropdown) {
-                item.classList.remove('show');
-            }
-        });
-        
-        // Toggle the selected dropdown
-        dropdown.classList.toggle('show');
-    }
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.dropdown')) {
-            document.querySelectorAll('.dropdown-content').forEach(function(dropdown) {
-                dropdown.classList.remove('show');
-            });
+        function openNewsletterModal() {
+          document.body.classList.add("modal-open");
+          newsletterModal.classList.add("active");
+          newsletterModal.style.display = "flex"; // Show modal
+          iframe.src = "newsletter.html";
+          setTimeout(() => closeModalBtn.focus(), 100);
         }
-    });
 
-    const loginForm = document.querySelector("form.login");
-    const loginBtn = document.querySelector("label.login");
-    const signupBtn = document.querySelector("label.signup");
-
-    // Function to switch to Sign Up
-    const switchToSignUp = () => {
-        loginForm.style.marginLeft = "-50%";
-        document.getElementById("signup").checked = true; // Ensure "Sign Up" is checked
-    };
-
-    // Function to switch to Login
-    const switchToLogin = () => {
-        loginForm.style.marginLeft = "0%";
-        document.getElementById("login").checked = true;
-    };
-
-    // Attach event listeners
-    signupBtn.onclick = switchToSignUp;
-    loginBtn.onclick = switchToLogin;
-
-    // Set Sign Up as default on page load
-    window.onload = switchToSignUp;
-    
-    
-        // Scroll to Top Button Functionality
-        window.addEventListener("scroll", function() {
-            var scrollToTopButton = document.getElementById("scrollToTop");
-            if (window.pageYOffset > 300) {
-                scrollToTopButton.classList.add("show");
-            } else {
-                scrollToTopButton.classList.remove("show");
-            }
-        });
-        
-        document.getElementById("scrollToTop").addEventListener("click", function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-
-    
-    // Function to toggle the dropdown visibility when clicked
-    function toggleDropdown(event, dropdownId) {
-        event.preventDefault(); // Prevent the link from navigating
-      
-        // Get all dropdowns
-        var allDropdowns = document.querySelectorAll('.dropdown-content');
-        
-        // Loop through and hide all dropdowns, except the one that was clicked
-        allDropdowns.forEach(function(dropdown) {
-          if (dropdown.id !== dropdownId) {
-            dropdown.style.display = 'none';
-          }
-        });
-      
-        // Toggle the visibility of the selected dropdown
-        var dropdown = document.getElementById(dropdownId);
-        if (dropdown.style.display === 'block') {
-          dropdown.style.display = 'none';
-        } else {
-          dropdown.style.display = 'block';
+        function closeNewsletterModal() {
+          document.body.classList.remove("modal-open");
+          newsletterModal.classList.remove("active");
+          newsletterModal.style.display = "none"; // Hide modal
+          iframe.src = "";
+          newsletterBtn.focus();
         }
-      }
-      
-      // Close dropdown if clicked outside of the dropdown
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown')) {
-          var dropdowns = document.querySelectorAll('.dropdown-content');
-          dropdowns.forEach(function(dropdown) {
-            dropdown.style.display = 'none';
+
+        if (newsletterBtn) {
+          newsletterBtn.addEventListener("click", openNewsletterModal);
+          closeModalBtn.addEventListener("click", closeNewsletterModal);
+          newsletterModal.addEventListener("click", function (e) {
+            if (e.target === newsletterModal) closeNewsletterModal();
+          });
+          document.addEventListener("keydown", function (e) {
+            if (
+              e.key === "Escape" &&
+              newsletterModal.classList.contains("active")
+            ) {
+              closeNewsletterModal();
+            }
           });
         }
-      }
-  
-    
-   // Random background images
-   document.addEventListener('DOMContentLoaded', function() {
-    const imageBackground = document.getElementById('imageBackground');
-    const imageCount = 100; // Total number of images available
-    const imagesToShow = 100; // Number of images to display
-    
-    // Create an array of all possible image numbers
-    const allImages = Array.from({length: imageCount}, (_, i) => i + 1);
-    
-    // Shuffle the array to get random order
-    const shuffled = allImages.sort(() => 0.5 - Math.random());
-    
-    // Take the first 'imagesToShow' images
-    const selectedImages = shuffled.slice(0, imagesToShow);
-    
-    // Create image elements
-    selectedImages.forEach(imgNum => {
-        const imgDiv = document.createElement('div');
-        imgDiv.className = 'bg-img';
-        imgDiv.style.backgroundImage = `url(assets/logos/${imgNum}.png)`;
-        imageBackground.appendChild(imgDiv);
-    });
-});
-</script>
+      });
+    </script>
 
-</body>
+    <!-- Footer Bottom Section -->
+    <script>
+      // Function to toggle dropdown visibility
+      function toggleDropdown(event, dropdownId) {
+        event.preventDefault();
+        var dropdown = document.getElementById(dropdownId);
+
+        // Close all dropdowns before toggling the selected one
+        document.querySelectorAll(".dropdown-content").forEach(function (item) {
+          if (item !== dropdown) {
+            item.classList.remove("show");
+          }
+        });
+
+        // Toggle the selected dropdown
+        dropdown.classList.toggle("show");
+      }
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown")) {
+          document
+            .querySelectorAll(".dropdown-content")
+            .forEach(function (dropdown) {
+              dropdown.classList.remove("show");
+            });
+        }
+      });
+
+      const loginForm = document.querySelector("form.login");
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+
+      // Function to switch to Sign Up
+      const switchToSignUp = () => {
+        loginForm.style.marginLeft = "-50%";
+        document.getElementById("signup").checked = true; // Ensure "Sign Up" is checked
+      };
+
+      // Function to switch to Login
+      const switchToLogin = () => {
+        loginForm.style.marginLeft = "0%";
+        document.getElementById("login").checked = true;
+      };
+
+      // Attach event listeners
+      signupBtn.onclick = switchToSignUp;
+      loginBtn.onclick = switchToLogin;
+
+      // Set Sign Up as default on page load
+      window.onload = switchToSignUp;
+
+      // Scroll to Top Button Functionality
+      window.addEventListener("scroll", function () {
+        var scrollToTopButton = document.getElementById("scrollToTop");
+        if (window.pageYOffset > 300) {
+          scrollToTopButton.classList.add("show");
+        } else {
+          scrollToTopButton.classList.remove("show");
+        }
+      });
+
+      document
+        .getElementById("scrollToTop")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+      // Function to toggle the dropdown visibility when clicked
+      function toggleDropdown(event, dropdownId) {
+        event.preventDefault(); // Prevent the link from navigating
+
+        // Get all dropdowns
+        var allDropdowns = document.querySelectorAll(".dropdown-content");
+
+        // Loop through and hide all dropdowns, except the one that was clicked
+        allDropdowns.forEach(function (dropdown) {
+          if (dropdown.id !== dropdownId) {
+            dropdown.style.display = "none";
+          }
+        });
+
+        // Toggle the visibility of the selected dropdown
+        var dropdown = document.getElementById(dropdownId);
+        if (dropdown.style.display === "block") {
+          dropdown.style.display = "none";
+        } else {
+          dropdown.style.display = "block";
+        }
+      }
+
+      // Close dropdown if clicked outside of the dropdown
+      window.onclick = function (event) {
+        if (
+          !event.target.matches(".dropbtn") &&
+          !event.target.closest(".dropdown")
+        ) {
+          var dropdowns = document.querySelectorAll(".dropdown-content");
+          dropdowns.forEach(function (dropdown) {
+            dropdown.style.display = "none";
+          });
+        }
+      };
+
+      // Random background images
+      document.addEventListener("DOMContentLoaded", function () {
+        const imageBackground = document.getElementById("imageBackground");
+        const imageCount = 100; // Total number of images available
+        const imagesToShow = 100; // Number of images to display
+
+        // Create an array of all possible image numbers
+        const allImages = Array.from({ length: imageCount }, (_, i) => i + 1);
+
+        // Shuffle the array to get random order
+        const shuffled = allImages.sort(() => 0.5 - Math.random());
+
+        // Take the first 'imagesToShow' images
+        const selectedImages = shuffled.slice(0, imagesToShow);
+
+        // Create image elements
+        selectedImages.forEach((imgNum) => {
+          const imgDiv = document.createElement("div");
+          imgDiv.className = "bg-img";
+          imgDiv.style.backgroundImage = `url(assets/logos/${imgNum}.png)`;
+          imageBackground.appendChild(imgDiv);
+        });
+      });
+    </script>
+  </body>
 </html>

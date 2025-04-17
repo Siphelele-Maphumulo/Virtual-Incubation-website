@@ -84,6 +84,14 @@
             z-index: -2;
             transform: translateZ(-10px);
         }
+        .nav-toggle {
+            display: none; /* Hide by default on larger screens */
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+            color: white;
+          }
+          
         
         @media (max-width: 768px) {
             body {
@@ -114,12 +122,14 @@
                 max-width: 100%;
             }
             
-            .nav-toggle {
-                font-size: 1.5rem;
-                cursor: pointer;
-                margin-bottom: 10px;
-                color: white;
-            }
+            @media (max-width: 768px) {
+                .nav-toggle {
+                  display: block; /* Show only on smaller screens */
+                  order: 1;
+                }
+              }
+              
+              
             
             .nav-links {
                 display: none;

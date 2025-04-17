@@ -237,7 +237,7 @@
             }
             
             /* Footer adjustments */
-            .footer-column {
+            .pooter-column {
                 width: 100%;
                 margin-bottom: 30px;
             }
@@ -515,6 +515,25 @@
       font-size: 1rem;
     }
   }
+  
+  .pooter-column {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+  }
+  
+  .pooter-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  .pooter-column p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
     </style>
 </head>
 <body id="page-top">
@@ -530,7 +549,7 @@
 
 <!-- Navigation Links -->
 <ul class="nav-links" id="navMenu">
-    <li><a href="index2.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
   <li><a href="#slide"><i class="fas fa-info-circle"></i> Resources</a></li>
   <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
   <li class="dropdown">
@@ -957,155 +976,118 @@ function toggleDropdown(event, dropdownId) {
             </div>
         </div>
 
-<!-- Scroll to Top Button -->
-<button id="scrollToTop" aria-label="Scroll to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-  
-  <!-- Contact Section -->
-  <section class="contact-section" id="contact">
-    <div class="container text-center" style="max-width: 800px; margin: auto;">
-      <h2 class="section-heading text-uppercase">Contact Us</h2>
-      <h3 class="section-subheading text-muted" style="color: azure;">
-        Drop us a line via email for inquiries or collaborations
-      </h3>
-  
-      <form id="contactForm" style="width: 100%;">
-        <div class="row align-items-stretch mb-5">
-          <!-- Left Column Inputs -->
-          <div class="col-md-6">
-            <div class="form-group">
-              <input class="form-control" id="name" type="text" placeholder="Your Name *" required />
-              <div class="invalid-feedback">A name is required.</div>
-            </div>
-            <div class="form-group">
-              <input class="form-control" id="email" type="email" placeholder="Your Email *" required />
-              <div class="invalid-feedback">An email is required.</div>
-              <div class="invalid-feedback" style="display: none;">Email is not valid.</div>
-            </div>
-            <div class="form-group">
-              <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required />
-              <div class="invalid-feedback">A phone number is required.</div>
-            </div>
-          </div>
-  
-          <!-- Right Column Textarea -->
-          <div class="col-md-6">
-            <div class="form-group form-group-textarea mb-0">
-              <textarea class="form-control" id="message" placeholder="Your Message *" required></textarea>
-              <div class="invalid-feedback">A message is required.</div>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Submission Messages -->
-        <div id="submitSuccessMessage" class="d-none text-center text-white mb-3">
-          <div class="fw-bolder">Form submission successful!</div>
-        </div>
-        <div id="submitErrorMessage" class="d-none text-center text-danger mb-3">
-          Error sending message!
-        </div>
-  
-        <!-- Submit Button -->
-        <div class="text-center">
-          <button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit" disabled>
-            Send Message
-          </button>
-        </div>
-      </form>
-    </div>
-  </section>
-  
-  <!-- Footer Content -->
-  <footer>
+   <!-- Footer Content Section -->
+   <footer>
     <div class="footer-container">
-      <div class="footer-content">
-  
-        <!-- About Us -->
-        <div class="footer-column">
-          <h3>About Us</h3>
-          <p>SMMEs Virtual Incubation focuses on guiding startups from the first mile to the last.</p>
-          <p>We support small and micro businesses with growth potential in South Africa.</p>
-          <p><i class="fas fa-clock"></i> Mon–Thu: 08:30–16:30 | Fri: 08:30–14:30 | Sat: 10:00–14:30</p>
-        </div>
-  
-        <!-- Services -->
-        <div class="footer-column">
-          <h3>Services</h3>
-          <ul class="service-list">
-            <li>SETA Registration & Mentorship</li>
-            <li>Business Profile Development</li>
-            <li>Marketing & Advertising</li>
-            <li>Workplace Skills Plan Submission</li>
-            <li>Tax Compliance Services</li>
-            <li>Funding Assistance</li>
-            <li>Professional Workshops</li>
-          </ul>
-        </div>
-  
-        <!-- Recent Updates -->
-        <div class="footer-column">
-          <h3>Recent Updates</h3>
-          <p>Check back soon for news and updates!</p>
-        </div>
-  
-        <!-- Contact Info -->
-        <div class="footer-column">
-          <h3>Contact Us</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park, New Germany</p>
-          <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
-          <p><i class="fas fa-envelope"></i> info@codingmadeeasy.co.za</p>
-  
-          <!-- Newsletter Button -->
-          <button id="newsletterButton" class="newsletter-btn">
-            Subscribe to Newsletter <i class="fas fa-envelope"></i>
-          </button>
-  
-          <!-- Modal for Newsletter -->
-          <div id="newsletterModal" class="modal-overlay">
+        <div class="footer-content">
+            <!-- About Us Column -->
+            <div class="pooter-column">
+                <h3>About Us</h3>
+                <p>SMMEs Virtual Incubation is focused on incubating to accelerate the first mile and guiding the journey to the last mile.</p>
+                <p>We incubate and grow small and micro companies with market valuation potential headquartered in South Africa.</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-clock"></i> Mon-Thu: 08:30-16:30 | Fri: 08:30-14:30 | Sat: 10:00-14:30</p>
+                </div>
+            </div>
+
+            <!-- Services Column -->
+            <div class="pooter-column">
+                <h3>Services</h3>
+                <ul class="service-list">  
+                    <li>SETA Registration and Mentorship</li>  
+                    <li>Business Profile Development</li>  
+                    <li>Marketing and Advertising</li>  
+                    <li>Business Mentorship</li>  
+                    <li>Workplace Skills Plan submission</li>  
+                    <li>Tax Compliance Services</li>  
+                    <li>Business Funding Assistance</li>  
+                    <li>Professional Workshops</li>  
+                </ul>  
+            </div>
+
+            <!-- Recent Posts Column -->
+            <div class="pooter-column">
+                <h3>Recent Updates</h3>
+                <div id="recent-posts">
+                    <p>Check back soon for news and updates!</p>
+                </div>
+
+            </div>
+
+            <!-- Contact Us Column -->
+            <div class="pooter-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park, New Germany</p>
+                    <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
+                    <p><i class="fas fa-envelope"></i>info@codingmadeeasy.co.za</p>
+                </div>
+
+                <!-- <h4>Subscribe to Our Newsletter</h4>
+                <form class="subscription-form" style="width: 80%; font-weight:bold;">
+                    <input type="email" placeholder="Click ->" style="width: 15%;background:#ffffff" disabled>
+                    <button type="button" id="openModal">Subscribe</button>
+                </form> -->
+                
+        <!-- Newsletter Subscription Button -->
+        <button id="newsletterButton" class="newsletter-btn">
+            Subscribe to Newsletter
+            <i class="fas fa-envelope"></i>
+        </button>
+        
+        <!-- Newsletter Modal -->
+        <div id="newsletterModal" class="modal-overlay">
             <div class="modal-content">
-              <button class="close-modal">&times;</button>
-              <h2>Stay in Business and Updated</h2>
-              <iframe class="newsletter-iframe"></iframe>
+                <button class="close-modal">&times;</button>
+                <h2>Stay in Business and Updated</h2>
+                <iframe class="newsletter-iframe"></iframe>
             </div>
-          </div>
         </div>
-      </div>
+        </div>
     </div>
-  
-    <!-- Footer Bottom -->
-    <div class="footer py-4">
-      <div class="footer-container">
-  
-        <div class="footer-bottom-row">
-          <div class="footer-bottom-col">
-            <img src="assets/img/logos/logo.png" alt="SMMEs Logo" />
-            <h5>©2025 SMMEs VIRTUAL INCUBATION</h5>
-          </div>
-  
-          <div class="footer-bottom-col">
-            <a href="#!" class="link-light text-decoration-none">Terms of Use</a>
-          </div>
-  
-          <div class="footer-bottom-col">
-            <div class="social-icons">
-              <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-              <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- Footer Bottom Section -->
+    <!-- Footer Bottom Section -->
+    <footer class="footer py-4">
+        <div class="footer-container">
+            <!-- First Row: Copyright, Terms, Social -->
+            <div class="footer-bottom-row">
+                <div class="footer-bottom-col">
+                    <img src="assets/img/logos/logo.png" alt="Close modal" />
+                    <h5>©2025 SMMEs VIRTUAL INCUBATION</h5>
+                </div>
+                
+                <div class="footer-bottom-col">
+                    <a class="link-light text-decoration-none" href="#!">Terms of Use</a>
+                </div>
+                
+                <div class="footer-bottom-col">
+                    <div class="social-icons">
+                        <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- Second Row: Business Licensing Text -->
+            <div class="footer-bottom-row">
+                <div class="footer-bottom-col">
+                    <p>
+                        Code SA Virtual Incubation is a licensed business services provider in terms of the Business 
+                        Advisory and Intermediary Services Act and a registered credit provider in terms of the 
+                        National Credit Act, registration number NCRCP15.
+                    </p>
+                </div>
+            </div>
         </div>
+    </footer>
   
-        <div class="footer-bottom-row">
-          <p>
-            Code SA Virtual Incubation is a licensed business service provider under the Business Advisory and Intermediary Services Act and a registered credit provider under the National Credit Act (NCRCP15).
-          </p>
-        </div>
-  
-      </div>
-    </div>
-  </footer>
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
   
 
 <!-- Scripts -->
