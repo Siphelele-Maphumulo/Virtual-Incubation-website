@@ -256,9 +256,90 @@
                 width: 100%;
             }
         }
+        
+        /* CSS for Animations */  
+        .hidden-left, .hidden-right {  
+            opacity: 0; /* Start hidden */  
+            transform: translateX(-100px); /* Move left for hidden-left */  
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animation transition */  
+        }  
+
+        .show {  
+            opacity: 1; /* Fully visible */  
+            transform: translateX(0); /* Return to original position */  
+        }  
+
+        /* For specific direction animations */  
+        .hidden-right {  
+            transform: translateX(100px); /* Move right for hidden-right */  
+        }  
+
+        /* Additional utility styles to enhance visualization */  
+        section {  
+            padding: 50px 20px;  
+        }  
+
+        .about-container, .help-container {  
+            display: flex;  
+            align-items: center; /* Center vertically */  
+            justify-content: space-between;  
+            max-width: 1200px;  
+            margin: auto; /* Center container */  
+        }
+        
+        .service-item {
+            opacity: 0;
+            transform: translateY(100px) scale(0.8) rotateZ(10deg);
+            transition: all 1.5s ease;
+            will-change: transform, opacity;
+          }
+          
+          /* Animate in */
+          .service-item.animate-service {
+            opacity: 1;
+            transform: translateY(0) scale(1) rotateZ(0deg);
+          }
+          
+          /* Animate out */
+          .service-item.fade-out {
+            opacity: 0;
+            transform: translateY(50px) scale(0.8) rotateZ(-10deg);
+          }
+          
+          /* Give each item a unique feel with delays */
+          .service-item:nth-child(1) {
+            transition-delay: 0.3s;
+          }
+          .service-item:nth-child(2) {
+            transition-delay: 0.7s;
+          }
+          .service-item:nth-child(3) {
+            transition-delay: 0.5s;
+          }
+          .service-item:nth-child(4) {
+            transition-delay: 1s;
+          }
+          .service-item:nth-child(5) {
+            transition-delay: 1.3s;
+          }
+          .service-item:nth-child(6) {
+            transition-delay: 0.9s;
+          }
+          
+          .Service-icons {
+            font-size: 40px;
+            color: #007bff;
+            transition: transform 0.4s ease;
+          }
+          
+          .Service-icons:hover {
+            transform: scale(1.3) rotate(-5deg);
+          }
+          
+        
     </style>
 </head>
-<body id="page-top">
+<body id="page-top" style="overflow-x: hidden;">
 <!-- Navigation -->
 <nav class="navbar">
 <!-- Logo -->
@@ -308,9 +389,9 @@ function toggleDropdown(event, dropdownId) {
         <img src="./assets/img/white-logo-1536x1097.webp" alt="Logo" class="logo" />
   
         <!-- Text Section -->
-        <div class="text-section" style="padding-bottom: 10%;">
+        <div class="text-section zoom-in" style="padding-bottom: 10%;">
           <div class="masthead-heading">SMMEs VIRTUAL <br />INCUBATION</div>
-          <div class="subheading">
+          <div class="subheading delay-2">
             Boost your business! Access top services like web design,
             marketing, mentorship, management support, and more.
             Engage with others virtually from anywhere across the country!
@@ -320,171 +401,155 @@ function toggleDropdown(event, dropdownId) {
   
       <!-- Services Section -->
       <div class="icon-box-container">
-        <div class="icon-box">
+        <div class="icon-box spin-in delay-1">
           <i class="fas fa-people-carry icon"></i>
           <b>MENTORING</b>
-          <p>
-            Get expert advice and mentoring. Avoid obstacles and set yourself
-            and your business for success.
-          </p>
+          <p>Get expert advice and mentoring. Avoid obstacles and set yourself and your business for success.</p>
         </div>
-        <div class="icon-box">
+        <div class="icon-box spin-in delay-2">
           <i class="fas fa-balance-scale icon"></i>
           <b>Business Management</b>
-          <p>
-            Get help balancing every aspect of your business. Have access
-            to resources you need.
-          </p>
+          <p>Get help balancing every aspect of your business. Have access to resources you need.</p>
         </div>
-        <div class="icon-box">
+        <div class="icon-box spin-in delay-3">
           <i class="fas fa-pencil-ruler icon"></i>
           <b>Web Design</b>
-          <p>
-            Create and design a website for your business according to
-            your preferences.
-          </p>
+          <p>Create and design a website for your business according to your preferences.</p>
         </div>
       </div>
   
-      <div style="padding-bottom: 5%; text-align: center;">
+      <div class="btn-container icon-fade delay-5" style="padding-bottom: 5%; text-align: center;">
         <a class="btn btn-primary btn-xl text-uppercase custom-btn" href="home.html">Get Started</a>
       </div>
     </div>
   </header>
   
+  
 
-<!-- Services Section -->
-<!-- About Section -->
-<section id="about">
-    <div class="about-container">
-        <!-- Left Column: Image -->
-        <div class="about-left">
-            <img src="./assets/img/art-about.png" alt="About SMMEs Virtual Incubation">
-        </div>
+    <!-- About Section -->  
+    <section id="about">  
+        <div class="about-container animate-on-scroll slide-left">
+            <!-- Left Column: Image -->  
+            <div class="about-left">  
+                <img src="./assets/img/art-about.png" alt="About SMMEs Virtual Incubation">  
+            </div>  
 
-        <!-- Right Column: Content -->
-        <div class="about-right">
-            <h1>About Us</h1>
-            <h2>We Ignite and Accelerate Every Idea</h2>
-            <p>SMMEs Virtual Incubation specializes in accelerating early-stage development while providing comprehensive guidance through every growth phase. We cultivate and scale small and micro enterprises with significant market potential, headquartered in South Africa.</p>
-            
-            <p>As industry pioneers, we offer an innovative model that integrates technology partnerships, incubation services, and domain-specific acceleration capabilities for visionary founders.</p>
-            
-            <p>By combining cutting-edge services with access to a global innovation ecosystem, we empower the creation of transformative startups and products. Partner with us to build your industry-defining company.</p>
-        </div>
-    </div>
-</section>
+            <!-- Right Column: Content -->  
+            <div class="about-right slide-in-left hidden-left">  
+                <h1>About Us</h1>  
+                <h2>We Ignite and Accelerate Every Idea</h2>  
+                <p>SMMEs Virtual Incubation specializes in accelerating early-stage development while providing comprehensive guidance through every growth phase. We cultivate and scale small and micro enterprises with significant market potential, headquartered in South Africa.</p>  
+                <p>As industry pioneers, we offer an innovative model that integrates technology partnerships, incubation services, and domain-specific acceleration capabilities for visionary founders.</p>  
+                <p>By combining cutting-edge services with access to a global innovation ecosystem, we empower the creation of transformative startups and products. Partner with us to build your industry-defining company.</p>  
+            </div>  
+        </div>  
+    </section>  
 
+    <!-- Virtual Incubation Section -->  
+    <section style="font-family: 'Poppins', Arial, sans-serif; padding-top: 1px; padding-bottom: 1px; background-color: #F6F6F6;">  
+        <div class="help-container animate-on-scroll slide-in-right hidden-right">  
+            <!-- Left Column: Full Image -->  
+            <div class="help-left hidden-right">  
+                <img src="./assets/img/ologun.png" alt="Full Image" style="width: 100%; height: auto">  
+            </div>  
 
-<!-- About Section -->
-<section style="font-family: 'Poppins', Arial, sans-serif; padding-top:1px; padding-bottom:1px; background-color:#F6F6F6">
-    <div class="help-container">
-        <!-- Left Column: Full Image -->
-        <div class="help-left">
-            <img src="./assets/img/ologun.png" alt="Full Image" style="width: 100%; height:auto">
-        </div>
+            <!-- Right Column: Content -->  
+            <div class="help-right hidden-right">  
+                <h1 style="color: #000000;font-size: 40pt; margin-bottom: 1px;">VIRTUAL INCUBATION</h1>  
+                <h5 style="color: #00102E;font-size: 12pt; padding-top: 1px; text-align: center;">  
+                    We ensure a rich collection of data, services and support accompanies our clients everywhere they go  
+                </h5>  
+                <p style="color: #828283; text-align: center;">  
+                    SMMEs virtual incubation was formally registered in 2023 with an aim of delivering business-related services...  
+                </p>  
 
-        <!-- Right Column: Content -->
-        <div class="help-right">
-            <h1 style="color: #000000;font-size: 40pt; margin-bottom:1px">VIRTUAL INCUBATION</h1>
-            <h5 style="color: #00102E;font-size: 12pt; padding-top:1px; text-align:center">We ensure rich collection of data, services and support accompanies our clients eveywhere they go</h5>
-            <p style="color: #828283; text-align:center">SMMEs virtual incubation was formally registered in 2023 with an aim of delivering business related services. The company has a solid business background and 
-            well experienced in different business services offering ranging from starting a company, registering a company, applying for fundings for a company, managing a 
-            company, business Governance, business mentoring, business Investments, business workshops and business Risk Management.
-            </p>
-
-            <div style="display: flex; align-items:end; gap: 10px;">
-                <!-- Image on the Left -->
-                <img src="./assets/img/team/lungi.png" alt="Full Image" 
-                    style="width: 60px; height: 60px; border-radius: 5px; object-fit: cover;">
-            
-                <!-- Name and Title in Two Close Columns -->
-                <div style="display: flex; flex-direction: column;">
-                    <div style="display: flex; gap: 5px; align-items: center;">
-                        <span style="color:black; font-family: 'Poppins', Arial, sans-serif; font-size:20pt; font-weight: bold;">
-                            Lungile
-                        </span>
-                        <span style="color:black; font-family: 'Poppins', Arial, sans-serif; font-size:20pt; font-weight: bold;">
-                            Mthethwa
-                        </span>
-                    </div>
-                    <span style="color:rgb(90, 87, 87); font-family: 'Poppins', Arial, sans-serif; font-size:10pt;">
-                        Founder of SMMEs Virtual Incubation.
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                <div style="display: flex; align-items:end; gap: 10px;">  
+                    <!-- Image on the Left -->  
+                    <img src="./assets/img/team/lungi.png" alt="Team Member"   
+                        style="width: 60px; height: 60px; border-radius: 5px; object-fit: cover;">  
+                
+                    <!-- Name and Title in Two Close Columns -->  
+                    <div style="display: flex; flex-direction: column;">  
+                        <div style="display: flex; gap: 5px; align-items: center;">  
+                            <span style="color:black; font-size:20pt; font-weight: bold;">Lungile</span>  
+                            <span style="color:black; font-size:20pt; font-weight: bold;">Mthethwa</span>  
+                        </div>  
+                        <span style="color:rgb(90, 87, 87); font-size:10pt;">  
+                            Founder of SMMEs Virtual Incubation.  
+                        </span>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section> 
+  
 
 
-<!-- About Us Section -->
-<section class="coreservice-page-section">
-    <div class="text-center" style="padding-bottom:5%">
-        <h6 style="text-align: left;">CORE SERVICES</h6>
-        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:20pt; color:#000000">Promoting Digital</h2>
-        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:20pt; color:#000000">Business Transformation</h2>
-    </div>
+<!-- About Us Section -->  
+<section class="coreservice-page-section" id="about-us">  
+    <div class="text-center" style="padding-bottom:5%;">  
+        <h6 style="text-align: left;">CORE SERVICES</h6>  
+        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:20pt; color:#000000">Promoting Digital</h2>  
+        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:20pt; color:#000000">Business Transformation</h2>  
+    </div>  
 
-    <div class="row" style="width:100%; ">
+    <div class="row" style="width:100%;">  
+        <!-- Column 1: Starting up a business -->  
+        <div class="col-lg-3 col-sm-6 mb-4 core-box hidden-core"> 
+            <div class="portfolio-item" style="background-color:#F3F3F3">  
+                <div class="icon-container" style="font-size: 50pt;">  
+                    <i class="fas s fa-store-alt"></i>  
+                </div>  
+                <div class="portfolio-caption">  
+                    <h2>Starting up a business</h2>  
+                    <p>We help clients start building their businesses from scratch, from naming their businesses to completing registering their companies.</p>  
+                </div>  
+            </div>  
+        </div>  
 
-        <!-- Column 1: Starting up a business -->
-        <div class="col-lg-3 col-sm-6 mb-4">
-            <div class="portfolio-item" style="background-color:#F3F3F3">
-                <div class="icon-container" style="font-size: 50pt;">
-                    <i class="fas s fa-store-alt"></i>
-                </div>
-                <div class="portfolio-caption">
-                    <h2>Starting up a business</h2>
-                    <p>We help clients start building their businesses from scratch, from naming their businesses to completing registering their companies.</p>
-                </div>
-            </div>
-        </div>
+        <!-- Column 2: Business Management -->  
+        <div class="col-lg-3 col-sm-6 mb-4 core-box hidden-core">
+            <div class="portfolio-item">  
+                <div class="icon-container" style="font-size: 50pt;">  
+                    <i class="fas fa-balance-scale"></i>  
+                </div>  
+                <div class="portfolio-caption">  
+                    <h2>Business Management</h2>  
+                    <p>We help our clients in balancing every aspect of their businesses. We offer access to resources they need by providing business support.</p>  
+                </div>  
+            </div>  
+        </div>  
 
-        <!-- Column 2: Business Management -->
-        <div class="col-lg-3 col-sm-6 mb-4">
-            <div class="portfolio-item">
-                <div class="icon-container" style="font-size: 50pt;">
-                    <i class="fas fa-balance-scale"></i>
-                </div>
-                <div class="portfolio-caption">
-                    <h2>Business Management</h2>
-                    <p>We help our clients in balancing every aspect of their businesses. We offer access to resources they need by providing business support.</p>
-                </div>
-            </div>
-        </div>
+        <!-- Column 3: Business Mentoring -->  
+        <div class="col-lg-3 col-sm-6 mb-4 core-box hidden-core">
+            <div class="portfolio-item" style="background-color:#F3F3F3">  
+                <div class="icon-container" style="font-size: 50pt;">  
+                    <i class="fas fa-people-carry"></i>  
+                </div>  
+                <div class="portfolio-caption">  
+                    <h2>Business Mentoring</h2>  
+                    <p>We provide expert advice and mentoring. We assist clients in avoiding obstacles and setting themselves and their business for long-term success.</p>  
+                </div>  
+            </div>  
+        </div>  
 
-        <!-- Column 3: Business Mentoring -->
-        <div class="col-lg-3 col-sm-6 mb-4">
-            <div class="portfolio-item" style="background-color:#F3F3F3">
-                <div class="icon-container" style="font-size: 50pt;">
-                    <i class="fas fa-people-carry"></i>
-                </div>
-                <div class="portfolio-caption">
-                    <h2>Business Mentoring</h2>
-                    <p>We provide expert advice and mentoring. We assist clients in avoiding obstacles and setting themselves and their business for long-term success.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Column 4: Business Web Designing -->
-        <div class="col-lg-3 col-sm-6 mb-4">
-            <div class="portfolio-item">
-                <div class="icon-container" style="font-size: 50pt;">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="portfolio-caption">
-                    <h2>Business Web Designing</h2>
-                    <p>We create and design websites for our clients' businesses according to their preferences and budget.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+        <!-- Column 4: Business Web Designing -->  
+        <div class="col-lg-3 col-sm-6 mb-4 core-box hidden-core">
+            <div class="portfolio-item">  
+                <div class="icon-container" style="font-size: 50pt;">  
+                    <i class="fas fa-laptop-code"></i>  
+                </div>  
+                <div class="portfolio-caption">  
+                    <h2>Business Web Designing</h2>  
+                    <p>We create and design websites for our clients' businesses according to their preferences and budget.</p>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+</section>  
 
 <!-- We deliver Section -->
-<section class="about-section">
+<section class="about-section core-box hidden-core">
     <div class="about-container">
         <!-- Left Column -->
         <div class="about-left">
@@ -527,11 +592,11 @@ function toggleDropdown(event, dropdownId) {
         <h3 class="meet-team-subtitle">We Transform Vision Into Value</h3>
     </div>
 
-    <div class="container">
+    <div class="container team-wrapper">
         <div class="row justify-content-center">
             <!-- Column 2: Software Developer -->
             <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
-                <div class="team-card text-center">
+                <div class="team-card hidden-team">
                     <h6 class="team-role">Software Developer</h6>
                     <h6 class="meet-team-subtitle">Siphelele A. Maphumulo</h6>
                     <div class="teamicon-container">
@@ -549,7 +614,7 @@ function toggleDropdown(event, dropdownId) {
 
             <!-- Column 1: Founder -->
             <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
-                <div class="team-card">
+                <div class="team-card hidden-team">
                     <h6 class="team-role">Founder</h6>
                     <h6 class="meet-team-subtitle">Lungile<br> Mthethwa</h6>
                     <div class="teamicon-container">
@@ -566,7 +631,7 @@ function toggleDropdown(event, dropdownId) {
 
             <!-- Column 3: Software Developer -->
             <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
-                <div class="team-card">
+                <div class="team-card hidden-team">
                     <h6 class="team-role">Software Developer</h6>
                     <h6 class="meet-team-subtitle">Nkosiphendule Jwara</h6>
                     <div class="teamicon-container">
@@ -613,38 +678,38 @@ function toggleDropdown(event, dropdownId) {
             <h3>We are uniquely positioned with skills to build your business</h3>
         </div>
         <div class="row text-center">
-            <div class="col-md-4">
+            <div class="col-md-4 service-item">
                 <a href="https://www.cipc.co.za/?page_id=3786" target="_blank">
                     <i class="fas fa-file-download Service-icons"></i>
                 </a>
                 <h4 class="my-3">Company Registration</h4>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 service-item">
                 <a href="https://www.cipc.co.za/wp-content/uploads/2022/12/Email_addresses_for_applications_v2_0_003-1.pdf" target="_blank">
                     <i class="fas fa-tasks Service-icons"></i>
                 </a>
                 <h4 class="my-3">Email Applications</h4>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 service-item">
                 <a href="https://smesouthafrica.co.za/sme-funding" target="_blank">
                     <i class="far fa-money-bill-alt Service-icons"></i>
                 </a>
                 <h4 class="my-3">SME Funding</h4>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 service-item">
                 <a href="quotation.html">
                     <i class="fas fa-ad Service-icons"></i>
                 </a>
                 <h4 class="my-3">Marketing and Advertising</h4>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 service-item">
                 <a href="files.html">
                     <i class="far fa-folder-open Service-icons"></i>
                 </a>
                 <h4 class="my-3">View Portfolios</h4>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 service-item">
                 <a href="https://www.cipc.co.za/?page_id=3786" target="_blank">
                     <i class="fas fa-tasks Service-icons"></i>
                 </a>
@@ -1267,11 +1332,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         });
     });
-    
-    
+      
 </script>
 
-
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const coreBoxes = document.querySelectorAll(".core-box");
+  
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            obs.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, { threshold: 0.2 });
+  
+      coreBoxes.forEach(box => observer.observe(box));
+    });
+  </script>
+  
+  <!--  digital-section  -->
 
 
 <script>
@@ -1310,6 +1391,104 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       });
       
   </script>
+  
+  
 
+    <!-- Animation About Us JavaScript -->  
+    <script>  
+        document.addEventListener("DOMContentLoaded", function () {  
+            const options = {  
+                threshold: 0.3, // Adjusts when the animation should trigger  
+            };  
+
+            const observer = new IntersectionObserver((entries, observer) => {  
+                entries.forEach(entry => {  
+                    if (entry.isIntersecting) {  
+                        entry.target.classList.add("show");  
+                    }  
+                });  
+            }, options);  
+
+            // Target all hidden elements that need animations  
+            const hiddenElements = document.querySelectorAll(".hidden-left, .hidden-right");  
+            hiddenElements.forEach(el => observer.observe(el));  
+        });  
+    </script> 
+    
+    <!-- Team -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const teamCards = document.querySelectorAll(".team-card");
+      
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-team");
+                observer.unobserve(entry.target);
+              }
+            });
+          }, {
+            threshold: 0.4,
+          });
+      
+          teamCards.forEach(card => {
+            if (card.classList.contains("hidden-team")) {
+              observer.observe(card);
+            }
+          });
+        });
+      </script>
+      
+    <!-- Service -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const serviceItems = document.querySelectorAll(".service-item");
+      
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-service");
+                entry.target.classList.remove("fade-out");
+              } else {
+                entry.target.classList.remove("animate-service");
+                entry.target.classList.add("fade-out");
+              }
+            });
+          }, {
+            threshold: 0.3,
+          });
+      
+          serviceItems.forEach(item => {
+            observer.observe(item);
+          });
+        });
+      </script>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const footerColumns = document.querySelectorAll(".footer-column");
+      
+          const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-footer");
+                entry.target.classList.remove("fade-out");
+              } else {
+                entry.target.classList.remove("animate-footer");
+                entry.target.classList.add("fade-out");
+              }
+            });
+          }, {
+            threshold: 0.2,
+          });
+      
+          footerColumns.forEach(column => {
+            footerObserver.observe(column);
+          });
+        });
+      </script>
+      
+      
+  
     </body>
 </html>

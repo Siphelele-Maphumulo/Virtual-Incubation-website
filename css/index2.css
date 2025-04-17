@@ -14,16 +14,26 @@
   justify-content: center; /* Centers text in the middle of the screen */
   gap: 20px; /* Space between logo and text */
   max-width: 100%;
+  transform: translateY(60px);
+  transition: all 1.2s ease-out;
+}
+.header-content.animate-header {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .logo {
-  width: 300px; /* Increase width */
-  height: auto; /* Maintain aspect ratio */
+  width: 300px;
+  /*Increasewidth*/
+  height: auto;
+  /*Maintainaspectratio*/
   object-fit: contain;
   position: absolute;
-  top: -170px; /* Moves logo slightly upward */
-  left: 100px; /* Keeps it far left */
-  padding-left: 50px; /* Extra spacing for positioning */
+  top: -170px;
+  /*Moveslogoslightlyupward*/
+  left: 100px;
+  /*Keepsitfarleft*/
+  padding-left: 50px;
 }
 
 .text-section {
@@ -1172,4 +1182,449 @@ FOOTER RESPONSIVE STYLES
   .nav-toggle-container:hover .nav-links {
     display: flex;
   }
+}
+
+/* Animation Css */
+
+/* Animate on load */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spinIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-720deg) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* Spin animation class */
+.spin-in {
+  opacity: 0;
+  animation: spinIn 1s ease-out forwards;
+}
+
+/* Delays for staggered appearance */
+.delay-1 {
+  animation-delay: 1s;
+}
+.delay-2 {
+  animation-delay: 3s;
+}
+.delay-3 {
+  animation-delay: 5s;
+}
+.delay-4 {
+  animation-delay: 8s;
+}
+
+/* Animate on load */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation utility classes */
+.fade-in {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.zoom-in {
+  animation: zoomIn 1.3s ease forwards;
+}
+
+.slide-down {
+  animation: slideDown 1.2s ease forwards;
+}
+
+.pop-in {
+  animation: popIn 1.4s ease forwards;
+}
+
+.icon-fade {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.icon-fade.delay-1 {
+  animation-delay: 0.6s;
+}
+.icon-fade.delay-2 {
+  animation-delay: 0.8s;
+}
+.icon-fade.delay-3 {
+  animation-delay: 1s;
+}
+
+.icon-fade.delay-5 {
+  animation-delay: 6s;
+}
+
+/* about animation */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Trigger animations */
+.slide-left {
+  animation: slideInLeft 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-right {
+  animation: slideInRight 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-right {
+  animation-delay: 1s;
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideFromLeft 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-in-right {
+  animation: slideFromRight 1.2s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.3s; /* Just a little delay for staggered entry */
+}
+
+/* Initial hidden states */
+.hidden-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1s ease-in-out;
+}
+
+.hidden-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1s ease-in-out;
+}
+
+/* When in view */
+.show-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.show-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Final state: In place and visible */
+.slide-in-left.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-in-right.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* digital section */
+
+/* Base hidden state for animation */
+.hidden-core {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: all 1s ease;
+}
+
+/* Animate in when visible */
+.core-box.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Optional staggered delay */
+.core-box:nth-child(1) {
+  transition-delay: 0.2s;
+}
+.core-box:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.core-box:nth-child(3) {
+  transition-delay: 0.6s;
+}
+.core-box:nth-child(4) {
+  transition-delay: 0.8s;
+}
+
+/* Initial hidden state for team cards */
+.hidden-team {
+  opacity: 0;
+  transform: translateY(50px) scale(0.85) rotateX(10deg);
+  transition: all 1s ease;
+  perspective: 1000px;
+}
+
+/* Animate in when visible */
+.team-card.animate-team {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+/* Staggered delays */
+.team-card:nth-child(1) {
+  transition-delay: 0.2s;
+}
+.team-card:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.team-card:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.footer-column {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 1.2s ease-out;
+  will-change: opacity, transform;
+}
+
+/* When scrolled into view */
+.footer-column.animate-footer {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Fade out again */
+.footer-column.fade-out {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+/* Give each footer column a unique delay for fun staggered entrance */
+.footer-column:nth-child(1) {
+  transition-delay: 0.3s;
+}
+.footer-column:nth-child(2) {
+  transition-delay: 0.6s;
+}
+.footer-column:nth-child(3) {
+  transition-delay: 0.9s;
+}
+.footer-column:nth-child(4) {
+  transition-delay: 1.2s;
+}
+
+/* Optional: Newsletter Button hover */
+.newsletter-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.newsletter-btn:hover {
+  background: #0056b3;
+}
+
+/* Section Fade In */
+.page-section {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1.2s ease-out;
+}
+
+.page-section.animate-portfolio {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Portfolio Items Fade & Zoom In */
+.portfolio-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease;
+}
+
+.portfolio-item.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hover Effects */
+.portfolio-item:hover .portfolio-overlay {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.portfolio-caption {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.portfolio-caption-heading h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.portfolio-caption-subheading {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #eee;
+}
+
+.btn-transparent-white {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid #fff;
+  color: #fff;
+  margin-top: 15px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-transparent-white:hover {
+  background: #fff;
+  color: #000;
 }
