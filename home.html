@@ -195,7 +195,7 @@
     .dropdown-content {
         display: none;
         position: static;
-        background-color: var(--primary-color);
+        background-color:#00102E;
         width: 100%;
         box-shadow: none;
         border-radius: 0;
@@ -222,7 +222,7 @@
         display: block;
         font-size: 1.5rem;
         color: white;
-        background: none;
+        background-color: #00102E;
         border: none;
         cursor: pointer;
     }
@@ -456,6 +456,15 @@
         width: 100%;
         max-width: 250px;
         margin-bottom: 10px;
+    }
+    .dropdown-content {
+        display: none;
+        position: static;
+        background-color:#00102E;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        z-index: 1;
     }
 }
 
@@ -1117,8 +1126,8 @@ function toggleDropdown(event, dropdownId) {
 </section>
 
    <!-- Footer Content Section -->
-   <footer>
-    <div class="footer-container" style="color: azure; background-color:#00102E"></div>
+   <footer class="footer align">
+    <div class="footer-container" style="color: azure;"></div>
         <div class="footer-content">
             <!-- About Us Column -->
             <div class="footer-column">

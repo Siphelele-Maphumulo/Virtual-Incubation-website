@@ -1049,28 +1049,36 @@ function toggleDropdown(event, dropdownId) {
           <p>Check back soon for news and updates!</p>
         </div>
   
-        <!-- Contact Info -->
-        <div class="footer-column">
-          <h3>Contact Us</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park, New Germany</p>
-          <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
-          <p><i class="fas fa-envelope"></i> info@codingmadeeasy.co.za</p>
-  
-          <!-- Newsletter Button -->
-          <button id="newsletterButton" class="newsletter-btn">
-            Subscribe to Newsletter <i class="fas fa-envelope"></i>
-          </button>
-  
-          <!-- Modal for Newsletter -->
-          <div id="newsletterModal" class="modal-overlay">
+            <!-- Contact Us Column -->
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park, New Germany</p>
+                    <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
+                    <p><i class="fas fa-envelope"></i>info@codingmadeeasy.co.za</p>
+                </div>
+
+                <!-- <h4>Subscribe to Our Newsletter</h4>
+                <form class="subscription-form" style="width: 80%; font-weight:bold;">
+                    <input type="email" placeholder="Click ->" style="width: 15%;background:#ffffff" disabled>
+                    <button type="button" id="openModal">Subscribe</button>
+                </form> -->
+                
+        <!-- Newsletter Subscription Button -->
+        <button id="newsletterButton" class="newsletter-btn">
+            Subscribe to Newsletter
+            <i class="fas fa-envelope"></i>
+        </button>
+        
+        <!-- Newsletter Modal -->
+        <div id="newsletterModal" class="modal-overlay">
             <div class="modal-content">
-              <button class="close-modal">&times;</button>
-              <h2>Stay in Business and Updated</h2>
-              <iframe class="newsletter-iframe"></iframe>
+                <button class="close-modal">&times;</button>
+                <h2>Stay in Business and Updated</h2>
+                <iframe class="newsletter-iframe"></iframe>
             </div>
-          </div>
         </div>
-      </div>
+        </div>
     </div>
   
     <!-- Footer Bottom -->

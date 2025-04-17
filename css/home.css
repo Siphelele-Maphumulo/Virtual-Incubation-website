@@ -12334,5 +12334,35 @@ FOOTER RESPONSIVE STYLES
 
   .nav-toggle-container:hover .nav-links {
     display: flex;
+    background-color: #00102e;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container,
+  .footer-content,
+  .footer-column,
+  .footer-bottom-row,
+  .footer-bottom-col,
+  .contact-info,
+  .service-list,
+  .social-icons {
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-column ul {
+    padding-left: 0;
+  }
+
+  .footer-column ul li {
+    list-style-position: inside;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column !important;
   }
 }
