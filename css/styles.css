@@ -11080,7 +11080,7 @@ header.masthead {
   /*Adjustasneeded*/
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/header-b.jpg");
+  background-image: url("https://imgur.com/NZCrHFO.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -11484,7 +11484,7 @@ header.masthead * {
 
 section#contact {
   background-color: #00102e;
-  background-image: url("https://raw.githubusercontent.com/Siphelele-Maphumulo/Virtual-Incubation-website/refs/heads/master/assets/img/map-image.png?token=GHSAT0AAAAAADDNZNB54KOED6WBSDXHYYIW2A2WSDA");
+  background-image: url("../assets/img/map-image.png");
   background-repeat: no-repeat;
   background-position: center;
 }

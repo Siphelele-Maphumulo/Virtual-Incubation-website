@@ -17,3 +17,7 @@
 [submodule "vendor/symfony/polyfill-php80"]
     path = vendor/symfony/polyfill-php80
     url = https://github.com/symfony/polyfill-php80.git
+
+[submodule "vendor/vlucas/phpdotenv"]
+    path = vendor/vlucas/phpdotenv
+    url = https://github.com/vlucas/phpdotenv.git
