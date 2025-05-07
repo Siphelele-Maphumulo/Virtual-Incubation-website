@@ -10,3 +10,6 @@
     path = vendor/symfony/polyfill-ctype
     url = https://github.com/symfony/polyfill-ctype.git
 
+[submodule "vendor/symfony/polyfill-mbstring"]
+    path = vendor/symfony/polyfill-mbstring
+    url = https://github.com/symfony/polyfill-mbstring.git
