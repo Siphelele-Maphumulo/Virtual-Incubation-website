@@ -1,7 +1,12 @@
 [submodule "vendor/graham-campbell/result-type"]
-   path = vendor/graham-campbell/result-type
-   url = https://github.com/GrahamCampbell/Result-Type.git
+    path = vendor/graham-campbell/result-type
+    url = https://github.com/GrahamCampbell/Result-Type.git
 
 [submodule "vendor/phpoption/phpoption"]
-   path = vendor/phpoption/phpoption
-   url = https://github.com/PhpOption/PhpOption.git
+    path = vendor/phpoption/phpoption
+    url = https://github.com/PhpOption/PhpOption.git
+
+[submodule "vendor/symfony/polyfill-ctype"]
+    path = vendor/symfony/polyfill-ctype
+    url = https://github.com/symfony/polyfill-ctype.git
+
