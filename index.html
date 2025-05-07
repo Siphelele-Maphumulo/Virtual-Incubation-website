@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A professional website with a fully responsive design.">
+    <meta name="author" content="Your Name">
+    <meta name="keywords" content="mentoring, coaching, support, business growth">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    
+    <!-- Google fonts-->   
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Core theme CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <title>SMMEs Virtual Incubation</title>
+    <style>
+        /* Base styles to prevent overflow */
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .masthead-heading {  
+            font-size: 4.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            color: #ffffff;
+            text-shadow:   
+                1px 1px 0 rgba(255, 0, 0, 0.5),
+                2px 2px 0 rgba(0, 0, 255, 0.5),
+                3px 3px 0 rgba(255, 255, 0, 0.5);
+        }  
+        
+        .masthead-heading::before {  
+            content: attr(data-text);  
+            position: absolute;  
+            top: 2px;
+            left: 2px;
+            right: 0;  
+            bottom: 0;  
+            font-size: 6rem;
+            color: rgba(255, 0, 0, 0.7);
+            z-index: -1;
+            transform: translateZ(-5px);
+        }  
+        
+        .masthead-heading::after {  
+            content: attr(data-text);  
+            position: absolute;  
+            top: 4px;
+            left: 4px;
+            right: 0;  
+            bottom: 0;  
+            font-size: 6rem;
+            color: rgba(0, 255, 0, 0.7);
+            z-index: -2;
+            transform: translateZ(-10px);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                margin: 0 auto;
+                overflow-x: hidden;
+            }
+            
+            .header-content {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-left: 25%;
+                width: 100%;
+            }
+            
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #00102E;
+                padding: 10px;
+                height: auto;
+                width: 100%;
+            }
+            
+            .navbar-brand img {
+                height: 70px;
+                margin-bottom: 10px;
+                max-width: 100%;
+            }
+            
+            .nav-toggle {
+                font-size: 1.5rem;
+                cursor: pointer;
+                margin-bottom: 10px;
+                color: white;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                list-style: none;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 8px;
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                padding: 0;
+                text-align: center;       /* Centers inline elements inside */
+                justify-content: center;  /* For flex children if needed */
+                align-items: center;
+              }
+              
+              .dropdown-content a {
+                display: inline-block;     /* So links can be centered */
+                margin: 5px 0;             /* Optional spacing */
+              }
+              
+              .dropdown-content.active {
+                display: block;
+              }
+              
+            
+            .contact-section,
+            .footer-container {
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .masthead-heading {
+                font-size: 1.7rem;
+                line-height: 1.3;
+            }
+            
+            .subheading {
+                font-size: 1rem;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+            
+            .icon-box-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .icon-box {
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 0 15px;
+            }
+            
+            /* Ensure all containers have proper width */
+            .container, .about-container, .help-container, .partners-container {
+                width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+                margin: 0 auto;
+            }
+            
+            /* Make sure rows and columns don't overflow */
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+            
+            .col-md-4, .col-lg-3, .col-lg-4 {
+                width: 100%;
+                padding: 0 15px;
+                margin-bottom: 20px;
+            }
+            
+            /* Adjust team section */
+            .team-card {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            /* Fix partner logos slider */
+            .slide-track {
+                width: 100%;
+                overflow: hidden;
+            }
+            
+            .slide {
+                min-width: 150px;
+            }
+            
+            /* Form adjustments */
+            #contactForm .col-md-6 {
+                width: 100%;
+                padding: 0;
+            }
+            
+            /* Footer adjustments */
+            .footer-column {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .masthead-heading {
+                font-size: 1.5rem;
+            }
+            
+            .subheading br {
+                display: none;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        /* CSS for Animations */  
+        .hidden-left, .hidden-right {  
+            opacity: 0; /* Start hidden */  
+            transform: translateX(-100px); /* Move left for hidden-left */  
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animation transition */  
+        }  
+
+        .show {  
+            opacity: 1; /* Fully visible */  
+            transform: translateX(0); /* Return to original position */  
+        }  
+
+        /* For specific direction animations */  
+        .hidden-right {  
+            transform: translateX(100px); /* Move right for hidden-right */  
+        }  
+
+        /* Additional utility styles to enhance visualization */  
+        section {  
+            padding: 50px 20px;  
+        }  
+
+        .about-container, .help-container {  
+            display: flex;  
+            align-items: center; /* Center vertically */  
+            justify-content: space-between;  
+            max-width: 1200px;  
+            margin: auto; /* Center container */  
+        }
+        
+        .service-item {
+            opacity: 0;
+            transform: translateY(100px) scale(0.8) rotateZ(10deg);
+            transition: all 1.5s ease;
+            will-change: transform, opacity;
+          }
+          
+          /* Animate in */
+          .service-item.animate-service {
+            opacity: 1;
+            transform: translateY(0) scale(1) rotateZ(0deg);
+          }
+          
+          /* Animate out */
+          .service-item.fade-out {
+            opacity: 0;
+            transform: translateY(50px) scale(0.8) rotateZ(-10deg);
+          }
+          
+          /* Give each item a unique feel with delays */
+          .service-item:nth-child(1) {
+            transition-delay: 0.3s;
+          }
+          .service-item:nth-child(2) {
+            transition-delay: 0.7s;
+          }
+          .service-item:nth-child(3) {
+            transition-delay: 0.5s;
+          }
+          .service-item:nth-child(4) {
+            transition-delay: 1s;
+          }
+          .service-item:nth-child(5) {
+            transition-delay: 1.3s;
+          }
+          .service-item:nth-child(6) {
+            transition-delay: 0.9s;
+          }
+          
+          .Service-icons {
+            font-size: 40px;
+            color: #007bff;
+            transition: transform 0.4s ease;
+          }
+          
+          .Service-icons:hover {
+            transform: scale(1.3) rotate(-5deg);
+          }
+          
+        
+    </style>
+</head>
+<body id="page-top" style="overflow-x: hidden;">
+<!-- Navigation -->
+<nav class="navbar">
+<!-- Logo -->
+<a class="navbar-brand" href="#top">
+  <img src="./assets/img/preview.png" alt="Logo">
+</a>
+
+<!-- Toggle (for mobile) -->
+<div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+
+<!-- Navigation Links -->
+<ul class="nav-links" id="navMenu">
+  <li><a href="#services"><i class="fas fa-handshake"></i> Our Services</a></li>
+  <li><a href="#digital"><i class="fas fa-info-circle"></i> About Us</a></li>
+  <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+  <li class="dropdown">
+    <a href="#" class="dropbtn"><i class="fa fa-user"></i> User <i class="fa fa-caret-down"></i></a>
+    <div class="dropdown-content" id="dropdown1">
+        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="password-reset.html"><i class="fas fa-key"></i> Password Reset</a>
+    </div>
+  </li>
+</ul>
+</nav>
+
+
+<!-- Optional JS for toggle -->
+<script>
+function toggleMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('active');
+}
+
+function toggleDropdown(event, dropdownId) {
+  event.preventDefault();
+  document.getElementById(dropdownId).classList.toggle('active');
+}
+</script>
+
+
+<!-- Masthead -->
+<header class="masthead">
+    <div class="container">
+      <div class="header-content">
+        <!-- Logo Section -->
+        <img src="./assets/img/white-logo-1536x1097.webp" alt="Logo" class="logo" />
+  
+        <!-- Text Section -->
+        <div class="text-section zoom-in" style="padding-bottom: 10%;">
+          <div class="masthead-heading">SMMEs VIRTUAL <br />INCUBATION</div>
+          <div class="subheading delay-2">
+            Boost your business! Access top services like web design,
+            marketing, mentorship, management support, and more.
+            Engage with others virtually from anywhere across the country!
+          </div>
+        </div>
+      </div>
+  
+      <!-- Services Section -->
+      <div class="icon-box-container">
+        <div class="icon-box spin-in delay-1">
+          <i class="fas fa-people-carry icon"></i>
+          <b>MENTORING</b>
+          <p>Get expert advice and mentoring. Avoid obstacles and set yourself and your business for success.</p>
+        </div>
+        <div class="icon-box spin-in delay-2">
+          <i class="fas fa-balance-scale icon"></i>
+          <b>Business Management</b>
+          <p>Get help balancing every aspect of your business. Have access to resources you need.</p>
+        </div>
+        <div class="icon-box spin-in delay-3">
+          <i class="fas fa-pencil-ruler icon"></i>
+          <b>Web Design</b>
+          <p>Create and design a website for your business according to your preferences.</p>
+        </div>
+      </div>
+  
+      <div class="btn-container icon-fade delay-5" style="padding-bottom: 5%; text-align: center;">
+        <a class="btn btn-primary btn-xl text-uppercase custom-btn" href="home.html">Get Started</a>
+      </div>
+    </div>
+  </header>
+  
+  
+
+    <!-- About Section -->  
+    <section id="about">  
+        <div class="about-container animate-on-scroll slide-left">
+            <!-- Left Column: Image -->  
+            <div class="about-left">  
+                <img src="./assets/img/art-about.png" alt="About SMMEs Virtual Incubation">  
+            </div>  
+
+            <!-- Right Column: Content -->  
+            <div class="about-right slide-in-left hidden-left">  
+                <h1>About Us</h1>  
+                <h2>We Ignite and Accelerate Every Idea</h2>  
+                <p>SMMEs Virtual Incubation specializes in accelerating early-stage development while providing comprehensive guidance through every growth phase. We cultivate and scale small and micro enterprises with significant market potential, headquartered in South Africa.</p>  
+                <p>As industry pioneers, we offer an innovative model that integrates technology partnerships, incubation services, and domain-specific acceleration capabilities for visionary founders.</p>  
+                <p>By combining cutting-edge services with access to a global innovation ecosystem, we empower the creation of transformative startups and products. Partner with us to build your industry-defining company.</p>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Virtual Incubation Section -->  
+    <section style="font-family: 'Poppins', Arial, sans-serif; padding-top: 1px; padding-bottom: 1px; background-color: #F6F6F6;">  
+        <div class="help-container animate-on-scroll slide-in-right hidden-right">  
+            <!-- Left Column: Full Image -->  
+            <div class="help-left hidden-right">  
+                <img src="./assets/img/ologun.png" alt="Full Image" style="width: 100%; height: auto">  
+            </div>  
+
+            <!-- Right Column: Content -->  
+            <div class="help-right hidden-right">  
+                <h1 style="color: #000000;font-size: 40pt; margin-bottom: 1px;">VIRTUAL INCUBATION</h1>  
+                <h5 style="color: #00102E;font-size: 12pt; padding-top: 1px; text-align: center;">  
+                    We ensure a rich collection of data, services and support accompanies our clients everywhere they go  
+                </h5>  
+                <p style="color: #828283; text-align: center;">  
+                    SMMEs virtual incubation was formally registered in 2023 with an aim of delivering business-related services...  
+                </p>  
+
+                <div style="display: flex; align-items:end; gap: 10px;">  
+                    <!-- Image on the Left -->  
+                    <img src="./assets/img/team/lungi.png" alt="Team Member"   
+                        style="width: 60px; height: 60px; border-radius: 5px; object-fit: cover;">  
+                
+                    <!-- Name and Title in Two Close Columns -->  
+                    <div style="display: flex; flex-direction: column;">  
+                        <div style="display: flex; gap: 5px; align-items: center;">  
+                            <span style="color:black; font-size:20pt; font-weight: bold;">Lungile</span>  
+                            <span style="color:black; font-size:20pt; font-weight: bold;">Mthethwa</span>  
+                        </div>  
+                        <span style="color:rgb(90, 87, 87); font-size:10pt;">  
+                            Founder of SMMEs Virtual Incubation.  
+                        </span>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section> 
+  
+
+
+<!-- About Us Section -->  
+<section class="coreservice-page-section" id="about-us">  
+    <div class="text-center" style="padding-bottom:5%;">  
+        <h6 style="text-align: left;">CORE SERVICES</h6>  
+        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:20pt; color:#000000">Promoting Digital</h2>  
+        <h2 class="section-heading text-uppercase" style="text-align: left; font-size:20pt; color:#000000">Business Transformation</h2>  
+    </div>  
+
+    <div class="row" style="width:100%;">  
+        <!-- Column 1: Starting up a business -->  
+        <div class="col-lg-3 col-sm-6 mb-4 core-box hidden-core"> 
+            <div class="portfolio-item" style="background-color:#F3F3F3">  
+                <div class="icon-container" style="font-size: 50pt;">  
+                    <i class="fas s fa-store-alt"></i>  
+                </div>  
+                <div class="portfolio-caption">  
+                    <h2>Starting up a business</h2>  
+                    <p>We help clients start building their businesses from scratch, from naming their businesses to completing registering their companies.</p>  
+                </div>  
+            </div>  
+        </div>  
+
+        <!-- Column 2: Business Management -->  
+        <div class="col-lg-3 col-sm-6 mb-4 core-box hidden-core">
+            <div class="portfolio-item">  
+                <div class="icon-container" style="font-size: 50pt;">  
+                    <i class="fas fa-balance-scale"></i>  
+                </div>  
+                <div class="portfolio-caption">  
+                    <h2>Business Management</h2>  
+                    <p>We help our clients in balancing every aspect of their businesses. We offer access to resources they need by providing business support.</p>  
+                </div>  
+            </div>  
+        </div>  
+
+        <!-- Column 3: Business Mentoring -->  
+        <div class="col-lg-3 col-sm-6 mb-4 core-box hidden-core">
+            <div class="portfolio-item" style="background-color:#F3F3F3">  
+                <div class="icon-container" style="font-size: 50pt;">  
+                    <i class="fas fa-people-carry"></i>  
+                </div>  
+                <div class="portfolio-caption">  
+                    <h2>Business Mentoring</h2>  
+                    <p>We provide expert advice and mentoring. We assist clients in avoiding obstacles and setting themselves and their business for long-term success.</p>  
+                </div>  
+            </div>  
+        </div>  
+
+        <!-- Column 4: Business Web Designing -->  
+        <div class="col-lg-3 col-sm-6 mb-4 core-box hidden-core">
+            <div class="portfolio-item">  
+                <div class="icon-container" style="font-size: 50pt;">  
+                    <i class="fas fa-laptop-code"></i>  
+                </div>  
+                <div class="portfolio-caption">  
+                    <h2>Business Web Designing</h2>  
+                    <p>We create and design websites for our clients' businesses according to their preferences and budget.</p>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+</section>  
+
+<!-- We deliver Section -->
+<section class="about-section core-box hidden-core">
+    <div class="about-container">
+        <!-- Left Column -->
+        <div class="about-left">
+            <h1>We deliver a promise of "Customers First" by building a culture of "Employees First".</h1>
+            <p>We believe in "Happy employees equal happy customers".</p>
+        </div>
+
+        <!-- Right Column -->
+        <div class="about-right">
+            <div class="overlay-text">
+                <h1 style="color: #f0f0f0;">Meet the people who made it happen</h1>
+                <h2>Developers</h2>
+            </div>
+            <div class="image-container">
+                <img src="./assets/img/team/bgr.jpg" alt="Background Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Team Section -->
+<section class="team-page-section" style="
+    position: relative;
+    background-image: url(./assets/img/team/wall.jpg);
+    background-size: cover;
+    background-position: top center; /* Ensures the top part is fully visible */
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Ensures it covers the full viewport */
+    padding: 100px 0px 80px; /* Increased top padding for better spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+">
+
+    <div class="text-center overlay">
+        <h2 class="section-heading text-uppercase meet-team">MEET OUR TEAM</h2>
+        <h3 class="meet-team-subtitle">We Transform Vision Into Value</h3>
+    </div>
+
+    <div class="container team-wrapper">
+        <div class="row justify-content-center">
+            <!-- Column 2: Software Developer -->
+            <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+                <div class="team-card hidden-team">
+                    <h6 class="team-role">Software Developer</h6>
+                    <h6 class="meet-team-subtitle">Siphelele A. Maphumulo</h6>
+                    <div class="teamicon-container">
+                        <img src="./assets/img/team/Sphe.png" alt="Siphelele A. Maphumulo">
+                    </div>
+                    <!-- Social Icons Centered Below the Image -->
+                    <div class="team-social-icons">
+                        <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#!" aria-label="YouTube"><i class="fab fa-github"></i></a>
+                        <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Column 1: Founder -->
+            <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+                <div class="team-card hidden-team">
+                    <h6 class="team-role">Founder</h6>
+                    <h6 class="meet-team-subtitle">Lungile<br> Mthethwa</h6>
+                    <div class="teamicon-container">
+                        <img src="./assets/img/team/lungi.png" alt="Lungile Mthethwa">
+                    </div>
+                    <!-- Social Icons Centered Below the Image -->
+                    <div class="team-social-icons">
+                        <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3: Software Developer -->
+            <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+                <div class="team-card hidden-team">
+                    <h6 class="team-role">Software Developer</h6>
+                    <h6 class="meet-team-subtitle">Nkosiphendule Jwara</h6>
+                    <div class="teamicon-container">
+                        <img src="./assets/img/team/Jwara.png" alt="Nkosiphendule Jwara">
+                    </div>
+                    <!-- Social Icons Centered Below the Image -->
+                    <div class="team-social-icons">
+                        <a href="https://www.linkedin.com/in/nkosiphendule-jwara/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#!" aria-label="YouTube"><i class="fab fa-github"></i></a>
+                        <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Services Section-->
+<section class="digital-section" style="font-family: 'Poppins', Arial, sans-serif; margin-top:-8%">
+    <div class="container" id="digital" style="padding-top: 5%;">
+        <div class="text-center"  >
+            <h1 style="color:black">DIGITAL DISRUPTION</h1>
+            <h3 style="font-size:15pt">We Incubate, Nourish & Grow Startups</h3>
+            <div style="font-size:12pt; font-family: 'Poppins', Arial, sans-serif;">
+                <p>We craft to leverage the inherent skills, which enables to unleash the full potential of core competencies. Encouraging innovation in
+                    <br>technology is a key point of ours. We love to experiment, innovate & play with technology, ensuring it helps create a unique differentiation 
+                    <br>from the crowd. We craft things with innovation for the next big Startups legendary company together.</p>
+            </div>
+
+        </div>
+        <div class="image-container">
+            <img src="assets/img/Digital-Disruption.webp" alt="Digital Disruption" />
+        </div>
+        
+    </div>
+</section>
+
+<!-- Services Section-->
+<section class="service-section" style="font-family: 'Poppins', Arial, sans-serif; margin-top:-25%">
+    <div class="container" id="services" style="padding-top: 15%;">
+        <div class="text-center"  >
+            <h1 >QUICK ACCESS TO REGISTRATION SERVICES</h1>
+            <h3>We are uniquely positioned with skills to build your business</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4 service-item">
+                <a href="https://www.cipc.co.za/?page_id=3786" target="_blank">
+                    <i class="fas fa-file-download Service-icons"></i>
+                </a>
+                <h4 class="my-3">Company Registration</h4>
+            </div>
+            <div class="col-md-4 service-item">
+                <a href="https://www.cipc.co.za/wp-content/uploads/2022/12/Email_addresses_for_applications_v2_0_003-1.pdf" target="_blank">
+                    <i class="fas fa-tasks Service-icons"></i>
+                </a>
+                <h4 class="my-3">Email Applications</h4>
+            </div>
+
+            <div class="col-md-4 service-item">
+                <a href="https://smesouthafrica.co.za/sme-funding" target="_blank">
+                    <i class="far fa-money-bill-alt Service-icons"></i>
+                </a>
+                <h4 class="my-3">SME Funding</h4>
+            </div>
+            <div class="col-md-4 service-item">
+                <a href="quotation.html">
+                    <i class="fas fa-ad Service-icons"></i>
+                </a>
+                <h4 class="my-3">Marketing and Advertising</h4>
+            </div>
+            <div class="col-md-4 service-item">
+                <a href="files.html">
+                    <i class="far fa-folder-open Service-icons"></i>
+                </a>
+                <h4 class="my-3">View Portfolios</h4>
+            </div>
+            <div class="col-md-4 service-item">
+                <a href="https://www.cipc.co.za/?page_id=3786" target="_blank">
+                    <i class="fas fa-tasks Service-icons"></i>
+                </a>
+                <h4 class="my-3">Small Business Fundings</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Partners Section -->
+<section class="partners-section">
+    <div class="partners-container">
+        <div class="partners-header">
+            <h1>TRUSTED PARTNERS</h1>
+            <p>We collaborate with industry leaders to deliver exceptional value</p>
+        </div>
+        
+        <div class="slider">
+            <div class="slide-track">
+                <!-- Partner Logos - Ascending Order -->
+                <div class="slide"><img src="assets/logos/1.png" alt="Partner 1" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/2.png" alt="Partner 2" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/3.png" alt="Partner 3" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/4.png" alt="Partner 4" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/5.png" alt="Partner 5" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/6.png" alt="Partner 6" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/7.png" alt="Partner 7" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/8.png" alt="Partner 8" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/9.png" alt="Partner 9" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/10.png" alt="Partner 10" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/11.png" alt="Partner 11" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/12.png" alt="Partner 12" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/13.png" alt="Partner 13" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/14.png" alt="Partner 14" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/15.png" alt="Partner 15" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/16.png" alt="Partner 16" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/17.png" alt="Partner 17" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/18.png" alt="Partner 18" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/19.png" alt="Partner 19" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/20.png" alt="Partner 20" loading="lazy" /></div>
+
+
+            
+                <!-- Partner Logos - Descending Order -->
+                <div class="slide"><img src="assets/logos/40.png" alt="Partner 40" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/39.png" alt="Partner 39" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/38.png" alt="Partner 38" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/37.png" alt="Partner 37" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/36.png" alt="Partner 35" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/35.png" alt="Partner 35" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/34.png" alt="Partner 34" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/33.png" alt="Partner 33" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/32.png" alt="Partner 32" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/31.png" alt="Partner 31" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/29.png" alt="Partner 29" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/28.png" alt="Partner 28" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/27.png" alt="Partner 27" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/26.png" alt="Partner 26" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/25.png" alt="Partner 25" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/24.png" alt="Partner 24" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/23.png" alt="Partner 23" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/22.png" alt="Partner 22" loading="lazy" /></div>
+                <div class="slide"><img src="assets/logos/21.png" alt="Partner 21" loading="lazy" /></div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+ 
+
+
+
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Vision</h2>
+                                    <p class="item-intro text-muted">To bridge the digital divide.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/222.jpg" alt="..." />
+                                    <p>To bridge the digital divide and empower South Africa's youth through accessible, engaging, and impactful tech education.</p>
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Our Story</h2>
+                                    <p class="item-intro text-muted">Witnessing firsthand the vast tech knowledge gap.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/11.jpg" alt="..." />
+                                    <p>Born from a 2023 internship experience, Thembelihle I.T Solutions founder, Siphelele Audacious Maphumulo, witnessed firsthand the vast tech knowledge gap among South African youth. Witnessing students unfamiliar with terms like Artificial Intelligence and the 4th Industrial Revolution ignited a passion within Siphelele to bridge this gap.
+                                         He envisioned a future where young people, equipped with cutting-edge tech skills, could not only access promising careers but also become innovators and creators, driving progress within their communities and beyond.</p>
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Mission</h2>
+                                    <p class="item-intro text-muted">Equip young minds with Tech knowledge.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/33.jpg" alt="..." />
+                                    <p>Equip young minds with the tools and knowledge needed to thrive in the 4th Industrial Revolution through comprehensive IT training, mentorship, and community outreach.</p>
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">What We Do</h2>
+                                    <p class="item-intro text-muted">Engaging workshops and bootcamps.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/44.jpg" alt="..." />
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Interactive Workshops:</strong>
+                                            Engaging workshops and bootcamps covering diverse tech fields like AI, Coding & Robotics, IoT, Data Science, Cloud Computing, Ethical Hacking, and Cyber Security.
+                                        </li>
+                                        <li>
+                                            <strong>School Outreach Programs:</strong>
+                                            Bringing interactive tech lessons directly to primary and high schools, sparking early interest and demystifying tech concepts.
+                                        </li>
+                                        <li>
+                                            <strong>Graduate and Youth Development:</strong>
+                                            LTailored training programs empowering unemployed graduates and young individuals with marketable IT skills
+                                        </li>
+                                        <li>
+                                            <strong>Mentorship Network:</strong>
+                                            Connecting experienced tech professionals with young learners, fostering valuable guidance and support.
+                                        </li>
+                                        <li>
+                                            <strong>Community Engagement:</strong>
+                                            Hosting tech forums, hackathons, and competitions to nurture a vibrant tech ecosystem within South African communities.
+                                        </li>
+
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 5 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Why Invest In Us</h2>
+                                    <p class="item-intro text-muted"></p>We prepare generations for success in the digital age.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/55.jpg" alt="..." />
+                                    <p>Why Invest in Thembelihle I.T Solutions?</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Addressing a Critical Need:</strong>
+                                            Our programs directly tackle the urgent need for tech education in South Africa, preparing future generations for success in the digital age.
+                                        </li>
+                                        <li>
+                                            <strong>Passionate and Experienced Leadership:</strong>
+                                            Our team's entrepreneurial drive and proven track record, coupled with a skilled individuals of tech experts, guarantee impactful execution.
+                                        </li>
+
+                                        <strong>Measurable Impact:</strong>
+                                        We track and report on the progress of our programs, demonstrating clear progress in terms of skills gained, job placements, and community engagement.
+                                    </li>
+                                    <li>
+                                        <strong>Sustainable Development:</strong>
+                                        We foster a culture of entrepreneurship and innovation, empowering young people to create tech solutions for their communities and beyond.
+                                    </li>
+
+                                    <strong>Investing in the Future:</strong>
+                                    By supporting Thembelihle I.T Solutions, you invest in the future of South Africa, building a thriving and tech-savvy generation ready to compete on a global stage.
+                                </li>
+
+                                <p>Join us in bridging the tech divide and igniting the next wave of South African tech pioneers. Contact Thembelihle I.T Solutions today and become a part of our journey towards a brighter, tech-driven future for all.</p>
+
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 6 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Our Strategies</h2>
+                                    <p class="item-intro text-muted">Transforming Tech Education with Mobile Labs.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/66.jpg" alt="..." />
+                                    <p>Beyond brick-and-mortar workshops, Thembelihle I.T Solutions envisions a future equipped with a fleet of state-of-the-art mobile IT labs. These 6m x 6m containers, outfitted with 12 high-performance computers, projectors, whiteboards, Wi-Fi, and photocopying facilities,
+                                         will act as self-contained tech oases. Mounted on 4x4 trailers, these labs will traverse geographical barriers, bringing our transformative programs directly to rural communities often marginalized from tech exposure</p>
+                                         <p>This innovative approach offers several strategic advantages:</p>
+                                         <ul class="list-inline">
+                                            <li>
+                                                <strong>Accessibility:</strong>
+                                                Bridging the physical divide, the mobile labs will reach previously inaccessible areas, democratizing tech education and ensuring rural youth aren't left behind in the digital revolution.
+                                            </li>
+                                            <li>
+                                                <strong>Agility:</strong>
+                                                Rapidly deployable and adaptable, the labs can cater to fluctuating student populations and diverse community needs.
+                                            </li>
+                                            <li>
+                                                <strong>Immersive Learning:</strong>
+                                                The container structure fosters a focused and collaborative learning environment, free from distractions, enhancing student engagement and knowledge retention.
+                                            </li>
+                                            <li>
+                                                <strong>Technology Integration:</strong>
+                                                Wi-Fi access empowers participation in webinars, summits, and live tech talks, keeping students up-to-date with the latest advancements.
+                                            </li>
+                                            <li>
+                                                <strong>Resource Sharing:</strong>
+                                                Photocopying facilities provide valuable document access, promoting effective learning and project documentation.
+                                            </li>
+                                        </ul>
+
+                                        <p>By investing in this mobile lab initiative, you're not just supporting a company, you're investing<span><b></b> in a sustainable, scalable, and impactful model for tech education.</b></span> You're empowering rural youth with the tools and knowledge to become active participants in the digital economy, propelling South Africa towards a more inclusive and innovative future</p>
+
+                                        <p>Remember, these mobile labs go beyond classrooms. They represent beacon's of opportunity, igniting imaginations and fostering a generation of tech-savvy changemakers in even the most remote corners of the country. 
+                                            Join us in making this vision a reality<span><b>– invest in Thembelihle I.T Solutions and invest in the future of South Africa's youth!</b></span></p>
+
+                                        <p>This revised profile highlights the innovative and forward-thinking nature of your mobile lab initiative. By using sophisticated terminology like "democratizing tech education" and "sustainable model,
+                                            " you appeal to the tech-savvy and socially conscious investors you're seeking. Remember, passion and purpose resonate strongly, so keep weaving them into your narrative to further strengthen your case.</p>
+
+                                        <p>We believe this enhanced profile will serve as a powerful tool in your quest for sponsorships and propel Thembelihle I.T Solutions toward achieving its ambitious and impactful mission.</p>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container text-center" style="max-width: 800px; margin: auto;">
+      <h2 class="section-heading text-uppercase">Contact Us</h2>
+      <h3 class="section-subheading text-muted" style="color: azure;">
+        Drop us a line via email for inquiries or collaborations
+      </h3>
+  
+      <form id="contactForm" style="width: 100%;">
+        <div class="row align-items-stretch mb-5">
+          <!-- Left Column Inputs -->
+          <div class="col-md-6">
+            <div class="form-group">
+              <input class="form-control" id="name" type="text" placeholder="Your Name *" required />
+              <div class="invalid-feedback">A name is required.</div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="email" type="email" placeholder="Your Email *" required />
+              <div class="invalid-feedback">An email is required.</div>
+              <div class="invalid-feedback" style="display: none;">Email is not valid.</div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required />
+              <div class="invalid-feedback">A phone number is required.</div>
+            </div>
+          </div>
+  
+          <!-- Right Column Textarea -->
+          <div class="col-md-6">
+            <div class="form-group form-group-textarea mb-0">
+              <textarea class="form-control" id="message" placeholder="Your Message *" required></textarea>
+              <div class="invalid-feedback">A message is required.</div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Submission Messages -->
+        <div id="submitSuccessMessage" class="d-none text-center text-white mb-3">
+          <div class="fw-bolder">Form submission successful!</div>
+        </div>
+        <div id="submitErrorMessage" class="d-none text-center text-danger mb-3">
+          Error sending message!
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit" disabled>
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer Content -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+  
+        <!-- About Us -->
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <p>SMMEs Virtual Incubation focuses on guiding startups from the first mile to the last.</p>
+          <p>We support small and micro businesses with growth potential in South Africa.</p>
+          <p><i class="fas fa-clock"></i> Mon–Thu: 08:30–16:30 | Fri: 08:30–14:30 | Sat: 10:00–14:30</p>
+        </div>
+  
+        <!-- Services -->
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="service-list">
+            <li>SETA Registration & Mentorship</li>
+            <li>Business Profile Development</li>
+            <li>Marketing & Advertising</li>
+            <li>Workplace Skills Plan Submission</li>
+            <li>Tax Compliance Services</li>
+            <li>Funding Assistance</li>
+            <li>Professional Workshops</li>
+          </ul>
+        </div>
+  
+        <!-- Recent Updates -->
+        <div class="footer-column">
+          <h3>Recent Updates</h3>
+          <p>Check back soon for news and updates!</p>
+        </div>
+  
+            <!-- Contact Us Column -->
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park, New Germany</p>
+                    <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
+                    <p><i class="fas fa-envelope"></i>info@codingmadeeasy.co.za</p>
+                </div>
+
+                <!-- <h4>Subscribe to Our Newsletter</h4>
+                <form class="subscription-form" style="width: 80%; font-weight:bold;">
+                    <input type="email" placeholder="Click ->" style="width: 15%;background:#ffffff" disabled>
+                    <button type="button" id="openModal">Subscribe</button>
+                </form> -->
+                
+        <!-- Newsletter Subscription Button -->
+        <button id="newsletterButton" class="newsletter-btn">
+            Subscribe to Newsletter
+            <i class="fas fa-envelope"></i>
+        </button>
+        
+        <!-- Newsletter Modal -->
+        <div id="newsletterModal" class="modal-overlay">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <h2>Stay in Business and Updated</h2>
+                <iframe class="newsletter-iframe"></iframe>
+            </div>
+        </div>
+        </div>
+    </div>
+  
+    <!-- Footer Bottom -->
+    <div class="footer py-4">
+      <div class="footer-container">
+  
+        <div class="footer-bottom-row">
+          <div class="footer-bottom-col">
+            <img src="assets/img/logos/logo.png" alt="SMMEs Logo" />
+            <h5>©2025 SMMEs VIRTUAL INCUBATION</h5>
+          </div>
+  
+          <div class="footer-bottom-col">
+            <a href="#!" class="link-light text-decoration-none">Terms of Use</a>
+          </div>
+  
+          <div class="footer-bottom-col">
+            <div class="social-icons">
+              <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#!" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="footer-bottom-row">
+          <p>
+            Code SA Virtual Incubation is a licensed business service provider under the Business Advisory and Intermediary Services Act and a registered credit provider under the National Credit Act (NCRCP15).
+          </p>
+        </div>
+  
+      </div>
+    </div>
+  </footer>
+  
+
+<!-- Scripts -->
+<script src="js/validation.js"></script>
+
+<script>
+
+    // Scroll to Top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+    
+        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const newsletterBtn = document.getElementById('newsletterButton');
+        const newsletterModal = document.getElementById('newsletterModal');
+        const closeModalBtn = newsletterModal.querySelector('.close-modal');
+        const iframe = newsletterModal.querySelector('.newsletter-iframe');
+
+        function openNewsletterModal() {
+            document.body.classList.add('modal-open');
+            newsletterModal.classList.add('active');
+            newsletterModal.style.display = "flex"; // Show modal
+            iframe.src = "newsletter.html";
+            setTimeout(() => closeModalBtn.focus(), 100);
+        }
+
+        function closeNewsletterModal() {
+            document.body.classList.remove('modal-open');
+            newsletterModal.classList.remove('active');
+            newsletterModal.style.display = "none"; // Hide modal
+            iframe.src = "";
+            newsletterBtn.focus();
+        }
+
+        if (newsletterBtn) {
+            newsletterBtn.addEventListener('click', openNewsletterModal);
+            closeModalBtn.addEventListener('click', closeNewsletterModal);
+            newsletterModal.addEventListener('click', function(e) {
+                if (e.target === newsletterModal) closeNewsletterModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && newsletterModal.classList.contains('active')) {
+                    closeNewsletterModal();
+                }
+            });
+        }
+    });
+</script>
+
+<script>
+
+ document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".mobile-menu-btn");
+    const navLinks = document.getElementById("nav-links");
+
+    menuButton.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", function (event) {
+        const dropdowns = document.querySelectorAll(".dropdown-content");
+        const dropdownButtons = document.querySelectorAll(".dropbtn");
+
+        let isDropdownButton = Array.from(dropdownButtons).some(button => button.contains(event.target));
+        let isDropdownContent = Array.from(dropdowns).some(dropdown => dropdown.contains(event.target));
+
+        if (!isDropdownButton && !isDropdownContent) {
+            dropdowns.forEach(dropdown => dropdown.style.display = "none");
+        }
+    });
+
+    document.querySelectorAll(".dropbtn").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const dropdown = this.nextElementSibling;
+            document.querySelectorAll(".dropdown-content").forEach(d => {
+                if (d !== dropdown) d.style.display = "none"; // Close other dropdowns
+            });
+
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        });
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        // Only prevent default if href is not just #
+        if (this.getAttribute('href') !== '#') {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return; // Skip if href is just #
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks) navLinks.classList.remove('show');
+            }
+        }
+    });
+});
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show/hide the scroll-to-top button based on scroll position
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) { // Adjust the scroll offset as needed
+                scrollToTopButton.classList.add('show'); // Show the button
+            } else {
+                scrollToTopButton.classList.remove('show'); // Hide the button
+            }
+        });
+    
+        // Smooth scroll to the top when the button is clicked
+        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default anchor action
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll
+            });
+        });
+    });
+      
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const coreBoxes = document.querySelectorAll(".core-box");
+  
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            obs.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, { threshold: 0.2 });
+  
+      coreBoxes.forEach(box => observer.observe(box));
+    });
+  </script>
+  
+  <!--  digital-section  -->
+
+
+<script>
+    let container = document.querySelector(".slide-track");
+
+    function createSlides(start, end) {
+        for (let i = start; i <= end; i++) {
+            let slide = document.createElement("div");
+            slide.classList.add("slide");
+            slide.innerHTML = `<img src="assets/logos/${i}.png" alt="Partner ${i}" loading="lazy" />`;
+            container.appendChild(slide);
+        }
+    }
+
+    createSlides(1, 40); // Ascending
+    createSlides(40, 1); // Descending
+    createSlides(1, 40); // Duplicate Ascending
+    createSlides(40, 1); // Duplicate Descending
+</script>
+
+<!-- Toggle Menu Script -->
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('active');
+      }
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        const dropbtn = document.querySelector('.dropbtn');
+        const dropdown = document.querySelector('.dropdown');
+      
+        dropbtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          dropdown.classList.toggle('show');
+        });
+      });
+      
+  </script>
+  
+  
+
+    <!-- Animation About Us JavaScript -->  
+    <script>  
+        document.addEventListener("DOMContentLoaded", function () {  
+            const options = {  
+                threshold: 0.3, // Adjusts when the animation should trigger  
+            };  
+
+            const observer = new IntersectionObserver((entries, observer) => {  
+                entries.forEach(entry => {  
+                    if (entry.isIntersecting) {  
+                        entry.target.classList.add("show");  
+                    }  
+                });  
+            }, options);  
+
+            // Target all hidden elements that need animations  
+            const hiddenElements = document.querySelectorAll(".hidden-left, .hidden-right");  
+            hiddenElements.forEach(el => observer.observe(el));  
+        });  
+    </script> 
+    
+    <!-- Team -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const teamCards = document.querySelectorAll(".team-card");
+      
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-team");
+                observer.unobserve(entry.target);
+              }
+            });
+          }, {
+            threshold: 0.4,
+          });
+      
+          teamCards.forEach(card => {
+            if (card.classList.contains("hidden-team")) {
+              observer.observe(card);
+            }
+          });
+        });
+      </script>
+      
+    <!-- Service -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const serviceItems = document.querySelectorAll(".service-item");
+      
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-service");
+                entry.target.classList.remove("fade-out");
+              } else {
+                entry.target.classList.remove("animate-service");
+                entry.target.classList.add("fade-out");
+              }
+            });
+          }, {
+            threshold: 0.3,
+          });
+      
+          serviceItems.forEach(item => {
+            observer.observe(item);
+          });
+        });
+      </script>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const footerColumns = document.querySelectorAll(".footer-column");
+      
+          const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-footer");
+                entry.target.classList.remove("fade-out");
+              } else {
+                entry.target.classList.remove("animate-footer");
+                entry.target.classList.add("fade-out");
+              }
+            });
+          }, {
+            threshold: 0.2,
+          });
+      
+          footerColumns.forEach(column => {
+            footerObserver.observe(column);
+          });
+        });
+      </script>
+      
+      
+  
+    </body>
+</html>

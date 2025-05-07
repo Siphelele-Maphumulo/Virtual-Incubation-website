@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Text Effect</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #282c34; /* Background color */
+        color: #fff; /* Base text color */
+        font-family: "Arial", sans-serif; /* Font family */
+      }
+
+      .masthead-heading {
+        font-size: 6rem; /* Font size, adjust as needed */
+        font-weight: bold; /* Bold font weight */
+        text-align: center; /* Center text */
+        text-transform: uppercase; /* Make text uppercase */
+        position: relative; /* Positioning context for 3D effect */
+        color: #00ff00; /* Main text color */
+        text-shadow: 1px 1px 0 rgba(255, 0, 0, 0.5),
+          /* Red shadow 1 */ 2px 2px 0 rgba(0, 0, 255, 0.5),
+          /* Blue shadow 2 */ 3px 3px 0 rgba(255, 255, 0, 0.5); /* Yellow shadow 3 */
+      }
+
+      /* Additional styling for depth */
+      .masthead-heading::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 2px; /* Shadow position */
+        left: 2px; /* Shadow position */
+        right: 0;
+        bottom: 0;
+        font-size: 6rem; /* Same as main text size */
+        color: rgba(255, 0, 0, 0.7); /* Shadow Color */
+        z-index: -1; /* Position behind the main text */
+        transform: translateZ(-5px); /* Adjust depth */
+      }
+
+      .masthead-heading::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 4px; /* Shadow position */
+        left: 4px; /* Shadow position */
+        right: 0;
+        bottom: 0;
+        font-size: 6rem; /* Same as main text size */
+        color: rgba(0, 255, 0, 0.7); /* Secondary shadow color */
+        z-index: -2; /* Position behind main shadow */
+        transform: translateZ(-10px); /* Further back for depth */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="masthead-heading">SMMEs VIRTUAL <br />INCUBATION</div>
+    <script>
+      document.body.addEventListener("click", function () {
+        document.body.style.backgroundColor = `hsl(${
+          Math.random() * 360
+        }, 70%, 50%)`;
+      });
+    </script>
+  </body>
+</html>

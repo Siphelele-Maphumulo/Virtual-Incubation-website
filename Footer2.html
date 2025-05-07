@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMMEs Virtual Incubation - Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #5755B1;
+            --secondary-color: #2AC8A8;
+            --dark-blue: #00102E;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --black: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        .service-list li:before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .subscription-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .subscription-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .subscription-form button {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .subscription-form button:hover {
+            background-color: #249e8d;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            max-height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .licensing-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            line-height: 1.6;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+
+       
+
+        #scrollToTop:hover {
+            background-color: #249e8d;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-column {
+                flex: 1 0 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin: 15px 0;
+            }
+
+            .footer-links a {
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .subscription-form {
+                flex-direction: column;
+            }
+
+            .subscription-form input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .subscription-form button {
+                border-radius: 5px;
+                padding: 12px;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <!-- Footer Content Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Us Column -->
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>SMMEs Virtual Incubation is focused on incubating to accelerate the first mile and guiding the journey to the last mile.</p>
+                    <p>We incubate and grow small and micro companies with market valuation potential headquartered in South Africa.</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-clock"></i> Mon-Thu: 08:30-16:30 | Fri: 08:30-14:30 | Sat: 10:00-14:30</p>
+                    </div>
+                </div>
+
+                <!-- Services Column -->
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="service-list">  
+                        <li>SETA Registration and Mentorship</li>  
+                        <li>Business Profile Development</li>  
+                        <li>Marketing and Advertising</li>  
+                        <li>Business Mentorship</li>  
+                        <li>Workplace Skills Plan submission</li>  
+                        <li>Tax Compliance Services</li>  
+                        <li>Business Funding Assistance</li>  
+                        <li>Professional Workshops</li>  
+                    </ul>  
+                </div>
+
+                <!-- Recent Posts Column -->
+                <div class="footer-column">
+                    <h3>Recent Updates</h3>
+                    <div id="recent-posts">
+                        <p>Check back soon for news and updates!</p>
+                    </div>
+
+                </div>
+
+                <!-- Contact Us Column -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park, New Germany</p>
+                        <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
+                        <p><i class="fas fa-envelope"></i>info@codingmadeeasy.co.za</p>
+                    </div>
+
+                    <h4>Subscribe to Our Newsletter</h4>
+                    <form class="subscription-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Section -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <div>
+                    <img src="assets/img/logos/logo.png" alt="SMMEs Logo" class="footer-logo">
+                    <div class="copyright">©2025 SMMEs VIRTUAL INCUBATION</div>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="licensing-text">
+                Code SA Virtual Incubation is a licensed business services provider in terms of the Business 
+                Advisory and Intermediary Services Act and a registered credit provider in terms of the 
+                National Credit Act, registration number NCRCP15.
+            </div>
+        </div>
+    </footer>
+
+
+    
+</body>
+</html>
