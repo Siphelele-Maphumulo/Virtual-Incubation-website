@@ -13,3 +13,7 @@
 [submodule "vendor/symfony/polyfill-mbstring"]
     path = vendor/symfony/polyfill-mbstring
     url = https://github.com/symfony/polyfill-mbstring.git
+
+[submodule "vendor/symfony/polyfill-php80"]
+    path = vendor/symfony/polyfill-php80
+    url = https://github.com/symfony/polyfill-php80.git
