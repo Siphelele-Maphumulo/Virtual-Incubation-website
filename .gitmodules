@@ -1,0 +1,3 @@
+[submodule "vendor/graham-campbell/result-type"]
+	path = vendor/graham-campbell/result-type
+	url = https://github.com/GrahamCampbell/Result-Type.git
