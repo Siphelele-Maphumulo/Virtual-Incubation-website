@@ -1,671 +1,787 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advertising Quotation | SMMEs Virtual Incubation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/css/pikaday.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/css/pikaday.min.css"
+    />
+
     <style>
-        :root {
-            --primary-color: #5755B1;
-            --secondary-color: #2AC8A8;
-            --dark-blue: #00102E;
-            --light-gray: #f5f5f5;
-            --white: #ffffff;
-            --black: #333333;
-            --error-color: #e74c3c;
-        }
+      :root {
+        --primary-color: #5755b1;
+        --secondary-color: #2ac8a8;
+        --dark-blue: #00102e;
+        --light-gray: #f5f5f5;
+        --white: #ffffff;
+        --black: #333333;
+        --error-color: #e74c3c;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background-color: var(--light-gray);
-            position: relative;
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--black);
+        background-color: var(--light-gray);
+        position: relative;
+      }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('./assets/img/quotee.jpg') no-repeat center center;
-            background-size: cover;
-            opacity: 0.1;
-            z-index: -1;
-        }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("./assets/img/quotee.jpg") no-repeat center center;
+        background-size: cover;
+        opacity: 0.1;
+        z-index: -1;
+      }
 
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--dark-blue);
+        margin: 0;
+      }
 
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--dark-blue);
-            margin: 0;
-        }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+      /* Navigation */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+      }
+
+      .navbar.scroll {
+        padding: 0.5rem 0%;
+        background-color: rgba(0, 16, 46, 0.95);
+      }
+
+      .navbar-brand img {
+        height: 70px;
+        transition: var(--transition);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: -20px;
+        font-size: small;
+      }
+
+      .nav-links li a {
+        color: var(--white);
+        font-weight: 200;
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+      }
+
+      .nav-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Dropdown */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #00102e;
+        min-width: 150px;
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: var(--white);
+        padding: 0.5rem 1rem;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .dropdown-content a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .main-container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 0 100px;
+      }
+
+      /* Form Container */
+      .form-container {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: transparent;
+        border-radius: 10px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 50px;
+        margin-top: 120px;
+      }
+
+      /* Form Info Section */
+      .form-info {
+        flex: 1;
+        min-width: 300px;
+        padding: 40px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--dark-blue)
+        );
+        color: var(--white);
+      }
+
+      .form-info h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .form-info p {
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .info-item i {
+        font-size: 1.2rem;
+        margin-right: 15px;
+        color: var(--secondary-color);
+      }
+
+      .social-links {
+        margin-top: 40px;
+      }
+
+      .social-links p {
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--white);
+        transition: all 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+
+      /* Form Section - Glass Effect */
+      .form-section {
+        flex: 1;
+        min-width: 300px;
+        padding: 40px;
+        position: relative;
+        background: rgba(255, 255, 255, 0.2); /* Transparent White */
+        border-radius: 10px; /* Optional: Rounded Corners */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle Border */
+      }
+
+      /* Keep Labels and Inputs Solid */
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--black); /* Solid Text */
+      }
+
+      /* Input Fields - Keep Solid */
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd; /* Keep Solid Border */
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 1); /* Fully Solid Background */
+        transition: all 0.3s ease;
+      }
+
+      /* Input Focus Effect */
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(87, 85, 177, 0.2);
+      }
+
+      .submit-btn:hover {
+        background-color: #2ac7a7;
+        transform: translateY(-2px);
+      }
+
+      .error-message {
+        color: var(--error-color);
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .has-error .form-control {
+        border-color: var(--error-color);
+      }
+
+      .has-error .error-message {
+        display: block;
+      }
+
+      /* Scroll to Top Button */
+      #scrollToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--secondary-color);
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+
+      #scrollToTop.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      #scrollToTop:hover {
+        background-color: #249e8d;
+        transform: translateY(-3px);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark-blue);
+        color: var(--white);
+        padding: 50px 0 20px;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-column {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--secondary-color);
+      }
+
+      .footer-column p,
+      .footer-column a {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 10px;
+        display: block;
+        transition: all 0.3s ease;
+      }
+
+      .footer-column a:hover {
+        color: var(--secondary-color);
+        padding-left: 5px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .form-info,
+        .form-section {
+          padding: 30px;
         }
-        
-        /* Navigation */
+      }
+
+      @media (max-width: 768px) {
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 0%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
+          flex-direction: column;
+          padding: 15px;
         }
 
-        .navbar.scroll {
-            padding: 0.5rem 0%;
-            background-color: rgba(0, 16, 46, 0.95);
-        }
-
-        .navbar-brand img {
-            height: 70px;
-            transition: var(--transition);
+        .navbar-brand {
+          margin-bottom: 15px;
         }
 
         .nav-links {
-            display: flex;
-            list-style: none;
-            gap: -20px;
-            font-size: small;
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
         }
 
-        .nav-links li a {
-            color: var(--white);
-            font-weight: 200;
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-
-        .nav-links li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-
-         /* Dropdown */
-         .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color:#00102E;
-            min-width: 150px;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .dropdown-content a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-
-        .main-container {
-          max-width: 900px;
-          margin: 30px auto;
-          padding: 0 100px;
-
-      }
-      
-
-        /* Form Container */
         .form-container {
-            display: flex;
-            flex-wrap: wrap;
-            background-color:transparent;
-            border-radius: 10px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 50px;
-            margin-top: 120px;
-
+          flex-direction: column;
         }
 
-        /* Form Info Section */
-        .form-info {
-            flex: 1;
-            min-width: 300px;
-            padding: 40px;
-            background: linear-gradient(135deg, var(--primary-color), var(--dark-blue));
-            color: var(--white);
-
-        }
-
-        .form-info h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .form-info p {
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .info-item i {
-            font-size: 1.2rem;
-            margin-right: 15px;
-            color: var(--secondary-color);
-        }
-
-        .social-links {
-            margin-top: 40px;
-        }
-
-        .social-links p {
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            transition: all 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-       /* Form Section - Glass Effect */
-.form-section {
-  flex: 1;
-  min-width: 300px;
-  padding: 40px;
-  position: relative;
-  background: rgba(255, 255, 255, 0.2); /* Transparent White */
-  border-radius: 10px; /* Optional: Rounded Corners */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle Border */
-}
-
-/* Keep Labels and Inputs Solid */
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: var(--black); /* Solid Text */
-}
-
-/* Input Fields - Keep Solid */
-.form-control {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ddd; /* Keep Solid Border */
-  border-radius: 5px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  background: rgba(255, 255, 255, 1); /* Fully Solid Background */
-  transition: all 0.3s ease;
-}
-
-/* Input Focus Effect */
-.form-control:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(87, 85, 177, 0.2);
-}
-
-
-        .submit-btn:hover {
-            background-color: #2AC7A7;;
-            transform: translateY(-2px);
-        }
-
-        .error-message {
-            color: var(--error-color);
-            font-size: 0.85rem;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .has-error .form-control {
-            border-color: var(--error-color);
-        }
-
-        .has-error .error-message {
-            display: block;
-        }
-
-        /* Scroll to Top Button */
-        #scrollToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--secondary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        #scrollToTop.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #scrollToTop:hover {
-            background-color: #249e8d;
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            padding: 50px 0 20px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 30px;
-            margin-bottom: 30px;
+        .form-info,
+        .form-section {
+          width: 100%;
         }
 
         .footer-column {
-            flex: 1;
-            min-width: 250px;
+          flex: 100%;
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .main-container {
+          padding: 0 15px;
         }
 
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
+        .form-info,
+        .form-section {
+          padding: 25px;
         }
 
-        .footer-column p, .footer-column a {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 10px;
-            display: block;
-            transition: all 0.3s ease;
+        .form-info h2 {
+          font-size: 1.6rem;
         }
 
-        .footer-column a:hover {
-            color: var(--secondary-color);
-            padding-left: 5px;
+        .form-section h2 {
+          font-size: 1.5rem;
         }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .form-info, .form-section {
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 15px;
-            }
-
-            .navbar-brand {
-                margin-bottom: 15px;
-            }
-
-            .nav-links {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .form-container {
-                flex-direction: column;
-            }
-
-            .form-info, .form-section {
-                width: 100%;
-            }
-
-            .footer-column {
-                flex: 100%;
-                margin-bottom: 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .main-container {
-                padding: 0 15px;
-            }
-
-            .form-info, .form-section {
-                padding: 25px;
-            }
-
-            .form-info h2 {
-                font-size: 1.6rem;
-            }
-
-            .form-section h2 {
-                font-size: 1.5rem;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body id="page-top">
+  <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar" style="background-color: #00102E; font-weight: 200;">
-        <a class="navbar-brand" href="#page-top">
-            <img src="./assets/img/preview.png" alt="Logo">
-        </a>
-        
-        <ul class="nav-links" style="padding-top: 10px; padding-right:0%; gap:0%">
-            <li><a href="home.html"><i class="fas fa-house"></i>Home</a></li>
-            <li><a href="index.html#services"><i class="fas fa-handshake"></i>Our Services</a></li>
-            <li><a href="index.html#digital"><i class="fas fa-info-circle"></i>About Us</a></li>
-            <li><a href="index.html#contact"><i class="fas fa-envelope"></i>Contact Us</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')"> 
-                    <i class="fa fa-user"></i> User  
-                    <span ><i class="fa fa-caret-down"></i></span>
-                </a>
-                  
-                <div class="dropdown-content" id="dropdown1">
-                        <a href="login.html" style="background-color: rgba(241, 143, 143, 0.329);">
-                            <i class="fas fa-sign-out-alt"></i> Logout
-                        </a>
-                        <a href="#password-reset">
-                            <i class="fas fa-user-cog"></i> Account
-                        </a>                        
-                </div>
-              </li>
-              
-        </ul>
+    <nav class="navbar" style="background-color: #00102e; font-weight: 200">
+      <a class="navbar-brand" href="#page-top">
+        <img
+          src="https://raw.githubusercontent.com/Siphelele-Maphumulo/Virtual-Incubation-website/refs/heads/master/assets/img/preview.png?token=GHSAT0AAAAAADDNZNB5DAD52HZNCC3UET622A2VG5Q"
+          alt="Logo"
+        />
+      </a>
+
+      <ul
+        class="nav-links"
+        style="padding-top: 10px; padding-right: 0%; gap: 0%"
+      >
+        <li>
+          <a href="home.html"><i class="fas fa-house"></i>Home</a>
+        </li>
+        <li>
+          <a href="index.html#services"
+            ><i class="fas fa-handshake"></i>Our Services</a
+          >
+        </li>
+        <li>
+          <a href="index.html#digital"
+            ><i class="fas fa-info-circle"></i>About Us</a
+          >
+        </li>
+        <li>
+          <a href="index.html#contact"
+            ><i class="fas fa-envelope"></i>Contact Us</a
+          >
+        </li>
+        <li class="dropdown">
+          <a
+            href="#"
+            class="dropbtn"
+            onclick="toggleDropdown(event, 'dropdown1')"
+          >
+            <i class="fa fa-user"></i> User
+            <span><i class="fa fa-caret-down"></i></span>
+          </a>
+
+          <div class="dropdown-content" id="dropdown1">
+            <a
+              href="login.html"
+              style="background-color: rgba(241, 143, 143, 0.329)"
+            >
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <a href="#password-reset">
+              <i class="fas fa-user-cog"></i> Account
+            </a>
+          </div>
+        </li>
+      </ul>
     </nav>
 
     <!-- Main Content -->
     <div class="main-container">
-        <div class="form-container">
-            <!-- Form Info Section -->
-            <div class="form-info">
-                <h2>Do you want to advertise your business?</h2>
-                <p>Please fill in the form so we can be able to send you a detailed quotation with all costs included. Our team will review your requirements and get back to you within 24 hours.</p>
-                
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p>Unit 8E Trio Industrial Park, New Germany</p>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <p>info@codingmadeeasy.co.za</p>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <p>+27 63 313 7391</p>
-                </div>
-                
-                <div class="social-links">
-                    <p>Connect with us:</p>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+      <div class="form-container">
+        <!-- Form Info Section -->
+        <div class="form-info">
+          <h2>Do you want to advertise your business?</h2>
+          <p>
+            Please fill in the form so we can be able to send you a detailed
+            quotation with all costs included. Our team will review your
+            requirements and get back to you within 24 hours.
+          </p>
+
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Unit 8E Trio Industrial Park, New Germany</p>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <p>info@codingmadeeasy.co.za</p>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone-alt"></i>
+            <p>+27 63 313 7391</p>
+          </div>
+
+          <div class="social-links">
+            <p>Connect with us:</p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="form-section" style="background-color: transparent">
+          <h2>Advertising Quotation</h2>
+          <form
+            id="quotationForm"
+            method="post"
+            action="https://formspree.io/f/mpzepvez"
+          >
+            <div class="form-group">
+              <label for="companyName" class="required"
+                >Name / Company name</label
+              >
+              <input
+                type="text"
+                id="companyName"
+                name="companyName"
+                class="form-control"
+                required
+              />
+              <div class="error-message">Please enter your company name</div>
             </div>
 
-            <!-- Form Section -->
-            <div class="form-section" style="background-color: transparent;">
-                <h2>Advertising Quotation</h2>
-                <form id="quotationForm" method="post" action="https://formspree.io/f/mpzepvez">
-                    <div class="form-group">
-                        <label for="companyName" class="required">Name / Company name</label>
-                        <input type="text" id="companyName" name="companyName" class="form-control" required>
-                        <div class="error-message">Please enter your company name</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email" class="required">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                        <div class="error-message">Please enter a valid email address</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="startDate" class="required">Ad Start Date</label>
-                        <input type="text" id="startDate" name="startDate" class="form-control" required>
-                        <div class="error-message">Please select a start date</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="endDate" class="required">Ad End Date</label>
-                        <input type="text" id="endDate" name="endDate" class="form-control" required>
-                        <div class="error-message">Please select an end date</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Type of advert</label>
-                        <div class="radio-group">
-                            <label class="radio-option">
-                                <input type="radio" name="adType" value="Image advert"> Image advert
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="adType" value="Video advert"> Video advert
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Would you like us to create a sample advert for you?</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-option">
-                                <input type="checkbox" name="sampleAd" value="Yes"> Yes
-                            </label>
-                            <label class="checkbox-option">
-                                <input type="checkbox" name="sampleAd" value="No"> No
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="websites" class="required">The websites where the advert will appear</label>
-                        <input type="text" id="websites" name="websites" class="form-control" required>
-                        <div class="error-message">Please specify at least one website</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="notes">Additional Notes</label>
-                        <textarea id="notes" name="notes" class="form-control"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Request Quotation</button>
-                </form>
+            <div class="form-group">
+              <label for="email" class="required">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                required
+              />
+              <div class="error-message">
+                Please enter a valid email address
+              </div>
             </div>
+
+            <div class="form-group">
+              <label for="startDate" class="required">Ad Start Date</label>
+              <input
+                type="text"
+                id="startDate"
+                name="startDate"
+                class="form-control"
+                required
+              />
+              <div class="error-message">Please select a start date</div>
+            </div>
+
+            <div class="form-group">
+              <label for="endDate" class="required">Ad End Date</label>
+              <input
+                type="text"
+                id="endDate"
+                name="endDate"
+                class="form-control"
+                required
+              />
+              <div class="error-message">Please select an end date</div>
+            </div>
+
+            <div class="form-group">
+              <label>Type of advert</label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="adType" value="Image advert" />
+                  Image advert
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="adType" value="Video advert" />
+                  Video advert
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label
+                >Would you like us to create a sample advert for you?</label
+              >
+              <div class="checkbox-group">
+                <label class="checkbox-option">
+                  <input type="checkbox" name="sampleAd" value="Yes" /> Yes
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="sampleAd" value="No" /> No
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="websites" class="required"
+                >The websites where the advert will appear</label
+              >
+              <input
+                type="text"
+                id="websites"
+                name="websites"
+                class="form-control"
+                required
+              />
+              <div class="error-message">
+                Please specify at least one website
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Additional Notes</label>
+              <textarea id="notes" name="notes" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Request Quotation</button>
+          </form>
         </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>About Us</h3>
-                    <p>SMMEs Virtual Incubation is focused on incubating to accelerate the first mile and guiding the journey to the last mile.</p>
-                    <p>We incubate and grow small and micro companies with market valuation potential headquartered in South Africa.</p>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="index.html#services">Our Services</a>
-                    <a href="index.html#about">About Us</a>
-                    <a href="index.html#contact">Contact Us</a>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <a href="#">SETA Registration</a>
-                    <a href="#">Business Mentorship</a>
-                    <a href="#">Marketing Services</a>
-                    <a href="#">Workshops</a>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park</p>
-                    <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
-                    <p><i class="fas fa-envelope"></i>info@codingmadeeasy.co.za</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 SMMEs Virtual Incubation. All Rights Reserved.</p>
-            </div>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <p>
+              SMMEs Virtual Incubation is focused on incubating to accelerate
+              the first mile and guiding the journey to the last mile.
+            </p>
+            <p>
+              We incubate and grow small and micro companies with market
+              valuation potential headquartered in South Africa.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="index.html#services">Our Services</a>
+            <a href="index.html#about">About Us</a>
+            <a href="index.html#contact">Contact Us</a>
+          </div>
+
+          <div class="footer-column">
+            <h3>Services</h3>
+            <a href="#">SETA Registration</a>
+            <a href="#">Business Mentorship</a>
+            <a href="#">Marketing Services</a>
+            <a href="#">Workshops</a>
+          </div>
+
+          <div class="footer-column">
+            <h3>Contact Info</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Unit 8E Trio Industrial Park
+            </p>
+            <p><i class="fas fa-phone-alt"></i> +27 63 313 7391</p>
+            <p><i class="fas fa-envelope"></i>info@codingmadeeasy.co.za</p>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 SMMEs Virtual Incubation. All Rights Reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- Scroll to Top Button -->
     <a href="#" id="scrollToTop">
-        <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-arrow-up"></i>
     </a>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+
     <script>
-        // Initialize date pickers
-        new Pikaday({
-            field: document.getElementById('startDate'),
-            format: 'DD/MM/YYYY',
-            minDate: new Date()
+      // Initialize date pickers
+      new Pikaday({
+        field: document.getElementById("startDate"),
+        format: "DD/MM/YYYY",
+        minDate: new Date(),
+      });
+
+      new Pikaday({
+        field: document.getElementById("endDate"),
+        format: "DD/MM/YYYY",
+        minDate: new Date(),
+      });
+
+      // Form validation
+      $(document).ready(function () {
+        // Ensure only one checkbox is selected for sample ad
+        $('input[name="sampleAd"]').change(function () {
+          $('input[name="sampleAd"]').not(this).prop("checked", false);
         });
 
-        new Pikaday({
-            field: document.getElementById('endDate'),
-            format: 'DD/MM/YYYY',
-            minDate: new Date()
-        });
+        // Form submission validation
+        $("#quotationForm").submit(function (e) {
+          let isValid = true;
 
-        // Form validation
-        $(document).ready(function() {
-            // Ensure only one checkbox is selected for sample ad
-            $('input[name="sampleAd"]').change(function() {
-                $('input[name="sampleAd"]').not(this).prop('checked', false);
-            });
+          // Reset error states
+          $(".form-group").removeClass("has-error");
+          $(".error-message").hide();
 
-            // Form submission validation
-            $('#quotationForm').submit(function(e) {
-                let isValid = true;
-                
-                // Reset error states
-                $('.form-group').removeClass('has-error');
-                $('.error-message').hide();
-                
-                // Validate required fields
-                $('#companyName, #email, #startDate, #endDate, #websites').each(function() {
-                    if ($(this).val().trim() === '') {
-                        $(this).parent().addClass('has-error');
-                        $(this).next('.error-message').show();
-                        isValid = false;
-                    }
-                });
-                
-                // Validate email format
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test($('#email').val().trim())) {
-                    $('#email').parent().addClass('has-error');
-                    $('#email').next('.error-message').text('Please enter a valid email address').show();
-                    isValid = false;
-                }
-                
-                if (!isValid) {
-                    e.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: $('.has-error').first().offset().top - 100
-                    }, 500);
-                }
-            });
-        });
-
-        // Scroll to top button
-        window.addEventListener('scroll', function() {
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
+          // Validate required fields
+          $("#companyName, #email, #startDate, #endDate, #websites").each(
+            function () {
+              if ($(this).val().trim() === "") {
+                $(this).parent().addClass("has-error");
+                $(this).next(".error-message").show();
+                isValid = false;
+              }
             }
-        });
+          );
 
-        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+          // Validate email format
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test($("#email").val().trim())) {
+            $("#email").parent().addClass("has-error");
+            $("#email")
+              .next(".error-message")
+              .text("Please enter a valid email address")
+              .show();
+            isValid = false;
+          }
+
+          if (!isValid) {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            $("html, body").animate(
+              {
+                scrollTop: $(".has-error").first().offset().top - 100,
+              },
+              500
+            );
+          }
+        });
+      });
+
+      // Scroll to top button
+      window.addEventListener("scroll", function () {
+        const scrollToTopBtn = document.getElementById("scrollToTop");
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add("show");
+        } else {
+          scrollToTopBtn.classList.remove("show");
+        }
+      });
+
+      document
+        .getElementById("scrollToTop")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
         });
     </script>
-</body>
+  </body>
 </html>

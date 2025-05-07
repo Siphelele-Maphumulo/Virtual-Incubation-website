@@ -1,297 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Subscribe to Our Newsletter</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        /* Background & Base Styles */
-        body {
-            background-color: #00102E;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Prevents body scrolling */
-            overflow: hidden; /* Stops background from scrolling */
-        }
-        
-        body::before {
-            content: "";
-            background-image: url("./assets/companies/getset.png");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed; /* Keeps the background fixed */
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-        }
-        
+      /* Background & Base Styles */
+      body {
+        background-color: #00102e;
+        color: #fff;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Prevents body scrolling */
+        overflow: hidden; /* Stops background from scrolling */
+      }
+
+      body::before {
+        content: "";
+        background-image: url("https://raw.githubusercontent.com/Siphelele-Maphumulo/Virtual-Incubation-website/refs/heads/master/assets/companies/getset.png?token=GHSAT0AAAAAADDNZNB46NWEEYHEJIJB4MRK2A2WL2Q");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed; /* Keeps the background fixed */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+
+      .newsletter-container {
+        background: rgba(0, 16, 46, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        width: 100%;
+        max-width: 350px;
+        max-height: 90vh; /* Limit height */
+        overflow: auto; /* Enable scrolling only inside this container */
+        padding: 20px;
+        margin: 20px;
+        position: relative;
+        z-index: 1;
+
+        /* Hide scrollbar for Webkit (Chrome, Safari) */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer & Edge */
+      }
+
+      .newsletter-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+      }
+
+      /* Header Styles */
+      .newsletter-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .logo i {
+        font-size: 2.5rem;
+        color: #2ac6a7;
+        margin-right: 15px;
+      }
+
+      .logo h1 {
+        margin: 0;
+        font-size: 2rem;
+        color: #2ac6a7;
+      }
+
+      .newsletter-header h2 {
+        margin: 10px 0;
+        font-size: 1.8rem;
+        color: #ffffff;
+      }
+
+      .newsletter-header p {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* Form Styles */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="email"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: all 0.3s;
+        box-sizing: border-box;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
+
+      .form-group input[type="text"]:focus,
+      .form-group input[type="email"]:focus {
+        border-color: #2ac6a7;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .subscribe-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #2ac6a7;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 10px;
+      }
+
+      .subscribe-btn:hover {
+        background-color: #1da58a;
+        transform: translateY(-2px);
+      }
+
+      /* Footer Styles */
+      .newsletter-footer {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .newsletter-footer p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: #2ac6a7;
+        transform: translateY(-2px);
+      }
+
+      /* reCAPTCHA Styling */
+      .g-recaptcha {
+        margin: 15px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Success Message */
+      .success-message {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 16, 46, 0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        border-radius: 15px;
+      }
+
+      .success-message i {
+        font-size: 4rem;
+        color: #2ac6a7;
+        margin-bottom: 20px;
+      }
+
+      .success-message p {
+        font-size: 1.2rem;
+        color: white;
+      }
+
+      .success-message.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
         .newsletter-container {
-            background: rgba(0, 16, 46, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 100%;
-            max-width: 350px;
-            max-height: 90vh; /* Limit height */
-            overflow: auto; /* Enable scrolling only inside this container */
-            padding: 20px;
-            margin: 20px;
-            position: relative;
-            z-index: 1;
-            
-            /* Hide scrollbar for Webkit (Chrome, Safari) */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* Internet Explorer & Edge */
-        }
-        
-        .newsletter-container::-webkit-scrollbar {
-            display: none; /* Chrome, Safari */
-        }
-        
-        
-
-        /* Header Styles */
-        .newsletter-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .logo i {
-            font-size: 2.5rem;
-            color: #2AC6A7;
-            margin-right: 15px;
+          padding: 30px 20px;
+          margin: 20px;
         }
 
         .logo h1 {
-            margin: 0;
-            font-size: 2rem;
-            color: #2AC6A7;
+          font-size: 1.5rem;
         }
 
         .newsletter-header h2 {
-            margin: 10px 0;
-            font-size: 1.8rem;
-            color: #ffffff;
+          font-size: 1.4rem;
         }
-
-        .newsletter-header p {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Form Styles */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            box-sizing: border-box;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus {
-            border-color: #2AC6A7;
-            outline: none;
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .subscribe-btn {
-            width: 100%;
-            padding: 14px;
-            background-color: #2AC6A7;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 10px;
-        }
-
-        .subscribe-btn:hover {
-            background-color: #1da58a;
-            transform: translateY(-2px);
-        }
-
-        /* Footer Styles */
-        .newsletter-footer {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .newsletter-footer p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background-color: #2AC6A7;
-            transform: translateY(-2px);
-        }
-
-        /* reCAPTCHA Styling */
-        .g-recaptcha {
-            margin: 15px 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Success Message */
-        .success-message {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 16, 46, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-            text-align: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-            border-radius: 15px;
-        }
-
-        .success-message i {
-            font-size: 4rem;
-            color: #2AC6A7;
-            margin-bottom: 20px;
-        }
-
-        .success-message p {
-            font-size: 1.2rem;
-            color: white;
-        }
-
-        .success-message.show {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .newsletter-container {
-                padding: 30px 20px;
-                margin: 20px;
-            }
-            
-            .logo h1 {
-                font-size: 1.5rem;
-            }
-            
-            .newsletter-header h2 {
-                font-size: 1.4rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="newsletter-container">
-        <div class="newsletter-header">
-            <div class="logo">
-                <i class="fas fa-envelope-open-text"></i>
-                <h1>Newsletter</h1>
-            </div>
-            
-            <p>Subscribe to our newsletter for the latest insights, resources, and opportunities to grow your business through our virtual incubation program.</p>
+      <div class="newsletter-header">
+        <div class="logo">
+          <i class="fas fa-envelope-open-text"></i>
+          <h1>Newsletter</h1>
         </div>
-        
-        <form id="subscription-form" method="POST" action="subscribe.php">
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <!-- reCAPTCHA v2 Widget -->
-            <div class="g-recaptcha" data-sitekey="6LdVNAMrAAAAAJx4rKpUGEBQgByLtfJWXiflga7d"></div>
-            
-            <button type="submit" class="subscribe-btn">Subscribe</button>
-        </form>
-        
-        <div class="newsletter-footer">
-            <p>We respect your privacy. Unsubscribe at any time.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+
+        <p>
+          Subscribe to our newsletter for the latest insights, resources, and
+          opportunities to grow your business through our virtual incubation
+          program.
+        </p>
+      </div>
+
+      <form id="subscription-form" method="POST" action="subscribe.php">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required />
         </div>
-        
-        <div id="success-message" class="success-message">
-            <i class="fas fa-check-circle"></i>
-            <p>Thank you for subscribing! You'll receive a confirmation email shortly.</p>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
         </div>
+
+        <!-- reCAPTCHA v2 Widget -->
+        <div
+          class="g-recaptcha"
+          data-sitekey="6LdVNAMrAAAAAJx4rKpUGEBQgByLtfJWXiflga7d"
+        ></div>
+
+        <button type="submit" class="subscribe-btn">Subscribe</button>
+      </form>
+
+      <div class="newsletter-footer">
+        <p>We respect your privacy. Unsubscribe at any time.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div id="success-message" class="success-message">
+        <i class="fas fa-check-circle"></i>
+        <p>
+          Thank you for subscribing! You'll receive a confirmation email
+          shortly.
+        </p>
+      </div>
     </div>
-    
+
     <!-- Load reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="js/newsletter.js"></script>
-</body>
+  </body>
 </html>
