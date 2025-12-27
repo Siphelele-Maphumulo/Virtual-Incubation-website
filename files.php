@@ -1,3 +1,7 @@
+<?php
+include 'auth.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -11,7 +15,7 @@
 		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/demo.css" />
+		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/siphelele.css" />
 		<link rel="stylesheet" type="text/css" href="https://static.staticsave.com/bookpreviewmast/bookblock.css" />
 		
 		
@@ -1091,7 +1095,7 @@
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*demo.css */
+/*siphelele.css */
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Sacramento|Abril+Fatface|Six+Caps|Cardo:400italic,700);
 @font-face {
@@ -1411,7 +1415,7 @@ text-decoration: none;
 		<img src="./assets/img/preview.png" alt="Logo">
   </a>
   <ul class="nav-links" style="padding-top: 10px; padding-right:0%; gap:0%">
-	<li><a href="home.html"><i class="fas fa-house"></i>Home</a></li>
+	<li><a href="dashboard.php"><i class="fas fa-house"></i>Home</a></li>
 	<li><a href="index.html#services"><i class="fas fa-handshake"></i>Our Services</a></li>
 	<li><a href="index.html#digital"><i class="fas fa-info-circle"></i>About Us</a></li>
 	<li><a href="index.html#contact"><i class="fas fa-envelope"></i>Contact Us</a></li>
@@ -1422,7 +1426,7 @@ text-decoration: none;
 		</a>
 		  
 		<div class="dropdown-content" id="dropdown1">
-				<a href="login.html" style="background-color: rgba(241, 143, 143, 0.329);">
+				<a href="login.php" style="background-color: rgba(241, 143, 143, 0.329);">
 					<i class="fas fa-sign-out-alt"></i> Logout
 				</a>
 				<a href="#password-reset">

@@ -1,9 +1,14 @@
 <?php
-// // 1. Connect to your online DB
-// $host = "sql211.infinityfree.com";
-// $user = "if0_38744100";
+// Show all errors for debugging (remove on production)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// 1. Connect to your InfinityFree DB
+// $host = "sql301.infinityfree.com";
+// $user = "if0_40723633";
 // $pass = "Mabhelan21";
-// $dbname = "if0_38744100_incubator_db";
+// $dbname = "if0_40723633_incubator_db";
 
 
 // 1. Connect to your DB
@@ -21,9 +26,9 @@ if ($conn->connect_error) {
 
 // 2. Collect form data with basic validation
 $firstname = isset($_POST['firstname']) ? trim($_POST['firstname']) : '';
-$lastname = isset($_POST['lastname']) ? trim($_POST['lastname']) : '';
-$email = isset($_POST['email']) ? trim($_POST['email']) : '';
-$password = isset($_POST['password']) ? $_POST['password'] : '';
+$lastname  = isset($_POST['lastname']) ? trim($_POST['lastname']) : '';
+$email     = isset($_POST['email']) ? trim($_POST['email']) : '';
+$password  = isset($_POST['password']) ? $_POST['password'] : '';
 
 if ($firstname && $lastname && $email && $password) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -31,6 +36,10 @@ if ($firstname && $lastname && $email && $password) {
     // 3. Insert into users table
     $sql = "INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+
     $stmt->bind_param("ssss", $firstname, $lastname, $email, $hashedPassword);
 
     if ($stmt->execute()) {
@@ -52,7 +61,7 @@ if ($firstname && $lastname && $email && $password) {
                 });
 
                 setTimeout(() => {
-                    window.location.href = "login.html"; // change to your login page if needed
+                    window.location.href = "login.html";
                 }, 5000);
             </script>
         </body>
@@ -65,7 +74,7 @@ if ($firstname && $lastname && $email && $password) {
             Swal.fire({
                 icon: "error",
                 title: "Registration Failed",
-                text: "' . $stmt->error . '"
+                text: "' . addslashes($stmt->error) . '"
             });
         </script>
         ';

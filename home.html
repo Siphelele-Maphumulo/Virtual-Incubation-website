@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     
     <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- <link href="css/home.css" rel="stylesheet" /> -->
+        <!-- Core theme CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
     <link href="css/home.css" rel="stylesheet" />
     
     
@@ -104,7 +107,8 @@
         max-width: 100%;
         line-height: 1.5;
         text-align: center;
-        margin: 0 auto 20px;
+        margin: 0 auto -200px;
+        
     }
     
     /* Body Styles */
@@ -337,7 +341,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease;margin-bottom: 5px;
 }
 
     
@@ -415,8 +419,8 @@
         display: flex;
         justify-content: center;
         gap: 20px;
-        margin-top: 20px;
-        margin-bottom: 5px;
+        margin-top: 80px;
+        margin-bottom: 0px;
         flex-wrap: wrap;
     }
 
@@ -533,6 +537,17 @@
         max-width: 1200px;
     }
 }
+.logo-section{
+    padding-left: 60%;
+    width:120%;
+    height:120%;
+}
+
+.logo-section img {
+    transform: scale(2.0);
+    width: 380px; /* adjust as needed */
+    height: auto;
+}
 
 
 </style>
@@ -586,7 +601,10 @@
                     </div>
         
                     <!-- Logo Section -->
-                    <img src="./assets/logos/sendme.webp" alt="Logo" class="logo">
+                    <div class="logo-section">
+                        <img src="./assets/logos/sendme.webp" alt="Logo" class="logo">
+                    </div>
+                    
         
                     <!-- Button Section -->
                     <div class="btn-container">
@@ -648,10 +666,30 @@
 
             <!-- Get A Quote Button -->
             <!-- Get A Quote Button -->
-<a data-bs-toggle="modal" href="#portfolioModal5" class="get-quote-btn" 
-style="background-color: #2AC8A8; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 18px;">
-Get A Quote
+<a data-bs-toggle="modal" href="#portfolioModal5" class="get-quote-btn">
+    Get A Quote
 </a>
+
+<style>
+/* Default button style */
+.get-quote-btn {
+    background-color: #2AC8A8; /* Original teal color */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    display: inline-block;
+}
+
+/* Hover effect */
+.get-quote-btn:hover {
+    background-color: #00b300; /* Strong green */
+    color: white; /* Keep text white */
+}
+</style>
+
         </div>
 
         <!-- YouTube Video Embed -->
@@ -677,7 +715,7 @@ Get A Quote
             <div class="portfolio-item" style="height: 500px; width:auto; position: relative; background-image: url('assets/img/gal-3.jpg'); background-size: cover; background-position: center;">
                 <div class="portfolio-overlay" style="background-color: #b3b12093;"></div>
                 <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading"><h2>Support</h2></div>
+                    <div class="portfolio-caption-heading">Support</div>
                     <div class="portfolio-caption-subheading text-muted">Our award-winning team of entrepreneurs treat each business with passionate and creativity.</div>
                     <button class="btn btn-transparent-white" data-bs-toggle="modal" href="#portfolioModal2">Support</button>
                 </div>
@@ -689,7 +727,7 @@ Get A Quote
             <div class="portfolio-item" style="height: 500px; width:auto; position: relative; background-image: url('https://i.imgur.com/9xl4qdi.png'); background-size: cover; background-position: center;">
                 <div class="portfolio-overlay" style="background-color: rgba(134, 56, 212, 0.7);"></div>
                 <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading"><h2>Blog</h2></div>
+                    <div class="portfolio-caption-heading">Blog</div>
                     <div class="portfolio-caption-subheading text-muted">Read our news, stories and also read about other people's business and see how they succeed in todays world.</div>
                     <button class="btn btn-transparent-white" data-bs-toggle="modal" href="#portfolioModal1">Blog</button>
                 </div>
@@ -701,7 +739,7 @@ Get A Quote
             <div class="portfolio-item" style="height: 500px; width:auto; position: relative; background-image: url('assets/img/portfolio.jpg'); background-size: cover; background-position: center;">
                 <div class="portfolio-overlay" style="background-color: rgba(68, 146, 172, 0.7);"></div>
                 <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading"><h2>Portfolio</h2></div>
+                    <div class="portfolio-caption-heading">Portfolio</div>
                     <div class="portfolio-caption-subheading text-muted">We allow registered users to create their business portfolios for free. These portfolios stay forever and give viewers the ability to connect with your business.</div>
                     <button class="btn btn-transparent-white" data-bs-toggle="modal" href="#portfolioModal3">Portfolio</button>
                 </div>
@@ -713,7 +751,7 @@ Get A Quote
             <div class="portfolio-item" style="height: 500px; width:auto; position: relative; background-image: url('assets/img/Success.jpg'); background-size: cover; background-position: center;">
                 <div class="portfolio-overlay" style="background-color: #d65179c0;"></div>
                 <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading"><h2>Success</h2></div>
+                    <div class="portfolio-caption-heading">Success</div>
                     <div class="portfolio-caption-subheading text-muted">Trust our incubator website to work with you 1 on 1, each step of the way to your business success. We provide you with support from scratch to a successful business. </div>
                     <button class="btn btn-transparent-white" data-bs-toggle="modal" href="#portfolioModal4">Success</button>
                 </div>
@@ -728,46 +766,147 @@ Get A Quote
         <h1 class="section-heading text-uppercase" style="color:black;">Companies We Work With</h1>
     </div>
 
-    <div >
-        <div class="company-grid">
-            <div class="company-row">
-                <div class="company-column">
-                    <img src="./assets/companies/doc.webp" alt="Company 1 Logo" class="company-logo">
+  <!-- Companies Section -->
+<section id="companies" style="padding: 80px 0; background-color: #f9f9f9;">
+    <div class="container">
+        <h2 class="section-title" style="text-align:center; font-size:2.5rem; color:#00102e; margin-bottom:40px; font-weight:700;">
+            Companies I've Worked With
+        </h2>
+
+        <!-- Swiper Carousel -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Company Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="company-card">
+                        <img src="./assets/companies/doc.webp" alt="Company 1 Logo">
+                    </div>
                 </div>
-                <div class="company-column">
-                    <img src="./assets/companies/Ebolethu.webp" alt="Company 2 Logo" class="company-logo">
+                <div class="swiper-slide">
+                    <div class="company-card">
+                        <img src="./assets/companies/Ebolethu.webp" alt="Company 2 Logo">
+                    </div>
                 </div>
-                <div class="company-column">
-                    <img src="./assets/companies/sbe_eskomlogo.png" alt="Company 9 Logo" class="company-logo">
-                    
+                <div class="swiper-slide">
+                    <div class="company-card">
+                        <img src="./assets/companies/sbe_eskomlogo.png" alt="Company 3 Logo">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="company-card">
+                        <img src="./assets/companies/Khula.webp" alt="Company 4 Logo">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="company-card">
+                        <img src="./assets/companies/princeD.png" alt="Company 5 Logo">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="company-card">
+                        <img src="./assets/companies/hollywoodbets-logo.webp" alt="Company 6 Logo">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="company-card">
+                        <img src="./assets/companies/magic.webp" alt="Company 7 Logo">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="company-card">
+                        <img src="./assets/companies/Vuma103fm.png" alt="Company 8 Logo">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="company-card">
+                        <img src="./assets/companies/MAXHOSA_AFRICA.webp" alt="Company 9 Logo">
+                    </div>
                 </div>
             </div>
-            <div class="company-row">
-                <div class="company-column" style="background-color: #FEC000;">
-                    <img src="./assets/companies/Khula.webp" alt="Company 4 Logo" class="company-logo">
-                </div>
-                <div class="company-column" style="background-color: #000000;">
-                    <img src="./assets/companies/princeD.png" alt="Company 8 Logo" class="company-logo">
-                </div>
-                <div class="company-column" style="background-color: #662D92;">
-                    <img src="./assets/companies/hollywoodbets-logo.webp" alt="Company 3 Logo" class="company-logo">
-                    
-                </div>
-            </div>
-            <div class="company-row">
-                <div class="company-column">
-                    <img src="./assets/companies/magic.webp" alt="Company 5 Logo" class="company-logo">
-                </div>
-                <div class="company-column">
-                    <img src="./assets/companies/Vuma103fm.png" alt="Company 8 Logo" class="company-logo">
-                </div>
-                <div class="company-column">
-                    <img src="./assets/companies/MAXHOSA_AFRICA.webp" alt="Company 6 Logo" class="company-logo">
-                </div>
-            </div>
+
+            <!-- Pagination -->
         </div>
     </div>
 </section>
+
+<!-- Swiper JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<style>
+/* Container & Card Styling */
+.swiper-container {
+    padding: 20px 0;
+}
+
+.company-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border-radius: 12px;
+    padding: 20px;
+
+}
+
+.company-card img {
+    max-width: 150px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.company-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+.company-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Swiper Navigation */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #2ac6a7;
+    transition: color 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #00102e;
+}
+
+.swiper-pagination-bullet-active {
+    background: #2ac6a7;
+}
+</style>
+
+<script>
+    const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        slidesPerView: 3,
+        spaceBetween: 30,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            992: { slidesPerView: 3 },
+            1200: { slidesPerView: 4 }
+        }
+    });
+</script>
 
 
 
@@ -1072,7 +1211,7 @@ function toggleDropdown(event, dropdownId) {
     <!-- Contact Section -->
    <!-- Contact-->
    <section class="contact-section" id="contact">
-    <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 800px; margin: auto;">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: auto; margin: auto;">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Contact Us</h2>
             <h3 class="section-subheading text-muted" style="color: azure;">
@@ -1120,13 +1259,10 @@ function toggleDropdown(event, dropdownId) {
             </div>
         </form>
     </div>
-    
-
-    
 </section>
 
    <!-- Footer Content Section -->
-   <footer class="footer align">
+   <footer class="footer align" style="background-color: #00102E">
     <div class="footer-container" style="color: azure;"></div>
         <div class="footer-content">
             <!-- About Us Column -->

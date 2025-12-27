@@ -1,3 +1,6 @@
+<?php
+include 'auth.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,358 +25,13 @@
     <!-- Core theme CSS -->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/index2.css" rel="stylesheet" />
+    <link href="css/dashboard.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
-    <title>SMMEs Virtual Incubation</title>
-    <style>
-        /* Base styles to prevent overflow */
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
-        }
-        
-        * {
-            box-sizing: border-box;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .masthead-heading {  
-            font-size: 4.5rem;
-            font-weight: bold;
-            text-align: center;
-            text-transform: uppercase;
-            position: relative;
-            color: #ffffff;
-            text-shadow:   
-                1px 1px 0 rgba(255, 0, 0, 0.5),
-                2px 2px 0 rgba(0, 0, 255, 0.5),
-                3px 3px 0 rgba(255, 255, 0, 0.5);
-        }  
-        
-        .masthead-heading::before {  
-            content: attr(data-text);  
-            position: absolute;  
-            top: 2px;
-            left: 2px;
-            right: 0;  
-            bottom: 0;  
-            font-size: 6rem;
-            color: rgba(255, 0, 0, 0.7);
-            z-index: -1;
-            transform: translateZ(-5px);
-        }  
-        
-        .masthead-heading::after {  
-            content: attr(data-text);  
-            position: absolute;  
-            top: 4px;
-            left: 4px;
-            right: 0;  
-            bottom: 0;  
-            font-size: 6rem;
-            color: rgba(0, 255, 0, 0.7);
-            z-index: -2;
-            transform: translateZ(-10px);
-        }
-        .nav-toggle {
-            display: none; /* Hide by default on larger screens */
-            font-size: 1.5rem;
-            cursor: pointer;
-            margin-bottom: 10px;
-            color: white;
-          }
-          
-        
-        @media (max-width: 768px) {
-            body {
-                margin: 0 auto;
-                overflow-x: hidden;
-            }
-            
-            .header-content {
-                padding-left: 15px;
-                padding-right: 15px;
-                padding-left: 25%;
-                width: 100%;
-            }
-            
-            .navbar {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background-color: #00102E;
-                padding: 10px;
-                height: auto;
-                width: 100%;
-            }
-            
-            .navbar-brand img {
-                height: 70px;
-                margin-bottom: 10px;
-                max-width: 100%;
-            }
-            
-            @media (max-width: 768px) {
-                .nav-toggle {
-                  display: block; /* Show only on smaller screens */
-                  order: 1;
-                }
-              }
-              
-              
-            
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                padding: 0;
-                margin: 0;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 10px 0;
-                list-style: none;
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 8px;
-                width: 100%;
-            }
-            
-            .dropdown-content {
-                position: static;
-                display: none;
-                width: 100%;
-                padding: 0;
-                text-align: center;       /* Centers inline elements inside */
-                justify-content: center;  /* For flex children if needed */
-                align-items: center;
-              }
-              
-              .dropdown-content a {
-                display: inline-block;     /* So links can be centered */
-                margin: 5px 0;             /* Optional spacing */
-              }
-              
-              .dropdown-content.active {
-                display: block;
-              }
-              
-            
-            .contact-section,
-            .footer-container {
-                text-align: center;
-                padding: 15px;
-            }
-            
-            .masthead-heading {
-                font-size: 1.7rem;
-                line-height: 1.3;
-            }
-            
-            .subheading {
-                font-size: 1rem;
-                line-height: 1.4;
-                padding: 0 10px;
-            }
-            
-            .icon-box-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .icon-box {
-                width: 100%;
-                margin-bottom: 20px;
-                padding: 0 15px;
-            }
-            
-            /* Ensure all containers have proper width */
-            .container, .about-container, .help-container, .partners-container {
-                width: 100%;
-                padding-left: 15px;
-                padding-right: 15px;
-                margin: 0 auto;
-            }
-            
-            /* Make sure rows and columns don't overflow */
-            .row {
-                margin-left: 0;
-                margin-right: 0;
-                width: 100%;
-            }
-            
-            .col-md-4, .col-lg-3, .col-lg-4 {
-                width: 100%;
-                padding: 0 15px;
-                margin-bottom: 20px;
-            }
-            
-            /* Adjust team section */
-            .team-card {
-                width: 100%;
-                margin-bottom: 30px;
-            }
-            
-            /* Fix partner logos slider */
-            .slide-track {
-                width: 100%;
-                overflow: hidden;
-            }
-            
-            .slide {
-                min-width: 150px;
-            }
-            
-            /* Form adjustments */
-            #contactForm .col-md-6 {
-                width: 100%;
-                padding: 0;
-            }
-            
-            /* Footer adjustments */
-            .footer-column {
-                width: 100%;
-                margin-bottom: 30px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .masthead-heading {
-                font-size: 1.5rem;
-            }
-            
-            .subheading br {
-                display: none;
-            }
-            
-            .btn {
-                width: 100%;
-            }
-        }
-        /* CSS for Animations */  
-        .hidden-left, .hidden-right {  
-            opacity: 0; /* Start hidden */  
-            transform: translateX(-100px); /* Move left for hidden-left */  
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animation transition */  
-        }  
-
-        .show {  
-            opacity: 1; /* Fully visible */  
-            transform: translateX(0); /* Return to original position */  
-        }  
-
-        /* For specific direction animations */  
-        .hidden-right {  
-            transform: translateX(100px); /* Move right for hidden-right */  
-        }  
-
-        /* Additional utility styles to enhance visualization */  
-        section {  
-            padding: 50px 20px;  
-        }  
-
-        .about-container, .help-container {  
-            display: flex;  
-            align-items: center; /* Center vertically */  
-            justify-content: space-between;  
-            max-width: 1200px;  
-            margin: auto; /* Center container */  
-        }
-        
-        .service-item {
-            opacity: 0;
-            transform: translateY(100px) scale(0.8) rotateZ(10deg);
-            transition: all 1.5s ease;
-            will-change: transform, opacity;
-          }
-          
-          /* Animate in */
-          .service-item.animate-service {
-            opacity: 1;
-            transform: translateY(0) scale(1) rotateZ(0deg);
-          }
-          
-          /* Animate out */
-          .service-item.fade-out {
-            opacity: 0;
-            transform: translateY(50px) scale(0.8) rotateZ(-10deg);
-          }
-          
-          /* Give each item a unique feel with delays */
-          .service-item:nth-child(1) {
-            transition-delay: 0.3s;
-          }
-          .service-item:nth-child(2) {
-            transition-delay: 0.7s;
-          }
-          .service-item:nth-child(3) {
-            transition-delay: 0.5s;
-          }
-          .service-item:nth-child(4) {
-            transition-delay: 1s;
-          }
-          .service-item:nth-child(5) {
-            transition-delay: 1.3s;
-          }
-          .service-item:nth-child(6) {
-            transition-delay: 0.9s;
-          }
-          
-          .Service-icons {
-            font-size: 40px;
-            color: #007bff;
-            transition: transform 0.4s ease;
-          }
-          
-          .Service-icons:hover {
-            transform: scale(1.3) rotate(-5deg);
-          }
-          
-          .digital-section {
-            opacity: 0;
-            transform: scale(0.9) translateY(100px);
-            transition: all 1.8s cubic-bezier(0.25, 1, 0.5, 1);
-            will-change: opacity, transform;
-          }
-          
-          /* When scrolled into view */
-          .digital-section.animate-digital {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-          }
-          
-          /* Optional: give the image a separate animation for extra flair */
-          .image-container img {
-            opacity: 0;
-            transform: translateX(80px) scale(0.9);
-            transition: all 1.5s ease-in-out;
-          }
-          
-          .image-container.animate-img img {
-            opacity: 1;
-            transform: translateX(0) scale(1);
-          }
-          
-          
-        
-    </style>
-      
+    <title>SMMEs Virtual Incubation</title>  
 
     </head>
     <body id="page-top">
@@ -389,7 +47,7 @@
   
     <!-- Navigation Links -->
     <ul class="nav-links" id="navMenu">
-      <li><a href="services.html"><i class="fas fa-handshake"></i> Our Services</a></li>
+      <li><a href="services.php"><i class="fas fa-handshake"></i> Our Services</a></li>
       <li><a href="#digital"><i class="fas fa-info-circle"></i> About Us</a></li>
       <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
       <li class="dropdown">
@@ -505,13 +163,13 @@
                 <h4 class="my-3">Email Applications</h4>
             </div>
             <div class="col-md-4 service-item">
-                <a href="portfolio.html">
+                <a href="portfolio.php">
                     <i class="far fa-folder-open Service-icons"></i>
                 </a>
                 <h4 class="my-3">Create Portfolio</h4>
             </div>
             <div class="col-md-4 service-item">
-                <a href="advertisements.html" target="_blank">
+                <a href="advertisements.php" target="_blank">
                     <i class="fas fa-ad Service-icons"></i>
                 </a>
                 <h4 class="my-3">Marketing and Advertising</h4>
@@ -588,7 +246,7 @@
                 <div class="portfolio-caption">
                     <div class="portfolio-caption-heading"><h2 style="color:#f0f0f0">Portfolio</h2></div>
                     <div class="portfolio-caption-subheading text-muted">Create your business portfolios for free and give viewers the ability to connect with your business.</div>
-                    <a href="portfolio.html" target="_blank">
+                    <a href="portfolio.php" target="_blank">
                         <button class="btn btn-transparent-white">
                             Portfolio
                         </button>

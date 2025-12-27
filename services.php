@@ -1,3 +1,6 @@
+<?php
+include 'auth.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -556,7 +559,7 @@
     <a href="#" class="dropbtn"><i class="fa fa-user"></i> User <i class="fa fa-caret-down"></i></a>
     <div class="dropdown-content" id="dropdown1">
         <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
-        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
         <a href="password-reset.html"><i class="fas fa-key"></i> Password Reset</a>
     </div>
   </li>

@@ -1,0 +1,41 @@
+{
+  "projectType": "plain",
+  "webappName": "Incubation",
+  "mappings": [
+    {
+      "source": "bin/**/*.class",
+      "destination": "WEB-INF/classes/{relative}",
+      "needsReload": true,
+      "description": "Java compiled classes",
+      "extensions": [
+        ".class"
+      ]
+    },
+    {
+      "source": "web/**/*",
+      "destination": "{relative}",
+      "needsReload": false,
+      "description": "Static web resources",
+      "excludeExtensions": [
+        ".class",
+        ".java"
+      ]
+    }
+  ],
+  "settings": {
+    "debounceTime": 300,
+    "enabled": true,
+    "logLevel": "info"
+  },
+  "localDeploy": {
+    "mappings": [
+      {
+        "description": "Example: copy conf directory into WEB-INF/classes/conf",
+        "source": "conf",
+        "destination": "WEB-INF/classes/conf",
+        "enabled": false,
+        "needsReload": false
+      }
+    ]
+  }
+}

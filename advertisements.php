@@ -1,10 +1,14 @@
+<?php
+include 'auth.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Perspective Mockup Slideshow | Demo 1</title>
+    <title>Advertisements</title> 
     <meta
       name="description"
       content="A perspective slideshow based on Franklin Ta's CSS matrix3d transforms"
