@@ -7,10 +7,16 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // 1. Connect to your DB
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "incubation_db";
+// $host = "localhost";
+// $user = "root";
+// $pass = "";
+// $dbname = "incubation_db";
+
+// Database connection
+// $host = "sql301.infinityfree.com";
+// $user = "if0_40723633";
+// $pass = "Mabhelan@21";
+// $dbname = "4387232_incubator_db";";
 
 // Database connection
 // $host = "sql301.infinityfree.com";
